@@ -240,3 +240,240 @@ if (aboutSlides.length > 0) {
   // change every 2 seconds
   setInterval(nextAboutSlide, 2000);
 }
+/* ----------------------------
+   Shop, Cart, Events & Rashifal
+   (Append to script.js)
+   ---------------------------- */
+
+/* --------- Sample products (edit or expand) ---------- */
+const PRODUCTS = [
+  { id: 'p1', name: 'Pooja Samagri Kit - Basic', price: 299, img: 'img/prod-puja-basic.jpg', desc: 'Basic pooja kit for daily worship.' },
+  { id: 'p2', name: 'Hawan Samagri Pack', price: 799, img: 'img/prod-hawan.jpg', desc: 'Havan samagri with herbal samagri.' },
+  { id: 'p3', name: 'Rudraksha Mala (8mm)', price: 1299, img: 'img/prod-rudraksha.jpg', desc: 'Authentic rudraksha mala.' },
+  { id: 'p4', name: 'Yantra — Shree Yantra (Small)', price: 499, img: 'img/prod-yantra.jpg', desc: 'Blessed Shree Yantra for prosperity.' },
+  { id: 'p5', name: 'Guide Book — Vedic Remedies', price: 399, img: 'img/prod-book.jpg', desc: 'Compact guide of remedies & rituals.' }
+];
+
+/* render products */
+function renderProducts() {
+  const el = document.getElementById('productList');
+  if(!el) return;
+  el.innerHTML = PRODUCTS.map(p => `
+    <div class="product-card">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+        <div class="product-price">₹${p.price}</div>
+        <div class="product-actions">
+          <button class="btn btn-small" onclick="addToCart('${p.id}')">Add</button>
+          <button class="btn btn-secondary btn-small" onclick="quickBuy('${p.id}')">Buy</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* --------- Cart functionality --------- */
+let CART = JSON.parse(localStorage.getItem('ssv_cart') || '[]');
+
+function saveCart() { localStorage.setItem('ssv_cart', JSON.stringify(CART)); updateCartCount(); }
+function updateCartCount(){ document.getElementById('cartCount').innerText = CART.reduce((s,i)=>s+i.qty,0); }
+
+function addToCart(id){
+  const prod = PRODUCTS.find(p=>p.id===id); if(!prod) return;
+  const found = CART.find(c=>c.id===id);
+  if(found) found.qty++;
+  else CART.push({ id:prod.id, name:prod.name, price:prod.price, img:prod.img, qty:1 });
+  saveCart();
+  alert(`${prod.name} added to cart.`);
+}
+
+/* quick buy -> opens checkout with single product */
+function quickBuy(id){
+  CART = []; const p = PRODUCTS.find(x=>x.id===id);
+  CART.push({ id:p.id, name:p.name, price:p.price, img:p.img, qty:1 });
+  saveCart();
+  openCheckout();
+}
+
+/* Open cart modal */
+const cartModal = document.getElementById('cartModal');
+const checkoutModal = document.getElementById('checkoutModal');
+const orderModal = document.getElementById('orderModal');
+
+document.getElementById('openCartBtn').addEventListener('click', openCart);
+document.getElementById('closeCart').addEventListener('click', () => cartModal.style.display='none');
+document.getElementById('closeCheckout').addEventListener('click', () => checkoutModal.style.display='none');
+document.getElementById('closeOrder').addEventListener('click', () => orderModal.style.display='none');
+
+function openCart(){
+  renderCartItems();
+  cartModal.style.display = 'flex';
+}
+
+function renderCartItems(){
+  const el = document.getElementById('cartItems'); el.innerHTML = '';
+  if(CART.length === 0) { el.innerHTML = '<p class="muted">Cart is empty.</p>'; document.getElementById('cartSubtotal').innerText='₹0'; document.getElementById('cartTotal').innerText='₹0'; return; }
+  let subtotal = 0;
+  CART.forEach(item => {
+    subtotal += item.price * item.qty;
+    el.insertAdjacentHTML('beforeend', `
+      <div class="cart-item">
+        <img class="ci-img" src="${item.img}" alt="${item.name}">
+        <div class="ci-meta">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div><strong>${item.name}</strong><div style="font-size:13px;color:#666;">₹${item.price} x ${item.qty}</div></div>
+            <div>
+              <button class="btn btn-small" onclick="changeQty('${item.id}',1)">＋</button>
+              <button class="btn btn-small" onclick="changeQty('${item.id}',-1)">−</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
+  });
+  const shipping = subtotal > 1000 ? 0 : 50;
+  document.getElementById('cartSubtotal').innerText = `₹${subtotal}`;
+  document.getElementById('cartShipping').innerText = `₹${shipping}`;
+  document.getElementById('cartTotal').innerText = `₹${subtotal + shipping}`;
+}
+
+function changeQty(id, delta){
+  const item = CART.find(i=>i.id===id); if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0) CART = CART.filter(i=>i.id!==id);
+  saveCart();
+  renderCartItems();
+}
+
+/* clear cart */
+document.getElementById('clearCartBtn').addEventListener('click', ()=>{ CART = []; saveCart(); renderCartItems(); });
+
+/* proceed to checkout */
+document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
+function openCheckout(){
+  cartModal.style.display='none';
+  checkoutModal.style.display='flex';
+  // prefill subtotal in checkout if needed
+}
+
+/* checkout submission */
+document.getElementById('checkoutForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  // simulate payment and create order
+  const name = document.getElementById('custName').value || 'Customer';
+  const phone = document.getElementById('custPhone').value || '';
+  const email = document.getElementById('custEmail').value || '';
+  const paymentMethod = document.getElementById('paymentMethod').value || 'upi';
+  const address = document.getElementById('custAddress').value || '';
+
+  const subtotal = CART.reduce((s,i)=>s + i.price*i.qty,0);
+  const shipping = subtotal>1000?0:50;
+  const total = subtotal + shipping;
+
+  const orderId = 'SSV' + Date.now();
+  const orderData = {
+    orderId, name, phone, email, paymentMethod, address, items: CART, total
+  };
+
+  // clear cart
+  CART = []; saveCart();
+  checkoutModal.style.display='none';
+
+  // show order modal
+  document.getElementById('orderMsg').innerHTML = `
+    Thank you <strong>${name}</strong>!<br>
+    Your Order <strong>${orderId}</strong> has been placed.<br>
+    Amount: <strong>₹${total}</strong><br>
+    Payment method: <strong>${paymentMethod}</strong>
+  `;
+  // prepare mailto link (auto-reply simulation)
+  const mailto = `mailto:${encodeURIComponent('shrishrividhyaastrology@gmail.com')}?subject=${encodeURIComponent('Order Confirmation - '+orderId)}&body=${encodeURIComponent(`Order ID: ${orderId}\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nTotal: ₹${total}\n\nThank you for your order.`)}`;
+  document.getElementById('mailtoSupport').setAttribute('href', mailto);
+
+  // save last order to session for certificate
+  sessionStorage.setItem('ssv_last_order', JSON.stringify(orderData));
+  orderModal.style.display='flex';
+});
+
+/* Download printable consumer certificate (opens new window) */
+document.getElementById('downloadCertBtn').addEventListener('click', ()=>{
+  const order = JSON.parse(sessionStorage.getItem('ssv_last_order') || '{}');
+  const html = `
+    <html><head><title>Consumer Certificate - ${order.orderId || ''}</title>
+    <style>body{font-family:Inter, sans-serif;padding:30px;} .head{color:#b8860b;font-weight:700;} .box{border:1px solid #ddd;padding:18px;border-radius:8px;}</style>
+    </head><body>
+      <div class="head">Shree Shree Vidya Astrology</div>
+      <h3>Consumer Certificate</h3>
+      <div class="box">
+        <p><strong>Order ID:</strong> ${order.orderId || 'N/A'}</p>
+        <p><strong>Name:</strong> ${order.name || 'N/A'}</p>
+        <p><strong>Phone:</strong> ${order.phone || 'N/A'}</p>
+        <p><strong>Email:</strong> ${order.email || 'N/A'}</p>
+        <p><strong>Amount Paid:</strong> ₹${order.total || '0'}</p>
+        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+        <p>This is to certify that the above services/products were provided/ booked through Shree Shree Vidya Astrology. For query contact: shrishrividhyaastrology@gmail.com</p>
+      </div>
+      <p>Authorized Signatory: ____________________</p>
+    </body></html>
+  `;
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+});
+
+/* ------- Simple events list (editable) ------- */
+const EVENTS = [
+  { title: 'Navagraha Puja — Live Stream', date: '2026-01-12', time: '7:00 AM', mode:'Online', booking:'#contact' },
+  { title: 'Satyanarayan Katha — Temple Event', date: '2026-01-25', time: '6:30 PM', mode:'Offline', booking:'#contact' },
+  { title: 'Grah Shanti — Home Visit', date: '2026-02-05', time: '10:00 AM', mode:'Offline', booking:'#contact' }
+];
+function renderEvents(){
+  const el = document.getElementById('eventsList'); if(!el) return;
+  el.innerHTML = EVENTS.map(ev => `
+    <div class="event-card">
+      <div class="event-date">${ev.date} • ${ev.time}</div>
+      <h4>${ev.title}</h4>
+      <p style="margin:6px 0;">Mode: <strong>${ev.mode}</strong></p>
+      <a href="${ev.booking}" class="btn btn-primary">Book / Enquire</a>
+    </div>
+  `).join('');
+}
+
+/* ------- Rashifal data (sample) ------- */
+const RASHIFAL = {
+  Aries: { summary: 'This month brings renewed energy for career. Focus on communication.', remedy: 'Light a ghee lamp on Tuesday; chant Hanuman Chalisa.' },
+  Taurus: { summary: 'Stability in finance, but avoid impulsive spending.', remedy: 'Offer white flowers on Saturday; chant Shani mantra.' },
+  // add other signs...
+  Pisces: { summary: 'Creative surge and emotional healing. Trust intuition.', remedy: 'Wear a pearl advised by Acharya after consultation.' }
+};
+function showRashifal(sign){
+  const out = document.getElementById('rashifalOutput');
+  if(!sign || !RASHIFAL[sign]) { out.innerHTML = '<p class="muted">Forecast not available for this sign yet.</p>'; return; }
+  out.innerHTML = `
+    <h4>${sign} — Monthly Forecast</h4>
+    <p>${RASHIFAL[sign].summary}</p>
+    <p><strong>Remedy:</strong> ${RASHIFAL[sign].remedy}</p>
+    <a href="#contact" class="btn btn-primary">Book Personal Consultation</a>
+  `;
+}
+
+/* ---------- Init on load ---------- */
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderProducts();
+  updateCartCount();
+  renderEvents();
+
+  const rashSelect = document.getElementById('rashifalSelect');
+  if(rashSelect) rashSelect.addEventListener('change', (e)=> showRashifal(e.target.value));
+
+  // close modals on outside click
+  document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', (ev)=> { if(ev.target === m) m.style.display='none'; }));
+});
+const ADMIN_KEY = prompt('Enter admin key:'); // recommended: prompt at runtime; don't hardcode
+const res = await fetch('/api/admin/bookings', {
+  headers: { 'Authorization': `Bearer ${ADMIN_KEY}` }
+});
+const json = await res.json();
+console.log(json.rows);

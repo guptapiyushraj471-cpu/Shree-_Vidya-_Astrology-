@@ -65,7 +65,322 @@
     </div>
   </section>
 
-  <!-- About Section -->
+
+<!-- Shop Section -->
+<section id="shop" class="section">
+  <div class="container">
+    <h2 class="section-title">Shop — Pooja Samagri & Ritual Kits</h2>
+    <p class="section-subtitle">Select puja items, malas, yantras and books. Add to cart & checkout securely.</p>
+
+    <div class="shop-grid" id="productList">
+      <!-- Products injected by JS -->
+    </div>
+
+    <div class="cart-float" id="cartFloat">
+      <button id="openCartBtn" class="btn btn-primary">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" id="closeCart">&times;</span>
+        <h3>Your Cart</h3>
+        <div id="cartItems"></div>
+        <div class="cart-summary">
+          <div>Subtotal: <strong id="cartSubtotal">₹0</strong></div>
+          <div>Shipping: <strong id="cartShipping">₹0</strong></div>
+          <div>Total: <strong id="cartTotal">₹0</strong></div>
+        </div>
+        <div class="cart-actions">
+          <button id="checkoutBtn" class="btn btn-primary">Proceed to Payment</button>
+          <button id="clearCartBtn" class="btn btn-secondary">Clear Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout / Payment Modal -->
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" id="closeCheckout">&times;</span>
+        <h3>Checkout</h3>
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label for="custName">Full Name *</label>
+            <input id="custName" required>
+          </div>
+          <div class="form-group">
+            <label for="custPhone">Phone *</label>
+            <input id="custPhone" required>
+          </div>
+          <div class="form-group">
+            <label for="custEmail">Email *</label>
+            <input id="custEmail" type="email" required>
+          </div>
+          <div class="form-group">
+            <label>Payment Method</label>
+            <select id="paymentMethod" required>
+              <option value="upi">UPI</option>
+              <option value="card">Card</option>
+              <option value="netbanking">Netbanking</option>
+              <option value="cod">Cash on Delivery</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="custAddress">Address</label>
+            <textarea id="custAddress" rows="2"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Pay / Confirm</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" id="closeOrder">&times;</span>
+        <h3>Order Confirmed</h3>
+        <p id="orderMsg"></p>
+        <div class="order-actions">
+          <button id="downloadCertBtn" class="btn btn-secondary">Download Certificate (Print)</button>
+          <a id="mailtoSupport" class="btn btn-primary" href="#">Send Confirmation Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Events Section -->
+<section id="events" class="section" style="background: var(--beige);">
+  <div class="container">
+    <h2 class="section-title">Upcoming Events & Puja Schedule</h2>
+    <p class="section-subtitle">Live puja dates, livestreams, and booking for events.</p>
+
+    <div class="events-grid" id="eventsList">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Monthly Rashifal -->
+
+<section id="horoscope" class="section dark-horoscope">
+  <div class="container">
+    <h2 class="section-title">Daily Horoscope</h2>
+    <p class="section-subtitle">Tap a zodiac to view detailed rashifal — or click "View Details" to open a full page with remedies.</p>
+
+    <div class="zodiac-grid">
+      <!-- Each card links to view.html?sign=<Name> -->
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Aries')" onkeydown="if(event.key==='Enter')openViewPage('Aries')">
+        <div class="zodiac-icon">♈</div>
+        <div class="zodiac-name">Aries</div>
+        <div class="zodiac-date">Mar 21 - Apr 19</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Aries'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Taurus')" onkeydown="if(event.key==='Enter')openViewPage('Taurus')">
+        <div class="zodiac-icon">♉</div>
+        <div class="zodiac-name">Taurus</div>
+        <div class="zodiac-date">Apr 20 - May 20</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Taurus'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Gemini')" onkeydown="if(event.key==='Enter')openViewPage('Gemini')">
+        <div class="zodiac-icon">♊</div>
+        <div class="zodiac-name">Gemini</div>
+        <div class="zodiac-date">May 21 - Jun 20</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Gemini'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Cancer')" onkeydown="if(event.key==='Enter')openViewPage('Cancer')">
+        <div class="zodiac-icon">♋</div>
+        <div class="zodiac-name">Cancer</div>
+        <div class="zodiac-date">Jun 21 - Jul 22</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Cancer'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Leo')" onkeydown="if(event.key==='Enter')openViewPage('Leo')">
+        <div class="zodiac-icon">♌</div>
+        <div class="zodiac-name">Leo</div>
+        <div class="zodiac-date">Jul 23 - Aug 22</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Leo'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Virgo')" onkeydown="if(event.key==='Enter')openViewPage('Virgo')">
+        <div class="zodiac-icon">♍</div>
+        <div class="zodiac-name">Virgo</div>
+        <div class="zodiac-date">Aug 23 - Sep 22</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Virgo'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Libra')" onkeydown="if(event.key==='Enter')openViewPage('Libra')">
+        <div class="zodiac-icon">♎</div>
+        <div class="zodiac-name">Libra</div>
+        <div class="zodiac-date">Sep 23 - Oct 22</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Libra'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Scorpio')" onkeydown="if(event.key==='Enter')openViewPage('Scorpio')">
+        <div class="zodiac-icon">♏</div>
+        <div class="zodiac-name">Scorpio</div>
+        <div class="zodiac-date">Oct 23 - Nov 21</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Scorpio'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Sagittarius')" onkeydown="if(event.key==='Enter')openViewPage('Sagittarius')">
+        <div class="zodiac-icon">♐</div>
+        <div class="zodiac-name">Sagittarius</div>
+        <div class="zodiac-date">Nov 22 - Dec 21</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Sagittarius'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Capricorn')" onkeydown="if(event.key==='Enter')openViewPage('Capricorn')">
+        <div class="zodiac-icon">♑</div>
+        <div class="zodiac-name">Capricorn</div>
+        <div class="zodiac-date">Dec 22 - Jan 19</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Capricorn'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Aquarius')" onkeydown="if(event.key==='Enter')openViewPage('Aquarius')">
+        <div class="zodiac-icon">♒</div>
+        <div class="zodiac-name">Aquarius</div>
+        <div class="zodiac-date">Jan 20 - Feb 18</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Aquarius'); event.stopPropagation()">View Details</button>
+      </div>
+
+      <div class="zodiac-card" role="button" tabindex="0" onclick="openViewPage('Pisces')" onkeydown="if(event.key==='Enter')openViewPage('Pisces')">
+        <div class="zodiac-icon">♓</div>
+        <div class="zodiac-name">Pisces</div>
+        <div class="zodiac-date">Feb 19 - Mar 20</div>
+        <button class="btn btn-outline small" onclick="openViewPage('Pisces'); event.stopPropagation()">View Details</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES (dark) -->
+<section id="services" class="section dark-services">
+  <div class="container">
+    <h2 class="section-title">Our Astrology Services</h2>
+    <p class="section-subtitle">Book personalized readings — click View Details to open the service card and see related rashifal.</p>
+
+    <div class="services-grid">
+      <div class="card svc" data-id="kundali">
+        <div class="card-icon">🔮</div>
+        <h3>Kundali Analysis</h3>
+        <p>Complete birth chart reading with detailed predictions for career, health, marriage, and finances.</p>
+        <div class="card-price">₹2,100</div>
+        <div class="svc-actions">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <button class="btn btn-ghost" onclick="openServiceDetails('kundali')">View Details</button>
+        </div>
+      </div>
+
+      <div class="card svc" data-id="vastu">
+        <div class="card-icon">🏠</div>
+        <h3>Vastu Consultation</h3>
+        <p>Home and office Vastu analysis for prosperity, harmony, and positive energy flow.</p>
+        <div class="card-price">₹3,500</div>
+        <div class="svc-actions">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <button class="btn btn-ghost" onclick="openServiceDetails('vastu')">View Details</button>
+        </div>
+      </div>
+
+      <div class="card svc" data-id="numerology">
+        <div class="card-icon">🔢</div>
+        <h3>Numerology Reading</h3>
+        <p>Name and number analysis to unlock your hidden potential and life path guidance.</p>
+        <div class="card-price">₹1,500</div>
+        <div class="svc-actions">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <button class="btn btn-ghost" onclick="openServiceDetails('numerology')">View Details</button>
+        </div>
+      </div>
+
+      <div class="card svc" data-id="matchmaking">
+        <div class="card-icon">💑</div>
+        <h3>Matchmaking</h3>
+        <p>Compatibility analysis for marriage based on Kundali matching and Guna Milan.</p>
+        <div class="card-price">₹2,500</div>
+        <div class="svc-actions">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <button class="btn btn-ghost" onclick="openServiceDetails('matchmaking')">View Details</button>
+        </div>
+      </div>
+
+      <div class="card svc" data-id="tarot">
+        <div class="card-icon">🃏</div>
+        <h3>Tarot Reading</h3>
+        <p>Intuitive card reading for immediate guidance on love, career, and personal challenges.</p>
+        <div class="card-price">₹1,200</div>
+        <div class="svc-actions">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <button class="btn btn-ghost" onclick="openServiceDetails('tarot')">View Details</button>
+        </div>
+      </div>
+
+      <div class="card svc" data-id="muhurat">
+        <div class="card-icon">⏰</div>
+        <h3>Muhurat Selection</h3>
+        <p>Auspicious timing for weddings, business launches, property purchase, and more.</p>
+        <div class="card-price">₹1,800</div>
+        <div class="svc-actions">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <button class="btn btn-ghost" onclick="openServiceDetails('muhurat')">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Details Modal (reused for all services) -->
+<div id="svcModal" class="modal" aria-hidden="true">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeServiceModal()">✕</button>
+    <h3 id="svcTitle">Service Title</h3>
+    <p id="svcDesc" class="muted">Description</p>
+    <div style="display:flex;gap:12px;align-items:center;margin:10px 0;">
+      <div><strong>Price:</strong> <span id="svcPrice">₹0</span></div>
+      <div><strong>Duration:</strong> <span id="svcDuration">—</span></div>
+    </div>
+
+    <hr>
+
+    <!-- small Rashifal widget inside modal -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+      <div style="min-width:220px;">
+        <label for="modalZodiac">Check Rashifal for</label>
+        <select id="modalZodiac" onchange="showModalRashifal(this.value)">
+          <option value="">Select Zodiac</option>
+          <option>Aries</option><option>Taurus</option><option>Gemini</option><option>Cancer</option><option>Leo</option><option>Virgo</option>
+          <option>Libra</option><option>Scorpio</option><option>Sagittarius</option><option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+        </select>
+      </div>
+      <div id="modalRashifal" class="modal-rashifal muted" style="flex:1;min-width:260px">
+        Select a zodiac to view the rashifal here.
+      </div>
+    </div>
+
+    <div style="margin-top:12px;display:flex;gap:8px;">
+      <a id="modalBookBtn" class="btn btn-primary" href="#contact">Book Now</a>
+      <a id="modalViewBtn" class="btn btn-outline" href="#">Open Full Rashifal</a>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials Video Gallery -->
+<section id="videos" class="section" style="background: var(--light);">
+  <div class="container">
+    <h2 class="section-title">Video Testimonials & Ritual Clips</h2>
+    <p class="section-subtitle">Short clips from ceremonies, client testimonials and puja highlights.</p>
+
+    <div class="videos-grid">
+      <video controls muted playsinline class="vid-card"><source src="videos/testimonial1.mp4" type="video/mp4">Your browser doesn't support video.</video>
+      <video controls muted playsinline class="vid-card"><source src="videos/puja1.mp4" type="video/mp4">Your browser doesn't support video.</video>
+      <video controls muted playsinline class="vid-card"><source src="videos/puja2.mp4" type="video/mp4">Your browser doesn't support video.</video>
+    </div>
+  </div>
+</section>
 
 
 <!-- ABOUT SECTION -->
@@ -164,128 +479,6 @@
     </div>
   </div>
 </section>
-
-  <!-- Daily Horoscope Section -->
-  <section id="horoscope" class="section">
-    <div class="container">
-      <h2 class="section-title">Daily Horoscope</h2>
-      <p class="section-subtitle">Check your today's prediction based on your zodiac sign</p>
-      <div class="zodiac-grid">
-        <div class="zodiac-card" onclick="showHoroscope('Aries')">
-          <div class="zodiac-icon">♈</div>
-          <div class="zodiac-name">Aries</div>
-          <div class="zodiac-date">Mar 21 - Apr 19</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Taurus')">
-          <div class="zodiac-icon">♉</div>
-          <div class="zodiac-name">Taurus</div>
-          <div class="zodiac-date">Apr 20 - May 20</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Gemini')">
-          <div class="zodiac-icon">♊</div>
-          <div class="zodiac-name">Gemini</div>
-          <div class="zodiac-date">May 21 - Jun 20</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Cancer')">
-          <div class="zodiac-icon">♋</div>
-          <div class="zodiac-name">Cancer</div>
-          <div class="zodiac-date">Jun 21 - Jul 22</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Leo')">
-          <div class="zodiac-icon">♌</div>
-          <div class="zodiac-name">Leo</div>
-          <div class="zodiac-date">Jul 23 - Aug 22</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Virgo')">
-          <div class="zodiac-icon">♍</div>
-          <div class="zodiac-name">Virgo</div>
-          <div class="zodiac-date">Aug 23 - Sep 22</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Libra')">
-          <div class="zodiac-icon">♎</div>
-          <div class="zodiac-name">Libra</div>
-          <div class="zodiac-date">Sep 23 - Oct 22</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Scorpio')">
-          <div class="zodiac-icon">♏</div>
-          <div class="zodiac-name">Scorpio</div>
-          <div class="zodiac-date">Oct 23 - Nov 21</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Sagittarius')">
-          <div class="zodiac-icon">♐</div>
-          <div class="zodiac-name">Sagittarius</div>
-          <div class="zodiac-date">Nov 22 - Dec 21</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Capricorn')">
-          <div class="zodiac-icon">♑</div>
-          <div class="zodiac-name">Capricorn</div>
-          <div class="zodiac-date">Dec 22 - Jan 19</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Aquarius')">
-          <div class="zodiac-icon">♒</div>
-          <div class="zodiac-name">Aquarius</div>
-          <div class="zodiac-date">Jan 20 - Feb 18</div>
-        </div>
-        <div class="zodiac-card" onclick="showHoroscope('Pisces')">
-          <div class="zodiac-icon">♓</div>
-          <div class="zodiac-name">Pisces</div>
-          <div class="zodiac-date">Feb 19 - Mar 20</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="section" style="background: var(--beige);">
-    <div class="container">
-      <h2 class="section-title">Our Astrology Services</h2>
-      <p class="section-subtitle">Book your personalized horoscope reading today</p>
-      <div class="services-grid">
-        <div class="card">
-          <div class="card-icon">🔮</div>
-          <h3>Kundali Analysis</h3>
-          <p>Complete birth chart reading with detailed predictions for career, health, marriage, and finances.</p>
-          <div class="card-price">₹2,100</div>
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">🏠</div>
-          <h3>Vastu Consultation</h3>
-          <p>Home and office Vastu analysis for prosperity, harmony, and positive energy flow.</p>
-          <div class="card-price">₹3,500</div>
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔢</div>
-          <h3>Numerology Reading</h3>
-          <p>Name and number analysis to unlock your hidden potential and life path guidance.</p>
-          <div class="card-price">₹1,500</div>
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">💑</div>
-          <h3>Matchmaking</h3>
-          <p>Compatibility analysis for marriage based on Kundali matching and Guna Milan.</p>
-          <div class="card-price">₹2,500</div>
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">🃏</div>
-          <h3>Tarot Reading</h3>
-          <p>Intuitive card reading for immediate guidance on love, career, and personal challenges.</p>
-          <div class="card-price">₹1,200</div>
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">⏰</div>
-          <h3>Muhurat Selection</h3>
-          <p>Auspicious timing for weddings, business launches, property purchase, and more.</p>
-          <div class="card-price">₹1,800</div>
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Testimonials Section -->
   <section id="reviews" class="section">

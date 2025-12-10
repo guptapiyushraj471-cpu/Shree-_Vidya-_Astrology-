@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enquiry — Shree Shree Vidya Astrology</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f8f6f2;
+      --card:#ffffff;
+      --accent:#caa354;
+      --accent-dark:#b88a1a;
+      --text:#222;
+      --muted:#6d6d6d;
+      --radius:12px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{
+      max-width:720px;
+      margin:40px auto;
+      padding:18px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:26px;
+      border-radius:var(--radius);
+      box-shadow:0 8px 28px rgba(0,0,0,0.07);
+    }
+
+    h1{
+      margin:0 0 6px 0;
+      font-family:Cinzel,serif;
+      color:var(--accent-dark);
+      font-size:26px;
+    }
+
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    label{
+      display:block;
+      margin-top:12px;
+      font-weight:600;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    input, textarea {
+      width:100%;
+      padding:12px;
+      margin-top:6px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.10);
+      font-size:15px;
+      background:#fff;
+    }
+
+    textarea{ min-height:110px; resize:vertical; }
+
+    .row {
+      display:flex;
+      gap:12px;
+    }
+
+    .col { flex:1; }
+
+    .btn {
+      display:inline-block;
+      width:100%;
+      margin-top:18px;
+      padding:12px;
+      border-radius:10px;
+      border:0;
+      background:var(--accent-dark);
+      color:#fff;
+      font-weight:700;
+      font-size:15px;
+      cursor:pointer;
+    }
+    .btn:active{ transform:translateY(1px) }
+
+    #result {
+      margin-top:14px;
+      font-weight:600;
+      min-height:20px;
+    }
+
+    .muted { color: var(--muted); font-size:13px; margin-top:8px; }
+
+    @media (max-width:600px){
+      .row{flex-direction:column}
+      .container{margin:20px 14px}
+      h1{font-size:22px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Send an Enquiry</h1>
+      <p class="lead">Ask a question or request a consultation — we will respond soon. Provide at least one contact (name/phone/email).</p>
+
+      <form id="enqForm" novalidate>
+        <div class="row">
+          <div class="col">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name">
+          </div>
+          <div class="col">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91 9xxxxxxxxx">
+          </div>
+        </div>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Describe your enquiry or required service"></textarea>
+
+        <button class="btn" type="submit">Send Enquiry</button>
+
+        <div id="result" role="status" aria-live="polite"></div>
+        <div class="muted">We will never share your contact details. Use the contact page for urgent WhatsApp/call requests.</div>
+      </form>
+    </div>
+  </div>
+
+<script>
+(function(){
+  const form = document.getElementById('enqForm');
+  const result = document.getElementById('result');
+
+  function show(msg, ok = true){
+    result.style.color = ok ? 'green' : 'crimson';
+    result.textContent = msg;
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    result.textContent = '';
+
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // client-side check: require at least one contact field
+    if (!name && !phone && !email) {
+      show('Please provide at least a name, phone or email.', false);
+      return;
+    }
+
+    const payload = { name, phone, email, message };
+
+    show('Submitting...', true);
+    try {
+      const res = await fetch('/api/enquire', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.ok) {
+        show('Enquiry submitted successfully. Reference: ' + (data.id || '—'), true);
+        form.reset();
+      } else {
+        console.error('Server response:', data);
+        show('Submission failed. Please try again later.', false);
+      }
+    } catch (err) {
+      console.error(err);
+      show('Network error. Please check your connection and try again.', false);
+    }
+  });
+})();
+</script>
+</body>
+</html>

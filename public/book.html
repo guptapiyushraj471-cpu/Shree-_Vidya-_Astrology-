@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Consultation — Shree Shree Vidya Astrology</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8f6f2;
+      --card: #ffffff;
+      --accent: #caa354;
+      --accent-dark: #b88a1a;
+      --text-dark: #222;
+      --muted: #6d6d6d;
+      --radius: 12px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      font-family: Cinzel, serif;
+      color: var(--accent-dark);
+      font-size: 28px;
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    p.subtitle {
+      color: var(--muted);
+      margin-top: 0;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.12);
+      font-size: 15px;
+      background: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px;
+      border: 0;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--accent-dark);
+      color: #fff;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #a77a17;
+    }
+
+    #result {
+      margin-top: 18px;
+      font-size: 15px;
+      font-weight: 600;
+      color: green;
+      min-height: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+
+      <h1>Book Consultation</h1>
+      <p class="subtitle">Fill in your details and we will get in touch to confirm your appointment.</p>
+
+      <form id="bookForm">
+        <label>Full Name *</label>
+        <input type="text" id="name" placeholder="Enter full name" required>
+
+        <label>Phone *</label>
+        <input type="tel" id="phone" placeholder="Enter mobile number" required>
+
+        <label>Email (optional)</label>
+        <input type="email" id="email" placeholder="Enter email">
+
+        <label>Service *</label>
+        <select id="service" required>
+          <option value="">Select service</option>
+          <option value="Kundali Analysis">Kundali Analysis</option>
+          <option value="Vastu Consultation">Vastu Consultation</option>
+          <option value="Numerology">Numerology</option>
+          <option value="Matchmaking">Matchmaking</option>
+        </select>
+
+        <label>Preferred Date</label>
+        <input type="date" id="date">
+
+        <label>Preferred Time</label>
+        <input type="time" id="time">
+
+        <label>Message (optional)</label>
+        <textarea id="message" rows="3" placeholder="Write any specific notes"></textarea>
+
+        <button class="btn" type="submit">Book Appointment</button>
+
+        <div id="result"></div>
+      </form>
+
+    </div>
+  </div>
+
+<script>
+document.getElementById("bookForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    service: document.getElementById("service").value,
+    date: document.getElementById("date").value,
+    time: document.getElementById("time").value,
+    message: document.getElementById("message").value.trim(),
+  };
+
+  const result = document.getElementById("result");
+  result.style.color = "green";
+  result.textContent = "Submitting...";
+
+  try {
+    const res = await fetch("/api/book", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const json = await res.json();
+
+    if (json.ok) {
+      result.style.color = "green";
+      result.textContent = "Booking received successfully! Reference ID: " + json.id;
+      document.getElementById("bookForm").reset();
+    } else {
+      result.style.color = "red";
+      result.textContent = "Failed to submit. Please try again.";
+    }
+  } catch (err) {
+    console.error(err);
+    result.style.color = "red";
+    result.textContent = "Network error. Please try again.";
+  }
+});
+</script>
+
+</body>
+</html>

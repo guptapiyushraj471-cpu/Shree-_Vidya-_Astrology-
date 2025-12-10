@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — श्री श्री विद्या | Shree Shree Vidya Astrology</title>
+  <meta name="description" content="About Acharya Shubham Sharma — experience, specializations, certifications and approach in Vedic astrology." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#faf8f6;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --accent:#b8860b;
+      --accent-2:#7b3f00;
+      --radius:12px;
+      --container:1100px;
+      --glass:rgba(255,255,255,0.6);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#fff 0%, var(--bg) 100%);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .page{
+      max-width:var(--container);
+      margin:28px auto;
+      padding:22px;
+      background:transparent;
+    }
+
+    /* Top nav (simple) */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .brand img{width:62px;height:62px;object-fit:contain;border-radius:10px}
+    .brand .title{font-family:Cinzel,serif;font-weight:700;font-size:20px;line-height:1}
+    .brand .sub{font-size:12px;color:var(--muted)}
+
+    .navlinks{display:flex;gap:12px;align-items:center}
+    .navlinks a{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600}
+    .navlinks a.primary{background:var(--accent);color:white}
+
+    /* Hero about */
+    .hero{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:22px;
+      align-items:start;
+      margin-bottom:20px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 8px 30px rgba(22,22,22,0.06);
+    }
+    .profile-photo{
+      width:100%;
+      height:360px;
+      border-radius:10px;
+      object-fit:cover;
+      background:#eee;
+      display:block;
+    }
+    .name{
+      font-family:Cinzel,serif;
+      font-size:22px;
+      color:var(--accent-2);
+      margin:6px 0 2px;
+    }
+    .role{font-size:14px;color:var(--muted);margin-bottom:12px}
+    .bio{font-size:15px;color:#222;margin-bottom:12px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{background:#fff7e6;color:var(--accent-2);padding:6px 10px;border-radius:20px;font-weight:600;border:1px solid rgba(184,134,11,0.08)}
+
+    /* Stats */
+    .stats{display:flex;gap:12px;margin-top:12px}
+    .stat{flex:1;background:linear-gradient(180deg,#fff,#fff);padding:12px;border-radius:10px;text-align:center;border:1px solid #f0e6d9}
+    .stat .num{font-size:20px;font-weight:700;color:var(--accent-2)}
+    .stat .lbl{font-size:12px;color:var(--muted);margin-top:6px}
+
+    /* Right column content */
+    .about-content h3{margin:0 0 6px;font-size:20px}
+    .about-content p{color:var(--muted);margin-bottom:10px}
+    .service-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+    .service-item{background:#fff;padding:10px;border-radius:8px;border:1px solid #f2efe9;font-weight:600}
+
+    /* timeline */
+    .timeline{margin-top:14px;border-left:3px solid #f2e6d1;padding-left:14px}
+    .timeline .event{margin-bottom:12px;padding-left:10px}
+    .timeline .event strong{display:block;color:var(--accent-2)}
+
+    /* Video & gallery */
+    .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    .intro-video{width:100%;height:210px;border-radius:10px;object-fit:cover;display:block;background:#000}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+    .gallery img{width:100%;height:80px;object-fit:cover;border-radius:8px}
+
+    /* CTA */
+    .cta{
+      display:flex;
+      gap:12px;
+      margin-top:14px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700;text-decoration:none;
+    }
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid #ddd;color:var(--accent-2)}
+
+    /* Testimonials small */
+    .testimonial{background:#fff;padding:12px;border-radius:10px;border-left:4px solid #ffecd6;color:#333}
+
+    footer.pagefoot{margin-top:26px;padding:12px 6px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; }
+      .profile-photo{height:260px}
+      .media-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:480px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Top bar -->
+    <header class="topbar">
+      <a href="index.html" class="brand" title="Home">
+        <img src="img/logo.png" alt="logo">
+        <div>
+          <div class="title">श्री श्री विद्या</div>
+          <div class="sub">Shree Shree Vidya Astrology</div>
+        </div>
+      </a>
+      <nav class="navlinks" aria-label="main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#contact" class="primary btn">Book Consultation</a>
+      </nav>
+    </header>
+
+    <!-- Hero / profile -->
+    <section class="hero">
+      <!-- left -->
+      <aside class="card">
+        <img src="img/profile pic.jpeg" alt="Acharya Shubham Sharma" class="profile-photo">
+        <div style="margin-top:12px;">
+          <div class="name">Acharya Shubham Sharma</div>
+          <div class="role">Vedic Astrologer • Karmkand Specialist • Vastu</div>
+          <p class="bio">
+            With 15+ years of dedicated practice in Vedic astrology and karmkand rituals, Acharya Shubham Sharma combines classical methods with practical remedies to restore balance in clients' lives.
+          </p>
+
+          <div class="tags" aria-hidden="true">
+            <span class="tag">Kundali Analysis</span>
+            <span class="tag">Vastu</span>
+            <span class="tag">Puja &amp; Hawan</span>
+            <span class="tag">Numerology</span>
+          </div>
+
+          <div class="stats" aria-hidden="true">
+            <div class="stat">
+              <div class="num">15+</div>
+              <div class="lbl">Years Experience</div>
+            </div>
+            <div class="stat">
+              <div class="num">10K+</div>
+              <div class="lbl">Clients Guided</div>
+            </div>
+            <div class="stat">
+              <div class="num">4.9★</div>
+              <div class="lbl">Client Rating</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- right -->
+      <article class="about-content card">
+        <h3>About & Approach</h3>
+        <p>
+          Acharya Shubham follows a holistic approach — diagnosing the natal chart, understanding planetary influences, and prescribing remedial pujas, gemstones, and daily practices. Each consultation includes a written summary and practical remedies the client can implement immediately.
+        </p>
+
+        <div class="service-list" aria-label="specializations">
+          <div class="service-item">Kundali Analysis & Predictions</div>
+          <div class="service-item">Vastu for Home & Business</div>
+          <div class="service-item">Puja & Karmkand (Grah Shanti, Hawan)</div>
+          <div class="service-item">Matchmaking (Guna Milan)</div>
+          <div class="service-item">Numerology & Name Correction</div>
+          <div class="service-item">Tarot Guidance</div>
+        </div>
+
+        <div class="timeline" aria-hidden="true" style="margin-top:14px;">
+          <div class="event">
+            <strong>2009 — Initiation</strong>
+            Initiated into traditional karmkand and Vedic rituals under senior Acharyas.
+          </div>
+          <div class="event">
+            <strong>2013 — Certification</strong>
+            Completed formal astrology & Vastu certifications from recognized institutions.
+          </div>
+          <div class="event">
+            <strong>2016 — Practice</strong>
+            Began full-time practice; expanded services to corporate Vastu & online consultations.
+          </div>
+        </div>
+
+        <!-- Media -->
+        <div class="media-grid">
+          <video class="intro-video" controls playsinline preload="metadata">
+            <source src="videos/video5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div>
+            <h4 style="margin:6px 0 8px;">Client Testimonials</h4>
+            <div class="testimonial">
+              "Acharya Shubham's guidance resolved our office Vastu issues and business performance improved within months. Highly recommended for practical remedies."
+              <div style="margin-top:8px;font-weight:700;color:var(--accent-2);font-size:13px;">— Rajesh K., Indore</div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <h4 style="margin:6px 0 8px;">Gallery</h4>
+              <div class="gallery" aria-hidden="true">
+                <img src="img/profilepic2.jpeg" alt="puja">
+                <img src="img/profilepic3.jpeg" alt="puja2">
+                <img src="img/profilepic4.jpeg" alt="ceremony">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+          <a class="btn btn-primary" href="index.html#contact">Book Consultation</a>
+          <a class="btn btn-ghost" href="index.html#services">View Services</a>
+          <a class="btn btn-ghost" id="downloadProfileBtn" href="#">Download Profile (PDF)</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Short FAQ / How we work -->
+    <section class="card" style="margin-top:12px;">
+      <h4 style="margin:0 0 8px;">How consultations work</h4>
+      <p style="color:var(--muted);margin-top:0;">
+        1) Provide name, date/time/place of birth. 2) Choose online or offline consultation. 3) Receive live reading + written remedies. 4) Optional follow-up session for deeper remedies.
+      </p>
+
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:220px;">
+          <strong>Online Consultations</strong>
+          <div style="color:var(--muted);font-size:14px">Video call with screen-share; PDF summary by email.</div>
+        </div>
+        <div style="flex:1;min-width:220px;">
+          <strong>Offline / Pooja</strong>
+          <div style="color:var(--muted);font-size:14px">Home visits for Grah Shanti, Hawan & temple events (city-based).</div>
+        </div>
+        <div style="flex:1;min-width:220px;">
+          <strong>Shop & Kits</strong>
+          <div style="color:var(--muted);font-size:14px">Authentic puja samagri, yantras, malas available in our shop.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pagefoot card">
+      <div style="max-width:880px;margin:0 auto">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="text-align:left">
+            <strong>Contact</strong><br>
+            +91 72238 79166 &nbsp; • &nbsp; <a href="mailto:shrishrividhyaastrology@gmail.com">shrishrividhyaastrology@gmail.com</a>
+          </div>
+          <div style="text-align:right;color:var(--muted);font-size:13px">
+            © <span id="yr"></span> Shree Shree Vidya Astrology · Indore
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // small utilities: set year & download profile as simple printable document
+    document.getElementById('yr').innerText = new Date().getFullYear();
+
+    document.getElementById('downloadProfileBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      // Simple printable profile (opens new window)
+      const html = `
+      <html><head><meta charset="utf-8"><title>Profile — Acharya Shubham Sharma</title>
+      <style>
+        body{font-family:Inter,Arial,sans-serif;padding:28px;color:#111}
+        h1{font-family:Cinzel,serif;color:#5f3a00}
+        .muted{color:#666}
+      </style>
+      </head><body>
+        <h1>Acharya Shubham Sharma</h1>
+        <p class="muted">Vedic Astrologer — Kundali Analysis, Vastu, Pooja & Karmkand</p>
+        <h3>Experience</h3>
+        <p>15+ years of practice. Certified in Vedic astrology and Vastu. Conducts pujas, havans and online consultations.</p>
+        <h3>Contact</h3>
+        <p>Phone: +91 72238 79166<br>Email: shrishrividhyaastrology@gmail.com</p>
+      </body></html>`;
+      const w = window.open('', '_blank');
+      w.document.write(html);
+      w.document.close();
+      w.print();
+    });
+
+    // Accessibility: keyboard focus trap minimal
+    (function(){
+      const links = document.querySelectorAll('a, button');
+      links.forEach(l => { l.addEventListener('keydown', (ev)=> { if(ev.key === 'Enter'){ l.click(); } }); });
+    })();
+  </script>
+</body>
+</html>

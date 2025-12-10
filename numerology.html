@@ -1,0 +1,45 @@
+<!-- numerology.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Numerology — Shree Shree Vidya</title>
+  <style>
+    :root{--bg:#fff;--accent:#b8860b;--muted:#616161}
+    body{margin:0;font-family:Inter,Arial;background:var(--bg);color:#222}
+    .container{max-width:1000px;margin:28px auto;padding:20px}
+    .card{background:linear-gradient(180deg,#fff,#fbf6ef);padding:16px;border-radius:10px;border:1px solid rgba(0,0,0,0.04)}
+    h1{font-family:Cinzel,serif;color:var(--accent);margin:0}
+    .btn{padding:10px 12px;border-radius:8px;border:0;cursor:pointer;background:var(--accent);color:#071010;margin-top:12px;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-family:Cinzel,serif;color:var(--accent);font-weight:700">Numerology</div><div style="color:var(--muted)">Name & number analysis</div></div>
+      <a href="services.html" style="color:var(--muted);text-decoration:none">← Back</a>
+    </header>
+
+    <section style="margin-top:12px">
+      <div class="card">
+        <h1>Numerology Reading</h1>
+        <p style="color:var(--muted)">Personalised numerology report that decodes name & date to guide career, relationships and key decisions.</p>
+
+        <h3 style="margin-top:12px">What’s included</h3>
+        <ul style="color:var(--muted)">
+          <li>Core number calculation & interpretation</li>
+          <li>Personal year forecast</li>
+          <li>Suggested remedial actions and gemstones (if applicable)</li>
+        </ul>
+
+        <div style="font-weight:800;color:var(--accent);margin-top:10px">Price: ₹1,500 • Duration: 30 mins</div>
+        <button class="btn" onclick="window.location.href='services.html#contact'">Book Now</button>
+      </div>
+    </section>
+
+    <footer style="margin-top:18px;color:var(--muted)">© <span id="y"></span> Shree Shree Vidya</footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

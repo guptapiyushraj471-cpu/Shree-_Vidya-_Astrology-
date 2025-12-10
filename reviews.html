@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Testimonials — श्री श्री विद्या | Shree Shree Vidya Astrology</title>
+  <meta name="description" content="Client reviews and video testimonials for Acharya Shubham Sharma. Read feedback, watch clips and add your review." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fbf8f6; --card:#fff; --muted:#6b6b6b; --accent:#b8860b; --accent-2:#7b3f00; --radius:12px; --container:1100px;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fff 0%,var(--bg)100%);color:#111;line-height:1.45}
+    .page{max-width:var(--container);margin:28px auto;padding:22px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:56px;height:56px;border-radius:10px}
+    h1{font-family:Cinzel,serif;color:var(--accent-2);margin:0}
+    .muted{color:var(--muted)}
+
+    /* Layout */
+    .layout{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,0.06)}
+    .slider{display:flex;gap:12px;overflow:hidden;align-items:stretch}
+    .test-card{min-width:320px;padding:14px;border-radius:10px;background:#fff;border:1px solid #f2efe9}
+    .rating{color:var(--accent-2);font-weight:800}
+
+    /* video grid */
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px}
+    video{width:100%;border-radius:8px;background:#000}
+
+    /* review form */
+    .form-group{margin-bottom:8px}
+    input,textarea,select{width:100%;padding:8px;border-radius:8px;border:1px solid #e6e6e6}
+    .stars{display:flex;gap:6px;font-size:20px;cursor:pointer}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* sidebar summary */
+    .summary{display:flex;flex-direction:column;gap:12px}
+    .avg-num{font-size:38px;font-weight:800;color:var(--accent-2)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid #ddd;color:var(--accent-2)}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media(max-width:980px){ .layout{grid-template-columns:1fr} .test-card{min-width:260px} }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a href="index.html" class="brand" title="Home">
+        <img src="img/logo.png" alt="logo">
+        <div>
+          <div style="font-family:Cinzel,serif;font-weight:700">श्री श्री विद्या</div>
+          <div class="muted" style="font-size:12px">Shree Shree Vidya Astrology</div>
+        </div>
+      </a>
+      <nav style="display:flex;gap:10px;align-items:center">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#contact" class="btn btn-primary">Book Consultation</a>
+      </nav>
+    </header>
+
+    <h1>Client Reviews & Testimonials</h1>
+    <p class="muted">Read verified client reviews, watch short ritual clips and submit your own feedback.</p>
+
+    <div class="layout" style="margin-top:14px">
+      <!-- main -->
+      <main>
+        <div class="card">
+          <h3 style="margin:0 0 8px">Top Reviews</h3>
+          <div class="slider" id="reviewsSlider" aria-live="polite">
+            <!-- injected by JS -->
+          </div>
+
+          <h3 style="margin:16px 0 8px">Video Testimonials & Ritual Clips</h3>
+          <div class="video-grid" id="videoGrid">
+            <video controls muted playsinline><source src="videos/testimonial1.mp4" type="video/mp4"></video>
+            <video controls muted playsinline><source src="videos/puja1.mp4" type="video/mp4"></video>
+            <video controls muted playsinline><source src="videos/puja2.mp4" type="video/mp4"></video>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 style="margin:0 0 8px">Submit Your Review</h3>
+          <p class="small">Share your experience to help others. Reviews are stored locally and can be exported.</p>
+
+          <form id="reviewForm">
+            <div class="form-group">
+              <label for="rvName">Full Name</label>
+              <input id="rvName" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="rvPlace">City / Location</label>
+              <input id="rvPlace" placeholder="City, State">
+            </div>
+            <div class="form-group">
+              <label>Rating</label>
+              <div class="stars" id="starGroup" aria-label="Star rating">
+                <span data-star="1">☆</span>
+                <span data-star="2">☆</span>
+                <span data-star="3">☆</span>
+                <span data-star="4">☆</span>
+                <span data-star="5">☆</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="rvText">Review</label>
+              <textarea id="rvText" rows="4" placeholder="Write your review..." required></textarea>
+            </div>
+
+            <div style="display:flex;gap:8px;align-items:center">
+              <button type="submit" class="btn btn-primary">Submit Review</button>
+              <button type="button" id="exportBtn" class="btn btn-ghost">Export Reviews</button>
+              <button type="button" id="clearBtn" class="btn btn-ghost">Clear All</button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <!-- sidebar -->
+      <aside>
+        <div class="card summary">
+          <div>
+            <div class="small">Average Rating</div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="avg-num" id="avgRating">0</div>
+              <div class="muted"><div id="totalReviews">0 reviews</div></div>
+            </div>
+            <div style="margin-top:8px" id="ratingBreakdown"></div>
+          </div>
+
+          <div>
+            <h4 style="margin:8px 0 6px">Verified Reviews</h4>
+            <p class="small">We verify reviews manually for public listing — contact us if you want your review featured.</p>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <a class="btn btn-primary" href="index.html#contact">Contact Us</a>
+              <button id="printAll" class="btn btn-ghost">Print Reviews</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4 style="margin:0 0 8px">Quick Links</h4>
+          <a href="index.html#services" class="muted">Book Service</a><br>
+          <a href="index.html#shop" class="muted">Shop Pooja Kits</a><br>
+          <a href="index.html#events" class="muted">View Events</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer>© <span id="yr"></span> Shree Shree Vidya Astrology · Indore</footer>
+  </div>
+
+  <script>
+    document.getElementById('yr').innerText = new Date().getFullYear();
+
+    // sample reviews (replace with your real ones)
+    const SAMPLE = [
+      { name:'Rajesh Kumar', place:'Indore', rating:5, text:'Accurate guidance and practical remedies. Business performance improved.', date:'2025-08-14' },
+      { name:'Sunita Verma', place:'Bhopal', rating:5, text:'Kind and precise. Recommended for family matters.', date:'2025-06-03' },
+      { name:'Aman Gupta', place:'Mumbai', rating:4, text:'Good Vastu suggestions. Visible change at home.', date:'2025-09-10' }
+    ];
+
+    // storage key
+    const KEY = 'ssv_reviews_v1';
+    let REVIEWS = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(!REVIEWS){ REVIEWS = SAMPLE.slice(); localStorage.setItem(KEY, JSON.stringify(REVIEWS)); }
+
+    // render slider & sidebar stats
+    function renderReviews(){
+      const slider = document.getElementById('reviewsSlider');
+      slider.innerHTML = REVIEWS.map(r => `
+        <div class="test-card">
+          <div class="rating">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+          <p style="margin:8px 0">${r.text}</p>
+          <div style="font-weight:700">${r.name} <span class="small" style="font-weight:400">• ${r.place}</span></div>
+          <div class="small" style="color:var(--muted);margin-top:6px">${r.date}</div>
+        </div>
+      `).join('');
+      renderStats();
+    }
+
+    function renderStats(){
+      const avg = REVIEWS.reduce((s,r)=>s+r.rating,0)/Math.max(REVIEWS.length,1);
+      document.getElementById('avgRating').innerText = (Math.round(avg*10)/10).toFixed(1);
+      document.getElementById('totalReviews').innerText = REVIEWS.length + ' reviews';
+      // breakdown
+      const breakdown = [5,4,3,2,1].map(st => {
+        const count = REVIEWS.filter(r=>r.rating===st).length;
+        return `<div style="font-size:13px">${st}★ : ${count}</div>`;
+      }).join('');
+      document.getElementById('ratingBreakdown').innerHTML = breakdown;
+    }
+
+    renderReviews();
+
+    // star selection
+    let selectedStar = 5;
+    const starGroup = document.getElementById('starGroup');
+    starGroup.querySelectorAll('span').forEach(s => {
+      s.addEventListener('click', ()=> {
+        selectedStar = Number(s.getAttribute('data-star'));
+        updateStarUI();
+      });
+      s.addEventListener('keydown', e => { if(e.key==='Enter'){ selectedStar = Number(s.getAttribute('data-star')); updateStarUI(); }});
+    });
+    function updateStarUI(){
+      starGroup.querySelectorAll('span').forEach(s => {
+        const v = Number(s.getAttribute('data-star'));
+        s.innerText = v <= selectedStar ? '★' : '☆';
+      });
+    }
+    updateStarUI();
+
+    // submit review
+    document.getElementById('reviewForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('rvName').value.trim() || 'Anonymous';
+      const place = document.getElementById('rvPlace').value.trim() || '';
+      const text = document.getElementById('rvText').value.trim();
+      if(!text){ alert('Please write your review'); return; }
+      const rec = { name, place, rating:selectedStar, text, date: new Date().toLocaleDateString() };
+      REVIEWS.unshift(rec);
+      localStorage.setItem(KEY, JSON.stringify(REVIEWS));
+      renderReviews();
+      this.reset();
+      selectedStar = 5; updateStarUI();
+      alert('Thank you — your review has been saved locally.');
+    });
+
+    // export reviews: download JSON
+    document.getElementById('exportBtn').addEventListener('click', ()=>{
+      const data = JSON.stringify(REVIEWS, null, 2);
+      const blob = new Blob([data], { type:'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'ssv_reviews.json'; a.click(); URL.revokeObjectURL(url);
+    });
+
+    // clear all
+    document.getElementById('clearBtn').addEventListener('click', ()=>{
+      if(!confirm('Clear all reviews from this browser?')) return;
+      REVIEWS = []; localStorage.removeItem(KEY); renderReviews();
+    });
+
+    // print all
+    document.getElementById('printAll').addEventListener('click', ()=>{
+      const html = `<html><head><title>Reviews — Shree Shree Vidya</title><style>body{font-family:Inter,Arial;padding:18px} .card{border-bottom:1px solid #eee;padding:8px 0}</style></head><body><h1>Client Reviews</h1>${REVIEWS.map(r=>`<div class="card"><div style="font-weight:700">${r.name} • ${'★'.repeat(r.rating)}</div><div style="margin:6px 0">${r.text}</div><div style="color:#666">${r.date}</div></div>`).join('')}</body></html>`;
+      const w = window.open('', '_blank'); w.document.write(html); w.document.close(); w.print();
+    });
+  </script>
+</body>
+</html>

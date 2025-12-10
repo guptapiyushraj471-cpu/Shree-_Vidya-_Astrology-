@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Horoscope — श्री श्री विद्या | Shree Shree Vidya Astrology</title>
+  <meta name="description" content="Daily horoscope (Rashifal) by Acharya Shubham Sharma — read today's predictions and remedies for all zodiac signs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fbf8f6;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --accent:#b8860b;
+      --accent-2:#7b3f00;
+      --radius:12px;
+      --container:1100px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fff 0%, var(--bg) 100%);color:#111;line-height:1.45;-webkit-font-smoothing:antialiased}
+    .page{max-width:var(--container);margin:28px auto;padding:22px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:56px;height:56px;object-fit:contain;border-radius:10px}
+    .brand .title{font-family:Cinzel,serif;font-weight:700;font-size:18px}
+    .navlinks{display:flex;gap:12px;align-items:center}
+    .navlinks a{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600}
+    .navlinks a.primary{background:var(--accent);color:white}
+
+    h1{font-family:Cinzel,serif;color:var(--accent-2);margin:0 0 6px}
+    .muted{color:var(--muted)}
+
+    /* Zodiac grid */
+    .zodiac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px}
+    .zodiac-card{background:var(--card);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;cursor:pointer;border:1px solid #f2efe9;transition:transform .15s,box-shadow .15s}
+    .zodiac-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.06)}
+    .zodiac-icon{font-size:28px}
+    .zodiac-name{font-weight:700;margin-top:8px}
+    .zodiac-date{font-size:12px;color:var(--muted);margin-top:4px}
+
+    /* Controls + display area */
+    .controls{display:flex;gap:8px;align-items:center;margin-top:14px;flex-wrap:wrap}
+    .seg {border-radius:8px;overflow:hidden;border:1px solid #eee}
+    .seg button{padding:8px 12px;border:0;background:#fff;cursor:pointer;font-weight:700}
+    .seg button.active{background:var(--accent);color:#fff}
+
+    .forecast-wrap{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:14px}
+    .forecast{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,0.05)}
+    .forecast h3{margin:0 0 8px}
+    .remedy{margin-top:12px;padding:10px;border-radius:8px;background:#fff7e6;border:1px solid rgba(184,134,11,0.08)}
+    .aside-card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,0.05)}
+    .share-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-outline{background:transparent;border:1px solid #eee}
+
+    /* Print friendly */
+    @media print{
+      body{background:#fff}
+      .topbar,.navlinks,.share-buttons,.seg{display:none}
+      .page{max-width:900px;padding:12px}
+      .forecast-wrap{grid-template-columns:1fr}
+    }
+
+    @media(max-width:980px){
+      .forecast-wrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="page" role="main">
+    <header class="topbar" role="banner">
+      <a href="index.html" class="brand" title="Home">
+        <img src="img/logo.png" alt="logo">
+        <div>
+          <div class="title">श्री श्री विद्या</div>
+          <div class="muted" style="font-size:12px">Shree Shree Vidya Astrology</div>
+        </div>
+      </a>
+      <nav class="navlinks" aria-label="main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#contact" class="primary btn">Book Consultation</a>
+      </nav>
+    </header>
+
+    <h1>Daily Horoscope</h1>
+    <p class="muted">Select your zodiac sign to view today's prediction and simple remedies. Use the controls to view Tomorrow or Weekly summary.</p>
+
+    <!-- Zodiac grid -->
+    <div class="zodiac-grid" id="zodiacGrid" aria-label="Zodiac signs">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="seg" role="tablist" aria-label="Day selection">
+        <button class="active" data-range="today">Today</button>
+        <button data-range="tomorrow">Tomorrow</button>
+        <button data-range="weekly">Weekly</button>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+        <button class="btn btn-outline" id="printBtn">Print</button>
+        <button class="btn btn-primary" id="downloadBtn">Download (PDF)</button>
+      </div>
+    </div>
+
+    <!-- Forecast + aside -->
+    <div class="forecast-wrap" id="forecastWrap">
+      <div class="forecast" id="forecastArea" aria-live="polite">
+        <h3 id="forecastTitle">Select a zodiac sign</h3>
+        <div id="forecastText" class="muted">Click any zodiac above to read today's rashifal and remedies.</div>
+
+        <div id="remedyBox" class="remedy" style="display:none">
+          <strong>Suggested Remedy</strong>
+          <div id="remedyText" style="margin-top:6px;color:#333"></div>
+        </div>
+      </div>
+
+      <aside class="aside-card" id="asideCard" aria-label="Related">
+        <h4>Quick Tools</h4>
+        <div style="margin-top:8px">
+          <label for="shareMsg" class="muted" style="font-size:13px">Message to share</label>
+          <textarea id="shareMsg" rows="4" style="width:100%;padding:8px;border-radius:8px;border:1px solid #eee"></textarea>
+        </div>
+
+        <div class="share-buttons">
+          <button class="btn btn-primary" id="shareWhats">Share on WhatsApp</button>
+          <button class="btn btn-outline" id="shareMail">Share by Email</button>
+        </div>
+
+        <div style="margin-top:12px">
+          <h5 style="margin:0 0 6px">Related</h5>
+          <a href="services.html" class="muted">Book Personal Consultation</a><br>
+          <a href="index.html#shop" class="muted">Shop Pooja Kits</a><br>
+          <a href="index.html#events" class="muted">Upcoming Events</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer style="margin-top:18px;color:var(--muted);font-size:13px">
+      © <span id="yr"></span> Shree Shree Vidya Astrology · Indore • For personal remedies book a consultation.
+    </footer>
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('yr').innerText = new Date().getFullYear();
+
+    // Zodiac metadata (icons + date)
+    const ZODIACS = [
+      { key:'Aries', icon:'♈', date:'Mar 21 - Apr 19' },
+      { key:'Taurus', icon:'♉', date:'Apr 20 - May 20' },
+      { key:'Gemini', icon:'♊', date:'May 21 - Jun 20' },
+      { key:'Cancer', icon:'♋', date:'Jun 21 - Jul 22' },
+      { key:'Leo', icon:'♌', date:'Jul 23 - Aug 22' },
+      { key:'Virgo', icon:'♍', date:'Aug 23 - Sep 22' },
+      { key:'Libra', icon:'♎', date:'Sep 23 - Oct 22' },
+      { key:'Scorpio', icon:'♏', date:'Oct 23 - Nov 21' },
+      { key:'Sagittarius', icon:'♐', date:'Nov 22 - Dec 21' },
+      { key:'Capricorn', icon:'♑', date:'Dec 22 - Jan 19' },
+      { key:'Aquarius', icon:'♒', date:'Jan 20 - Feb 18' },
+      { key:'Pisces', icon:'♓', date:'Feb 19 - Mar 20' }
+    ];
+
+    // Sample daily/tomorrow/weekly content. Edit as required.
+    const DAILY = {
+      Aries: {
+        today: { text:'Today brings energy and clarity. Focus on important conversations; avoid impulsive decisions.', remedy:'Light a ghee lamp on Tuesday and chant Hanuman Chalisa for 11 days.' },
+        tomorrow: { text:'A good day for planning finances; avoid unnecessary expenses.', remedy:'Offer white flowers at the local temple.' },
+        weekly: { text:'This week emphasizes communication and short trips. Take care while signing documents.', remedy:'Keep a small silver coin in your wallet for two days.' }
+      },
+      Taurus: {
+        today: { text:'A steady day with opportunities to stabilise income. Family matters require patience.', remedy:'Keep a bowl of water with a pinch of turmeric near the main entrance.' },
+        tomorrow: { text:'A favourable day to review budgets and bills.', remedy:'Chant the Shani mantra for 7 rounds if stressed.' },
+        weekly: { text:'Work-life balance is important this week; plan rest and priorities.', remedy:'Avoid lending money when uncertain.' }
+      },
+      Gemini: {
+        today: { text:'Communication flows well; short journeys are beneficial.', remedy:'Carry a small basil (tulsi) leaf for clarity.' },
+        tomorrow: { text:'You may receive a call with positive news; remain attentive.', remedy:'Recite Gayatri mantra in the morning.' },
+        weekly: { text:'Focus on learning and connecting with mentors.', remedy:'Organise your workspace to invite productivity.' }
+      },
+      Cancer: {
+        today: { text:'Emotional sensitivity is high; seek calm and avoid confrontations.', remedy:'Light a lamp near the altar and meditate for 10 minutes.' },
+        tomorrow: { text:'A day to resolve small domestic misunderstandings quietly.', remedy:'Offer milk to moon deity or feed birds.' },
+        weekly: { text:'Family and home matters dominate; plan a small gathering for harmony.', remedy:'Keep a bowl of salt in a quiet corner for 24 hours.' }
+      },
+      Leo: {
+        today: { text:'Confidence helps at work; take lead in discussions but listen to others.', remedy:'Wear something golden on the right day and offer sweets.' },
+        tomorrow: { text:'Creative projects gain momentum; jot down ideas immediately.', remedy:'Light a ghee lamp in the evening.' },
+        weekly: { text:'Recognition at work is likely; stay humble and collaborative.', remedy:'Donate warm clothes or blankets.' }
+      },
+      Virgo: {
+        today: { text:'Attention to detail will be rewarded; avoid overthinking trivial points.', remedy:'Keep your workspace tidy and chant a short mantra.' },
+        tomorrow: { text:'A practical opportunity may appear—evaluate thoroughly.', remedy:'Carry a small notebook to capture tasks.' },
+        weekly: { text:'Health and routines need care—include short walks.', remedy:'Take a short break midday to reset.' }
+      },
+      Libra: {
+        today: { text:'Balance relationships cautiously; diplomacy will serve you well.', remedy:'Offer fresh flowers to invoke harmony.' },
+        tomorrow: { text:'An important conversation may bring clarity; be honest but kind.', remedy:'Wear light blue on the meeting day.' },
+        weekly: { text:'Artistic pursuits benefit; schedule creative time.', remedy:'Listen to calming instrumental music.' }
+      },
+      Scorpio: {
+        today: { text:'Intensity and focus help solve complex tasks; avoid secrecy that causes stress.', remedy:'Practice deep breathing for ten minutes.' },
+        tomorrow: { text:'Avoid rushing major decisions; consult a trusted person.', remedy:'Keep a simple journal of priorities.' },
+        weekly: { text:'Transformation energy continues; small rituals can anchor you.', remedy:'Light a diya and state one positive intention daily.' }
+      },
+      Sagittarius: {
+        today: { text:'A good day for expanding knowledge; travel or study supports growth.', remedy:'Read a spiritual text for 15 minutes.' },
+        tomorrow: { text:'Travel plans may need minor adjustments; stay flexible.', remedy:'Carry a small notebook for insights.' },
+        weekly: { text:'Optimism increases; share your ideas at the right forum.', remedy:'Make a small donation to a charity you trust.' }
+      },
+      Capricorn: {
+        today: { text:'Focus and discipline bring progress in long-term goals.', remedy:'Work steadily and avoid shortcuts.' },
+        tomorrow: { text:'Financial review day—double-check statements.', remedy:'Keep a ledger or note of expenses.' },
+        weekly: { text:'Career matters proceed slowly but surely; document achievements.', remedy:'Speak a short affirmation each morning.' }
+      },
+      Aquarius: {
+        today: { text:'Innovative thinking will be rewarded; collaborate with open-minded peers.', remedy:'Share ideas with a trusted friend for feedback.' },
+        tomorrow: { text:'Unexpected contacts may lead to future projects.', remedy:'Save contact details and follow up.' },
+        weekly: { text:'Community and networking are favourable; attend group events.', remedy:'Join one online group for learning.' }
+      },
+      Pisces: {
+        today: { text:'Intuition is strong; listen to inner guidance on relationships.', remedy:'Spend time near water or with calm music.' },
+        tomorrow: { text:'Creative expression helps release tension—paint, write or sing.', remedy:'Keep a small notebook of dreams and ideas.' },
+        weekly: { text:'Emotional healing is possible; consider a short retreat or digital detox.', remedy:'Practice gentle breathing and gratitude.' }
+      }
+    };
+
+    // Utility: build zodiac grid
+    const zodiacGrid = document.getElementById('zodiacGrid');
+    ZODIACS.forEach(z => {
+      const div = document.createElement('div');
+      div.className = 'zodiac-card';
+      div.setAttribute('role','button');
+      div.setAttribute('tabindex','0');
+      div.innerHTML = `<div class="zodiac-icon">${z.icon}</div><div class="zodiac-name">${z.key}</div><div class="zodiac-date">${z.date}</div>`;
+      div.addEventListener('click', ()=> selectSign(z.key));
+      div.addEventListener('keydown', (ev)=> { if(ev.key === 'Enter') selectSign(z.key); });
+      zodiacGrid.appendChild(div);
+    });
+
+    // Day selection buttons
+    document.querySelectorAll('.seg button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.seg button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // re-display for selected sign if any
+        const activeSign = document.querySelector('.zodiac-card.active');
+        if(activeSign) selectSign(activeSign.querySelector('.zodiac-name').innerText);
+      });
+    });
+
+    // select sign and render forecast
+    function selectSign(sign){
+      // mark active
+      document.querySelectorAll('.zodiac-card').forEach(c => c.classList.remove('active'));
+      const card = Array.from(document.querySelectorAll('.zodiac-card')).find(c => c.querySelector('.zodiac-name').innerText === sign);
+      if(card) card.classList.add('active');
+
+      const range = document.querySelector('.seg button.active').getAttribute('data-range');
+      const data = DAILY[sign] && DAILY[sign][range];
+      const title = `${sign} • ${range === 'today' ? 'Today' : range === 'tomorrow' ? 'Tomorrow' : 'Weekly'}`;
+      document.getElementById('forecastTitle').innerText = title;
+
+      if(!data){
+        document.getElementById('forecastText').innerText = 'Forecast not available yet for this selection.';
+        document.getElementById('remedyBox').style.display = 'none';
+      } else {
+        document.getElementById('forecastText').innerText = data.text;
+        document.getElementById('remedyText').innerText = data.remedy || 'No specific remedy suggested.';
+        document.getElementById('remedyBox').style.display = 'block';
+        // set share message default
+        document.getElementById('shareMsg').value = `${title}\n${data.text}\nRemedy: ${data.remedy}`;
+      }
+      // Smooth scroll to forecast on small screens
+      document.getElementById('forecastArea').scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    // Print & download (invoke browser print)
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+    document.getElementById('downloadBtn').addEventListener('click', ()=> {
+      // trigger print dialog for PDF; instruct user to choose "Save as PDF"
+      window.print();
+    });
+
+    // Sharing
+    document.getElementById('shareWhats').addEventListener('click', ()=>{
+      const msg = encodeURIComponent(document.getElementById('shareMsg').value || 'Daily horoscope');
+      const wa = `https://wa.me/?text=${msg}`;
+      window.open(wa, '_blank');
+    });
+    document.getElementById('shareMail').addEventListener('click', ()=>{
+      const body = encodeURIComponent(document.getElementById('shareMsg').value || '');
+      const subject = encodeURIComponent('Daily Horoscope from Shree Shree Vidya');
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    });
+
+    // initialize: optionally select sign by URL param ?sign=Aries
+    (function init(){
+      const params = new URLSearchParams(window.location.search);
+      const wanted = params.get('sign');
+      if(wanted && DAILY[wanted]) selectSign(wanted);
+    })();
+
+  </script>
+</body>
+</html>

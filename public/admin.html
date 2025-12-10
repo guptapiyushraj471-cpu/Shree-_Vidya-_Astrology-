@@ -1,0 +1,192 @@
+<!-- public/admin.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin — Bookings & Enquiries</title>
+  <style>
+    :root{--bg:#0b0b0b;--card:#0f0f10;--muted:#bdbdbd;--accent:#b8860b}
+    body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:#fff}
+    .wrap{max-width:1100px;margin:24px auto;padding:18px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+    h1{font-family:Cinzel,serif;color:var(--accent);margin:0}
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{padding:8px 12px;border-radius:8px;border:0;cursor:pointer;background:#222;color:#fff}
+    .btn.primary{background:var(--accent);color:#0b0b0b;font-weight:700}
+    section{margin-top:18px}
+    table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden}
+    th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,0.03);text-align:left;font-size:14px;color:var(--muted)}
+    th{color:#fff;background:#131313;position:sticky;top:0}
+    .small{font-size:12px;color:var(--muted)}
+    .meta{display:flex;gap:12px;align-items:center}
+    .notice{color:var(--muted);font-size:13px;margin-top:12px}
+    .topbar {display:flex;gap:10px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Shree Shree Vidya — ADMIN</h1>
+        <div class="notice">Bookings & Enquiries dashboard — Protected by ADMIN key</div>
+      </div>
+
+      <div class="controls topbar">
+        <button id="signout" class="btn">Sign out</button>
+        <button id="refresh" class="btn">Refresh</button>
+        <button id="export" class="btn primary">Export All CSV</button>
+      </div>
+    </header>
+
+    <section>
+      <h3 style="color:#fff">Bookings</h3>
+      <div id="bookingsWrap" style="overflow:auto;max-height:360px">
+        <table id="bookTable"><thead><tr><th>ID</th><th>Created</th><th>Name</th><th>Phone</th><th>Service</th><th>Date/Time</th><th>Message</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <section>
+      <h3 style="color:#fff">Enquiries</h3>
+      <div id="enqWrap" style="overflow:auto;max-height:260px">
+        <table id="enqTable"><thead><tr><th>ID</th><th>Created</th><th>Name</th><th>Phone</th><th>Email</th><th>Message</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+  </div>
+
+<script>
+/*
+  IMPORTANT: set API_BASE to your deployed Vercel domain (production).
+  Example: const API_BASE = 'https://shree-vidya-astrology.vercel.app';
+*/
+const API_BASE = 'https://shree-vidya-astrology.vercel.app'; // <<-- REPLACE with your Vercel deployment URL
+
+function promptForKey() {
+  const existing = sessionStorage.getItem('ADMIN_API_KEY');
+  if (existing) return existing;
+  const key = prompt('Enter ADMIN API KEY (keeps in sessionStorage for this tab)');
+  if (key) sessionStorage.setItem('ADMIN_API_KEY', key.trim());
+  return key;
+}
+
+function signOut() {
+  sessionStorage.removeItem('ADMIN_API_KEY');
+  alert('Signed out. Reload to sign in again.');
+}
+
+async function fetchJson(path) {
+  const key = promptForKey();
+  if (!key) { alert('Admin key required'); throw new Error('No admin key'); }
+  const url = API_BASE + path;
+  const r = await fetch(url, {
+    method: 'GET',
+    headers: { 'Authorization': 'Bearer ' + key, 'Accept': 'application/json' }
+  });
+  if (r.status === 401) { sessionStorage.removeItem('ADMIN_API_KEY'); alert('Unauthorized — admin key invalid'); throw new Error('Unauthorized'); }
+  if (r.status === 404) {
+    const text = await r.text();
+    throw new Error('API error: 404 — ' + text);
+  }
+  if (!r.ok) {
+    const txt = await r.text(); throw new Error('API error: ' + r.status + ' — ' + txt);
+  }
+  return r.json();
+}
+
+function toLocal(dt) {
+  try { return new Date(dt).toLocaleString(); } catch(e) { return dt || ''; }
+}
+
+let lastBookings = [];
+let lastEnquiries = [];
+
+async function load() {
+  try {
+    document.getElementById('refresh').disabled = true;
+    // bookings
+    const bdata = await fetchJson('/api/admin/bookings');
+    // expected response shape: { ok:true, rows: [...] } or rows array
+    const bookings = Array.isArray(bdata.rows) ? bdata.rows : (Array.isArray(bdata) ? bdata : (bdata.rows||[]));
+    lastBookings = bookings;
+    const bookingsTbody = document.querySelector('#bookTable tbody');
+    bookingsTbody.innerHTML = '';
+    // show newest first
+    bookings.slice().reverse().forEach(r=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td class="small">${r.id||''}</td>
+                      <td>${toLocal(r.created_at || r.createdAt || r.createdAt)}</td>
+                      <td>${(r.name||'')}</td>
+                      <td>${(r.phone||'')}</td>
+                      <td>${(r.service||'')}</td>
+                      <td>${(r.date||'') + ' ' + (r.time||'')}</td>
+                      <td>${(r.message||'')}</td>`;
+      bookingsTbody.appendChild(tr);
+    });
+
+    // enquiries
+    const edata = await fetchJson('/api/admin/enquiries');
+    const enqs = Array.isArray(edata.rows) ? edata.rows : (Array.isArray(edata) ? edata : (edata.rows||[]));
+    lastEnquiries = enqs;
+    const enqTbody = document.querySelector('#enqTable tbody');
+    enqTbody.innerHTML = '';
+    enqs.slice().reverse().forEach(r=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td class="small">${r.id||''}</td>
+                      <td>${toLocal(r.created_at || r.createdAt)}</td>
+                      <td>${(r.name||'')}</td>
+                      <td>${(r.phone||'')}</td>
+                      <td>${(r.email||'')}</td>
+                      <td>${(r.message||'')}</td>`;
+      enqTbody.appendChild(tr);
+    });
+
+  } catch(err) {
+    alert(err.message || String(err));
+    console.error(err);
+  } finally {
+    document.getElementById('refresh').disabled = false;
+  }
+}
+
+// CSV export
+function arrayToCSV(rows, columns) {
+  const esc = v => `"${String(v||'').replace(/"/g,'""')}"`;
+  const header = columns.map(c=>esc(c.label)).join(',');
+  const lines = rows.map(r => columns.map(c => esc(r[c.key])).join(','));
+  return [header].concat(lines).join('\n');
+}
+
+function downloadCSV(filename, content) {
+  const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename; a.style.display='none';
+  document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 1000);
+}
+
+document.getElementById('refresh').addEventListener('click', load);
+document.getElementById('signout').addEventListener('click', ()=>{ signOut(); location.reload(); });
+
+document.getElementById('export').addEventListener('click', ()=>{
+  if (!lastBookings.length && !lastEnquiries.length) { alert('No data to export — click Refresh first'); return; }
+  const bcols = [{key:'id',label:'id'},{key:'created_at',label:'created_at'},{key:'name',label:'name'},{key:'phone',label:'phone'},{key:'service',label:'service'},{key:'date',label:'date'},{key:'time',label:'time'},{key:'message',label:'message'}];
+  const ec = [{key:'id',label:'id'},{key:'created_at',label:'created_at'},{key:'name',label:'name'},{key:'phone',label:'phone'},{key:'email',label:'email'},{key:'message',label:'message'}];
+  if (lastBookings.length) {
+    const csv = arrayToCSV(lastBookings, bcols);
+    downloadCSV('bookings.csv', csv);
+  }
+  if (lastEnquiries.length) {
+    const csv2 = arrayToCSV(lastEnquiries, ec);
+    downloadCSV('enquiries.csv', csv2);
+  }
+});
+
+(async function init(){
+  // Ask for key (if not present) and try a load
+  promptForKey();
+  // If user canceled, do not auto-load
+  if (sessionStorage.getItem('ADMIN_API_KEY')) await load();
+})();
+</script>
+</body>
+</html>

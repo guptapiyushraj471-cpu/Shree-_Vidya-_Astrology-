@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — श्री श्री विद्या | Shree Shree Vidya Astrology</title>
+  <meta name="description" content="Contact Acharya Shubham Sharma — phone, WhatsApp, email, booking form, map and office hours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#fbf8f6;--card:#fff;--muted:#6b6b6b;--accent:#b8860b;--accent-2:#7b3f00;--radius:12px;--container:1100px}
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fff 0%,var(--bg)100%);font-family:Inter,Arial;color:#111;line-height:1.45}
+    .page{max-width:var(--container);margin:28px auto;padding:22px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:56px;height:56px;border-radius:10px}
+    h1{font-family:Cinzel,serif;color:var(--accent-2);margin:0}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 420px;gap:18px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,0.06)}
+    .contact-info{display:flex;flex-direction:column;gap:10px}
+    .ci{display:flex;gap:10px;align-items:center}
+    .ci .ico{width:46px;height:46;border-radius:8px;background:#fff7e6;color:var(--accent-2);display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    form .form-group{margin-bottom:8px}
+    input,textarea,select{width:100%;padding:8px;border-radius:8px;border:1px solid #e6e6e6}
+
+    .map{width:100%;height:240px;border-radius:10px;background:#e9e9e9;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--accent);color:#fff}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media(max-width:980px){ .grid{grid-template-columns:1fr} .map{height:200px} }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a href="index.html" class="brand">
+        <img src="img/logo.png" alt="logo">
+        <div>
+          <div style="font-family:Cinzel,serif;font-weight:700">श्री श्री विद्या</div>
+          <div class="muted" style="font-size:12px">Shree Shree Vidya Astrology</div>
+        </div>
+      </a>
+      <nav style="display:flex;gap:10px;align-items:center">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+      </nav>
+    </header>
+
+    <h1>Contact & Bookings</h1>
+    <p class="muted">Reach Acharya Shubham Sharma via phone, WhatsApp or the form below. For urgent matters use WhatsApp.</p>
+
+    <div class="grid" style="margin-top:12px">
+      <!-- left: form -->
+      <div>
+        <div class="card">
+          <h3 style="margin-top:0">Send a Message / Book Consultation</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="cName">Full Name *</label>
+              <input id="cName" required>
+            </div>
+            <div class="form-group">
+              <label for="cPhone">Phone *</label>
+              <input id="cPhone" required>
+            </div>
+            <div class="form-group">
+              <label for="cEmail">Email</label>
+              <input id="cEmail" type="email">
+            </div>
+            <div class="form-group">
+              <label for="cService">Service</label>
+              <select id="cService">
+                <option value="">Select service (optional)</option>
+                <option value="kundali">Kundali Analysis</option>
+                <option value="vastu">Vastu Consultation</option>
+                <option value="numerology">Numerology</option>
+                <option value="puja">Puja / Hawan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cMsg">Message</label>
+              <textarea id="cMsg" rows="4" placeholder="Brief details (birth time, place, queries)..."></textarea>
+            </div>
+
+            <div style="display:flex;gap:8px;align-items:center">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <button type="button" id="waBtn" class="btn">WhatsApp</button>
+              <button type="button" id="callBtn" class="btn btn-ghost">Call</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4 style="margin:0 0 8px">Office Hours & Location</h4>
+          <div class="contact-info">
+            <div class="ci"><div class="ico">📞</div><div><strong>Phone</strong><br>+91 72238 79166</div></div>
+            <div class="ci"><div class="ico">💬</div><div><strong>WhatsApp</strong><br>+91 72238 79166</div></div>
+            <div class="ci"><div class="ico">✉️</div><div><strong>Email</strong><br><a href="mailto:shrishrividhyaastrology@gmail.com">shrishrividhyaastrology@gmail.com</a></div></div>
+            <div class="ci"><div class="ico">📍</div><div><strong>Location</strong><br>Indore, Madhya Pradesh</div></div>
+            <div class="ci"><div class="ico">⏰</div><div><strong>Hours</strong><br>Mon–Sat: 9:00 AM – 7:00 PM</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right: map + quick contact -->
+      <aside>
+        <div class="card">
+          <h4 style="margin-top:0">Find Us</h4>
+          <!-- If you have a Google Maps embed URL, replace the placeholder with iframe -->
+          <div class="map" id="mapBox">Google Maps (replace with iframe)</div>
+
+          <div style="margin-top:12px">
+            <h4 style="margin:0 0 8px">Quick Contact</h4>
+            <div style="display:flex;gap:8px;flex-direction:column">
+              <a href="tel:+917223879166" class="btn btn-primary">Call +91 72238 79166</a>
+              <a href="https://wa.me/+917223879166" target="_blank" class="btn btn-primary">Chat on WhatsApp</a>
+              <a href="mailto:shrishrividhyaastrology@gmail.com" class="btn btn-ghost">Email</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4 style="margin:0 0 8px">Auto-Reply & Record</h4>
+          <p class="muted">After you submit the form, a pre-filled confirmation email will open and your request will be saved locally for reference.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>© <span id="yr"></span> Shree Shree Vidya Astrology · Indore</footer>
+  </div>
+
+  <script>
+    document.getElementById('yr').innerText = new Date().getFullYear();
+
+    // contact form: save locally and open mailto auto-reply
+    const CONTACT_KEY = 'ssv_contacts_v1';
+    function saveContact(rec){
+      const list = JSON.parse(localStorage.getItem(CONTACT_KEY) || '[]');
+      list.unshift(rec);
+      localStorage.setItem(CONTACT_KEY, JSON.stringify(list));
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim();
+      const phone = document.getElementById('cPhone').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const service = document.getElementById('cService').value;
+      const msg = document.getElementById('cMsg').value.trim();
+
+      if(!name || !phone){ alert('Please provide name and phone'); return; }
+
+      const rec = { id:'REQ'+Date.now(), name, phone, email, service, msg, date:new Date().toLocaleString() };
+      saveContact(rec);
+
+      // compose mailto to admin (auto-reply simulation to admin)
+      const subject = encodeURIComponent('New Booking Request — ' + rec.id);
+      const body = encodeURIComponent(`Request ID: ${rec.id}\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nMessage:\n${msg}`);
+      // open mail client to send to admin
+      window.location.href = `mailto:shrishrividhyaastrology@gmail.com?subject=${subject}&body=${body}`;
+
+      // open pre-filled email to client as acknowledgment if email provided
+      if(email){
+        const sub2 = encodeURIComponent('Booking Request Received — ' + rec.id);
+        const body2 = encodeURIComponent(`Namaste ${name},\n\nWe have received your request (${rec.id}) for ${service || 'consultation'}. We will contact you on ${phone} to confirm the slot.\n\nThank you,\nShree Shree Vidya Astrology\n+91 72238 79166`);
+        window.setTimeout(()=>{ window.location.href = `mailto:${email}?subject=${sub2}&body=${body2}`; }, 800);
+      }
+
+      // show printable receipt
+      const html = `<html><head><meta charset="utf-8"><title>Request ${rec.id}</title><style>body{font-family:Inter,Arial;padding:18px} .muted{color:#666}</style></head><body><h1>Request Received</h1><p class="muted">Shree Shree Vidya Astrology</p><div style="border:1px solid #eee;padding:12px;border-radius:8px"><p><strong>Request ID:</strong> ${rec.id}</p><p><strong>Name:</strong> ${rec.name}</p><p><strong>Phone:</strong> ${rec.phone}</p><p><strong>Service:</strong> ${rec.service}</p><p><strong>Message:</strong> ${rec.msg}</p><p><strong>Date:</strong> ${rec.date}</p></div><p style="margin-top:14px">We will contact you soon to confirm the booking.</p></body></html>`;
+      const w = window.open('', '_blank'); w.document.write(html); w.document.close(); w.print();
+      this.reset();
+    });
+
+    // Quick call / whatsapp buttons
+    document.getElementById('waBtn').addEventListener('click', ()=> window.open('https://wa.me/+917223879166','_blank'));
+    document.getElementById('callBtn').addEventListener('click', ()=> window.location.href = 'tel:+917223879166');
+
+    // Map placeholder: replace with Google Maps iframe if available
+    const mapBox = document.getElementById('mapBox');
+    mapBox.innerHTML = '<iframe width="100%" height="240" frameborder="0" style="border:0;border-radius:10px" src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>';
+    // Replace the src string above with your actual Google Maps embed link.
+
+  </script>
+</body>
+</html>
