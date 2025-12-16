@@ -1971,3 +1971,40 @@ th,td{
     margin: 20px auto;
   }
 }
+/* HERO AUTO SLIDER */
+.hero-slider {
+  position: relative;
+  min-height: 85vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1.2s ease-in-out;
+  z-index: 1;
+}
+
+/* Dark overlay for readability */
+.hero-slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+/* Content above image */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  padding-top: 140px;
+  color: #fff;
+}
