@@ -6,7 +6,7 @@
   <title>Enquiry — Shree Shree Vidya Astrology</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -17,97 +17,355 @@
       --text:#222;
       --muted:#6d6d6d;
       --radius:12px;
+      --gradient-start: #f8f9ff;
+      --gradient-end: #fff5e6;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 8px 32px rgba(184, 134, 11, 0.12);
+      --border-soft: rgba(184, 134, 11, 0.15);
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
+    
     body{
       margin:0;
       font-family:Inter,system-ui,Arial,sans-serif;
-      background:var(--bg);
+      background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+      background-attachment: fixed;
       color:var(--text);
       -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    /* Animated background particles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 30% 40%, rgba(184, 134, 11, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 20%, rgba(184, 134, 11, 0.03) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-25px) scale(1.05); }
     }
 
     .container{
       max-width:720px;
       margin:40px auto;
       padding:18px;
+      position: relative;
+      z-index: 1;
     }
 
     .card{
-      background:var(--card);
-      padding:26px;
-      border-radius:var(--radius);
-      box-shadow:0 8px 28px rgba(0,0,0,0.07);
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding:36px;
+      border-radius:20px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      box-shadow: 0 12px 40px rgba(184, 134, 11, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    /* Decorative element */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+    }
+    
+    .card > * {
+      position: relative;
+      z-index: 1;
     }
 
     h1{
-      margin:0 0 6px 0;
+      margin:0 0 8px 0;
       font-family:Cinzel,serif;
       color:var(--accent-dark);
-      font-size:26px;
+      font-size:32px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(184, 134, 11, 0.1);
     }
 
     p.lead{
-      margin:0 0 18px 0;
+      margin:0 0 28px 0;
       color:var(--muted);
-      font-size:15px;
+      font-size:16px;
+      font-weight: 500;
+      line-height: 1.7;
     }
 
     label{
       display:block;
-      margin-top:12px;
+      margin-top:16px;
       font-weight:600;
       font-size:14px;
-      color:var(--muted);
+      color:#1a1a1a;
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
     }
 
     input, textarea {
       width:100%;
-      padding:12px;
+      padding:14px 16px;
       margin-top:6px;
-      border-radius:10px;
-      border:1px solid rgba(0,0,0,0.10);
+      border-radius:12px;
+      border:1px solid var(--border-soft);
       font-size:15px;
       background:#fff;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    input:hover, textarea:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(184, 134, 11, 0.15);
+    }
+    
+    input:focus, textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
     }
 
-    textarea{ min-height:110px; resize:vertical; }
+    textarea{ 
+      min-height:110px; 
+      resize:vertical;
+    }
 
     .row {
       display:flex;
-      gap:12px;
+      gap:16px;
     }
 
-    .col { flex:1; }
+    .col { 
+      flex:1;
+    }
 
     .btn {
       display:inline-block;
       width:100%;
-      margin-top:18px;
-      padding:12px;
-      border-radius:10px;
+      margin-top:24px;
+      padding:16px;
+      border-radius:12px;
       border:0;
-      background:var(--accent-dark);
+      background: linear-gradient(135deg, var(--accent-dark) 0%, #9a6f0a 100%);
       color:#fff;
       font-weight:700;
-      font-size:15px;
+      font-size:16px;
       cursor:pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .btn:active{ transform:translateY(1px) }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+    
+    .btn:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    
+    .btn:hover {
+      background: linear-gradient(135deg, #9a6f0a 0%, var(--accent-dark) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+    }
+    
+    .btn:active{ 
+      transform:translateY(0);
+    }
+    
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    /* Loading animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .btn.loading::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+      margin-top: -8px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      z-index: 2;
+    }
 
     #result {
-      margin-top:14px;
+      margin-top:20px;
       font-weight:600;
       min-height:20px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      display: none;
+      animation: slideIn 0.3s ease;
+      font-size: 15px;
+    }
+    
+    #result.show {
+      display: block;
+    }
+    
+    #result.success {
+      color: #2e7d32;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+    
+    #result.error {
+      color: #c62828;
+      background: rgba(211, 47, 47, 0.1);
+      border: 1px solid rgba(211, 47, 47, 0.3);
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .muted { color: var(--muted); font-size:13px; margin-top:8px; }
+    .muted { 
+      color: var(--muted); 
+      font-size:13px; 
+      margin-top:14px;
+      font-weight: 500;
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    
+    .muted::before {
+      content: '🔒';
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
 
     @media (max-width:600px){
-      .row{flex-direction:column}
-      .container{margin:20px 14px}
-      h1{font-size:22px}
+      .row{
+        flex-direction:column;
+        gap: 0;
+      }
+      
+      .container{
+        margin:20px 14px;
+        padding: 12px;
+      }
+      
+      .card {
+        padding: 24px;
+      }
+      
+      h1{
+        font-size:26px;
+      }
+      
+      p.lead {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      
+      label {
+        margin-top: 14px;
+      }
+      
+      input, textarea {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+      
+      .btn {
+        padding: 14px;
+        font-size: 15px;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 24px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Focus states for accessibility */
+    .btn:focus {
+      outline: 2px solid var(--accent-dark);
+      outline-offset: 2px;
     }
   </style>
 </head>
@@ -148,15 +406,20 @@
 (function(){
   const form = document.getElementById('enqForm');
   const result = document.getElementById('result');
+  const submitBtn = form.querySelector('.btn');
 
   function show(msg, ok = true){
     result.style.color = ok ? 'green' : 'crimson';
     result.textContent = msg;
+    result.classList.add('show');
+    result.classList.toggle('success', ok);
+    result.classList.toggle('error', !ok);
   }
 
   form.addEventListener('submit', async function(e){
     e.preventDefault();
     result.textContent = '';
+    result.classList.remove('show', 'success', 'error');
 
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
@@ -170,6 +433,10 @@
     }
 
     const payload = { name, phone, email, message };
+
+    // Add loading state
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
 
     show('Submitting...', true);
     try {
@@ -191,6 +458,10 @@
     } catch (err) {
       console.error(err);
       show('Network error. Please check your connection and try again.', false);
+    } finally {
+      // Remove loading state
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
     }
   });
 })();

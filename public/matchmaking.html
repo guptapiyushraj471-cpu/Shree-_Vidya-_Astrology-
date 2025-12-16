@@ -1,0 +1,465 @@
+<!-- matchmaking.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Matchmaking — Shree Shree Vidya</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap');
+    
+    :root{
+      --bg:#fff;
+      --accent:#b8860b;
+      --muted:#616161;
+      --gradient-start: #f8f9ff;
+      --gradient-end: #fff5e6;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 8px 32px rgba(184, 134, 11, 0.12);
+      --border-soft: rgba(184, 134, 11, 0.15);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+      background-attachment: fixed;
+      color:#222;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Animated background particles with heart motif */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 30% 40%, rgba(184, 134, 11, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(184, 134, 11, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 20%, rgba(184, 134, 11, 0.03) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    body::after {
+      content: '';
+      position: fixed;
+      top: 10%;
+      right: 15%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.04) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse-slow 12s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+    
+    @keyframes pulse-slow {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+    }
+    
+    .container{
+      max-width:1000px;
+      margin:28px auto;
+      padding:20px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 20px 24px;
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+    
+    header:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    
+    header > div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    header > div > div:first-child {
+      font-family:Cinzel,serif;
+      color:var(--accent);
+      font-weight:700;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+    }
+    
+    header > div > div:last-child {
+      color:var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    header > a {
+      color:var(--muted);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: rgba(184, 134, 11, 0.05);
+    }
+    
+    header > a:hover {
+      background: rgba(184, 134, 11, 0.15);
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+    
+    section {
+      margin-top: 24px;
+    }
+    
+    .card{
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding:32px;
+      border-radius:20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Heart-inspired decorative element */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -5%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.09) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 10s ease-in-out infinite 2s;
+      pointer-events: none;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+    
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    h1{
+      font-family:Cinzel,serif;
+      color:var(--accent);
+      margin:0 0 12px 0;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(184, 134, 11, 0.1);
+    }
+    
+    .card > p {
+      color:var(--muted);
+      font-size: 16px;
+      margin: 0 0 24px 0;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    
+    .card h3 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.3px;
+    }
+    
+    .card ul {
+      color:var(--muted);
+      margin: 0;
+      padding-left: 24px;
+      line-height: 1.9;
+    }
+    
+    .card ul li {
+      margin-bottom: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      position: relative;
+      padding-left: 8px;
+    }
+    
+    .card ul li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .card ul li::marker {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    
+    /* Enhanced visual for list items */
+    .card ul li::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .card ul li:hover::before {
+      opacity: 0.5;
+    }
+    
+    .card > div[style*="font-weight:800"] {
+      font-weight:800 !important;
+      color:var(--accent) !important;
+      margin-top:24px !important;
+      font-size: 17px;
+      padding: 14px 16px;
+      background: rgba(184, 134, 11, 0.08);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .card > div[style*="font-weight:800"]::before {
+      content: '💑';
+      font-size: 20px;
+      animation: gentle-bounce 3s ease-in-out infinite;
+    }
+    
+    @keyframes gentle-bounce {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    
+    .btn{
+      padding:14px 32px;
+      border-radius:12px;
+      border:0;
+      cursor:pointer;
+      background: linear-gradient(135deg, var(--accent) 0%, #9a6f0a 100%);
+      color:#fff;
+      margin-top:20px;
+      font-weight:700;
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+    
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+      background: linear-gradient(135deg, #9a6f0a 0%, var(--accent) 100%);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    footer {
+      margin-top:32px;
+      color:var(--muted);
+      text-align: center;
+      padding: 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 16px;
+        margin: 16px auto;
+      }
+      
+      header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        align-items: center;
+      }
+      
+      header > a {
+        width: 100%;
+        text-align: center;
+      }
+      
+      header > a:hover {
+        transform: translateX(0) translateY(-2px);
+      }
+      
+      .card {
+        padding: 24px;
+      }
+      
+      h1 {
+        font-size: 28px;
+      }
+      
+      .card > p {
+        font-size: 14px;
+      }
+      
+      .btn {
+        width: 100%;
+        padding: 12px 24px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+      
+      header > div > div:first-child {
+        font-size: 18px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      .card h3 {
+        font-size: 18px;
+      }
+      
+      .card > div[style*="font-weight:800"] {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Focus states for accessibility */
+    .btn:focus,
+    header > a:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-family:Cinzel,serif;color:var(--accent);font-weight:700">Matchmaking</div><div style="color:var(--muted)">Kundali based compatibility</div></div>
+      <a href="services.html" style="color:var(--muted);text-decoration:none">← Back</a>
+    </header>
+
+    <section style="margin-top:12px">
+      <div class="card">
+        <h1>Matchmaking / Guna Milan</h1>
+        <p style="color:var(--muted)">Thorough compatibility analysis for marriage: Kundali matching, gunas, dosha analysis and remedial suggestions.</p>
+
+        <h3 style="margin-top:12px">Included</h3>
+        <ul style="color:var(--muted)">
+          <li>Guna Milan score and explanation</li>
+          <li>Compatibility strengths & concerns</li>
+          <li>Remedial suggestions & puja recommendations</li>
+        </ul>
+
+        <div style="font-weight:800;color:var(--accent);margin-top:10px">Price: ₹2,500 • Duration: 60 mins</div>
+        <button class="btn" onclick="window.location.href='services.html#contact'">Book Consultation</button>
+      </div>
+    </section>
+
+    <footer style="margin-top:18px;color:var(--muted)">© <span id="y"></span> Shree Shree Vidya</footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

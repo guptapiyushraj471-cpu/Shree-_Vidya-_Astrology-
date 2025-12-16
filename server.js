@@ -1,5 +1,5 @@
 // server.js
-// Minimal Express backend for bookings/enquiries + simple admin UI
+// Express backend for bookings/enquiries + optional Supabase + simple admin UI.
 // Stores records under /data/*.json and optionally sends email notifications via SMTP.
 
 const express = require('express');
@@ -12,16 +12,37 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
 
-require('dotenv').config?.();
+require('dotenv').config(); // ensure env loads
+
+// Optional Supabase support (only used if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY present)
+let supabase = null;
+if (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  try {
+    const { createClient } = require('@supabase/supabase-js');
+    supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+    console.log('Supabase client configured.');
+  } catch (err) {
+    console.warn('Supabase library not available or failed to init:', err.message || err);
+    supabase = null;
+  }
+} else {
+  console.log('Supabase not configured - local JSON fallback will be used.');
+}
 
 const DATA_DIR = path.join(__dirname, 'data');
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+
 const BOOKINGS_FILE = path.join(DATA_DIR, 'bookings.json');
 const ENQUIRIES_FILE = path.join(DATA_DIR, 'enquiries.json');
 
 // Ensure files exist
-if (!fs.existsSync(BOOKINGS_FILE)) fs.writeFileSync(BOOKINGS_FILE, '[]', 'utf8');
-if (!fs.existsSync(ENQUIRIES_FILE)) fs.writeFileSync(ENQUIRIES_FILE, '[]', 'utf8');
+try {
+  if (!fs.existsSync(BOOKINGS_FILE)) fs.writeFileSync(BOOKINGS_FILE, '[]', 'utf8');
+  if (!fs.existsSync(ENQUIRIES_FILE)) fs.writeFileSync(ENQUIRIES_FILE, '[]', 'utf8');
+} catch (err) {
+  console.error('Failed to ensure data files exist:', err);
+  process.exit(1);
+}
 
 const app = express();
 app.use(helmet());
@@ -30,9 +51,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY || '';
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'adminpass';
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
 // Optional SMTP notifier
 let mailer = null;
@@ -48,17 +70,44 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
   console.log('SMTP not configured - email notifications disabled.');
 }
 
-// Utility to append to JSON file
+// Utility: append to JSON file safely
 function appendJson(filePath, obj) {
-  const raw = fs.readFileSync(filePath, 'utf8') || '[]';
-  let arr;
-  try { arr = JSON.parse(raw); } catch (e) { arr = []; }
-  arr.push(obj);
-  fs.writeFileSync(filePath, JSON.stringify(arr, null, 2), 'utf8');
+  try {
+    const raw = fs.readFileSync(filePath, 'utf8') || '[]';
+    let arr = [];
+    try { arr = JSON.parse(raw); } catch (e) { arr = []; }
+    arr.push(obj);
+    fs.writeFileSync(filePath, JSON.stringify(arr, null, 2), 'utf8');
+  } catch (err) {
+    console.error('appendJson error:', err);
+  }
 }
 
-// Basic admin auth middleware
+// Helper: try to insert to Supabase (if configured)
+async function insertToSupabase(table, payload) {
+  if (!supabase) return { ok: false, reason: 'no-supabase' };
+  try {
+    const { error } = await supabase.from(table).insert([payload]);
+    if (error) {
+      console.warn(`Supabase insert error (${table}):`, error.message || error);
+      return { ok: false, reason: error.message || error };
+    }
+    return { ok: true };
+  } catch (err) {
+    console.warn('Supabase insert threw:', err);
+    return { ok: false, reason: err.message || err };
+  }
+}
+
+// Admin auth middleware - accept header x-admin-api-key OR Basic auth
 function requireAdmin(req, res, next) {
+  // header check first
+  const headerKey = (req.headers['x-admin-api-key'] || '').toString();
+  if (ADMIN_API_KEY && headerKey && headerKey === ADMIN_API_KEY) {
+    return next();
+  }
+
+  // fallback to Basic auth
   const user = basicAuth(req);
   if (!user || user.name !== ADMIN_USER || user.pass !== ADMIN_PASS) {
     res.set('WWW-Authenticate', 'Basic realm="Admin Area"');
@@ -71,7 +120,7 @@ function requireAdmin(req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API: post booking
-app.post('/api/book', (req, res) => {
+app.post('/api/book', async (req, res) => {
   const payload = {
     id: 'bk_' + Date.now(),
     createdAt: new Date().toISOString(),
@@ -83,7 +132,29 @@ app.post('/api/book', (req, res) => {
     time: req.body.time || '',
     message: req.body.message || ''
   };
-  appendJson(BOOKINGS_FILE, payload);
+
+  // Try supabase first (if configured). If supabase fails we append locally as fallback.
+  if (supabase) {
+    const supaResult = await insertToSupabase('bookings', {
+      created_at: payload.createdAt,
+      name: payload.name,
+      phone: payload.phone,
+      email: payload.email,
+      service: payload.service,
+      date: payload.date,
+      time: payload.time,
+      message: payload.message
+    });
+    if (!supaResult.ok) {
+      console.warn('Supabase insert failed - saving locally as fallback.');
+      appendJson(BOOKINGS_FILE, payload);
+    } else {
+      // also append locally as a backup (optional) — comment out if you don't want duplicates locally
+      appendJson(BOOKINGS_FILE, payload);
+    }
+  } else {
+    appendJson(BOOKINGS_FILE, payload);
+  }
 
   // optional email notify
   if (mailer && process.env.NOTIFY_TO) {
@@ -109,7 +180,7 @@ app.post('/api/book', (req, res) => {
 });
 
 // API: post enquiry
-app.post('/api/enquire', (req, res) => {
+app.post('/api/enquire', async (req, res) => {
   const payload = {
     id: 'enq_' + Date.now(),
     createdAt: new Date().toISOString(),
@@ -118,7 +189,23 @@ app.post('/api/enquire', (req, res) => {
     email: req.body.email || '',
     message: req.body.message || ''
   };
-  appendJson(ENQUIRIES_FILE, payload);
+
+  if (supabase) {
+    const supaResult = await insertToSupabase('enquiries', {
+      created_at: payload.createdAt,
+      name: payload.name,
+      phone: payload.phone,
+      email: payload.email,
+      message: payload.message
+    });
+    if (!supaResult.ok) {
+      appendJson(ENQUIRIES_FILE, payload);
+    } else {
+      appendJson(ENQUIRIES_FILE, payload);
+    }
+  } else {
+    appendJson(ENQUIRIES_FILE, payload);
+  }
 
   if (mailer && process.env.NOTIFY_TO) {
     const html = `
@@ -139,8 +226,7 @@ app.post('/api/enquire', (req, res) => {
   return res.json({ ok: true, id: payload.id });
 });
 
-// API: basic (demo) payment endpoint
-// In production replace with real gateway (Stripe/Razorpay) integration & webhook verification
+// API: basic (demo) payment endpoint - stores as payment record in bookings.json
 app.post('/api/payment', (req, res) => {
   const payload = {
     id: 'pay_' + Date.now(),
@@ -150,12 +236,11 @@ app.post('/api/payment', (req, res) => {
     email: req.body.email || '',
     amount: req.body.amount || '',
     service: req.body.service || '',
-    status: 'PENDING' // in real world update after gateway callback
+    status: 'PENDING'
   };
-  // For demo store under bookings.json as payment record
+
   appendJson(BOOKINGS_FILE, { ...payload, note: 'payment-simulated' });
 
-  // Optionally notify
   if (mailer && process.env.NOTIFY_TO) {
     mailer.sendMail({
       from: process.env.SMTP_USER,
@@ -165,38 +250,53 @@ app.post('/api/payment', (req, res) => {
     }).catch(err => console.error('Mailer error:', err));
   }
 
-  // Return a fake success token and url to simulate redirect to payment confirmation
   return res.json({ ok: true, id: payload.id, confirmUrl: '/payment-success.html' });
 });
 
 // Admin API (protected): get bookings & enquiries
 app.get('/api/admin/bookings', requireAdmin, (req, res) => {
-  const raw = fs.readFileSync(BOOKINGS_FILE, 'utf8') || '[]';
-  res.json(JSON.parse(raw));
+  try {
+    const raw = fs.readFileSync(BOOKINGS_FILE, 'utf8') || '[]';
+    res.json(JSON.parse(raw));
+  } catch (err) {
+    console.error('Failed to read bookings file:', err);
+    res.status(500).json([]);
+  }
 });
 app.get('/api/admin/enquiries', requireAdmin, (req, res) => {
-  const raw = fs.readFileSync(ENQUIRIES_FILE, 'utf8') || '[]';
-  res.json(JSON.parse(raw));
+  try {
+    const raw = fs.readFileSync(ENQUIRIES_FILE, 'utf8') || '[]';
+    res.json(JSON.parse(raw));
+  } catch (err) {
+    console.error('Failed to read enquiries file:', err);
+    res.status(500).json([]);
+  }
 });
 
 // Admin export (CSV)
 app.get('/api/admin/export/bookings.csv', requireAdmin, (req, res) => {
-  const raw = fs.readFileSync(BOOKINGS_FILE, 'utf8') || '[]';
-  const arr = JSON.parse(raw);
-  let csv = 'id,createdAt,name,phone,email,service,date,time,message\n';
-  arr.forEach(r => {
-    csv += `"${r.id}","${r.createdAt}","${(r.name||'').replace(/"/g,'""')}","${(r.phone||'').replace(/"/g,'""')}","${(r.email||'').replace(/"/g,'""')}","${(r.service||'').replace(/"/g,'""')}","${r.date||''}","${r.time||''}","${(r.message||'').replace(/"/g,'""')}"\n`
-  });
-  res.setHeader('Content-Type', 'text/csv');
-  res.setHeader('Content-Disposition', 'attachment; filename="bookings.csv"');
-  res.send(csv);
+  try {
+    const raw = fs.readFileSync(BOOKINGS_FILE, 'utf8') || '[]';
+    const arr = JSON.parse(raw);
+    let csv = 'id,createdAt,name,phone,email,service,date,time,message\n';
+    arr.forEach(r => {
+      csv += `"${r.id}","${r.createdAt}","${(r.name||'').replace(/"/g,'""')}","${(r.phone||'').replace(/"/g,'""')}","${(r.email||'').replace(/"/g,'""')}","${(r.service||'').replace(/"/g,'""')}","${r.date||''}","${r.time||''}","${(r.message||'').replace(/"/g,'""')}"\n`;
+    });
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Content-Disposition', 'attachment; filename="bookings.csv"');
+    res.send(csv);
+  } catch (err) {
+    console.error('Export failed:', err);
+    res.status(500).send('Export failed');
+  }
 });
 
-// For security: simple health endpoint
+// Health
 app.get('/health', (req, res) => res.json({ ok: true }));
 
 // Start server
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
   console.log(`Admin user: ${ADMIN_USER} (set ADMIN_USER/ADMIN_PASS env to change)`);
+  if (ADMIN_API_KEY) console.log('Admin API key is configured (x-admin-api-key allowed).');
 });

@@ -1,0 +1,369 @@
+<!-- numerology.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Numerology — Shree Shree Vidya</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap');
+    
+    :root{
+      --bg:#fff;
+      --accent:#b8860b;
+      --muted:#616161;
+      --gradient-start: #f8f9ff;
+      --gradient-end: #fff5e6;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 8px 32px rgba(184, 134, 11, 0.12);
+      --border-soft: rgba(184, 134, 11, 0.15);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+      background-attachment: fixed;
+      color:#222;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+    
+    /* Animated background particles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 25% 35%, rgba(184, 134, 11, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 65%, rgba(184, 134, 11, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-25px) scale(1.05); }
+    }
+    
+    .container{
+      max-width:1000px;
+      margin:28px auto;
+      padding:20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 20px 24px;
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+    
+    header:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    
+    header > div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    header > div > div:first-child {
+      font-family:Cinzel,serif;
+      color:var(--accent);
+      font-weight:700;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+    }
+    
+    header > div > div:last-child {
+      color:var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    header > a {
+      color:var(--muted);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: rgba(184, 134, 11, 0.05);
+    }
+    
+    header > a:hover {
+      background: rgba(184, 134, 11, 0.15);
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+    
+    section {
+      margin-top: 24px;
+    }
+    
+    .card{
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding:32px;
+      border-radius:20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+    
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    h1{
+      font-family:Cinzel,serif;
+      color:var(--accent);
+      margin:0 0 12px 0;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(184, 134, 11, 0.1);
+    }
+    
+    .card > p {
+      color:var(--muted);
+      font-size: 16px;
+      margin: 0 0 24px 0;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    
+    .card h3 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.3px;
+    }
+    
+    .card ul {
+      color:var(--muted);
+      margin: 0;
+      padding-left: 24px;
+      line-height: 1.9;
+    }
+    
+    .card ul li {
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      position: relative;
+      padding-left: 8px;
+    }
+    
+    .card ul li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .card ul li::marker {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    
+    .card > div[style*="font-weight:800"] {
+      font-weight:800 !important;
+      color:var(--accent) !important;
+      margin-top:24px !important;
+      font-size: 17px;
+      padding: 14px 16px;
+      background: rgba(184, 134, 11, 0.08);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn{
+      padding:14px 32px;
+      border-radius:12px;
+      border:0;
+      cursor:pointer;
+      background: linear-gradient(135deg, var(--accent) 0%, #9a6f0a 100%);
+      color:#fff;
+      margin-top:20px;
+      font-weight:700;
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+      background: linear-gradient(135deg, #9a6f0a 0%, var(--accent) 100%);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    footer {
+      margin-top:32px;
+      color:var(--muted);
+      text-align: center;
+      padding: 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 16px;
+        margin: 16px auto;
+      }
+      
+      header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        align-items: center;
+      }
+      
+      header > a {
+        width: 100%;
+        text-align: center;
+      }
+      
+      header > a:hover {
+        transform: translateX(0) translateY(-2px);
+      }
+      
+      .card {
+        padding: 24px;
+      }
+      
+      h1 {
+        font-size: 28px;
+      }
+      
+      .card > p {
+        font-size: 14px;
+      }
+      
+      .btn {
+        width: 100%;
+        padding: 12px 24px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+      
+      header > div > div:first-child {
+        font-size: 18px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      .card h3 {
+        font-size: 18px;
+      }
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Focus states for accessibility */
+    .btn:focus,
+    header > a:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-family:Cinzel,serif;color:var(--accent);font-weight:700">Numerology</div><div style="color:var(--muted)">Name & number analysis</div></div>
+      <a href="services.html" style="color:var(--muted);text-decoration:none">← Back</a>
+    </header>
+
+    <section style="margin-top:12px">
+      <div class="card">
+        <h1>Numerology Reading</h1>
+        <p style="color:var(--muted)">Personalised numerology report that decodes name & date to guide career, relationships and key decisions.</p>
+
+        <h3 style="margin-top:12px">What's included</h3>
+        <ul style="color:var(--muted)">
+          <li>Core number calculation & interpretation</li>
+          <li>Personal year forecast</li>
+          <li>Suggested remedial actions and gemstones (if applicable)</li>
+        </ul>
+
+        <div style="font-weight:800;color:var(--accent);margin-top:10px">Price: ₹1,500 • Duration: 30 mins</div>
+        <button class="btn" onclick="window.location.href='services.html#contact'">Book Now</button>
+      </div>
+    </section>
+
+    <footer style="margin-top:18px;color:var(--muted)">© <span id="y"></span> Shree Shree Vidya</footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

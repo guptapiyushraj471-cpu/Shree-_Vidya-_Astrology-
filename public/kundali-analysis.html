@@ -1,0 +1,547 @@
+<!-- kundali-analysis.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Kundali Analysis — Shree Shree Vidya</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap');
+    
+    :root{
+      --bg:#fff;
+      --panel:#fbf6ef;
+      --accent:#b8860b;
+      --muted:#616161;
+      --gradient-start: #f8f9ff;
+      --gradient-end: #fff5e6;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 8px 32px rgba(184, 134, 11, 0.12);
+      --border-soft: rgba(184, 134, 11, 0.15);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+      background-attachment: fixed;
+      color:#222;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+    
+    /* Cosmic background particles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(184, 134, 11, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(184, 134, 11, 0.03) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    /* Celestial accent particles */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 15%;
+      right: 10%;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: orbit 15s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-25px) rotate(2deg); }
+    }
+    
+    @keyframes orbit {
+      0% { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+    }
+    
+    .container{
+      max-width:1000px;
+      margin:28px auto;
+      padding:20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 20px 24px;
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+    
+    header:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    
+    header > div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    header > div > div:first-child {
+      font-family:Cinzel,serif;
+      color:var(--accent);
+      font-weight:700;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+    }
+    
+    header > div > div:last-child {
+      color:var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    header > nav > a {
+      color:var(--muted);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: rgba(184, 134, 11, 0.05);
+      display: inline-block;
+    }
+    
+    header > nav > a:hover {
+      background: rgba(184, 134, 11, 0.15);
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+    
+    .hero{
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding:32px;
+      border-radius:20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Astrological chart motif */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -5%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    .hero::after {
+      content: '✨';
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 24px;
+      opacity: 0.3;
+      animation: twinkle 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+    
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .title{
+      font-family:Cinzel,serif;
+      color:var(--accent);
+      font-size:36px;
+      margin:0 0 12px 0;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(184, 134, 11, 0.1);
+    }
+    
+    .sub{
+      color:var(--muted);
+      margin-top:12px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:24px;
+      margin-top:28px;
+    }
+    
+    .card{
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding:24px;
+      border-radius:16px;
+      border:1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+    
+    .card > div > strong,
+    .card > div#relatedTitle > strong {
+      color: #1a1a1a;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      display: block;
+      margin-bottom: 12px;
+    }
+    
+    .benefits{
+      margin-top:12px;
+      color:var(--muted);
+      padding-left: 24px;
+      margin-bottom: 0;
+      line-height: 1.9;
+    }
+    
+    .benefits li {
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      position: relative;
+      padding-left: 8px;
+    }
+    
+    .benefits li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .benefits li::marker {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    
+    .price{
+      font-weight:800;
+      color:var(--accent);
+      margin-top:20px;
+      font-size: 17px;
+      padding: 14px 16px;
+      background: rgba(184, 134, 11, 0.08);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .price::before {
+      content: '🔮';
+      font-size: 20px;
+      animation: gentle-spin 6s linear infinite;
+    }
+    
+    @keyframes gentle-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    aside.card {
+      background: linear-gradient(135deg, rgba(184, 134, 11, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+    }
+    
+    aside.card > p {
+      color:var(--muted);
+      margin: 12px 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    
+    aside.card select {
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid var(--border-soft);
+      background: #fff;
+      color: #222;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    aside.card select:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(184, 134, 11, 0.15);
+    }
+    
+    aside.card select:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-color: var(--accent);
+    }
+    
+    aside.card > div[style*="margin-top"] {
+      margin-top:16px !important;
+    }
+    
+    .btn{
+      padding:12px 24px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      background: linear-gradient(135deg, var(--accent) 0%, #9a6f0a 100%);
+      color:#fff;
+      margin-top:12px;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+    
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+      background: linear-gradient(135deg, #9a6f0a 0%, var(--accent) 100%);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    footer{
+      margin-top:32px;
+      color:var(--muted);
+      font-size:14px;
+      text-align: center;
+      padding: 24px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    footer > div:first-child {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    footer > div:last-child {
+      color:var(--muted);
+      margin-top:8px;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+    
+    @media (max-width:820px){ 
+      .grid{
+        grid-template-columns:1fr;
+      }
+      
+      .container {
+        padding: 16px;
+        margin: 16px auto;
+      }
+      
+      header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      
+      header > nav > a:hover {
+        transform: translateX(0) translateY(-2px);
+      }
+      
+      .hero {
+        padding: 24px;
+      }
+      
+      .title {
+        font-size: 28px;
+      }
+      
+      .sub {
+        font-size: 14px;
+      }
+      
+      .grid {
+        gap: 16px;
+        margin-top: 20px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .title {
+        font-size: 24px;
+      }
+      
+      header > div > div:first-child {
+        font-size: 18px;
+      }
+      
+      .price {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Focus states for accessibility */
+    .btn:focus,
+    header > nav > a:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div>
+        <div style="font-family:Cinzel,serif;color:var(--accent);font-weight:700">श्री श्री विद्या</div>
+        <div style="color:var(--muted)">Pandit Shubham Sharma & Pandit Vikas Sharma</div>
+      </div>
+      <nav><a href="services.html" style="color:var(--muted);text-decoration:none">← Back to Services</a></nav>
+    </header>
+
+    <section class="hero">
+      <h1 class="title">Kundali Analysis</h1>
+      <p class="sub">Comprehensive birth-chart reading with actionable remedies and a written report.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div><strong>What you receive</strong>
+            <ul class="benefits">
+              <li>Detailed chart interpretation (career, health, marriage, finance)</li>
+              <li>Personalised remedies and ritual suggestions</li>
+              <li>Written PDF report with action plan</li>
+            </ul>
+          </div>
+
+          <div class="price">Price: ₹2,100 • Duration: 45 mins</div>
+          <button class="btn" onclick="window.location.href='services.html#contact'">Book Consultation</button>
+        </div>
+
+        <aside class="card" aria-labelledby="relatedTitle">
+          <div id="relatedTitle"><strong>Related</strong></div>
+          <p style="color:var(--muted)">See today's rashifal for a quick view:</p>
+          <select id="quickSign" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6e6e6">
+            <option value="">Select Zodiac</option>
+            <option>Aries</option><option>Taurus</option><option>Gemini</option>
+            <option>Cancer</option><option>Leo</option><option>Virgo</option>
+            <option>Libra</option><option>Scorpio</option><option>Sagittarius</option>
+            <option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+          </select>
+          <div style="margin-top:10px"><button class="btn" id="openView">Open Rashifal</button></div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div>Contact: +91 72238 79166 • shrishrividhyaastrology@gmail.com</div>
+      <div style="margin-top:8px;color:var(--muted)">© <span id="y"></span> Shree Shree Vidya</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('openView').addEventListener('click', function(){
+      const s = document.getElementById('quickSign').value;
+      if(!s) return alert('Please select a zodiac');
+      window.open('view.html?sign=' + encodeURIComponent(s),'_blank');
+    });
+  </script>
+</body>
+</html>
