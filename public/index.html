@@ -809,125 +809,10 @@
 
 
 <script>
-/* ===============================
-   ADDITIONAL JAVASCRIPT (SAFE)
-   Paste below body
-================================ */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* ===== GANESH JI HORIZONTAL SLIDER ===== */
-  let ganeshIndex = 0;
-  const ganeshSlides = document.querySelectorAll('.ganesh-slide');
-  const ganeshDots = document.querySelectorAll('.ganesh-dot');
-  const GANESH_INTERVAL = 4000;
-  let ganeshTimer;
-
-  function showGaneshSlide(index) {
-    ganeshSlides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-
-    ganeshDots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-
-    ganeshIndex = index;
-  }
-
-  function nextGaneshSlide() {
-    ganeshIndex = (ganeshIndex + 1) % ganeshSlides.length;
-    showGaneshSlide(ganeshIndex);
-  }
-
-  if (ganeshSlides.length > 0) {
-    showGaneshSlide(0);
-    ganeshTimer = setInterval(nextGaneshSlide, GANESH_INTERVAL);
-  }
-
-  ganeshDots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showGaneshSlide(index);
-      clearInterval(ganeshTimer);
-      ganeshTimer = setInterval(nextGaneshSlide, GANESH_INTERVAL);
-    });
-  });
-
-  const ganeshBox = document.querySelector('.ganesh-box');
-  if (ganeshBox) {
-    ganeshBox.addEventListener('mouseenter', () => clearInterval(ganeshTimer));
-    ganeshBox.addEventListener('mouseleave', () => {
-      ganeshTimer = setInterval(nextGaneshSlide, GANESH_INTERVAL);
-    });
-  }
-
-  /* ===== VIDHYA MATA VERTICAL SLIDER ===== */
-  let vidhyaIndex = 0;
-  const vidhyaSlides = document.querySelectorAll('.vidhya-slide');
-  const VIDHYA_INTERVAL = 4000;
-  let vidhyaTimer;
-
-  function showVidhyaSlide(index) {
-    vidhyaSlides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    vidhyaIndex = index;
-  }
-
-  function nextVidhyaSlide() {
-    vidhyaIndex = (vidhyaIndex + 1) % vidhyaSlides.length;
-    showVidhyaSlide(vidhyaIndex);
-  }
-
-  if (vidhyaSlides.length > 0) {
-    showVidhyaSlide(0);
-    vidhyaTimer = setInterval(nextVidhyaSlide, VIDHYA_INTERVAL);
-  }
-
-  const vidhyaContainer = document.querySelector('.vidhya-container');
-  if (vidhyaContainer) {
-    vidhyaContainer.addEventListener('mouseenter', () => clearInterval(vidhyaTimer));
-    vidhyaContainer.addEventListener('mouseleave', () => {
-      vidhyaTimer = setInterval(nextVidhyaSlide, VIDHYA_INTERVAL);
-    });
-  }
-
-});
-</script>
-
-<script>
-/* HERO BACKGROUND IMAGE SLIDER */
-const heroImages = [
-  "img/hero1.jpg",
-  "img/hero2.jpg",
-  "img/hero3.jpg",
-  "img/hero4.jpg",
-  "img/hero5.jpg",
-  "img/hero6.jpg",
-  "img/hero7.jpg",
-  "img/hero8.jpg",
-  "img/hero9.jpg",
-  "img/hero10.jpg"
-];
-
-let heroIndex = 0;
-const heroBg = document.querySelector(".hero-bg");
-
-function changeHeroBg() {
-  heroBg.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
-  heroIndex = (heroIndex + 1) % heroImages.length;
-}
-
-if (heroBg) {
-  changeHeroBg();
-  setInterval(changeHeroBg, 4000);
-}
-</script>
-
-
-<script>
 document.addEventListener("DOMContentLoaded", function () {
 
+  /* ================= HERO BACKGROUND SLIDER ================= */
+  const heroBg = document.querySelector(".hero-bg");
   const heroImages = [
     "/img/Mata1.jpg",
     "/img/GaneshJi3.jpg",
@@ -936,131 +821,82 @@ document.addEventListener("DOMContentLoaded", function () {
     "/img/horoscope.jpg",
     "/img/Mata3.jpg",
     "/img/GaneshJi2.jpg",
-    "/img/horoscope.jpg",
     "/img/zodiacwheel2.jpg",
     "/img/planet.jpg"
   ];
 
-  let heroIndex = 0;
-  const heroBg = document.querySelector(".hero-bg");
+  if (heroBg && heroImages.length) {
+    let heroIndex = 0;
+    heroBg.style.backgroundImage = `url('${heroImages[0]}')`;
 
-  if (!heroBg) {
-    console.error("❌ .hero-bg not found");
-    return;
+    setInterval(() => {
+      heroIndex = (heroIndex + 1) % heroImages.length;
+      heroBg.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
+    }, 5000);
   }
 
-  function changeHeroBg() {
-    heroBg.style.backgroundImage =
-      "url('" + heroImages[heroIndex] + "')";
-    heroIndex = (heroIndex + 1) % heroImages.length;
-  }
-
-  changeHeroBg();                 // FIRST IMAGE LOAD
-  setInterval(changeHeroBg, 4000); // AUTO SLIDE
-});
-</script>
-
-<script>
-
-function autoSlide(containerId, interval = 2000) {
-  const images = document.querySelectorAll(`#${containerId} img`);
-  let index = 0;
-
-  setInterval(() => {
-    images[index].classList.remove("active");
-    index = (index + 1) % images.length;
-    images[index].classList.add("active");
-  }, interval);
-}
-
-autoSlide("shubhamSlider", 2000);
-autoSlide("makahanSlider", 2000);
-
-// Video auto switch
-const videos = document.querySelectorAll(".astro-video");
-let videoIndex = 0;
-
-setInterval(() => {
-  videos[videoIndex].classList.remove("active");
-  videoIndex = (videoIndex + 1) % videos.length;
-  videos[videoIndex].classList.add("active");
-}, 4000);
-
-
-
-</script>
-
-<script>
-// UPCOMING IMAGE SLIDER
-document.querySelectorAll('.event-card').forEach(card=>{
-  const img=card.querySelector('.event-img');
-  const images=card.dataset.images.split(',');
-  let i=0;
-  setInterval(()=>{
-    i=(i+1)%images.length;
-    img.src=images[i];
-  },2000);
-});
-
-// COMPLETED EVENT SLIDER
-
-
-const track=document.querySelector('.completed-track');
-const cards=document.querySelectorAll('.completed-card');
-let index=0;
-const width=cards[0].offsetWidth+25;
-
-setInterval(()=>{
-  index++;
-  if(index>cards.length-1) index=0;
-  track.style.transform=`translateX(-${index*width}px)`;
-},5000);
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  document.querySelectorAll(".event-card").forEach(card => {
-    const img = card.querySelector(".event-img");
-    const images = card.dataset.images.split(",");
-    let index = 0;
-
+  /* ================= ASTRO IMAGE SLIDERS ================= */
+  function autoSlide(containerId, interval = 5000) {
+    const images = document.querySelectorAll(`#${containerId} img`);
     if (images.length < 2) return;
 
+    let index = 0;
+    setInterval(() => {
+      images[index].classList.remove("active");
+      index = (index + 1) % images.length;
+      images[index].classList.add("active");
+    }, interval);
+  }
+
+  autoSlide("shubhamSlider");
+  autoSlide("makahanSlider");
+
+  /* ================= ASTRO VIDEO SWITCH ================= */
+  const videos = document.querySelectorAll(".astro-video");
+  if (videos.length > 1) {
+    let vIndex = 0;
+    setInterval(() => {
+      videos[vIndex].classList.remove("active");
+      vIndex = (vIndex + 1) % videos.length;
+      videos[vIndex].classList.add("active");
+    }, 5000);
+  }
+
+  /* ================= UPCOMING EVENTS IMAGE SLIDER ================= */
+  document.querySelectorAll(".event-card").forEach(card => {
+    const img = card.querySelector(".event-img");
+    const images = card.dataset.images?.split(",").map(i => i.trim());
+
+    if (!img || !images || images.length < 2) return;
+
+    let index = 0;
     setInterval(() => {
       img.style.opacity = "0";
       setTimeout(() => {
         index = (index + 1) % images.length;
-        img.src = images[index].trim();
+        img.src = images[index];
         img.style.opacity = "1";
       }, 300);
     }, 5000);
   });
 
-});
-</script>
+  /* ================= COMPLETED EVENTS SLIDER ================= */
+  const track = document.querySelector(".completed-track");
+  const cards = document.querySelectorAll(".completed-card");
 
+  if (track && cards.length > 1) {
+    let index = 0;
+    const cardWidth = cards[0].offsetWidth + 25;
 
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  const track = document.querySelector('.completed-track');
-  const cards = document.querySelectorAll('.completed-card');
-
-  if(!track || cards.length === 0) return;
-
-  let index = 0;
-  const cardWidth = cards[0].offsetWidth + 25;
-
-  setInterval(() => {
-    index++;
-    if(index >= cards.length) index = 0;
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-  }, 5000);
+    setInterval(() => {
+      index = (index + 1) % cards.length;
+      track.style.transform = `translateX(-${index * cardWidth}px)`;
+    }, 5000);
+  }
 
 });
 </script>
+
 
 
 </body>
