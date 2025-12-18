@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vastu Products</title>
+
+<style>
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#0b1220;
+  color:#fff;
+  padding:40px 20px;
+}
+
+/* ===== SECTION ===== */
+.vastu-section{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+
+.vastu-section h2{
+  font-size:30px;
+  margin-bottom:30px;
+  color:#f5c16c;
+}
+
+/* ===== GRID ===== */
+.vastu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:24px;
+}
+
+/* ===== CARD ===== */
+.vastu-card{
+  background:#111a2e;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.vastu-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 45px rgba(0,0,0,0.6);
+}
+
+.vastu-card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:14px;
+  border:2px solid #2a3560;
+  background:#000;
+}
+
+.vastu-card h3{
+  margin:14px 0;
+  font-size:18px;
+  color:#ffffff;
+}
+
+/* ===== BUTTON ===== */
+.view-product{
+  display:inline-block;
+  margin-top:8px;
+  padding:10px 26px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#f5c16c,#ffb703);
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.view-product:hover{
+  transform:scale(1.05);
+  box-shadow:0 6px 18px rgba(245,193,108,.5);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  .vastu-section h2{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="vastu-section">
+  <h2>Vastu Products</h2>
+
+  <div class="vastu-grid">
+
+    <div class="vastu-card">
+      <img src="/public/vastu/img/VastuPyramid.jfif" alt="Vastu Pyramid">
+      <h3>Vastu Pyramid</h3>
+      <a href="vastu-pyramid.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="vastu-card">
+      <img src="/public/vastu/img/VastuYantra.jpg" alt="Vastu Yantra">
+      <h3>Vastu Yantra</h3>
+      <a href="vastu-yantra.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="vastu-card">
+      <img src="/public/vastu/img/BrassTortoise.webp" alt="Brass Tortoise">
+      <h3>Brass Tortoise</h3>
+      <a href="brass-tortoise.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="vastu-card">
+      <img src="/public/vastu/img/Kubera.webp" alt="Kubera Yantra">
+      <h3>Kubera Yantra</h3>
+      <a href="kubera-yantra.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="vastu-card">
+      <img src="/public/vastu/img/EvilEye.webp" alt="Evil Eye Protection">
+      <h3>Evil Eye Protection</h3>
+      <a href="evil-eye.html" class="view-product">View Product</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.view-product').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    console.log('Vastu product clicked');
+  });
+});
+</script>
+
+</body>
+</html>

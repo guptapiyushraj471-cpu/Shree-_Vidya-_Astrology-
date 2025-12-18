@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yantra Products</title>
+
+<style>
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#0b1220;
+  color:#ffffff;
+  padding:40px 20px;
+}
+
+/* ===== SECTION ===== */
+.yantra-section{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+
+.yantra-section h2{
+  font-size:30px;
+  margin-bottom:30px;
+  color:#f5c16c;
+}
+
+/* ===== GRID ===== */
+.yantra-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:24px;
+}
+
+/* ===== CARD ===== */
+.yantra-card{
+  background:#111a2e;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.yantra-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 45px rgba(0,0,0,0.6);
+}
+
+.yantra-card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:14px;
+  border:2px solid #2a3560;
+  background:#000;
+}
+
+.yantra-card h3{
+  margin:14px 0;
+  font-size:18px;
+  color:#ffffff;
+}
+
+/* ===== BUTTON ===== */
+.view-product{
+  display:inline-block;
+  margin-top:8px;
+  padding:10px 26px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#f5c16c,#ffb703);
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.view-product:hover{
+  transform:scale(1.05);
+  box-shadow:0 6px 18px rgba(245,193,108,.5);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  .yantra-section h2{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="yantra-section">
+  <h2>Yantra Products</h2>
+
+  <div class="yantra-grid">
+
+    <div class="yantra-card">
+      <img src="/public/Yantra/img/ShreeYantra.jpg" alt="Shree Yantra">
+      <h3>Shree Yantra</h3>
+      <a href="shree-yantra.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="yantra-card">
+      <img src="/public/Yantra/img/KuberaYantra.jpg" alt="Kubera Yantra">
+      <h3>Kubera Yantra</h3>
+      <a href="kubera-yantra.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="yantra-card">
+      <img src="/public/Yantra/img/NavgrahYantra.jfif" alt="Navgrah Yantra">
+      <h3>Navgrah Yantra</h3>
+      <a href="navgrah-yantra.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="yantra-card">
+      <img src="/public/Yantra/img/VastuYantra.webp" alt="Vastu Yantra">
+      <h3>Vastu Yantra</h3>
+      <a href="vastu-yantra.html" class="view-product">View Product</a>
+    </div>
+
+    <div class="yantra-card">
+      <img src="/public/Yantra/img/KaalSarpYantra.jfif" alt="Kaal Sarp Yantra">
+      <h3>Kaal Sarp Yantra</h3>
+      <a href="kaalsarp-yantra.html" class="view-product">View Product</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.view-product').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    console.log('Yantra product clicked');
+  });
+});
+</script>
+
+</body>
+</html>

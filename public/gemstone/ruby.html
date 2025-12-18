@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ruby (Manik) – Gemstone Details</title>
+  <link rel="stylesheet" href="css/gemstone-detail.css">
+</head>
+<body>
+
+<section class="detail-container">
+  <h1>Ruby (Manik)</h1>
+
+  <img src="/public/gemstone/img/Ruby.jpg" alt="Ruby Gemstone" class="gem-img">
+
+  <p class="desc">
+    Ruby strengthens confidence, leadership, authority and Sun energy.
+    Highly recommended for success and vitality.
+  </p>
+
+  <ul class="info">
+    <li><strong>Planet:</strong> Sun</li>
+    <li><strong>Chakra:</strong> Heart</li>
+    <li><strong>Recommended For:</strong> Leadership, Power, Confidence</li>
+    <li><strong>Price:</strong> ₹4,999</li>
+  </ul>
+
+  <div class="actions">
+    <a href="#book" class="book-btn">Book Now</a>
+    <a href="../index.html" class="back-btn">Back</a>
+  </div>
+</section>
+
+<!-- BOOK SECTION -->
+<section id="book" class="booking">
+  <h2>Book Ruby Gemstone</h2>
+
+  <form onsubmit="submitBooking(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Message / Purpose"></textarea>
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<script src="js/gemstone-detail.js"></script>
+</body>
+</html>

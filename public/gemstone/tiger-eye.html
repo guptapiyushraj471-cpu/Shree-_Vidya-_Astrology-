@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiger Eye – Gemstone Details</title>
+  <link rel="stylesheet" href="css/gemstone-detail.css">
+</head>
+<body>
+
+<section class="detail-container">
+  <h1>Tiger Eye</h1>
+  <img src="/public/gemstone/img/tigereye.jpg" class="gem-img" alt="Tiger Eye">
+
+  <p class="desc">
+    Tiger Eye boosts courage, confidence, and protection.
+    It is ideal for overcoming fear and improving decision-making.
+  </p>
+
+  <ul class="info">
+    <li><strong>Planet:</strong> Sun & Mars</li>
+    <li><strong>Chakra:</strong> Solar Plexus</li>
+    <li><strong>Recommended For:</strong> Courage, Confidence</li>
+    <li><strong>Price:</strong> ₹1,999</li>
+  </ul>
+
+  <div class="actions">
+    <a href="#book" class="book-btn">Book Now</a>
+    <a href="../index.html" class="back-btn">Back</a>
+  </div>
+</section>
+
+<section id="book" class="booking">
+  <h2>Book Tiger Eye</h2>
+  <form onsubmit="submitBooking(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Purpose / Message"></textarea>
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<script src="js/gemstone-detail.js"></script>
+</body>
+</html>

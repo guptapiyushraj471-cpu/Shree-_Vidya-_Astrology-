@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jade – Gemstone Details</title>
+  <link rel="stylesheet" href="css/gemstone-detail.css">
+</head>
+<body>
+
+<section class="detail-container">
+  <h1>Jade</h1>
+  <img src="/public/gemstone/img/Jade.avif" class="gem-img" alt="Jade">
+
+  <p class="desc">
+    Jade attracts prosperity, harmony, and good luck.
+    It is associated with peace, balance, and wisdom.
+  </p>
+
+  <ul class="info">
+    <li><strong>Planet:</strong> Mercury</li>
+    <li><strong>Chakra:</strong> Heart</li>
+    <li><strong>Recommended For:</strong> Luck, Harmony</li>
+    <li><strong>Price:</strong> ₹2,699</li>
+  </ul>
+
+  <div class="actions">
+    <a href="#book" class="book-btn">Book Now</a>
+    <a href="../index.html" class="back-btn">Back</a>
+  </div>
+</section>
+
+<section id="book" class="booking">
+  <h2>Book Jade</h2>
+  <form onsubmit="submitBooking(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Purpose / Message"></textarea>
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<script src="js/gemstone-detail.js"></script>
+</body>
+</html>

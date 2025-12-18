@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Citrine – Gemstone Details</title>
+  <link rel="stylesheet" href="css/gemstone-detail.css">
+</head>
+<body>
+
+<section class="detail-container">
+  <h1>Citrine</h1>
+  <img src="/public/gemstone/img/Citrine.png" class="gem-img" alt="Citrine">
+
+  <p class="desc">
+    Citrine attracts wealth, positivity, and success.
+    It boosts confidence, motivation, and business growth.
+  </p>
+
+  <ul class="info">
+    <li><strong>Planet:</strong> Jupiter (Substitute)</li>
+    <li><strong>Chakra:</strong> Solar Plexus</li>
+    <li><strong>Recommended For:</strong> Wealth, Confidence, Success</li>
+    <li><strong>Price:</strong> ₹2,599</li>
+  </ul>
+
+  <div class="actions">
+    <a href="#book" class="book-btn">Book Now</a>
+    <a href="../index.html" class="back-btn">Back</a>
+  </div>
+</section>
+
+<section id="book" class="booking">
+  <h2>Book Citrine</h2>
+  <form onsubmit="submitBooking(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Purpose / Message"></textarea>
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<script src="js/gemstone-detail.js"></script>
+</body>
+</html>

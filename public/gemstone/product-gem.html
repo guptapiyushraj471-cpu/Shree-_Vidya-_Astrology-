@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gemstone Products | Spiritual Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top,#1a1f2e,#0b0f1a);
+  color:#fff;
+}
+
+/* HEADER */
+.page-header{
+  padding:50px 20px;
+  text-align:center;
+}
+.page-header h1{
+  font-size:36px;
+}
+.page-header p{
+  color:#b8b8b8;
+}
+
+/* GRID */
+.product-container{
+  max-width:1300px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+/* CARD */
+.product-card{
+  background:#141a2a;
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+}
+
+.product-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-bottom:12px;
+}
+
+.product-card h3{
+  font-size:18px;
+  margin:6px 0;
+}
+
+.product-card p{
+  font-size:14px;
+  color:#cfcfcf;
+}
+
+.price{
+  font-size:18px;
+  color:#f4c95d;
+  font-weight:700;
+  margin:8px 0;
+}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+.actions a{
+  flex:1;
+  text-align:center;
+  padding:10px;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+.view{
+  background:#1e253d;
+  color:#fff;
+}
+.buy{
+  background:#f4c95d;
+  color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <h1>Gemstone / Ratna Collection</h1>
+  <p>Certified, Energized & Astrology-Recommended Gemstones</p>
+</div>
+
+<!-- PRODUCTS -->
+<div class="product-container">
+
+  <!-- 1 -->
+  <div class="product-card">
+    <img src="/public/gemstone/img/Ruby.jpg">
+    <h3>Ruby (Manik)</h3>
+    <p>Enhances confidence, leadership & Sun strength.</p>
+    <div class="price">₹4,999</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="product-card">
+    <img src="/public/gemstone/img/Pearl.jpg">
+    <h3>Pearl (Moti)</h3>
+    <p>Improves mental peace & Moon balance.</p>
+    <div class="price">₹2,499</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="product-card">
+      <img src="/public/gemstone/img/Emerald.jfif">
+    <h3>Emerald (Panna)</h3>
+    <p>Boosts intellect, communication & Mercury.</p>
+    <div class="price">₹5,999</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="product-card">
+       <img src="/public/gemstone/img/YellowSapphire.png">
+    <h3>Yellow Sapphire (Pukhraj)</h3>
+    <p>Brings wealth, wisdom & Jupiter blessings.</p>
+    <div class="price">₹6,999</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="product-card">
+      <img src="/public/gemstone/img/Diamond.webp">
+    <h3>Diamond (Heera)</h3>
+    <p>Luxury, beauty & Venus energy.</p>
+    <div class="price">₹14,999</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="product-card">
+     <img src="/public/gemstone/img/BlueSapphire.jpg">
+    <h3>Blue Sapphire (Neelam)</h3>
+    <p>Fast results for Saturn strength.</p>
+    <div class="price">₹8,999</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="product-card">
+      <img src="/public/gemstone/img/Hessonite.jpg">
+    <h3>Hessonite (Gomed)</h3>
+    <p>Controls Rahu effects & confusion.</p>
+    <div class="price">₹3,499</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="product-card">
+     <img src="/public/gemstone/img/CatEye.webp">
+    <h3>Cat’s Eye (Lehsunia)</h3>
+    <p>Protection & Ketu remedies.</p>
+    <div class="price">₹3,999</div>
+    <div class="actions">
+      <a class="view" href="#">View Details</a>
+      <a class="buy" href="https://wa.me/919999999999">Book Now</a>
+    </div>
+  </div>
+
+  <!-- 9–20 (same structure, ready) -->
+  <!-- You can duplicate and just change name, image & price -->
+
+  <!-- 9 -->
+  <div class="product-card"><img src="/public/gemstone/img/Amethyst.jpg"><h3>Amethyst</h3><p>Calming & spiritual growth.</p><div class="price">₹1,999</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 10 -->
+  <div class="product-card"><img src="/public/gemstone/img/Garnet.jpg"><h3>Garnet</h3><p>Energy & passion booster.</p><div class="price">₹1,899</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 11 -->
+  <div class="product-card"><img src="/public/gemstone/img/WhiteTopaz.jfif"><h3>White Topaz</h3><p>Clarity & calmness.</p><div class="price">₹2,299</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 12 -->
+  <div class="product-card"><img src="/public/gemstone/img/Opal.webp"><h3>Opal</h3><p>Luxury & Venus harmony.</p><div class="price">₹4,499</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 13 -->
+  <div class="product-card"><img src="/public/gemstone/img/Moonstone.webp"><h3>Moonstone</h3><p>Emotional balance.</p><div class="price">₹1,799</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 14 -->
+  <div class="product-card"><img src="/public/gemstone/img/Citrine.png"><h3>Citrine</h3><p>Prosperity stone.</p><div class="price">₹1,699</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 15 -->
+  <div class="product-card"><img src="/public/gemstone/img/tigereye.jpg"><h3>Tiger Eye</h3><p>Confidence & courage.</p><div class="price">₹1,499</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 16 -->
+  <div class="product-card"><img src="/public/gemstone/img/RedCoral.webp"><h3>Red Coral</h3><p>Strengthens Mars.</p><div class="price">₹3,299</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 17 -->
+  <div class="product-card"><img src="/public/gemstone/img/LapisLazuli.webp"><h3>Lapis Lazuli</h3><p>Wisdom & truth.</p><div class="price">₹1,899</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+  <!-- 18 -->
+  <div class="product-card"><img src="/public/gemstone/img/Jade.avif"><h3>Jade</h3><p>Luck & harmony.</p><div class="price">₹1,599</div><div class="actions"><a class="view" href="#">View Details</a><a class="buy" href="#">Book Now</a></div></div>
+
+ </body>
+</html>

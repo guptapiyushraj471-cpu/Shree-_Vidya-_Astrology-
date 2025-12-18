@@ -20,7 +20,7 @@
     <div class="nav-container">
       <!-- LOGO WITH IMAGE -->
       <a href="#home" class="logo">
-        <img src="/img/logo.png"
+        <img src="img/logo.png"
              alt="Shree Shree Vidya Astrology Logo"
              class="logo-img">
         <div class="logo-text">
@@ -125,137 +125,94 @@
 
 <!-- Shop Section -->
 
-<section class="ai-shop">
-  <h2>Spiritual Shop</h2>
-  <p class="subtitle">Pooja Items & Ritual Kits – Energized & Authentic</p>
 
-  <div class="shop-grid">
+<section class="product-section">
+  <h2 class="section-title">Our Products</h2>
 
-    <!-- CARD 1 -->
-    <div class="shop-card" data-images="/img/pooja1.jpg,img/pooja2.jpg,img/pooja3.jpg">
-      <span class="badge">Pooja</span>
-      <img class="card-img" src="img/PoojaSamagri1.webp">
-      <h3>Pooja Samagri Kit</h3>
-      <p class="price">₹199</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
+  <!-- CATEGORY NAV -->
+  <div class="category-nav">
+    <button class="cat-btn active" data-category="all">All</button>
+    <button class="cat-btn" data-category="astrology">Astrology</button>
+    <button class="cat-btn" data-category="vastu">Vastu</button>
+    <button class="cat-btn" data-category="jewellery">Jewellery</button>
+    <button class="cat-btn" data-category="tools">Tools</button>
+  </div>
+
+  <!-- SLIDER -->
+  <div class="product-wrapper">
+    <button class="arrow left" id="arrowLeft">‹</button>
+
+    <div class="product-slider" id="productSlider">
+
+      <!-- Astrology -->
+      <a href="/public/gemstone/product-gem.html" class="product-card astrology">
+        <img src="/public/gemstone/img/Gemstone1.webp" alt="Gemstone Ratna">
+        <h4>Gemstone / Ratna</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <a href="/public/rudraksha/product-rudraksha.html" class="product-card astrology">
+        <img src="/public/rudraksha/img/Rudraksh1.jpg" alt="Rudraksha">
+        <h4>Rudraksha</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <a href="/public/Yantra/yantra-products.html" class="product-card astrology">
+        <img src="/public/Yantra/img/YantraProducts.webp" alt="Yantra">
+        <h4>Yantra Products</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <a href="/public/books/books-on-astrology.html" class="product-card astrology">
+        <img src="/public/books/img/Vedicbook.jpg" alt="Astrology Books">
+        <h4>Books on Astrology</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <!-- Vastu -->
+      <a href="/public/Pyramids/crystal-pyramid.html" class="product-card vastu">
+        <img src="/public/Pyramids/img/CrystalPyramid.jpg" alt="Crystal Pyramid">
+        <h4>Pyramids</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <a href="/public/vastu/vastu-products.html" class="product-card vastu">
+        <img src="/public/vastu/img/VastuPyramid.jfif" alt="Vastu Products">
+        <h4>Vastu Products</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <!-- Jewellery -->
+      <a href="/public/Pendants/pendant-products.html" class="product-card jewellery">
+        <img src="/public/Pendants/img/pandant1.webp" alt="Pendant & Locket">
+        <h4>Pendant & Locket</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <!-- Tools -->
+      <a href="/public/vastutool/vastu-tools.html" class="product-card tools">
+        <img src="/public/vastutool/img/VastuEnergy.jpg" alt="Vastu Tools">
+        <h4>Vastu Tools</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
+      <a href="/public/universal/universal-aura-scanner.html" class="product-card tools">
+        <img src="/public/universal/img/UniversalAura.jpg" alt="Universal Aura Scanner">
+        <h4>Universal Aura Scanner</h4>
+        <span class="view-btn">View Product</span>
+      </a>
+
     </div>
 
-    <!-- CARD 2 -->
-    <div class="shop-card" data-images="img/yantra1.jpg,img/yantra2.jpg,img/yantra3.jpg">
-      <span class="badge">Pooja</span>
-      <img class="card-img" src="img/YantraSet.webp">
-      <h3>Yantra Set</h3>
-      <p class="price">₹399</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="shop-card" data-images="img/mala1.jpg,img/mala2.jpg,img/mala3.jpg">
-      <span class="badge">Ritual Kit</span>
-      <img class="card-img" src="img/RitualMala.webp">
-      <h3>Ritual Mala</h3>
-      <p class="price">₹299</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="shop-card" data-images="img/havan1.jpg,img/havan2.jpg,img/havan3.jpg">
-      <span class="badge">Ritual Kit</span>
-      <img class="card-img" src="img/HavanPooja.webp">
-      <h3>Havan Pooja Kit</h3>
-      <p class="price">₹499</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 5 -->
-    <div class="shop-card" data-images="img/ganesh1.jpg,img/ganesh2.jpg,img/ganesh3.jpg">
-      <span class="badge">Pooja</span>
-      <img class="card-img" src="img/GaneshPooja.jpg">
-      <h3>Ganesh Pooja Kit</h3>
-      <p class="price">₹349</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 6 -->
-    <div class="shop-card" data-images="img/navgrah1.jpg,img/navgrah2.jpg,img/navgrah3.jpg">
-      <span class="badge">Ritual Kit</span>
-      <img class="card-img" src="img/NavgrahShanti.jpg">
-      <h3>Navgrah Shanti Kit</h3>
-      <p class="price">₹699</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 7 -->
-    <div class="shop-card" data-images="img/lakshmi1.jpg,img/lakshmi2.jpg,img/lakshmi3.jpg">
-      <span class="badge">Pooja</span>
-      <img class="card-img" src="img/LakshmiPooja.jpg">
-      <h3>Lakshmi Pooja Kit</h3>
-      <p class="price">₹399</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 8 -->
-    <div class="shop-card" data-images="img/rudraksha1.jpg,img/rudraksha2.jpg,img/rudraksha3.jpg">
-      <span class="badge">Pooja</span>
-      <img class="card-img" src="img/RudrakshaMala.jpeg">
-      <h3>Rudraksha Mala</h3>
-      <p class="price">₹599</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 9 -->
-    <div class="shop-card" data-images="img/shiv1.jpg,img/shiv2.jpg,img/shiv3.jpg">
-      <span class="badge">Ritual Kit</span>
-      <img class="card-img" src="img/ShivAbhishek.jpg">
-      <h3>Shiv Abhishek Kit</h3>
-      <p class="price">₹449</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
-    <!-- CARD 10 -->
-    <div class="shop-card" data-images="img/durga1.jpg,img/durga2.jpg,img/durga3.jpg">
-      <span class="badge">Ritual Kit</span>
-      <img class="card-img" src="img/DurgaSaptashati.jpg">
-      <h3>Durga Saptashati Kit</h3>
-      <p class="price">₹799</p>
-      <div class="actions">
-        <button class="view">View Details</button>
-        <button class="add">Add</button>
-      </div>
-    </div>
-
+    <button class="arrow right" id="arrowRight">›</button>
   </div>
 </section>
 
 
+
 <!-- Events Section -->
+
+
 
 
 <section class="ai-events">
@@ -263,81 +220,278 @@
   <h2>Upcoming Events & Puja Schedule</h2>
   <p class="subtitle">Live puja dates, schedules & completed rituals</p>
 
-  <!-- ================= UPCOMING EVENTS ================= -->
-  <div class="upcoming-grid">
+  <!-- ===== UPCOMING EVENTS SLIDER ===== -->
+  <div class="upcoming-wrapper">
 
-  <div class="event-card">
-    <img src="img/NavgrahShanti.jpg" class="event-img" alt="Navgrah Puja">
-    <h3>Navgrah Puja</h3>
-    <p>20 Dec 2025 · 6:30 AM</p>
-  </div>
+    <button class="nav-btn left" onclick="slideUpcoming(-1)">‹</button>
 
-  <div class="event-card">
-    <img src="img/GrahPravesh2.webp" class="event-img" alt="Grah Pravesh">
-    <h3>Grah Pravesh</h3>
-    <p>25 Dec 2025 · 7:00 AM</p>
-  </div>
+    <div class="upcoming-grid" id="upcomingSlider">
 
-  <div class="event-card">
-    <img src="img/GaneshPooja.jpg" class="event-img" alt="Ganesh Puja">
-    <h3>Ganesh Puja</h3>
-    <p>01 Jan 2026 · 5:30 AM</p>
-  </div>
+      <!-- EVENT 1 -->
+      <div class="event-card">
+        <img src="/public/events/img/Navgrah.jpg" class="event-img" alt="">
+        <h3>Navgrah Puja</h3>
+        <p>20 Dec 2025 · 6:30 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/NavgrahShantiPuja.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-  <div class="event-card">
-    <img src="img/LakshmiPooja.jpg" class="event-img" alt="Lakshmi Puja">
-    <h3>Lakshmi Puja</h3>
-    <p>10 Jan 2026 · 6:00 AM</p>
-  </div>
+      <!-- EVENT 2 -->
+      <div class="event-card">
+        <img src="/public/events/img/GrahPravesh.jpg" class="event-img" alt="">
+        <h3>Grah Pravesh</h3>
+        <p>25 Dec 2025 · 7:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/GrahPravesh.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-  <div class="event-card">
-    <img src="img/Satyanarayan1.webp" class="event-img" alt="Satyanarayan Katha">
-    <h3>Satyanarayan Katha</h3>
-    <p>18 Jan 2026 · 8:00 AM</p>
-  </div>
+      <!-- EVENT 3 -->
+      <div class="event-card">
+        <img src="/public/events/img/Ganesh.webp" class="event-img" alt="">
+        <h3>Ganesh Puja</h3>
+        <p>01 Jan 2026 · 5:30 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/GaneshPuja.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-</div>
+      <!-- EVENT 4 -->
+      <div class="event-card">
+        <img src="/public/events/img/Lakshmi.jpeg" class="event-img" alt="">
+        <h3>Lakshmi Puja</h3>
+        <p>10 Jan 2026 · 6:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/LakshmiPuja.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
+      <!-- EVENT 5 -->
+      <div class="event-card">
+        <img src="/public/events/img/Satyanarayan.jpg" class="event-img" alt="">
+        <h3>Satyanarayan Katha</h3>
+        <p>18 Jan 2026 · 8:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/SatyanarayanKatha.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-  <!-- ================= DASHBOARD ================= -->
-  <div class="dashboard">
-    <h3>Event Dashboard</h3>
-    <table>
-      <tr><th>Event</th><th>Date</th><th>Status</th></tr>
-      <tr><td>Navgrah Puja</td><td>20 Dec</td><td>Upcoming</td></tr>
-      <tr><td>Grah Pravesh</td><td>25 Dec</td><td>Upcoming</td></tr>
-      <tr><td>Ganesh Puja</td><td>10 Nov</td><td>Completed</td></tr>
-      <tr><td>Shiv Abhishek</td><td>05 Nov</td><td>Completed</td></tr>
-    </table>
-  </div>
+      <!-- EVENT 6 -->
+      <div class="event-card">
+        <img src="/public/events/img/Gayatri.jpg" class="event-img" alt="">
+        <h3>Gayatri Mahayagya</h3>
+        <p>18 Jun 2026 · 8:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/GayatriMahayagya.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-  <!-- ================= COMPLETED EVENTS ================= -->
-  <!-- ❌ NOT TOUCHED (AS REQUESTED) -->
+      <!-- EVENT 7 -->
+      <div class="event-card">
+        <img src="/public/events/img/Bhairav.jpg" class="event-img" alt="">
+        <h3>Bhairav Shanti Puja</h3>
+        <p>18 Feb 2026 · 8:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/BhairavShantiPuja.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-  <h3 class="completed-title">Completed Events</h3>
+      <!-- EVENT 8 -->
+      <div class="event-card">
+        <img src="/public/events/img/Annapurna.jpg" class="event-img" alt="">
+        <h3>Annapurna Puja</h3>
+        <p>18 Mar 2026 · 8:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/AnnapurnaPuja.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-  <div class="completed-slider">
-    <div class="completed-track">
+      <!-- EVENT 9 -->
+      <div class="event-card">
+        <img src="/public/events/img/Dhanvantari.jpg" class="event-img" alt="">
+        <h3>Dhanvantari Puja</h3>
+        <p>18 Apr 2026 · 8:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/DhanvantariPuja.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
-      <div class="completed-card"><video src="videos/Ekkadasi tulsi vivah.mp4" muted autoplay loop></video><h4>Ekkadasi tulsi vivah</h4></div>
-      <div class="completed-card"><video src="videos/vivah sanskar.mp4" muted autoplay loop></video><h4>Vivah Sanskar</h4></div>
-      <div class="completed-card"><video src="videos/Vastu Poojan.mp4" muted autoplay loop></video><h4>Vastu Poojan</h4></div>
-      <div class="completed-card"><video src="videos/satyanayaran kataha.mp4" muted autoplay loop></video><h4>Satyanarayan kataha</h4></div>
-      <div class="completed-card"><video src="videos/Video6.mp4" muted autoplay loop></video><h4>Durga Puja</h4></div>
-      <div class="completed-card"><video src="videos/video1.mp4" muted autoplay loop></video><h4>Lakshmi Puja</h4></div>
-      <div class="completed-card"><video src="videos/video2.mp4" muted autoplay loop></video><h4>Satyanarayan Katha</h4></div>
-      <div class="completed-card"><video src="videos/video3.mp4" muted autoplay loop></video><h4>Ram Navami</h4></div>
-      <div class="completed-card"><video src="videos/video4.mp4" muted autoplay loop></video><h4>Hanuman Puja</h4></div>
-      <div class="completed-card"><video src="videos/video5.mp4" muted autoplay loop></video><h4>Kaal Sarp Puja</h4></div>
+      <!-- EVENT 10 -->
+      <div class="event-card">
+        <img src="/public/events/img/RudrabhishekPuja.webp" class="event-img" alt="">
+        <h3>RudrabhishekPuja</h3>
+        <p>18 Oct 2026 · 8:00 AM</p>
+        <div class="btn-row">
+          <a href="/public/events/event-details.html" class="view-details">View Details</a>
+          <a href="/public/book.html" class="book-now">Book Now</a>
+        </div>
+      </div>
 
     </div>
+
+    <button class="nav-btn right" onclick="slideUpcoming(1)">›</button>
   </div>
 
 </section>
 
 
 
-<!-- Monthly Rashifal -->
+  <!-- ================= DASHBOARD ================= -->
+ <div class="dashboard">
+  <h3>Event Dashboard</h3>
+
+  <table>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+
+    <tr><td>Navgrah Puja</td><td>20 Dec</td><td class="up">Upcoming</td><td><a href="#" class="mini-btn">View</a></td></tr>
+    <tr><td>Grah Pravesh</td><td>25 Dec</td><td class="up">Upcoming</td><td><a href="#" class="mini-btn">View</a></td></tr>
+    <tr><td>Ganesh Puja</td><td>01 Jan</td><td class="up">Upcoming</td><td><a href="#" class="mini-btn">View</a></td></tr>
+    <tr><td>Lakshmi Puja</td><td>10 Jan</td><td class="up">Upcoming</td><td><a href="#" class="mini-btn">View</a></td></tr>
+    <tr><td>Satyanarayan Katha</td><td>18 Mar</td><td class="up">Upcoming</td><td><a href="#" class="mini-btn">View</a></td></tr>
+
+    
+  </table>
+</div>
+
+
+  <!-- ================= COMPLETED EVENTS ================= -->
+  <!-- ❌ NOT TOUCHED (AS REQUESTED) -->
+
+  <section class="completed-section">
+  <h3 class="completed-title">Completed Events</h3>
+
+  <div class="completed-wrapper">
+    <button class="nav-btn left" onclick="slideLeft()">‹</button>
+
+    <div class="completed-slider" id="completedSlider">
+
+      <!-- VIDEO 1 -->
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Ekkadasi tulsi vivah.mp4" muted loop></video>
+        <h4>Ekkadasi Tulsi Vivah</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/vivah sanskar.mp4" muted loop></video>
+        <h4>Vivah Sanskar</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Vastu Poojan.mp4" muted loop></video>
+        <h4>Vastu Poojan</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/satyanayaran kataha.mp4" muted loop></video>
+        <h4>Satyanarayan Katha</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Video6.mp4" muted loop></video>
+        <h4>Durga Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video1.mp4" muted loop></video>
+        <h4>Lakshmi Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video2.mp4" muted loop></video>
+        <h4>Satyanarayan Katha</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video3.mp4" muted loop></video>
+        <h4>Ram Navami</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video4.mp4" muted loop></video>
+        <h4>Hanuman Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video5.mp4" muted loop></video>
+        <h4>Kaal Sarp Puja</h4>
+      </div>
+
+
+  <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Ekkadasi tulsi vivah.mp4" muted loop></video>
+        <h4>Pitru Dosh Nivaran Puja</h4>
+      </div>
+
+
+       <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Ekkadasi tulsi vivah.mp4" muted loop></video>
+        <h4>Mangal Dosh Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Ekkadasi tulsi vivah.mp4" muted loop></video>
+        <h4>Chandi Path Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Video6.mp4" muted loop></video>
+        <h4>Durga Saptashati Paath/h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Vastu Poojan.mp4" muted loop></video>
+        <h4>Shiv Parthiv Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/Video6.mp4" muted loop></video>
+        <h4>Shani Shanti Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video2.mp4" muted loop></video>
+        <h4>Surya Arghya Puja</h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video3.mp4" muted loop></video>
+        <h4>Vishnu Sahasranama Paath/h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video4.mp4" muted loop></video>
+        <h4>Navratri Kalash Sthapana/h4>
+      </div>
+
+      <div class="completed-card" onclick="playCompleted(this)">
+        <video src="videos/video5.mp4" muted loop></video>
+        <h4>Maha Shivratri Puja</h4>
+      </div>
+
+
+    </div>
+
+    <button class="nav-btn right" onclick="slideRight()">›</button>
+  </div>
+</section>
+
+
+
 
 <section id="horoscope" class="section dark-horoscope">
   <div class="container">
@@ -432,6 +586,10 @@
     </div>
   </div>
 </section>
+
+
+
+
 
 <!-- SERVICES (dark) -->
 <section id="services" class="section dark-services">
@@ -545,136 +703,19 @@
 </div>
 
 <!-- Testimonials Video Gallery -->
-<section id="videos" class="section" style="background: var(--light);">
-  <div class="container">
-    <h2 class="section-title">Video Testimonials & Ritual Clips</h2>
-    <p class="section-subtitle">Short clips from ceremonies, client testimonials and puja highlights.</p>
 
-    <div class="videos-grid">
-      <video controls muted playsinline class="vid-card"><source src="videos/testimonial1.mp4" type="video/mp4">Your browser doesn't support video.</video>
-      <video controls muted playsinline class="vid-card"><source src="videos/puja1.mp4" type="video/mp4">Your browser doesn't support video.</video>
-      <video controls muted playsinline class="vid-card"><source src="videos/puja2.mp4" type="video/mp4">Your browser doesn't support video.</video>
-    </div>
-  </div>
-</section>
 
 
 <!-- ABOUT SECTION -->
-<section id="about" class="section">
-  <div class="container">
-    <h2 class="section-title">About Pandit Shubham Sharma</h2>
-    <p class="section-subtitle">Bridging ancient wisdom with modern life guidance</p>
-
-    <div class="about-grid">
-      <!-- LEFT: PHOTOS CENTER + SIDE VIDEO -->
-      <div class="about-media">
-        <div class="about-media-inner">
-          <!-- Image Slider (center) -->
-          <div class="about-slider-box">
-            <h4 class="about-media-title">Pandit Shubham Sharma</h4>
-            <div class="about-slider">
-              <img src="img/profile pic.jpeg" class="about-slide active" alt="Astrology session 1">
-              <img src="img/profilepic2.jpeg" class="about-slide" alt="Astrology session 2">
-              <img src="img/profilepic3.jpeg" class="about-slide" alt="Puja & Katha">
-              <img src="img/profilepic4.jpeg" class="about-slide" alt="Consultation">
-              <img src="img/logo.png" class="about-slide" alt="Yatra & Darshan">
-            </div>
-          </div>
-
-          <!-- Video (side me) -->
-          <div class="about-video-box">
-            <h4 class="about-media-title">Live Ritual Clips</h4>
-            <video class="about-video" controls muted autoplay loop playsinline>
-              <source src="videos/video5.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </div>
 
 
       <!-- RIGHT: TEXT CONTENT -->
-<div class="about-content">
-  <h3>Your Trusted Vedic Astrology Guide<br><span style="font-size:16px;color:#b8860b;">आपके विश्वसनीय वैदिक ज्योतिष मार्गदर्शक</span></h3>
 
-  <p>
-    <strong></strong> With over 15 years of experience in Vedic astrology, Acharya Shubham Sharma has guided thousands of individuals toward clarity, prosperity, and spiritual fulfillment.
-    <br>
-    <strong></strong> 15 से अधिक वर्षों के अनुभव के साथ, आचार्य शुभम शर्मा ने हजारों लोगों को जीवन में स्पष्टता, समृद्धि और आध्यात्मिक संतुष्टि की दिशा में मार्गदर्शन दिया है।
-  </p>
-
-  <p>
-    <strong></strong> Specializing in Kundali analysis, Vastu consultation, Numerology, Matchmaking and Tarot readings, Acharya ji provides solutions that blend Vedic wisdom with modern practicality.
-    <br>
-    <strong></strong> कुंडली विश्लेषण, वास्तु परामर्श, अंक ज्योतिष, विवाह / गुण मिलान और टैरो रीडिंग में विशेषज्ञता — आचार्य जी पारंपरिक वैदिक ज्ञान को आधुनिक समाधान के साथ जोड़ते हैं।
-  </p>
-
-  <p>
-    <strong></strong> Highly respected & certified by prestigious institutions, and featured on leading spiritual and media platforms, his guidance has earned trust across India and worldwide.
-    <br>
-    <strong></strong> प्रतिष्ठित संस्थानों द्वारा प्रमाणित और प्रमुख आध्यात्मिक व मीडिया मंचों पर फीचर किए गए, उनके सटीक मार्गदर्शन पर पूरे भारत और विदेशों में भरोसा किया जाता है।
-  </p>
-
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-number">15+</div>
-      <div class="stat-label">Years Experience<br><span style="font-size:11px;">अनुभव</span></div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">10K+</div>
-      <div class="stat-label">Happy Clients<br><span style="font-size:11px;">संतुष्ट ग्राहक</span></div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">4.9★</div>
-      <div class="stat-label">Rating<br><span style="font-size:11px;">रेटिंग</span></div>
-    </div>
-  </div>
-</div>
 
 </section>
 
   <!-- Video Section -->
 
-<section class="section" style="background: var(--beige);">
-  <div class="container">
-    <h2 class="section-title">Introduction Video</h2>
-    <p class="section-subtitle">Learn about our approach to Vedic astrology</p>
-
-    <div class="video-container">
-      <!-- Video Player -->
-      <video
-        id="introVideo"
-        class="intro-video"
-        controls
-        autoplay
-        muted
-        playsinline
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-</section>
-
-  <!-- Testimonials Section -->
-  <section id="reviews" class="section">
-    <div class="container">
-      <h2 class="section-title">Client Testimonials</h2>
-      <p class="section-subtitle">What our clients say about our services</p>
-      <div class="testimonials-slider">
-        <div class="testimonial" id="testimonial">
-          <div class="testimonial-rating">★★★★★</div>
-          <p class="testimonial-text">"Acharya Shubham ji's predictions were incredibly accurate. His Vastu suggestions transformed my office energy and business growth followed within months!"</p>
-          <div class="testimonial-author">- Rajesh Kumar, Delhi</div>
-        </div>
-        <div class="slider-dots">
-          <span class="dot active" onclick="changeTestimonial(0)"></span>
-          <span class="dot" onclick="changeTestimonial(1)"></span>
-          <span class="dot" onclick="changeTestimonial(2)"></span>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="section" style="background: var(--beige);">
@@ -938,6 +979,151 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+function playVideo(btn) {
+  const card = btn.closest(".video-card");
+  const video = card.querySelector("video");
+
+  video.setAttribute("controls", "controls");
+  video.play();
+  card.querySelector(".video-overlay").style.display = "none";
+}
+</script>
+
+<script>
+const slider = document.getElementById("completedSlider");
+
+function slideLeft() {
+  slider.scrollLeft -= 300;
+}
+
+function slideRight() {
+  slider.scrollLeft += 300;
+}
+
+function playCompleted(card) {
+  const video = card.querySelector("video");
+  video.muted = false;
+  video.setAttribute("controls", "controls");
+  video.play();
+}
+</script>
+<script>
+  function slideUpcoming(dir) {
+  const slider = document.getElementById("upcomingSlider");
+  if (!slider) return;
+
+  slider.scrollLeft += dir * 300;
+}
+
+</script>
+
+
+<script>
+const slider = document.getElementById("productSlider");
+
+function slideProducts(dir) {
+  slider.scrollLeft += dir * 300;
+}
+
+function filterProducts(category) {
+  document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+  event.target.classList.add("active");
+
+  document.querySelectorAll(".product-card").forEach(card => {
+    card.style.display =
+      category === "all" || card.classList.contains(category)
+        ? "block"
+        : "none";
+  });
+}
+
+// Future use: product recommendation, tracking, filters
+console.log("Products section loaded");
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.getElementById("productSlider");
+  const left = document.getElementById("arrowLeft");
+  const right = document.getElementById("arrowRight");
+
+  left.addEventListener("click", function () {
+    slider.scrollBy({ left: -300, behavior: "smooth" });
+  });
+
+  right.addEventListener("click", function () {
+    slider.scrollBy({ left: 300, behavior: "smooth" });
+  });
+
+  console.log("Product slider arrows working");
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.getElementById("shopSlider");
+  const left = document.getElementById("shopLeft");
+  const right = document.getElementById("shopRight");
+
+  /* ---------- ARROW SLIDER ---------- */
+  left.addEventListener("click", () => {
+    slider.scrollBy({ left: -320, behavior: "smooth" });
+  });
+
+  right.addEventListener("click", () => {
+    slider.scrollBy({ left: 320, behavior: "smooth" });
+  });
+
+  /* ---------- CATEGORY FILTER ---------- */
+  const tabs = document.querySelectorAll(".shop-tab");
+  const cards = document.querySelectorAll(".shop-card");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const filter = tab.dataset.filter;
+
+      cards.forEach(card => {
+        const badge = card.querySelector(".badge")?.innerText.trim();
+
+        if (filter === "all" || badge === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      slider.scrollTo({ left: 0, behavior: "smooth" });
+    });
+  });
+
+  console.log("AI Shop: arrows + navbar working ✅");
+});
+</script>
+
+<script>
+const buttons = document.querySelectorAll('.cat-btn');
+const cards = document.querySelectorAll('.product-card');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.dataset.category;
+    cards.forEach(card => {
+      card.style.display = (cat === 'all' || card.classList.contains(cat)) ? 'block' : 'none';
+    });
+  });
+});
+
+const slider = document.getElementById('productSlider');
+document.getElementById('arrowLeft').onclick = () => slider.scrollLeft -= 300;
+document.getElementById('arrowRight').onclick = () => slider.scrollLeft += 300;
+</script>
 
 </body>
 </html>

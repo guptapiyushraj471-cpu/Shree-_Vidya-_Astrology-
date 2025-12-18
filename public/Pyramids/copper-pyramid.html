@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Copper Pyramid</title>
+
+  <style>
+    /* ===== GLOBAL RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #0b1220;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    /* ===== DETAIL CONTAINER ===== */
+    .detail-container {
+      max-width: 720px;
+      margin: auto;
+      background: #111a2e;
+      padding: 28px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .detail-container h1 {
+      margin-bottom: 20px;
+      color: #f5c16c;
+      font-size: 30px;
+    }
+
+    .gem-img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      border: 2px solid #2a3560;
+    }
+
+    .desc {
+      color: #dcdcdc;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .info {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .info li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 15px;
+    }
+
+    .info li strong {
+      color: #f5c16c;
+    }
+
+    /* ===== ACTION BUTTON ===== */
+    .actions {
+      margin-top: 25px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #f5c16c, #ffb703);
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(245,193,108,0.5);
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="detail-container">
+    <h1>Copper Pyramid</h1>
+
+    <!-- IMAGE -->
+    <img src="/public/Pyramids/img/CopperPyramid.jpg" alt="Copper Pyramid" class="gem-img">
+
+    <!-- DESCRIPTION -->
+    <p class="desc">
+      Copper Pyramid is widely used in Vastu and energy healing practices.
+      It helps balance positive energy, removes vastu dosha, enhances focus,
+      and creates a peaceful environment in home and workplace.
+    </p>
+
+    <!-- DETAILS -->
+    <ul class="info">
+      <li><strong>Material:</strong> Pure Copper</li>
+      <li><strong>Benefits:</strong> Vastu Correction, Energy Balance, Positivity</li>
+      <li><strong>Recommended For:</strong> Home, Office, Meditation</li>
+      <li><strong>Price:</strong> ₹2,499</li>
+    </ul>
+
+    <!-- ACTION -->
+    <div class="actions">
+      <a href="index.html" class="back-btn">← Back</a>
+    </div>
+  </section>
+
+  <script>
+    // Simple page load confirmation
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("Copper Pyramid detail page loaded");
+    });
+  </script>
+
+</body>
+</html>
