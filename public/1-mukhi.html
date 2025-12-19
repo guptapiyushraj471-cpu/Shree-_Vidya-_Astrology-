@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>11 Mukhi Rudraksha</title>
+<title>1 Mukhi Rudraksha</title>
 
 <style>
+/* ===============================
+   PREMIUM LIGHT THEME (SAME)
+   =============================== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
   padding:60px 20px;
 }
-
-/* ===============================
-   CONTAINER
-   =============================== */
 .detail-container{
   max-width:720px;
   margin:auto;
@@ -59,12 +58,12 @@ h1{
   font-size:15px;
   color:#555;
   line-height:1.8;
-  margin-bottom:16px;
+  margin-bottom:16px
 }
 .desc.hindi{
   background:#faf6f0;
   padding:14px;
-  border-radius:12px;
+  border-radius:12px
 }
 
 .info{
@@ -152,44 +151,41 @@ h1{
      =============================== -->
 <section class="detail-container">
 
-<h1>11 Mukhi Rudraksha</h1>
+<h1>1 Mukhi Rudraksha</h1>
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/elevenmukhiRudraksha3.jpg" class="active">
-  <img src="/public/img/elevenmukhiRudraksha4.webp">
-  <img src="/public/img/elevenmukhiRudraksha1.jfif">
-  <img src="/public/img/elevenmukhiRudraksha1.jfif">
+  <img src="/public/img/EkmukhiRudraksha1.webp" class="active">
+  <img src="/public/img/EkmukhiRudraksha2.jfif">
+  <img src="/public/img/EkmukhiRudraksha3.jpg">
+  <img src="/public/img/EkmukhiRudraksha4.webp">
 </div>
 
 <p class="desc">
-The 11 Mukhi Rudraksha represents Lord Hanuman and symbolizes strength,
-wisdom, courage, and self-confidence. Wearing this Rudraksha enhances
-leadership qualities, removes fear, protects from negative energies, and
-gives success in challenges, competitions, and spiritual practices.
+The 1 Mukhi Rudraksha is the rarest and most sacred Rudraksha, symbolizing
+Lord Shiva himself. It represents supreme consciousness, oneness, and
+self-realization. Wearing it enhances meditation and leads towards moksha.
 </p>
 
 <p class="desc hindi">
-11 मुखी रुद्राक्ष भगवान हनुमान का प्रतीक है।
-इसे धारण करने से भय समाप्त होता है,
-आत्मविश्वास, साहस और बुद्धि में वृद्धि होती है।
-यह नकारात्मक शक्तियों से रक्षा करता है
-और जीवन में विजय प्रदान करता है।
+1 मुखी रुद्राक्ष भगवान शिव का साक्षात स्वरूप माना जाता है।
+यह आत्मज्ञान, वैराग्य और मोक्ष का प्रतीक है।
+इसे धारण करने से आध्यात्मिक उन्नति होती है।
 </p>
 
 <ul class="info">
-<li><strong>Deity:</strong> Lord Hanuman</li>
-<li><strong>Planet:</strong> All Planets (Navgrah Balance)</li>
-<li><strong>Benefits:</strong> Courage, Wisdom, Protection, Leadership</li>
-<li><strong>Recommended:</strong> Students, Leaders, Athletes, Sadhaks</li>
-<li><strong>Material:</strong> Natural 11 Mukhi Rudraksha</li>
-<li><strong>Occasion:</strong> Daily Wear, Hanuman Sadhana</li>
-<li><strong>Price:</strong> ₹4,999</li>
+<li><strong>Deity:</strong> Lord Shiva</li>
+<li><strong>देवता:</strong> भगवान शिव</li>
+<li><strong>Benefits:</strong> Moksha, Supreme Awareness, Inner Peace</li>
+<li><strong>Material:</strong> Natural 1 Mukhi Rudraksha</li>
+<li><strong>Recommended:</strong> Advanced Sadhaks, Meditation</li>
+<li><strong>Occasion:</strong> Daily Wear, Shiva Worship</li>
+<li><strong>Price:</strong> ₹9,999</li>
 </ul>
 
 <div class="actions">
   <a href="#book" class="btn book-btn">Book Now</a>
-  <a href="/public/rudraksha/rudraksha-products.html" class="btn back-btn">← Back</a>
+  <a href="/public/rudraksha-products.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
@@ -198,7 +194,7 @@ gives success in challenges, competitions, and spiritual practices.
      BOOKING FORM
      =============================== -->
 <section class="booking" id="book">
-<h2>Book 11 Mukhi Rudraksha</h2>
+<h2>Book 1 Mukhi Rudraksha</h2>
 
 <form onsubmit="submitBooking(event)">
 <input type="text" placeholder="Your Name" required>
@@ -209,9 +205,10 @@ gives success in challenges, competitions, and spiritual practices.
 </section>
 
 <!-- ===============================
-     SCRIPT
+     JAVASCRIPT
      =============================== -->
 <script>
+/* IMAGE SLIDER */
 let slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
@@ -220,6 +217,7 @@ setInterval(()=>{
   slides[index].classList.add("active");
 },3000);
 
+/* FORM */
 function submitBooking(e){
   e.preventDefault();
   window.location.href="/public/book.html";
