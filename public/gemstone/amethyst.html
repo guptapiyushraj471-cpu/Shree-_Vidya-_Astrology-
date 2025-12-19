@@ -1,45 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Amethyst (Jamunia) – Gemstone Details</title>
-  <link rel="stylesheet" href="css/gemstone-detail.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amethyst (Jamunia) – Gemstone Details</title>
+
+<style>
+/* ============================================
+   PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
+   ============================================ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+  min-height:100vh;
+  line-height:1.7;
+}
+
+/* ===== DETAIL CONTAINER ===== */
+.detail-container{
+  max-width:760px;
+  margin:auto;
+  background:#ffffff;
+  padding:48px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+  animation:slideUp .6s ease;
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== HEADING ===== */
+.detail-container h1{
+  font-size:2.2rem;
+  margin-bottom:28px;
+  font-weight:700;
+  background:linear-gradient(135deg,#7c6cff,#9b8cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  margin-bottom:30px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+
+.slider img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:none;
+}
+
+.slider img.active{
+  display:block;
+}
+
+/* ===== DESCRIPTION ===== */
+.desc{
+  font-size:1.05rem;
+  color:#4a5568;
+  margin-bottom:18px;
+}
+
+.desc.hindi{
+  background:rgba(124,108,255,.08);
+  color:#374151;
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:30px;
+}
+
+/* ===== INFO LIST ===== */
+.info{
+  list-style:none;
+  text-align:left;
+  background:#f8f9fa;
+  border-radius:18px;
+  padding:22px;
+  margin:32px 0;
+}
+
+.info li{
+  padding:14px 16px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  font-size:1rem;
+}
+
+.info li:last-child{border-bottom:none}
+
+.info strong{
+  color:#6b5cff;
+  font-weight:600;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.book-btn,
+.back-btn{
+  padding:14px 36px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+}
+
+.book-btn{
+  background:linear-gradient(135deg,#7c6cff,#9b8cff);
+  color:#fff;
+}
+
+.back-btn{
+  background:#e5e7eb;
+  color:#374151;
+}
+
+/* ===== BOOKING SECTION ===== */
+.booking{
+  max-width:760px;
+  margin:60px auto 0;
+  background:#ffffff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+.booking h2{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:24px;
+  color:#4b5563;
+}
+
+.booking form{
+  display:grid;
+  gap:16px;
+}
+
+.booking input,
+.booking textarea{
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  font-size:.95rem;
+}
+
+.booking textarea{min-height:100px}
+
+.booking button{
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#7c6cff,#9b8cff);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  .detail-container h1{font-size:1.8rem}
+}
+</style>
 </head>
+
 <body>
 
 <section class="detail-container">
+
   <h1>Amethyst (Jamunia)</h1>
 
-  <img src="/public/gemstone/img/Amethyst.jpg" alt="Amethyst Gemstone" class="gem-img">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="/public/img/amethyst1.jfif" class="active">
+    <img src="/public/img/amethyst2.jfif">
+    <img src="/public/img/amethyst3.jfif">
+    <img src="/public/img/amethyst4.jfif">
+  </div>
 
+  <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
-    Amethyst calms the mind, reduces stress, and improves focus.
-    It is excellent for meditation, mental clarity, and emotional balance.
+    Amethyst (Jamunia) is a powerful calming gemstone known for reducing
+    stress, anxiety, and mental restlessness. It enhances focus,
+    emotional balance, and spiritual awareness.
   </p>
 
+  <!-- HINDI DESCRIPTION -->
+  <p class="desc hindi">
+    जामुनिया (एमेथिस्ट) एक शांतिदायक रत्न है जो तनाव, चिंता
+    और मानसिक अशांति को कम करता है तथा एकाग्रता और मानसिक
+    संतुलन को बढ़ाता है।
+  </p>
+
+  <!-- DETAILS (UNCHANGED) -->
   <ul class="info">
+    <li><strong>Gemstone:</strong> Amethyst (Jamunia)</li>
+    <li><strong>रत्न:</strong> जामुनिया</li>
     <li><strong>Planet:</strong> Saturn (Substitute)</li>
-    <li><strong>Chakra:</strong> Crown</li>
-    <li><strong>Recommended For:</strong> Stress Relief, Focus, Mental Peace</li>
+    <li><strong>ग्रह:</strong> शनि (उपरत्न)</li>
+    <li><strong>Chakra:</strong> Crown Chakra</li>
+    <li><strong>चक्र:</strong> सहस्रार चक्र</li>
+    <li><strong>Benefits:</strong> Mental Peace, Focus, Stress Relief</li>
+    <li><strong>लाभ:</strong> मानसिक शांति, एकाग्रता, तनाव मुक्ति</li>
+    <li><strong>Recommended For:</strong> Meditation, Anxiety, Sleep Issues</li>
+    <li><strong>उपयुक्त:</strong> ध्यान, चिंता, नींद की समस्या</li>
     <li><strong>Price:</strong> ₹2,999</li>
   </ul>
 
   <div class="actions">
-    <a href="#book" class="book-btn">Book Now</a>
-    <a href="../index.html" class="back-btn">Back</a>
+    <a href="/public/book.html" class="book-btn">Book Now</a>
+    <a href="/public/index.html" class="back-btn">← Back</a>
   </div>
+
 </section>
 
+<!-- BOOKING -->
 <section id="book" class="booking">
   <h2>Book Amethyst (Jamunia)</h2>
+
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Purpose / Message"></textarea>
+    <textarea placeholder="Purpose / Message (Optional)"></textarea>
     <button type="submit">Confirm Booking</button>
   </form>
 </section>
 
-<script src="js/gemstone-detail.js"></script>
+<script>
+/* AUTO IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Your Amethyst booking request has been submitted.");
+}
+</script>
+
 </body>
 </html>

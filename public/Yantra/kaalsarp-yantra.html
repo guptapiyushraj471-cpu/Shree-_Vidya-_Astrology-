@@ -2,33 +2,213 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaal Sarp Yantra</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0b1220;color:#fff;padding:40px 20px}
-.card{max-width:720px;margin:auto;background:#111a2e;padding:28px;border-radius:18px;text-align:center}
-h1{color:#f5c16c;margin-bottom:20px}
-img{width:100%;max-height:320px;object-fit:cover;border-radius:16px;margin-bottom:20px}
-p{color:#dcdcdc;line-height:1.7}
-ul{list-style:none;text-align:left;margin:20px 0}
-li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-strong{color:#f5c16c}
-a{display:inline-block;padding:12px 30px;border-radius:30px;background:#f5c16c;color:#000;text-decoration:none;font-weight:600}
+/* ============================================
+   PREMIUM LIGHT THEME – YANTRA DETAIL PAGE
+   ============================================ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+  min-height:100vh;
+  line-height:1.7;
+  animation:fadeIn .6s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* ===== CONTAINER ===== */
+.detail-container{
+  max-width:720px;
+  margin:auto;
+  background:#ffffff;
+  padding:48px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.04);
+  animation:slideUp .6s ease;
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== HEADING ===== */
+.detail-container h1{
+  font-size:2.2rem;
+  margin-bottom:32px;
+  font-weight:700;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== IMAGE ===== */
+.gem-img{
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:32px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  transition:transform .3s ease;
+}
+
+.gem-img:hover{
+  transform:scale(1.03);
+}
+
+/* ===== DESCRIPTION ===== */
+.desc{
+  color:#4a5568;
+  font-size:1.05rem;
+  margin-bottom:20px;
+}
+
+.desc.hindi{
+  color:#374151;
+  background:rgba(212,165,116,.06);
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:30px;
+}
+
+/* ===== INFO LIST ===== */
+.info{
+  list-style:none;
+  text-align:left;
+  background:#f8f9fa;
+  border-radius:18px;
+  padding:22px;
+  margin:32px 0;
+}
+
+.info li{
+  padding:14px 16px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  font-size:1rem;
+  color:#4a5568;
+}
+
+.info li:last-child{border-bottom:none}
+
+.info strong{
+  color:#c89860;
+  font-weight:600;
+}
+
+/* ===== BUTTON ===== */
+.actions{
+  margin-top:28px;
+}
+
+.back-btn{
+  display:inline-block;
+  padding:14px 42px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  box-shadow:
+    0 6px 18px rgba(212,165,116,.35),
+    0 2px 6px rgba(0,0,0,.12);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.back-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 10px 28px rgba(212,165,116,.45),
+    0 4px 10px rgba(0,0,0,.15);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container{padding:32px 22px}
+  .detail-container h1{font-size:1.8rem}
+  .gem-img{max-height:280px}
+}
+
+/* ===== SMOOTH ===== */
+html{scroll-behavior:smooth}
 </style>
 </head>
+
 <body>
-<section class="card">
-<h1>Kaal Sarp Yantra</h1>
-<img src="/public/Yantra/img/KaalSarpYantra.jfif" alt="Kaal Sarp Yantra">
-<p>Kaal Sarp Yantra reduces the effects of Kaal Sarp Dosh and removes obstacles.</p>
-<ul>
-<li><strong>Purpose:</strong> Dosh Nivaran</li>
-<li><strong>Benefits:</strong> Protection, Stability</li>
-<li><strong>Use:</strong> Puja Room</li>
-<li><strong>Price:</strong> ₹2,699</li>
-</ul>
-<a href="yantra-products.html">← Back</a>
+
+<section class="detail-container">
+
+  <h1>Kaal Sarp Yantra</h1>
+
+  <!-- IMAGE -->
+  <img src="/public/img/KaalSarpYantra.jfif" alt="Kaal Sarp Yantra" class="gem-img">
+
+  <!-- ENGLISH -->
+  <p class="desc">
+    Kaal Sarp Yantra is a powerful remedial yantra used to reduce the malefic
+    effects of Kaal Sarp Dosh caused by planetary alignments in the horoscope.
+    It helps remove obstacles, mental stress, delays, fear, and instability,
+    while enhancing protection, peace, and spiritual strength.
+  </p>
+
+  <!-- HINDI -->
+  <p class="desc hindi">
+    काल सर्प यंत्र कुंडली में उपस्थित काल सर्प दोष के नकारात्मक प्रभावों को
+    शांत करने के लिए अत्यंत प्रभावी माना जाता है।
+    यह जीवन में आने वाली बाधाओं, मानसिक तनाव, भय और अस्थिरता को कम करता है
+    तथा सुरक्षा, शांति और आध्यात्मिक बल प्रदान करता है।
+  </p>
+
+  <!-- DETAILS -->
+  <ul class="info">
+    <li><strong>Yantra:</strong> Kaal Sarp Yantra</li>
+    <li><strong>देवता:</strong> राहु एवं केतु</li>
+
+    <li><strong>Purpose:</strong> Kaal Sarp Dosh Nivaran</li>
+    <li><strong>उद्देश्य:</strong> काल सर्प दोष शांति</li>
+
+    <li><strong>Benefits:</strong> Protection, Stability, Fear Removal, Growth</li>
+    <li><strong>लाभ:</strong> सुरक्षा, स्थिरता, भय निवारण, उन्नति</li>
+
+    <li><strong>Recommended For:</strong> Puja Room, Daily Worship</li>
+    <li><strong>उपयुक्त:</strong> पूजा कक्ष, दैनिक साधना</li>
+
+    <li><strong>Price:</strong> ₹2,699</li>
+  </ul>
+
+  <!-- ACTION -->
+  <div class="actions">
+    <a href="/public/index.html" class="back-btn">← Back</a>
+  </div>
+
 </section>
-<script>console.log("Kaal Sarp Yantra loaded");</script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  console.log("Kaal Sarp Yantra page loaded successfully");
+});
+</script>
+
 </body>
 </html>

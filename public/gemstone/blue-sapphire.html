@@ -1,47 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Blue Sapphire (Neelam) – Gemstone Details</title>
-  <link rel="stylesheet" href="css/gemstone-detail.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Sapphire (Neelam) – Gemstone Details</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+}
+
+/* CONTAINER */
+.detail-container{
+  max-width:760px;
+  margin:auto;
+  background:#fff;
+  padding:48px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+/* TITLE */
+h1{
+  font-size:34px;
+  background:linear-gradient(135deg,#1e3a8a,#2563eb);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:24px;
+}
+
+/* SLIDER */
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  margin-bottom:28px;
+}
+.slider img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  display:none;
+}
+.slider img.active{display:block}
+
+/* TEXT */
+.desc{font-size:15px;color:#555;line-height:1.8;margin-bottom:16px}
+.desc.hindi{background:#eef2ff;padding:14px;border-radius:12px}
+
+/* INFO */
+.info{
+  list-style:none;
+  text-align:left;
+  margin:26px 0;
+  background:#f8f9fa;
+  border-radius:16px;
+  padding:20px;
+}
+.info li{
+  padding:12px;
+  border-bottom:1px solid #e2e6ea;
+}
+.info li:last-child{border:none}
+.info strong{color:#1e40af}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:22px;
+}
+.btn{
+  padding:14px 36px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+}
+.book-btn{
+  background:linear-gradient(135deg,#1e3a8a,#2563eb);
+  color:#fff;
+}
+.back-btn{
+  background:#eef1f5;
+  color:#333;
+}
+
+/* BOOKING */
+.booking{
+  max-width:760px;
+  margin:60px auto 0;
+  background:#fff;
+  padding:40px;
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+.booking h2{
+  text-align:center;
+  margin-bottom:22px;
+  color:#1e40af;
+}
+.booking form{
+  display:grid;
+  gap:14px;
+}
+.booking input,
+.booking textarea{
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #dcdfe4;
+}
+.booking button{
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#1e3a8a,#2563eb);
+  color:#fff;
+  font-weight:600;
+}
+</style>
 </head>
+
 <body>
 
 <section class="detail-container">
-  <h1>Blue Sapphire (Neelam)</h1>
 
-  <img src="/public/gemstone/img/BlueSapphire.jpg" alt="Blue Sapphire Gemstone" class="gem-img">
+<h1>Blue Sapphire (Neelam)</h1>
 
-  <p class="desc">
-    Blue Sapphire (Neelam) brings instant results, discipline, protection,
-    and career stability. It strengthens Saturn and should be worn only
-    after proper astrological consultation.
-  </p>
+<!-- IMAGE SLIDER -->
+<div class="slider">
+  <img src="/public/img/BlueSapphire1.jfif" class="active">
+  <img src="/public/img/BlueSapphire2.jfif">
+  <img src="/public/img/BlueSapphire3.jfif">
+  <img src="/public/img/BlueSapphire4.webp">
+</div>
 
-  <ul class="info">
-    <li><strong>Planet:</strong> Saturn</li>
-    <li><strong>Chakra:</strong> Throat</li>
-    <li><strong>Recommended For:</strong> Career Growth, Protection, Discipline</li>
-    <li><strong>Price:</strong> ₹8,999</li>
-  </ul>
+<p class="desc">
+Blue Sapphire (Neelam) is a powerful gemstone associated with the planet Saturn.
+It brings discipline, success, authority, and rapid results when suitable.
+It is known for removing obstacles and accelerating career growth.
+</p>
 
-  <div class="actions">
-    <a href="#book" class="book-btn">Book Now</a>
-    <a href="../index.html" class="back-btn">Back</a>
-  </div>
+<p class="desc hindi">
+नीलम रत्न शनि ग्रह से संबंधित एक अत्यंत प्रभावशाली रत्न है।
+यह जीवन में अनुशासन, सफलता, अधिकार और तेज परिणाम प्रदान करता है।
+सही व्यक्ति को धारण करने पर यह बाधाओं को दूर करता है।
+</p>
+
+<ul class="info">
+<li><strong>Gemstone:</strong> Blue Sapphire (Neelam)</li>
+<li><strong>रत्न:</strong> नीलम</li>
+
+<li><strong>Planet:</strong> Saturn (Shani)</li>
+<li><strong>ग्रह:</strong> शनि</li>
+
+<li><strong>Benefits:</strong> Career Growth, Authority, Protection</li>
+<li><strong>लाभ:</strong> करियर उन्नति, सुरक्षा, स्थिरता</li>
+
+<li><strong>Recommended For:</strong> Professionals, Business, Politics</li>
+<li><strong>उपयुक्त:</strong> नौकरी, व्यवसाय, प्रशासन</li>
+
+<li><strong>Price:</strong> ₹6,999</li>
+</ul>
+
+<div class="actions">
+  <a href="/public/book.html" class="btn book-btn">Book Now</a>
+  <a href="/public/index.html" class="btn back-btn">← Back</a>
+</div>
+
 </section>
 
-<section id="book" class="booking">
-  <h2>Book Blue Sapphire (Neelam)</h2>
-
-  <form onsubmit="submitBooking(event)">
-    <input type="text" placeholder="Your Name" required>
-    <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Purpose / Message"></textarea>
-    <button type="submit">Confirm Booking</button>
-  </form>
+<!-- BOOKING -->
+<section class="booking">
+<h2>Book Blue Sapphire (Neelam)</h2>
+<form action="/public/book.html">
+<input type="text" placeholder="Your Name" required>
+<input type="tel" placeholder="Mobile Number" required>
+<textarea placeholder="Purpose / Message"></textarea>
+<button type="submit">Confirm Booking</button>
+</form>
 </section>
 
-<script src="js/gemstone-detail.js"></script>
+<script>
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+</script>
+
 </body>
 </html>

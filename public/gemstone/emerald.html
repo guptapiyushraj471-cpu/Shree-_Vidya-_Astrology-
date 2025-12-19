@@ -1,48 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Emerald (Panna) – Gemstone Details</title>
-  <link rel="stylesheet" href="css/gemstone-detail.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emerald (Panna) – Gemstone Details</title>
+
+<style>
+/* ============================================
+   PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
+   ============================================ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+  min-height:100vh;
+  line-height:1.7;
+}
+
+/* ===== DETAIL CONTAINER ===== */
+.detail-container{
+  max-width:760px;
+  margin:auto;
+  background:#ffffff;
+  padding:48px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.04);
+  animation:slideUp .6s ease;
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== HEADING ===== */
+.detail-container h1{
+  font-size:2.2rem;
+  margin-bottom:28px;
+  font-weight:700;
+  background:linear-gradient(135deg,#047857,#10b981);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== IMAGE ===== */
+.gem-img{
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:30px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  transition:transform .3s ease;
+}
+
+.gem-img:hover{
+  transform:scale(1.03);
+}
+
+/* ===== DESCRIPTION ===== */
+.desc{
+  font-size:1.05rem;
+  color:#4a5568;
+  margin-bottom:18px;
+}
+
+.desc.hindi{
+  background:rgba(16,185,129,.08);
+  color:#374151;
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:30px;
+}
+
+/* ===== INFO LIST ===== */
+.info{
+  list-style:none;
+  text-align:left;
+  background:#f8f9fa;
+  border-radius:18px;
+  padding:22px;
+  margin:32px 0;
+}
+
+.info li{
+  padding:14px 16px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  font-size:1rem;
+}
+
+.info li:last-child{border-bottom:none}
+
+.info strong{
+  color:#047857;
+  font-weight:600;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.book-btn,
+.back-btn{
+  padding:14px 36px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  transition:all .25s ease;
+}
+
+.book-btn{
+  background:linear-gradient(135deg,#047857,#10b981);
+  color:#fff;
+  box-shadow:0 6px 18px rgba(16,185,129,.35);
+}
+
+.book-btn:hover{
+  transform:translateY(-2px);
+}
+
+.back-btn{
+  background:#e5e7eb;
+  color:#374151;
+}
+
+.back-btn:hover{
+  background:#d1d5db;
+}
+
+/* ===== BOOKING SECTION ===== */
+.booking{
+  max-width:760px;
+  margin:60px auto 0;
+  background:#ffffff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.04);
+}
+
+.booking h2{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:24px;
+  color:#4b5563;
+}
+
+.booking form{
+  display:grid;
+  gap:16px;
+}
+
+.booking input,
+.booking textarea{
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  font-size:.95rem;
+}
+
+.booking textarea{
+  resize:none;
+  min-height:100px;
+}
+
+.booking button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#047857,#10b981);
+  color:#fff;
+  font-weight:600;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+.booking button:hover{
+  opacity:.95;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  .detail-container h1{font-size:1.8rem}
+}
+</style>
 </head>
+
 <body>
 
 <section class="detail-container">
+
   <h1>Emerald (Panna)</h1>
 
-  <img src="/public/gemstone/img/Emerald.jfif" alt="Emerald Gemstone" class="gem-img">
+  <!-- IMAGE -->
+  <img src="/public/img/Emerald.jfif" alt="Emerald (Panna)" class="gem-img">
 
+  <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
-    Emerald (Panna) enhances intelligence, communication skills, and analytical
-    ability. It strengthens Mercury and is ideal for students, professionals,
-    and business owners.
+    Emerald (Panna) is the gemstone of intelligence, wisdom, communication,
+    and analytical ability. It strengthens the planet Mercury and helps improve
+    speech, memory, business skills, learning capacity, and decision-making power.
+    Emerald is highly recommended for students, professionals, traders,
+    and people in communication-based careers.
   </p>
 
+  <!-- HINDI DESCRIPTION -->
+  <p class="desc hindi">
+    पन्ना (एमराल्ड) बुद्धि, ज्ञान, वाणी और विश्लेषण क्षमता को बढ़ाने वाला रत्न है।
+    यह बुध ग्रह को मजबूत करता है और स्मरण शक्ति, संवाद कौशल,
+    व्यापारिक निर्णय तथा अध्ययन क्षमता में वृद्धि करता है।
+    यह रत्न विद्यार्थियों, व्यापारियों और पेशेवरों के लिए विशेष रूप से लाभकारी है।
+  </p>
+
+  <!-- DETAILS -->
   <ul class="info">
+    <li><strong>Gemstone:</strong> Emerald (Panna)</li>
+    <li><strong>रत्न:</strong> पन्ना</li>
+
     <li><strong>Planet:</strong> Mercury</li>
-    <li><strong>Chakra:</strong> Heart</li>
-    <li><strong>Recommended For:</strong> Intelligence, Communication, Business Growth</li>
+    <li><strong>ग्रह:</strong> बुध</li>
+
+    <li><strong>Chakra:</strong> Heart Chakra</li>
+    <li><strong>चक्र:</strong> अनाहत चक्र</li>
+
+    <li><strong>Benefits:</strong> Intelligence, Communication, Business Growth</li>
+    <li><strong>लाभ:</strong> बुद्धि विकास, संवाद कौशल, व्यापार उन्नति</li>
+
+    <li><strong>Recommended For:</strong> Students, Business Owners, Professionals</li>
+    <li><strong>उपयुक्त:</strong> विद्यार्थी, व्यापारी, पेशेवर</li>
+
+    <li><strong>Important Note:</strong> Wear only after astrological consultation</li>
     <li><strong>Price:</strong> ₹5,999</li>
   </ul>
 
+  <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="../index.html" class="back-btn">Back</a>
+    <a href="/public/index.html" class="back-btn">← Back</a>
   </div>
+
 </section>
 
-<!-- BOOKING SECTION -->
+<!-- BOOKING -->
 <section id="book" class="booking">
   <h2>Book Emerald (Panna)</h2>
 
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Purpose / Message"></textarea>
+    <textarea placeholder="Purpose / Message (Optional)"></textarea>
     <button type="submit">Confirm Booking</button>
   </form>
 </section>
 
-<script src="js/gemstone-detail.js"></script>
+<script>
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Your Emerald (Panna) booking request has been submitted.");
+}
+</script>
+
 </body>
 </html>

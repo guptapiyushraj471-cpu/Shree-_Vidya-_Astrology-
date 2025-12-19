@@ -2,33 +2,209 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vastu Yantra</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0b1220;color:#fff;padding:40px 20px}
-.card{max-width:720px;margin:auto;background:#111a2e;padding:28px;border-radius:18px;text-align:center}
-h1{color:#f5c16c;margin-bottom:20px}
-img{width:100%;max-height:320px;object-fit:cover;border-radius:16px;margin-bottom:20px}
-p{color:#dcdcdc;line-height:1.7}
-ul{list-style:none;text-align:left;margin:20px 0}
-li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-strong{color:#f5c16c}
-a{display:inline-block;padding:12px 30px;border-radius:30px;background:#f5c16c;color:#000;text-decoration:none;font-weight:600}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+}
+.detail-container{
+  max-width:720px;
+  margin:auto;
+  background:#fff;
+  padding:48px;
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+  text-align:center;
+}
+h1{
+  font-size:34px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:24px;
+}
+
+/* IMAGE SLIDER */
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  margin-bottom:28px;
+}
+.slider img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  display:none;
+}
+.slider img.active{
+  display:block;
+}
+
+/* CONTENT */
+.desc{font-size:15px;color:#555;line-height:1.8;margin-bottom:16px}
+.desc.hindi{background:#faf6f0;padding:14px;border-radius:12px}
+
+.info{
+  list-style:none;
+  text-align:left;
+  margin:26px 0;
+  background:#f8f9fa;
+  border-radius:16px;
+  padding:20px;
+}
+.info li{
+  padding:12px;
+  border-bottom:1px solid #e2e6ea;
+}
+.info li:last-child{border:none}
+.info strong{color:#c89860}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:22px;
+}
+.btn{
+  padding:14px 36px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+}
+.book-btn{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+}
+.back-btn{
+  background:#eef1f5;
+  color:#333;
+}
+
+/* BOOKING FORM */
+.booking{
+  max-width:720px;
+  margin:60px auto 0;
+  background:#ffffff;
+  padding:40px;
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+.booking h2{
+  text-align:center;
+  margin-bottom:22px;
+  color:#c89860;
+}
+.booking form{
+  display:grid;
+  gap:14px;
+}
+.booking input,
+.booking textarea{
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #dcdfe4;
+  font-size:14px;
+}
+.booking button{
+  padding:14px;
+  border-radius:30px;
+  border:none;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
 </style>
 </head>
+
 <body>
-<section class="card">
+
+<!-- PRODUCT DETAILS -->
+<section class="detail-container">
+
 <h1>Vastu Yantra</h1>
-<img src="/public/vastu/img/VastuYantra.jpg" alt="Vastu Yantra">
-<p>Vastu Yantra corrects Vastu defects and brings peace, prosperity and harmony.</p>
-<ul>
+
+<!-- IMAGE SLIDER -->
+<div class="slider">
+  <img src="/public/img/VastuYantra1.jfif" class="active">
+  <img src="/public/img/VastuYantra2.jpeg">
+  <img src="/public/img/VastuYantra3.jpg">
+  <img src="/public/img/VastuYantra4.webp">
+</div>
+
+<!-- English Description (UNCHANGED) -->
+<p class="desc">
+Vastu Yantra is a sacred geometric diagram designed to correct Vastu defects
+and harmonize energies in living and working spaces. It neutralizes negative
+vibrations, strengthens positive forces, and supports peace, prosperity,
+and success when placed according to Vastu principles.
+</p>
+
+<!-- Hindi Description (UNCHANGED) -->
+<p class="desc hindi">
+वास्तु यंत्र एक पवित्र ज्यामितीय यंत्र है, जो वास्तु दोषों को दूर करने
+और घर या कार्यालय में ऊर्जा संतुलन बनाए रखने के लिए उपयोग किया जाता है।
+यह नकारात्मक प्रभावों को समाप्त कर शांति, समृद्धि और सफलता प्रदान करता है।
+</p>
+
+<ul class="info">
 <li><strong>Yantra:</strong> Vastu Yantra</li>
-<li><strong>Benefits:</strong> Harmony, Success</li>
-<li><strong>Use:</strong> Home, Office</li>
+<li><strong>यंत्र:</strong> वास्तु यंत्र</li>
+
+<li><strong>Benefits:</strong> Harmony, Peace, Success, Positivity</li>
+<li><strong>लाभ:</strong> सामंजस्य, शांति, सफलता, सकारात्मकता</li>
+
+<li><strong>Recommended Placement:</strong> Home, Office, Temple Area</li>
+<li><strong>उपयुक्त स्थान:</strong> घर, कार्यालय, पूजा स्थल</li>
+
+<li><strong>Vastu Significance:</strong> Neutralizes Vastu Dosha</li>
+<li><strong>Use Case:</strong> Residential & Commercial Spaces</li>
+<li><strong>Occasion:</strong> Daily Worship, Vastu Remedies</li>
 <li><strong>Price:</strong> ₹1,999</li>
 </ul>
-<a href="vastu-products.html">← Back</a>
+
+<div class="actions">
+  <a href="/public/book.html" class="btn book-btn">Book Now</a>
+  <a href="/public/vastu/vastu-products.html" class="btn back-btn">← Back</a>
+</div>
+
 </section>
-<script>console.log("Vastu Yantra loaded");</script>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="book">
+<h2>Book Vastu Yantra</h2>
+
+<form onsubmit="submitBooking(event)">
+<input type="text" placeholder="Your Name" required>
+<input type="tel" placeholder="Mobile Number" required>
+<textarea placeholder="Message / Purpose"></textarea>
+<button type="submit">Confirm Booking</button>
+</form>
+</section>
+
+<script>
+/* IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+/* FORM */
+function submitBooking(e){
+  e.preventDefault();
+  window.location.href="/public/book.html";
+}
+</script>
+
 </body>
 </html>

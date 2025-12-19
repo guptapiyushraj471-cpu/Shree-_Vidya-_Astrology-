@@ -1,48 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Yellow Sapphire (Pukhraj) – Gemstone Details</title>
-  <link rel="stylesheet" href="css/gemstone-detail.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yellow Sapphire (Pukhraj) – Gemstone Details</title>
+
+<style>
+/* ============================================
+   PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
+   ============================================ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+  min-height:100vh;
+  line-height:1.7;
+}
+
+/* ===== CONTAINER ===== */
+.detail-container{
+  max-width:760px;
+  margin:auto;
+  background:#ffffff;
+  padding:48px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.04);
+  animation:slideUp .6s ease;
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== HEADING ===== */
+.detail-container h1{
+  font-size:2.2rem;
+  margin-bottom:28px;
+  font-weight:700;
+  background:linear-gradient(135deg,#e0b84c,#cfa93b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== IMAGE ===== */
+.gem-img{
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:30px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  transition:transform .3s ease;
+}
+
+.gem-img:hover{transform:scale(1.03)}
+
+/* ===== DESCRIPTION ===== */
+.desc{
+  font-size:1.05rem;
+  color:#4a5568;
+  margin-bottom:18px;
+}
+
+.desc.hindi{
+  background:rgba(224,184,76,.18);
+  color:#374151;
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:30px;
+}
+
+/* ===== INFO LIST ===== */
+.info{
+  list-style:none;
+  text-align:left;
+  background:#f8f9fa;
+  border-radius:18px;
+  padding:22px;
+  margin:32px 0;
+}
+
+.info li{
+  padding:14px 16px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  font-size:1rem;
+}
+
+.info li:last-child{border-bottom:none}
+
+.info strong{
+  color:#b8912f;
+  font-weight:600;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.book-btn,
+.back-btn{
+  padding:14px 36px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  transition:all .25s ease;
+}
+
+.book-btn{
+  background:linear-gradient(135deg,#e0b84c,#cfa93b);
+  color:#fff;
+  box-shadow:0 6px 18px rgba(207,169,59,.45);
+}
+
+.book-btn:hover{transform:translateY(-2px)}
+
+.back-btn{
+  background:#e5e7eb;
+  color:#374151;
+}
+
+.back-btn:hover{background:#d1d5db}
+
+/* ===== BOOKING ===== */
+.booking{
+  max-width:760px;
+  margin:60px auto 0;
+  background:#ffffff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.04);
+}
+
+.booking h2{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:24px;
+  color:#b8912f;
+}
+
+.booking form{
+  display:grid;
+  gap:16px;
+}
+
+.booking input,
+.booking textarea{
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  font-size:.95rem;
+}
+
+.booking textarea{
+  resize:none;
+  min-height:100px;
+}
+
+.booking button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#e0b84c,#cfa93b);
+  color:#fff;
+  font-weight:600;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+.booking button:hover{opacity:.95}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  .detail-container h1{font-size:1.8rem}
+}
+</style>
 </head>
+
 <body>
 
 <section class="detail-container">
+
   <h1>Yellow Sapphire (Pukhraj)</h1>
 
+  <!-- IMAGE -->
   <img src="/public/gemstone/img/YellowSapphire.png" alt="Yellow Sapphire Gemstone" class="gem-img">
 
+  <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
-    Yellow Sapphire (Pukhraj) attracts prosperity, wisdom, good fortune,
-    and strengthens Jupiter. Highly beneficial for marriage, career growth,
-    financial stability, and spiritual development.
+    Yellow Sapphire (Pukhraj) is one of the most auspicious gemstones.
+    It attracts prosperity, wisdom, good fortune, and strengthens Jupiter.
+    Highly beneficial for marriage, career growth, financial stability,
+    and spiritual development.
   </p>
 
+  <!-- HINDI DESCRIPTION -->
+  <p class="desc hindi">
+    पीला पुखराज रत्न अत्यंत शुभ माना जाता है। यह गुरु ग्रह को मजबूत करता है
+    और धन, विवाह, करियर में उन्नति, बुद्धि एवं आध्यात्मिक विकास प्रदान करता है।
+  </p>
+
+  <!-- DETAILS -->
   <ul class="info">
+    <li><strong>Gemstone:</strong> Yellow Sapphire (Pukhraj)</li>
+    <li><strong>रत्न:</strong> पीला पुखराज</li>
+
     <li><strong>Planet:</strong> Jupiter</li>
-    <li><strong>Chakra:</strong> Solar Plexus</li>
-    <li><strong>Recommended For:</strong> Wealth, Marriage, Career Growth, Wisdom</li>
+    <li><strong>ग्रह:</strong> गुरु</li>
+
+    <li><strong>Chakra:</strong> Solar Plexus Chakra</li>
+    <li><strong>चक्र:</strong> मणिपूर चक्र</li>
+
+    <li><strong>Benefits:</strong> Wealth, Wisdom, Marriage, Career Growth</li>
+    <li><strong>लाभ:</strong> धन, बुद्धि, विवाह, करियर उन्नति</li>
+
+    <li><strong>Recommended For:</strong> Marriage, Business, Education, Spiritual Growth</li>
+    <li><strong>उपयुक्त:</strong> विवाह, व्यवसाय, शिक्षा, आध्यात्मिक उन्नति</li>
+
     <li><strong>Price:</strong> ₹6,999</li>
   </ul>
 
+  <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="../index.html" class="back-btn">Back</a>
+    <a href="/public/index.html" class="back-btn">← Back</a>
   </div>
+
 </section>
 
-<!-- BOOKING SECTION -->
+<!-- BOOKING -->
 <section id="book" class="booking">
   <h2>Book Yellow Sapphire (Pukhraj)</h2>
 
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Purpose / Message"></textarea>
+    <textarea placeholder="Purpose / Message (Optional)"></textarea>
     <button type="submit">Confirm Booking</button>
   </form>
 </section>
 
-<script src="js/gemstone-detail.js"></script>
+<script>
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Your Yellow Sapphire (Pukhraj) booking request has been submitted.");
+}
+</script>
+
 </body>
 </html>

@@ -1,47 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ruby (Manik) – Gemstone Details</title>
-  <link rel="stylesheet" href="css/gemstone-detail.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruby (Manik) – Gemstone Details</title>
+
+<style>
+/* ============================================
+   PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
+   ============================================ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+  min-height:100vh;
+  line-height:1.7;
+}
+
+/* ===== CONTAINER ===== */
+.detail-container{
+  max-width:760px;
+  margin:auto;
+  background:#ffffff;
+  padding:48px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.04);
+  animation:slideUp .6s ease;
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== HEADING ===== */
+.detail-container h1{
+  font-size:2.2rem;
+  margin-bottom:28px;
+  font-weight:700;
+  background:linear-gradient(135deg,#b11226,#e63946);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== IMAGE ===== */
+.gem-img{
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:30px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  transition:transform .3s ease;
+}
+
+.gem-img:hover{transform:scale(1.03)}
+
+/* ===== DESCRIPTION ===== */
+.desc{
+  font-size:1.05rem;
+  color:#4a5568;
+  margin-bottom:18px;
+}
+
+.desc.hindi{
+  background:rgba(230,57,70,.08);
+  color:#374151;
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:30px;
+}
+
+/* ===== INFO LIST ===== */
+.info{
+  list-style:none;
+  text-align:left;
+  background:#f8f9fa;
+  border-radius:18px;
+  padding:22px;
+  margin:32px 0;
+}
+
+.info li{
+  padding:14px 16px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  font-size:1rem;
+}
+
+.info li:last-child{border-bottom:none}
+
+.info strong{
+  color:#b11226;
+  font-weight:600;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.book-btn,
+.back-btn{
+  padding:14px 36px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  transition:all .25s ease;
+}
+
+.book-btn{
+  background:linear-gradient(135deg,#b11226,#e63946);
+  color:#fff;
+  box-shadow:0 6px 18px rgba(230,57,70,.45);
+}
+
+.book-btn:hover{transform:translateY(-2px)}
+
+.back-btn{
+  background:#e5e7eb;
+  color:#374151;
+}
+
+.back-btn:hover{background:#d1d5db}
+
+/* ===== BOOKING ===== */
+.booking{
+  max-width:760px;
+  margin:60px auto 0;
+  background:#ffffff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.04);
+}
+
+.booking h2{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:24px;
+  color:#b11226;
+}
+
+.booking form{
+  display:grid;
+  gap:16px;
+}
+
+.booking input,
+.booking textarea{
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  font-size:.95rem;
+}
+
+.booking textarea{
+  resize:none;
+  min-height:100px;
+}
+
+.booking button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#b11226,#e63946);
+  color:#fff;
+  font-weight:600;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+.booking button:hover{opacity:.95}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  .detail-container h1{font-size:1.8rem}
+}
+</style>
 </head>
+
 <body>
 
 <section class="detail-container">
+
   <h1>Ruby (Manik)</h1>
 
-  <img src="/public/gemstone/img/Ruby.jpg" alt="Ruby Gemstone" class="gem-img">
+  <!-- IMAGE -->
+  <img src="/public/img/Ruby.jpg" alt="Ruby Gemstone" class="gem-img">
 
+  <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
-    Ruby strengthens confidence, leadership, authority and Sun energy.
-    Highly recommended for success and vitality.
+    Ruby (Manik) is a powerful gemstone of the Sun that enhances confidence,
+    leadership qualities, authority, vitality, and self-esteem.
+    It is highly recommended for individuals seeking success,
+    recognition, and strong decision-making ability.
   </p>
 
+  <!-- HINDI DESCRIPTION -->
+  <p class="desc hindi">
+    रूबी (माणिक्य) सूर्य ग्रह का शक्तिशाली रत्न माना जाता है।
+    यह आत्मविश्वास, नेतृत्व क्षमता, मान-सम्मान और ऊर्जा को बढ़ाता है।
+    पद-प्रतिष्ठा, सफलता और प्रभावशाली व्यक्तित्व के लिए यह अत्यंत लाभकारी है।
+  </p>
+
+  <!-- DETAILS -->
   <ul class="info">
+    <li><strong>Gemstone:</strong> Ruby (Manik)</li>
+    <li><strong>रत्न:</strong> माणिक्य</li>
+
     <li><strong>Planet:</strong> Sun</li>
-    <li><strong>Chakra:</strong> Heart</li>
-    <li><strong>Recommended For:</strong> Leadership, Power, Confidence</li>
+    <li><strong>ग्रह:</strong> सूर्य</li>
+
+    <li><strong>Chakra:</strong> Heart Chakra</li>
+    <li><strong>चक्र:</strong> हृदय चक्र</li>
+
+    <li><strong>Benefits:</strong> Leadership, Confidence, Authority, Vitality</li>
+    <li><strong>लाभ:</strong> नेतृत्व, आत्मविश्वास, सम्मान, ऊर्जा</li>
+
+    <li><strong>Recommended For:</strong> Government Jobs, Leadership Roles, Success</li>
+    <li><strong>उपयुक्त:</strong> नेतृत्व पद, प्रशासन, सफलता</li>
+
     <li><strong>Price:</strong> ₹4,999</li>
   </ul>
 
+  <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="../index.html" class="back-btn">Back</a>
+    <a href="/public/index.html" class="back-btn">← Back</a>
   </div>
+
 </section>
 
-<!-- BOOK SECTION -->
+<!-- BOOKING -->
 <section id="book" class="booking">
-  <h2>Book Ruby Gemstone</h2>
+  <h2>Book Ruby (Manik)</h2>
 
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Message / Purpose"></textarea>
+    <textarea placeholder="Purpose / Message (Optional)"></textarea>
     <button type="submit">Confirm Booking</button>
   </form>
 </section>
 
-<script src="js/gemstone-detail.js"></script>
+<script>
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Your Ruby (Manik) booking request has been submitted.");
+}
+</script>
+
 </body>
 </html>

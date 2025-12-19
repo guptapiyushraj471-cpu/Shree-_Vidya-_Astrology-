@@ -2,145 +2,215 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Vastu Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vastu Products Collection</title>
 
 <style>
-/* ===== RESET ===== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
-  background:#0b1220;
-  color:#fff;
-  padding:40px 20px;
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
 }
 
-/* ===== SECTION ===== */
-.vastu-section{
-  max-width:1100px;
-  margin:auto;
+/* HEADER */
+.header{
+  padding:60px 20px 40px;
   text-align:center;
 }
-
-.vastu-section h2{
-  font-size:30px;
-  margin-bottom:30px;
-  color:#f5c16c;
+.header h1{
+  font-size:36px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
+.header p{color:#666;margin-top:8px}
 
-/* ===== GRID ===== */
-.vastu-grid{
+/* GRID */
+.products{
+  max-width:1300px;
+  margin:auto;
+  padding:20px;
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-  gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
 }
 
-/* ===== CARD ===== */
-.vastu-card{
-  background:#111a2e;
-  border-radius:18px;
+/* CARD */
+.product-card{
+  background:#fff;
+  border-radius:22px;
   padding:18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.45);
-  transition:transform .3s ease, box-shadow .3s ease;
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
+  text-align:center;
+  transition:.3s;
 }
-
-.vastu-card:hover{
+.product-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 20px 45px rgba(0,0,0,0.6);
+  box-shadow:0 18px 45px rgba(0,0,0,.12);
 }
 
-.vastu-card img{
+/* IMAGE SLIDER */
+.card-slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
+  margin-bottom:14px;
+}
+.card-slider img{
   width:100%;
-  height:170px;
+  height:220px;
   object-fit:cover;
-  border-radius:14px;
-  border:2px solid #2a3560;
-  background:#000;
+  display:none;
+}
+.card-slider img.active{
+  display:block;
 }
 
-.vastu-card h3{
-  margin:14px 0;
+.product-card h3{
   font-size:18px;
-  color:#ffffff;
+  margin-bottom:6px;
 }
-
-/* ===== BUTTON ===== */
-.view-product{
-  display:inline-block;
-  margin-top:8px;
-  padding:10px 26px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#f5c16c,#ffb703);
-  color:#000;
-  text-decoration:none;
-  font-weight:600;
+.product-card p{
   font-size:14px;
-  transition:transform .2s ease, box-shadow .2s ease;
+  color:#666;
+}
+.price{
+  margin:12px 0;
+  font-weight:700;
+  color:#c89860;
+  font-size:16px;
 }
 
-.view-product:hover{
-  transform:scale(1.05);
-  box-shadow:0 6px 18px rgba(245,193,108,.5);
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+.actions a{
+  padding:10px 18px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+.view{
+  background:#eef1f5;
+  color:#333;
+}
+.buy{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
 }
 
-/* ===== MOBILE ===== */
-@media(max-width:600px){
-  .vastu-section h2{
-    font-size:24px;
-  }
-}
+.footer-space{height:60px}
 </style>
 </head>
 
 <body>
 
-<section class="vastu-section">
-  <h2>Vastu Products</h2>
-
-  <div class="vastu-grid">
-
-    <div class="vastu-card">
-      <img src="/public/vastu/img/VastuPyramid.jfif" alt="Vastu Pyramid">
-      <h3>Vastu Pyramid</h3>
-      <a href="vastu-pyramid.html" class="view-product">View Product</a>
-    </div>
-
-    <div class="vastu-card">
-      <img src="/public/vastu/img/VastuYantra.jpg" alt="Vastu Yantra">
-      <h3>Vastu Yantra</h3>
-      <a href="vastu-yantra.html" class="view-product">View Product</a>
-    </div>
-
-    <div class="vastu-card">
-      <img src="/public/vastu/img/BrassTortoise.webp" alt="Brass Tortoise">
-      <h3>Brass Tortoise</h3>
-      <a href="brass-tortoise.html" class="view-product">View Product</a>
-    </div>
-
-    <div class="vastu-card">
-      <img src="/public/vastu/img/Kubera.webp" alt="Kubera Yantra">
-      <h3>Kubera Yantra</h3>
-      <a href="kubera-yantra.html" class="view-product">View Product</a>
-    </div>
-
-    <div class="vastu-card">
-      <img src="/public/vastu/img/EvilEye.webp" alt="Evil Eye Protection">
-      <h3>Evil Eye Protection</h3>
-      <a href="evil-eye.html" class="view-product">View Product</a>
-    </div>
-
-  </div>
+<!-- HEADER -->
+<section class="header">
+  <h1>Vastu Products</h1>
+  <p>Energy Balance • Vastu Remedies • Positivity</p>
 </section>
 
+<!-- PRODUCTS GRID -->
+<section class="products">
+
+<!-- VASTU YANTRA -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/VastuYantra4.webp" class="active">
+    <img src="/public/img/VastuYantra3.jpg">
+    <img src="/public/img/VastuYantra2.jpeg">
+  </div>
+  <h3>Vastu Yantra</h3>
+  <p>Vastu Dosh Removal & Harmony</p>
+  <div class="price">₹1,999</div>
+  <div class="actions">
+    <a class="view" href="/public/vastu/vastu-yantra.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- BRASS TORTOISE -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/BrassTortoise3.jpg" class="active">
+    <img src="/public/img/BrassTortoise3.jpg">
+    <img src="/public/img/BrassTortoise4.webp">
+  </div>
+  <h3>Brass Tortoise</h3>
+  <p>Stability & Financial Growth</p>
+  <div class="price">₹1,499</div>
+  <div class="actions">
+    <a class="view" href="/public/vastu/brass-tortoise.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- VASTU PYRAMID -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/VastuPyramid1.jfif" class="active">
+    <img src="/public/img/VastuPyramid2.webp">
+    <img src="/public/img/VastuPyramid4.webp">
+  </div>
+  <h3>Vastu Pyramid</h3>
+  <p>Energy Balance & Positivity</p>
+  <div class="price">₹2,499</div>
+  <div class="actions">
+    <a class="view" href="/public/vastu/vastu-pyramid.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- EVIL EYE -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/EvilEyeProtection3.webp" class="active">
+    <img src="/public/img/EvilEyeProtection2.jfif">
+    <img src="/public/img/EvilEyeProtection1.png">
+  </div>
+  <h3>Evil Eye Protection</h3>
+  <p>Protection from Negative Energy</p>
+  <div class="price">₹999</div>
+  <div class="actions">
+    <a class="view" href="/public/vastu/evil-eye-protection.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- KUBER YANTRA -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/Kuberayatra2.jpg" class="active">
+    <img src="/public/img/KuberaYantra.jpg">
+    <img src="/public/img/Kuberayatra3.jpg">
+  </div>
+  <h3>Kuber Yantra</h3>
+  <p>Wealth Attraction & Prosperity</p>
+  <div class="price">₹2,299</div>
+  <div class="actions">
+    <a class="view" href="/public/vastu/kuber-yantra.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+</section>
+
+<div class="footer-space"></div>
+
 <script>
-document.querySelectorAll('.view-product').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    console.log('Vastu product clicked');
-  });
+document.querySelectorAll(".card-slider").forEach(slider=>{
+  const imgs = slider.querySelectorAll("img");
+  let i = 0;
+  setInterval(()=>{
+    imgs[i].classList.remove("active");
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add("active");
+  },3000);
 });
 </script>
 

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vastu Compass</title>
+
+<style>
+/* =====================================================
+   EXISTING STYLES — NOT REMOVED
+   ===================================================== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+}
+.detail-container{
+  max-width:720px;
+  margin:auto;
+  background:#fff;
+  padding:48px;
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+  text-align:center;
+}
+h1{
+  font-size:34px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:24px;
+}
+
+/* =====================================================
+   IMAGE SLIDER
+   ===================================================== */
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  margin-bottom:28px;
+}
+.slider img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  display:none;
+}
+.slider img.active{
+  display:block;
+}
+
+/* =====================================================
+   CONTENT
+   ===================================================== */
+.desc{font-size:15px;color:#555;line-height:1.8;margin-bottom:16px}
+.desc.hindi{background:#faf6f0;padding:14px;border-radius:12px}
+
+.info{
+  list-style:none;
+  text-align:left;
+  margin:26px 0;
+  background:#f8f9fa;
+  border-radius:16px;
+  padding:20px;
+}
+.info li{
+  padding:12px;
+  border-bottom:1px solid #e2e6ea;
+}
+.info li:last-child{border:none}
+.info strong{color:#c89860}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:22px;
+}
+.btn{
+  padding:14px 36px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+}
+.book-btn{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+}
+.back-btn{
+  background:#eef1f5;
+  color:#333;
+}
+
+/* =====================================================
+   BOOKING FORM
+   ===================================================== */
+.booking{
+  max-width:720px;
+  margin:60px auto 0;
+  background:#ffffff;
+  padding:40px;
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+.booking h2{
+  text-align:center;
+  margin-bottom:22px;
+  color:#c89860;
+}
+.booking form{
+  display:grid;
+  gap:14px;
+}
+.booking input,
+.booking textarea{
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #dcdfe4;
+  font-size:14px;
+}
+.booking button{
+  padding:14px;
+  border-radius:30px;
+  border:none;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     PRODUCT DETAILS
+     ===================================================== -->
+<section class="detail-container">
+
+<h1>Vastu Compass</h1>
+
+<!-- IMAGE SLIDER -->
+<div class="slider">
+  <img src="/public/img/VastuCompass1.webp" class="active">
+  <img src="/public/img/VastuCompass2.webp">
+  <img src="/public/img/VastuCompass3.webp">
+  <img src="/public/img/VastuCompass4.webp">
+</div>
+
+<p class="desc">
+The Vastu Compass is an essential tool for accurate Vastu analysis.
+It helps determine exact directions and align spaces according to
+Vastu Shastra principles. Correct directional alignment supports
+health, prosperity, stability, and positive energy flow.
+</p>
+
+<p class="desc hindi">
+वास्तु कम्पास वास्तु विश्लेषण का एक अत्यंत महत्वपूर्ण उपकरण है।
+यह सही दिशा निर्धारित करने में सहायता करता है,
+जिससे घर या कार्यालय को वास्तु सिद्धांतों के अनुसार
+संतुलित किया जा सकता है और सकारात्मक ऊर्जा बढ़ती है।
+</p>
+
+<ul class="info">
+<li><strong>Tool Type:</strong> Vastu Compass</li>
+<li><strong>उपकरण:</strong> वास्तु कम्पास</li>
+
+<li><strong>Purpose:</strong> Direction Identification</li>
+<li><strong>उद्देश्य:</strong> सही दिशा निर्धारण</li>
+
+<li><strong>Benefits:</strong> Accurate Vastu Planning, Energy Balance</li>
+<li><strong>लाभ:</strong> सटीक वास्तु योजना, ऊर्जा संतुलन</li>
+
+<li><strong>Recommended For:</strong> Homes, Offices, Architects, Consultants</li>
+<li><strong>Use Case:</strong> Vastu Analysis & Correction</li>
+<li><strong>Occasion:</strong> Daily Vastu Practice</li>
+<li><strong>Price:</strong> ₹1,299</li>
+</ul>
+
+<div class="actions">
+  <a href="/public/book.html" class="btn book-btn">Book Now</a>
+  <a href="/public/vastutool/vastu-tools.html" class="btn back-btn">← Back</a>
+</div>
+
+</section>
+
+<!-- =====================================================
+     BOOKING FORM
+     ===================================================== -->
+<section class="booking" id="book">
+<h2>Book Vastu Compass</h2>
+
+<form onsubmit="submitBooking(event)">
+<input type="text" placeholder="Your Name" required>
+<input type="tel" placeholder="Mobile Number" required>
+<textarea placeholder="Message / Purpose"></textarea>
+<button type="submit">Confirm Booking</button>
+</form>
+</section>
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+<script>
+/* IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+/* FORM */
+function submitBooking(e){
+  e.preventDefault();
+  window.location.href="/public/book.html";
+}
+</script>
+
+</body>
+</html>

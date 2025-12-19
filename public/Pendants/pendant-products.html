@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendant Collection</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+}
+
+/* HEADER */
+.header{
+  padding:60px 20px 40px;
+  text-align:center;
+}
+.header h1{
+  font-size:36px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.header p{color:#666;margin-top:8px}
+
+/* GRID */
+.products{
+  max-width:1300px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
+}
+
+/* CARD */
+.product-card{
+  background:#fff;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
+  text-align:center;
+  transition:.3s;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 45px rgba(0,0,0,.12);
+}
+
+/* IMAGE SLIDER */
+.card-slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
+  margin-bottom:14px;
+}
+.card-slider img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:none;
+}
+.card-slider img.active{
+  display:block;
+}
+
+.product-card h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+.product-card p{
+  font-size:14px;
+  color:#666;
+}
+.price{
+  margin:12px 0;
+  font-weight:700;
+  color:#c89860;
+  font-size:16px;
+}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+.actions a{
+  padding:10px 18px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+.view{
+  background:#eef1f5;
+  color:#333;
+}
+.buy{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+}
+
+.footer-space{height:60px}
+</style>
+</head>
+
+<body>
+
+<section class="header">
+  <h1>Pendant Collection</h1>
+  <p>Divine, Spiritual & Astrological Pendants</p>
+</section>
+
+<section class="products">
+
+<!-- HANUMAN -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/HanumanLocket3.webp" class="active">
+    <img src="/public/img/HanumanLocket4.webp">
+    <img src="/public/img/HanumanLocket1.webp">
+  </div>
+  <h3>Hanuman Locket</h3>
+  <p>Strength & Protection</p>
+  <div class="price">₹1,299</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/hanuman-locket.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- MAHAKAL -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/MahakalLocket4.webp" class="active">
+    <img src="/public/img/MahakalLocket4.webp">
+    <img src="/public/img/MahakalLocket1.jpg">
+  </div>
+  <h3>Mahakal Locket</h3>
+  <p>Fearlessness & Power</p>
+  <div class="price">₹1,199</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/mahakal-locket.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- GAYATRI -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/GayatriMantraPendant3.jpg" class="active">
+    <img src="/public/img/GayatriMantraPendant4.webp">
+    <img src="/public/img/GayatriMantraPendant1.jpg">
+  </div>
+  <h3>Gayatri Mantra Pendant</h3>
+  <p>Wisdom & Protection</p>
+  <div class="price">₹1,399</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/gayatri-pendant.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- NAVGRAH -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/NavgrahPendant3.webp" class="active">
+    <img src="/public/img/NavgrahPendant4.webp">
+    <img src="/public/img/NavgrahPendant2.jpg">
+  </div>
+  <h3>Navgrah Pendant</h3>
+  <p>Planetary Balance</p>
+  <div class="price">₹1,599</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/navgrah-pendant.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- OM -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/OmPendant2.webp" class="active">
+    <img src="/public/img/OmPendant3.webp">
+    <img src="/public/img/OmPendant1.webp">
+  </div>
+  <h3>Om Pendant</h3>
+  <p>Peace & Spiritual Growth</p>
+  <div class="price">₹999</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/om-pendant.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- RUDRAKSHA -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/RudrakshaPendant2.webp" class="active">
+    <img src="/public/img/RudrakshaPendant4.webp">
+    <img src="/public/img/RudrakshaPendant1.webp">
+  </div>
+  <h3>Rudraksha Pendant</h3>
+  <p>Stress Relief & Protection</p>
+  <div class="price">₹1,299</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/rudraksha-pendant.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- SHANI -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/ShaniKada3.jfif" class="active">
+    <img src="/public/img/ShaniKada2.jpg">
+    <img src="/public/img/ShaniKada1.jpg">
+  </div>
+  <h3>Shani Kada</h3>
+  <p>Shani Dosh Shanti</p>
+  <div class="price">₹1,799</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/shani-kada.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- SHREE YANTRA -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/ShreeYantraPendant2.jfif" class="active">
+    <img src="/public/img/ShreeYantra.jpg">
+    <img src="/public/img/ShreeYantraPendant1.jpg">
+  </div>
+  <h3>Shree Yantra Pendant</h3>
+  <p>Wealth & Prosperity</p>
+  <div class="price">₹1,699</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/shree-yantra.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- TRISHUL -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/TrishulPendant2.webp" class="active">
+    <img src="/public/img/TrishulPendant4.jfif">
+    <img src="/public/img/TrishulPendant1.webp">
+  </div>
+  <h3>Trishul Pendant</h3>
+  <p>Divine Protection</p>
+  <div class="price">₹1,099</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/trishul-pendant.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+<!-- VASTU -->
+<div class="product-card">
+  <div class="card-slider">
+    <img src="/public/img/VastuDoshPendant4.jpg" class="active">
+    <img src="/public/img/VastuDoshPendant3.jfif">
+    <img src="/public/img/VastuDoshPendant1.jpg">
+  </div>
+  <h3>Vastu Dosh Pendant</h3>
+  <p>Vastu Correction</p>
+  <div class="price">₹1,499</div>
+  <div class="actions">
+    <a class="view" href="/public/Pendants/vastu-pendant.html">View</a>
+    <a class="buy" href="/public/book.html">Book</a>
+  </div>
+</div>
+
+</section>
+
+<div class="footer-space"></div>
+
+<script>
+document.querySelectorAll(".card-slider").forEach(slider=>{
+  let imgs=slider.querySelectorAll("img");
+  let i=0;
+  setInterval(()=>{
+    imgs[i].classList.remove("active");
+    i=(i+1)%imgs.length;
+    imgs[i].classList.add("active");
+  },3000);
+});
+</script>
+
+</body>
+</html>
