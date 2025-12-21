@@ -104,6 +104,56 @@ body{
 }
 
 .footer-space{height:60px}
+
+/* BOOKING SECTION */
+.booking{
+  max-width:760px;
+  margin:80px auto 0;
+  background:#fff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+.booking h2{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:24px;
+  color:#c89860;
+}
+.booking form{
+  display:grid;
+  gap:16px;
+}
+.booking input,
+.booking textarea{
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  font-size:.95rem;
+}
+.booking textarea{
+  resize:none;
+  min-height:100px;
+}
+.booking button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  font-size:1rem;
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+.booking button:hover{transform:translateY(-2px)}
+
+/* MOBILE */
+@media(max-width:600px){
+  .header h1{font-size:28px}
+  .products{gap:20px}
+}
 </style>
 </head>
 
@@ -121,88 +171,99 @@ body{
 <!-- VASTU YANTRA -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/VastuYantra4.webp" class="active">
-    <img src="/public/img/VastuYantra3.jpg">
-    <img src="/public/img/VastuYantra2.jpeg">
+    <img src="img/VastuYantra4.webp" class="active">
+    <img src="img/VastuYantra3.jpg">
+    <img src="img/VastuYantra2.jpeg">
   </div>
   <h3>Vastu Yantra</h3>
   <p>Vastu Dosh Removal & Harmony</p>
   <div class="price">₹1,999</div>
   <div class="actions">
-    <a class="view" href="/public/vastu-yantra.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="vastu-yantra.html">View</a>
+    <a class="buy" href="#book">Book</a>
   </div>
 </div>
 
 <!-- BRASS TORTOISE -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/BrassTortoise3.jpg" class="active">
-    <img src="/public/img/BrassTortoise3.jpg">
-    <img src="/public/img/BrassTortoise4.webp">
+    <img src="img/BrassTortoise3.jpg" class="active">
+    <img src="img/BrassTortoise4.webp">
   </div>
   <h3>Brass Tortoise</h3>
   <p>Stability & Financial Growth</p>
   <div class="price">₹1,499</div>
   <div class="actions">
-    <a class="view" href="/public/brass-tortoise.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="brass-tortoise.html">View</a>
+    <a class="buy" href="#book">Book</a>
   </div>
 </div>
 
 <!-- VASTU PYRAMID -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/VastuPyramid1.jfif" class="active">
-    <img src="/public/img/VastuPyramid2.webp">
-    <img src="/public/img/VastuPyramid4.webp">
+    <img src="img/VastuPyramid1.jfif" class="active">
+    <img src="img/VastuPyramid2.webp">
+    <img src="img/VastuPyramid4.webp">
   </div>
   <h3>Vastu Pyramid</h3>
   <p>Energy Balance & Positivity</p>
   <div class="price">₹2,499</div>
   <div class="actions">
-    <a class="view" href="/public/vastu-pyramid.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="vastu-pyramid.html">View</a>
+    <a class="buy" href="#book">Book</a>
   </div>
 </div>
 
 <!-- EVIL EYE -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/EvilEyeProtection3.webp" class="active">
-    <img src="/public/img/EvilEyeProtection2.jfif">
-    <img src="/public/img/EvilEyeProtection1.png">
+    <img src="img/EvilEyeProtection3.webp" class="active">
+    <img src="img/EvilEyeProtection2.jfif">
+    <img src="img/EvilEyeProtection1.png">
   </div>
   <h3>Evil Eye Protection</h3>
   <p>Protection from Negative Energy</p>
   <div class="price">₹999</div>
   <div class="actions">
-    <a class="view" href="/public/evil-eye.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="evil-eye.html">View</a>
+    <a class="buy" href="#book">Book</a>
   </div>
 </div>
 
 <!-- KUBER YANTRA -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/Kuberayatra2.jpg" class="active">
-    <img src="/public/img/KuberaYantra.jpg">
-    <img src="/public/img/Kuberayatra3.jpg">
+    <img src="img/Kuberayatra2.jpg" class="active">
+    <img src="img/KuberaYantra.jpg">
+    <img src="img/Kuberayatra3.jpg">
   </div>
   <h3>Kuber Yantra</h3>
   <p>Wealth Attraction & Prosperity</p>
   <div class="price">₹2,299</div>
   <div class="actions">
-    <a class="view" href="/public/kubera-yantra.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="kubera-yantra.html">View</a>
+    <a class="buy" href="#book">Book</a>
   </div>
 </div>
 
 </section>
 
+<!-- BOOKING FORM -->
+<section class="booking" id="book">
+  <h2>Book Vastu Consultation</h2>
+  <form onsubmit="submitBooking(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Message / Purpose (Optional)"></textarea>
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
 <div class="footer-space"></div>
 
 <script>
+// Image Slider for each product
 document.querySelectorAll(".card-slider").forEach(slider=>{
   const imgs = slider.querySelectorAll("img");
   let i = 0;
@@ -212,7 +273,15 @@ document.querySelectorAll(".card-slider").forEach(slider=>{
     imgs[i].classList.add("active");
   },3000);
 });
+
+// Booking Form Handler
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Your Vastu product booking request has been submitted successfully.");
+}
 </script>
 
+<!-- Shared JS -->
+<script src="js/index.js"></script>
 </body>
 </html>

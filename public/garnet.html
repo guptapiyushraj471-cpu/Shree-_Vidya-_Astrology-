@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Garnet – Gemstone Details</title>
 
 <style>
 /* ============================================
    PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
    ============================================ */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
@@ -25,20 +18,17 @@ body{
   line-height:1.7;
 }
 
-/* ===== DETAIL CONTAINER ===== */
+/* ===== CONTAINER ===== */
 .detail-container{
   max-width:760px;
   margin:auto;
-  background:#ffffff;
+  background:#fff;
   padding:48px;
   border-radius:24px;
   text-align:center;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
   animation:slideUp .6s ease;
 }
-
 @keyframes slideUp{
   from{opacity:0;transform:translateY(30px)}
   to{opacity:1;transform:translateY(0)}
@@ -54,21 +44,22 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-/* ===== IMAGE ===== */
-.gem-img{
-  width:100%;
-  max-height:380px;
-  object-fit:cover;
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
   border-radius:20px;
   margin-bottom:30px;
   border:4px solid #f8f9fa;
   box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .3s ease;
 }
-
-.gem-img:hover{
-  transform:scale(1.03);
+.slider img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:none;
 }
+.slider img.active{display:block}
 
 /* ===== DESCRIPTION ===== */
 .desc{
@@ -76,7 +67,6 @@ body{
   color:#4a5568;
   margin-bottom:18px;
 }
-
 .desc.hindi{
   background:rgba(220,38,38,.08);
   color:#374151;
@@ -94,21 +84,18 @@ body{
   padding:22px;
   margin:32px 0;
 }
-
 .info li{
   padding:14px 16px;
   border-bottom:1px solid rgba(0,0,0,.06);
   font-size:1rem;
 }
-
 .info li:last-child{border-bottom:none}
-
 .info strong{
   color:#b91c1c;
   font-weight:600;
 }
 
-/* ===== ACTION BUTTONS ===== */
+/* ===== BUTTONS ===== */
 .actions{
   display:flex;
   justify-content:center;
@@ -116,9 +103,7 @@ body{
   margin-top:30px;
   flex-wrap:wrap;
 }
-
-.book-btn,
-.back-btn{
+.book-btn,.back-btn{
   padding:14px 36px;
   border-radius:50px;
   text-decoration:none;
@@ -126,50 +111,34 @@ body{
   font-size:1rem;
   transition:all .25s ease;
 }
-
 .book-btn{
   background:linear-gradient(135deg,#b91c1c,#dc2626);
   color:#fff;
   box-shadow:0 6px 18px rgba(220,38,38,.35);
 }
-
-.book-btn:hover{
-  transform:translateY(-2px);
-}
-
+.book-btn:hover{transform:translateY(-2px);}
 .back-btn{
   background:#e5e7eb;
   color:#374151;
 }
+.back-btn:hover{background:#d1d5db;}
 
-.back-btn:hover{
-  background:#d1d5db;
-}
-
-/* ===== BOOKING SECTION ===== */
+/* ===== BOOKING ===== */
 .booking{
   max-width:760px;
   margin:60px auto 0;
   background:#ffffff;
   padding:40px;
   border-radius:22px;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
 }
-
 .booking h2{
   text-align:center;
   font-size:1.8rem;
   margin-bottom:24px;
   color:#4b5563;
 }
-
-.booking form{
-  display:grid;
-  gap:16px;
-}
-
+.booking form{display:grid;gap:16px}
 .booking input,
 .booking textarea{
   padding:14px 16px;
@@ -177,12 +146,7 @@ body{
   border:1px solid #d1d5db;
   font-size:.95rem;
 }
-
-.booking textarea{
-  resize:none;
-  min-height:100px;
-}
-
+.booking textarea{resize:none;min-height:100px;}
 .booking button{
   margin-top:10px;
   padding:14px;
@@ -193,11 +157,9 @@ body{
   font-weight:600;
   font-size:1rem;
   cursor:pointer;
+  transition:opacity .2s ease;
 }
-
-.booking button:hover{
-  opacity:.95;
-}
+.booking button:hover{opacity:.95}
 
 /* ===== MOBILE ===== */
 @media(max-width:600px){
@@ -214,10 +176,14 @@ body{
 
   <h1>Garnet</h1>
 
-  <!-- IMAGE -->
-  <img src="/public/img/Garnet.jpg" alt="Garnet Gemstone" class="gem-img">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/Garnet1.jpg" class="active" alt="Garnet 1">
+    <img src="img/Garnet2.webp" alt="Garnet 2">
+    <img src="img/Garnet3.jpg" alt="Garnet 3">
+    <img src="img/Garnet4.webp" alt="Garnet 4">
+  </div>
 
-  <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
     Garnet is a powerful gemstone that boosts energy, courage, confidence,
     and passion. It strengthens the planet Mars and helps improve motivation,
@@ -225,7 +191,6 @@ body{
     Garnet is ideal for people seeking success, determination, and inner power.
   </p>
 
-  <!-- HINDI DESCRIPTION -->
   <p class="desc hindi">
     गार्नेट रत्न ऊर्जा, साहस, आत्मविश्वास और उत्साह को बढ़ाने वाला शक्तिशाली रत्न है।
     यह मंगल ग्रह को मजबूत करता है और नेतृत्व क्षमता, शारीरिक बल,
@@ -233,31 +198,24 @@ body{
     यह रत्न सफलता और दृढ़ संकल्प चाहने वालों के लिए अत्यंत लाभकारी है।
   </p>
 
-  <!-- DETAILS -->
   <ul class="info">
     <li><strong>Gemstone:</strong> Garnet</li>
     <li><strong>रत्न:</strong> गार्नेट</li>
-
     <li><strong>Planet:</strong> Mars</li>
     <li><strong>ग्रह:</strong> मंगल</li>
-
     <li><strong>Chakra:</strong> Root Chakra</li>
     <li><strong>चक्र:</strong> मूलाधार चक्र</li>
-
     <li><strong>Benefits:</strong> Energy, Confidence, Courage, Motivation</li>
     <li><strong>लाभ:</strong> ऊर्जा वृद्धि, आत्मविश्वास, साहस, प्रेरणा</li>
-
     <li><strong>Recommended For:</strong> Leadership, Career Growth, Emotional Strength</li>
     <li><strong>उपयुक्त:</strong> नेतृत्व, करियर उन्नति, मानसिक शक्ति</li>
-
     <li><strong>Important Note:</strong> Wear after astrological consultation</li>
     <li><strong>Price:</strong> ₹3,199</li>
   </ul>
 
-  <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="/public/product-gem.html" class="back-btn">← Back</a>
+    <a href="product-gem.html" class="back-btn">← Back</a>
   </div>
 
 </section>
@@ -265,7 +223,6 @@ body{
 <!-- BOOKING -->
 <section id="book" class="booking">
   <h2>Book Garnet</h2>
-
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
@@ -275,6 +232,16 @@ body{
 </section>
 
 <script>
+/* IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+/* FORM */
 function submitBooking(e){
   e.preventDefault();
   alert("Thank you! Your Garnet booking request has been submitted.");

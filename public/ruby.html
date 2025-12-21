@@ -9,14 +9,7 @@
 /* ============================================
    PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
    ============================================ */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,Arial,Helvetica,sans-serif}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
@@ -33,16 +26,10 @@ body{
   padding:48px;
   border-radius:24px;
   text-align:center;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
   animation:slideUp .6s ease;
 }
-
-@keyframes slideUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
 /* ===== HEADING ===== */
 .detail-container h1{
@@ -54,27 +41,26 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-/* ===== IMAGE ===== */
-.gem-img{
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  margin-bottom:30px;
+}
+.slider img{
   width:100%;
   max-height:380px;
   object-fit:cover;
   border-radius:20px;
-  margin-bottom:30px;
   border:4px solid #f8f9fa;
   box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .3s ease;
+  display:none;
 }
-
-.gem-img:hover{transform:scale(1.03)}
+.slider img.active{display:block;transition:opacity .6s ease}
 
 /* ===== DESCRIPTION ===== */
-.desc{
-  font-size:1.05rem;
-  color:#4a5568;
-  margin-bottom:18px;
-}
-
+.desc{font-size:1.05rem;color:#4a5568;margin-bottom:18px}
 .desc.hindi{
   background:rgba(230,57,70,.08);
   color:#374151;
@@ -92,19 +78,13 @@ body{
   padding:22px;
   margin:32px 0;
 }
-
 .info li{
   padding:14px 16px;
   border-bottom:1px solid rgba(0,0,0,.06);
   font-size:1rem;
 }
-
 .info li:last-child{border-bottom:none}
-
-.info strong{
-  color:#b11226;
-  font-weight:600;
-}
+.info strong{color:#b11226;font-weight:600}
 
 /* ===== ACTION BUTTONS ===== */
 .actions{
@@ -114,9 +94,7 @@ body{
   margin-top:30px;
   flex-wrap:wrap;
 }
-
-.book-btn,
-.back-btn{
+.book-btn,.back-btn{
   padding:14px 36px;
   border-radius:50px;
   text-decoration:none;
@@ -124,20 +102,13 @@ body{
   font-size:1rem;
   transition:all .25s ease;
 }
-
 .book-btn{
   background:linear-gradient(135deg,#b11226,#e63946);
   color:#fff;
   box-shadow:0 6px 18px rgba(230,57,70,.45);
 }
-
 .book-btn:hover{transform:translateY(-2px)}
-
-.back-btn{
-  background:#e5e7eb;
-  color:#374151;
-}
-
+.back-btn{background:#e5e7eb;color:#374151}
 .back-btn:hover{background:#d1d5db}
 
 /* ===== BOOKING ===== */
@@ -147,36 +118,22 @@ body{
   background:#ffffff;
   padding:40px;
   border-radius:22px;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
 }
-
 .booking h2{
   text-align:center;
   font-size:1.8rem;
   margin-bottom:24px;
   color:#b11226;
 }
-
-.booking form{
-  display:grid;
-  gap:16px;
-}
-
-.booking input,
-.booking textarea{
+.booking form{display:grid;gap:16px}
+.booking input,.booking textarea{
   padding:14px 16px;
   border-radius:12px;
   border:1px solid #d1d5db;
   font-size:.95rem;
 }
-
-.booking textarea{
-  resize:none;
-  min-height:100px;
-}
-
+.booking textarea{resize:none;min-height:100px}
 .booking button{
   margin-top:10px;
   padding:14px;
@@ -188,7 +145,6 @@ body{
   font-size:1rem;
   cursor:pointer;
 }
-
 .booking button:hover{opacity:.95}
 
 /* ===== MOBILE ===== */
@@ -203,11 +159,14 @@ body{
 <body>
 
 <section class="detail-container">
-
   <h1>Ruby (Manik)</h1>
 
-  <!-- IMAGE -->
-  <img src="/public/img/Ruby.jpg" alt="Ruby Gemstone" class="gem-img">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/Ruby1.webp" class="active" alt="Ruby Gemstone">
+    <img src="img/Ruby2.webp" alt="Ruby Gemstone Ring">
+    <img src="img/Ruby3.webp" alt="Ruby Stone Closeup">
+  </div>
 
   <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
@@ -228,34 +187,27 @@ body{
   <ul class="info">
     <li><strong>Gemstone:</strong> Ruby (Manik)</li>
     <li><strong>रत्न:</strong> माणिक्य</li>
-
     <li><strong>Planet:</strong> Sun</li>
     <li><strong>ग्रह:</strong> सूर्य</li>
-
     <li><strong>Chakra:</strong> Heart Chakra</li>
     <li><strong>चक्र:</strong> हृदय चक्र</li>
-
     <li><strong>Benefits:</strong> Leadership, Confidence, Authority, Vitality</li>
     <li><strong>लाभ:</strong> नेतृत्व, आत्मविश्वास, सम्मान, ऊर्जा</li>
-
     <li><strong>Recommended For:</strong> Government Jobs, Leadership Roles, Success</li>
     <li><strong>उपयुक्त:</strong> नेतृत्व पद, प्रशासन, सफलता</li>
-
     <li><strong>Price:</strong> ₹4,999</li>
   </ul>
 
   <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="/public/product-gem.html" class="back-btn">← Back</a>
+    <a href="gemstone.html" class="back-btn">← Back</a>
   </div>
-
 </section>
 
 <!-- BOOKING -->
 <section id="book" class="booking">
   <h2>Book Ruby (Manik)</h2>
-
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
@@ -265,11 +217,26 @@ body{
 </section>
 
 <script>
+// ----- Image Slider -----
+const slider=document.querySelector('.slider');
+if(slider){
+  const imgs=slider.querySelectorAll('img');
+  let i=0;
+  setInterval(()=>{
+    imgs[i].classList.remove('active');
+    i=(i+1)%imgs.length;
+    imgs[i].classList.add('active');
+  },3000);
+}
+
+// ----- Booking Form -----
 function submitBooking(e){
   e.preventDefault();
   alert("Thank you! Your Ruby (Manik) booking request has been submitted.");
 }
 </script>
 
+<!-- Shared JS -->
+<script src="js/index.js"></script>
 </body>
 </html>

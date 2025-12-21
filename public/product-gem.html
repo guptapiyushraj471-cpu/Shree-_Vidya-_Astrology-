@@ -11,136 +11,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- MAIN SITE CSS (HEADER + FOOTER) -->
-<link rel="stylesheet" href="/public/css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <style>
 /* ===============================
    PREMIUM LIGHT THEME (UNCHANGED)
    =============================== */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
-}
-
-body{
-  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
-  color:#2c3e50;
-}
-
-/* ===== PAGE HEADER ===== */
-.page-header{
-  padding:70px 20px 50px;
-  text-align:center;
-}
-
-.page-header h1{
-  font-size:38px;
-  font-weight:700;
-  background:linear-gradient(135deg,#d4a574,#c89860);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:10px;
-}
-
-.page-header p{
-  color:#5f6b7a;
-  font-size:15px;
-}
-
-/* ===== GRID ===== */
-.product-container{
-  max-width:1350px;
-  margin:auto;
-  padding:20px 20px 80px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
-}
-
-/* ===== CARD ===== */
-.product-card{
-  background:#ffffff;
-  border-radius:24px;
-  padding:18px;
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
-  transition:.35s ease;
-}
-
-.product-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 22px 45px rgba(0,0,0,.12);
-}
-
-.product-card img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  border-radius:18px;
-  border:4px solid #f8f9fa;
-  margin-bottom:14px;
-}
-
-.product-card h3{
-  font-size:18px;
-  font-weight:600;
-  margin:6px 0;
-}
-
-.product-card p{
-  font-size:14px;
-  color:#5f6b7a;
-}
-
-.price{
-  font-size:18px;
-  color:#c89860;
-  font-weight:700;
-  margin:10px 0 6px;
-}
-
-/* ===== BUTTONS ===== */
-.actions{
-  display:flex;
-  gap:10px;
-  margin-top:14px;
-}
-
-.actions a{
-  flex:1;
-  text-align:center;
-  padding:11px 0;
-  border-radius:30px;
-  font-weight:600;
-  font-size:14px;
-  text-decoration:none;
-}
-
-.view{
-  background:#f1f3f6;
-  color:#2c3e50;
-}
-
-.buy{
-  background:linear-gradient(135deg,#d4a574,#c89860);
-  color:#ffffff;
-}
-
-@media(max-width:600px){
-  .page-header h1{font-size:30px}
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif}
+body{background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);color:#2c3e50}
+.page-header{padding:70px 20px 50px;text-align:center}
+.page-header h1{font-size:38px;font-weight:700;background:linear-gradient(135deg,#d4a574,#c89860);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.page-header p{color:#5f6b7a;font-size:15px}
+.product-container{max-width:1350px;margin:auto;padding:20px 20px 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.product-card{background:#fff;border-radius:24px;padding:18px;box-shadow:0 12px 30px rgba(0,0,0,.08);transition:.35s ease}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 22px 45px rgba(0,0,0,.12)}
+.product-card img{width:100%;height:210px;object-fit:cover;border-radius:18px;border:4px solid #f8f9fa;margin-bottom:14px}
+.product-card h3{font-size:18px;font-weight:600;margin:6px 0}
+.product-card p{font-size:14px;color:#5f6b7a}
+.price{font-size:18px;color:#c89860;font-weight:700;margin:10px 0 6px}
+.actions{display:flex;gap:10px;margin-top:14px}
+.actions a{flex:1;text-align:center;padding:11px 0;border-radius:30px;font-weight:600;font-size:14px;text-decoration:none}
+.view{background:#f1f3f6;color:#2c3e50}
+.buy{background:linear-gradient(135deg,#d4a574,#c89860);color:#fff}
+@media(max-width:600px){.page-header h1{font-size:30px}}
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER (SAME AS MAIN SITE) ================= -->
+<!-- ================= HEADER ================= -->
 <nav class="nav">
   <div class="nav-container">
-    <a href="/public/index.html" class="logo">
-      <img src="/public/img/logo.png" alt="Logo" class="logo-img">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="Logo" class="logo-img">
       <div class="logo-text">
         <span class="logo-title">श्री श्री विद्या</span>
         <span class="logo-sub">Shree Shree Vidya Astrology</span>
@@ -148,12 +51,12 @@ body{
     </a>
 
     <ul class="nav-menu" id="navMenu">
-      <li><a href="/public/index.html">Home</a></li>
-      <li><a href="/public/about.html">About</a></li>
-      <li><a href="/public/services.html">Services</a></li>
-      <li><a href="/public/daily-horoscope.html">Daily Horoscope</a></li>
-      <li><a href="/public/reviews.html">Reviews</a></li>
-      <li><a href="/public/contact.html">Contact</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="daily-horoscope.html">Daily Horoscope</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
 
     <div class="mobile-toggle" onclick="toggleMenu()">
@@ -170,243 +73,238 @@ body{
 </div>
 
 <div class="product-container">
-<!-- 🔹 YOUR FULL GEMSTONE GRID (UNCHANGED) 🔹 -->
-<!-- (All product cards remain exactly same as you provided) -->
-
 
 <!-- RUBY -->
 <div class="product-card">
-<img src="/public/img/Ruby.jpg">
+<img src="img/Ruby.jpg" alt="Ruby">
 <h3>Ruby (Manik)</h3>
 <p>Confidence, leadership & Sun strength</p>
 <div class="price">₹4,999</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/ruby.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="ruby.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- PEARL -->
 <div class="product-card">
-<img src="/public/img/Pearl.jpg">
+<img src="img/Pearl.jpg" alt="Pearl">
 <h3>Pearl (Moti)</h3>
 <p>Mental peace & Moon balance</p>
 <div class="price">₹2,499</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/pearl.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="pearl.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- EMERALD -->
 <div class="product-card">
-<img src="/public/img/Emerald.jfif">
+<img src="img/Emerald.jfif" alt="Emerald">
 <h3>Emerald (Panna)</h3>
 <p>Intellect, communication & Mercury</p>
 <div class="price">₹5,999</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/emerald.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="emerald.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- YELLOW SAPPHIRE -->
 <div class="product-card">
-<img src="/public/img/YellowSapphire.png">
+<img src="img/YellowSapphire.png" alt="Yellow Sapphire">
 <h3>Yellow Sapphire (Pukhraj)</h3>
 <p>Wealth, wisdom & Jupiter blessings</p>
 <div class="price">₹6,999</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/yellow-sapphire.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="yellow-sapphire.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- DIAMOND -->
 <div class="product-card">
-<img src="/public/img/Diamond.webp">
+<img src="img/Diamond.webp" alt="Diamond">
 <h3>Diamond (Heera)</h3>
 <p>Luxury, beauty & Venus energy</p>
 <div class="price">₹14,999</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/diamond.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="diamond.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- BLUE SAPPHIRE -->
 <div class="product-card">
-<img src="/public/img/BlueSapphire.jpg">
+<img src="img/BlueSapphire.jpg" alt="Blue Sapphire">
 <h3>Blue Sapphire (Neelam)</h3>
 <p>Fast Saturn results & protection</p>
 <div class="price">₹8,999</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/blue-sapphire.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="blue-sapphire.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- HESSONITE -->
 <div class="product-card">
-<img src="/public/img/Hessonite.jpg">
+<img src="img/Hessonite.jpg" alt="Hessonite">
 <h3>Hessonite (Gomed)</h3>
 <p>Rahu balance & fear removal</p>
 <div class="price">₹3,499</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/hessonite.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="hessonite.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- CAT EYE -->
 <div class="product-card">
-<img src="/public/img/CatEye.webp">
+<img src="img/CatEye.webp" alt="Cat’s Eye">
 <h3>Cat’s Eye (Lehsunia)</h3>
 <p>Ketu protection & stability</p>
 <div class="price">₹4,499</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/cats-eye.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="cats-eye.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
 
 <!-- RED CORAL -->
 <div class="product-card">
-<img src="/public/img/RedCoral.webp">
+<img src="img/RedCoral.webp" alt="Red Coral">
 <h3>Red Coral (Moonga)</h3>
 <p>Mars power & courage</p>
 <div class="price">₹3,999</div>
 <div class="actions">
-<a class="view" href="/public/gemstone/red-coral.html">View Details</a>
-<a class="buy" href="/public/book.html">Book Now</a>
+<a class="view" href="red-coral.html">View Details</a>
+<a class="buy" href="book.html">Book Now</a>
 </div>
 </div>
+
 <!-- OPAL -->
 <div class="product-card">
-  <img src="/public/img/Opal.webp" alt="Opal">
+  <img src="img/Opal.webp" alt="Opal">
   <h3>Opal</h3>
   <p>Luxury, attraction & Venus harmony</p>
   <div class="price">₹5,499</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/opal.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="opal.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- MOONSTONE -->
 <div class="product-card">
-  <img src="/public/img/Moonstone.webp" alt="Moonstone">
+  <img src="img/Moonstone.webp" alt="Moonstone">
   <h3>Moonstone</h3>
   <p>Emotional balance & mental peace</p>
   <div class="price">₹2,299</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/moonstone.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="moonstone.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- WHITE TOPAZ -->
 <div class="product-card">
-  <img src="/public/img/WhiteTopaz.jfif" alt="White Topaz">
+  <img src="img/WhiteTopaz.jfif" alt="White Topaz">
   <h3>White Topaz</h3>
   <p>Clarity, creativity & positivity</p>
   <div class="price">₹2,799</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/white-topaz.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="white-topaz.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- AQUAMARINE -->
 <div class="product-card">
-  <img src="/public/img/Aquamarine.jpg" alt="Aquamarine">
+  <img src="img/Aquamarine.jpg" alt="Aquamarine">
   <h3>Aquamarine</h3>
   <p>Communication, calmness & courage</p>
   <div class="price">₹3,299</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/aquamarine.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="aquamarine.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- JADE -->
 <div class="product-card">
-  <img src="/public/img/Jade.avif" alt="Jade">
+  <img src="img/Jade.avif" alt="Jade">
   <h3>Jade</h3>
   <p>Luck, harmony & prosperity</p>
   <div class="price">₹2,699</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/jade.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="jade.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- LAPIS LAZULI -->
 <div class="product-card">
-  <img src="/public/img/LapisLazuli.webp" alt="Lapis Lazuli">
+  <img src="img/LapisLazuli.webp" alt="Lapis Lazuli">
   <h3>Lapis Lazuli</h3>
   <p>Wisdom, truth & communication</p>
   <div class="price">₹2,899</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/lapis-lazuli.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="lapis-lazuli.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- SMOKY QUARTZ -->
 <div class="product-card">
-  <img src="/public/img/SmokyQuartz.jpg" alt="Smoky Quartz">
+  <img src="img/SmokyQuartz.jpg" alt="Smoky Quartz">
   <h3>Smoky Quartz</h3>
   <p>Stress relief & grounding energy</p>
   <div class="price">₹1,899</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/smoky-quartz.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="smoky-quartz.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- TIGER EYE -->
 <div class="product-card">
-  <img src="/public/img/tigereye.jpg" alt="Tiger Eye">
+  <img src="img/tigereye.jpg" alt="Tiger Eye">
   <h3>Tiger Eye</h3>
   <p>Courage, confidence & protection</p>
   <div class="price">₹1,999</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/tiger-eye.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="tiger-eye.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- GARNET -->
 <div class="product-card">
-  <img src="/public/img/Garnet.jpg" alt="Garnet">
+  <img src="img/Garnet.jpg" alt="Garnet">
   <h3>Garnet</h3>
   <p>Energy, passion & motivation</p>
   <div class="price">₹3,199</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/garnet.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="garnet.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
 <!-- CITRINE -->
 <div class="product-card">
-  <img src="/public/img/Citrine.png" alt="Citrine">
+  <img src="img/Citrine.png" alt="Citrine">
   <h3>Citrine</h3>
   <p>Wealth, confidence & success</p>
   <div class="price">₹2,599</div>
   <div class="actions">
-    <a class="view" href="/public/gemstone/citrine.html">View Details</a>
-    <a class="buy" href="/public/book.html">Book Now</a>
+    <a class="view" href="citrine.html">View Details</a>
+    <a class="buy" href="book.html">Book Now</a>
   </div>
 </div>
 
-<!-- remaining gemstones -->
-<!-- Opal, Moonstone, White Topaz, Aquamarine, Jade, Lapis Lazuli, Smoky Quartz, Tiger Eye, Garnet, Citrine -->
-
 </div>
 
-<!-- ================= FOOTER (SAME AS MAIN SITE) ================= -->
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -416,9 +314,9 @@ body{
       </div>
       <div>
         <h3>Quick Links</h3>
-        <a href="/public/about.html">About Us</a>
-        <a href="/public/services.html">Services</a>
-        <a href="/public/daily-horoscope.html">Daily Horoscope</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="daily-horoscope.html">Daily Horoscope</a>
       </div>
       <div>
         <h3>Contact</h3>
@@ -427,7 +325,6 @@ body{
         <a href="#">Indore, Madhya Pradesh</a>
       </div>
     </div>
-
     <div class="footer-bottom">
       <p>© <span id="year"></span> Shree Shree Vidya Astrology</p>
     </div>
@@ -436,9 +333,8 @@ body{
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
-console.log("All gemstone products linked successfully");
 </script>
 
-<script src="/public/js/index.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

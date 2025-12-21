@@ -6,6 +6,9 @@
 <title>Vastu Pyramid</title>
 
 <style>
+/* =====================================================
+   LIGHT PREMIUM THEME — PRODUCT DETAIL PAGE
+   ===================================================== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
@@ -20,6 +23,11 @@ body{
   border-radius:24px;
   box-shadow:0 10px 40px rgba(0,0,0,.08);
   text-align:center;
+  animation:fadeIn .6s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 h1{
   font-size:34px;
@@ -29,7 +37,9 @@ h1{
   margin-bottom:24px;
 }
 
-/* IMAGE SLIDER */
+/* =====================================================
+   IMAGE SLIDER
+   ===================================================== */
 .slider{
   position:relative;
   overflow:hidden;
@@ -41,12 +51,14 @@ h1{
   height:360px;
   object-fit:cover;
   display:none;
+  border-radius:20px;
+  transition:opacity .6s ease;
 }
-.slider img.active{
-  display:block;
-}
+.slider img.active{display:block}
 
-/* CONTENT */
+/* =====================================================
+   CONTENT
+   ===================================================== */
 .desc{font-size:15px;color:#555;line-height:1.8;margin-bottom:16px}
 .desc.hindi{background:#faf6f0;padding:14px;border-radius:12px}
 
@@ -65,11 +77,14 @@ h1{
 .info li:last-child{border:none}
 .info strong{color:#c89860}
 
-/* BUTTONS */
+/* =====================================================
+   BUTTONS
+   ===================================================== */
 .actions{
   display:flex;
   gap:12px;
   justify-content:center;
+  flex-wrap:wrap;
   margin-top:22px;
 }
 .btn{
@@ -77,6 +92,7 @@ h1{
   border-radius:40px;
   text-decoration:none;
   font-weight:600;
+  transition:all .25s ease;
 }
 .book-btn{
   background:linear-gradient(135deg,#d4a574,#c89860);
@@ -86,8 +102,11 @@ h1{
   background:#eef1f5;
   color:#333;
 }
+.btn:hover{transform:translateY(-2px)}
 
-/* BOOKING FORM */
+/* =====================================================
+   BOOKING FORM
+   ===================================================== */
 .booking{
   max-width:720px;
   margin:60px auto 0;
@@ -112,6 +131,7 @@ h1{
   border:1px solid #dcdfe4;
   font-size:14px;
 }
+.booking textarea{resize:none;min-height:100px}
 .booking button{
   padding:14px;
   border-radius:30px;
@@ -120,26 +140,40 @@ h1{
   color:#fff;
   font-weight:600;
   cursor:pointer;
+  transition:transform .25s ease;
+}
+.booking button:hover{transform:translateY(-2px)}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  h1{font-size:1.8rem}
+  .slider img{height:260px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- PRODUCT DETAILS -->
+<!-- =====================================================
+     PRODUCT DETAILS
+     ===================================================== -->
 <section class="detail-container">
 
 <h1>Vastu Pyramid</h1>
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/VastuPyramid1.jfif" class="active">
-  <img src="/public/img/VastuPyramid2.webp">
-  <img src="/public/img/VastuPyramid3.jfif">
-  <img src="/public/img/VastuPyramid4.webp">
+  <img src="img/VastuPyramid1.jfif" class="active" alt="Vastu Pyramid Image 1">
+  <img src="img/VastuPyramid2.webp" alt="Vastu Pyramid Image 2">
+  <img src="img/VastuPyramid3.jfif" alt="Vastu Pyramid Image 3">
+  <img src="img/VastuPyramid4.webp" alt="Vastu Pyramid Image 4">
 </div>
 
-<!-- English Description (UNCHANGED) -->
+<!-- English Description -->
 <p class="desc">
 The Vastu Pyramid is a powerful energy-balancing tool used in Vastu Shastra
 to neutralize negative energies and correct Vastu dosh. It helps harmonize
@@ -147,7 +181,7 @@ the five elements (Panch Tatva), enhances positivity, and creates a peaceful,
 balanced environment in homes and offices.
 </p>
 
-<!-- Hindi Description (UNCHANGED) -->
+<!-- Hindi Description -->
 <p class="desc hindi">
 वास्तु पिरामिड वास्तु शास्त्र में ऊर्जा संतुलन के लिए उपयोग किया जाता है।
 यह नकारात्मक ऊर्जा को निष्क्रिय करता है, वास्तु दोष को दूर करता है
@@ -157,13 +191,10 @@ balanced environment in homes and offices.
 <ul class="info">
 <li><strong>Material:</strong> Crystal / Metal</li>
 <li><strong>सामग्री:</strong> क्रिस्टल / धातु</li>
-
 <li><strong>Benefits:</strong> Energy Balance, Positivity, Vastu Dosh Removal</li>
 <li><strong>लाभ:</strong> ऊर्जा संतुलन, सकारात्मकता, वास्तु दोष निवारण</li>
-
 <li><strong>Recommended Placement:</strong> Home, Office, Study Room</li>
 <li><strong>उपयुक्त स्थान:</strong> घर, कार्यालय, अध्ययन कक्ष</li>
-
 <li><strong>Vastu Significance:</strong> Balances Panch Tatva</li>
 <li><strong>Use Case:</strong> Residential & Commercial Spaces</li>
 <li><strong>Occasion:</strong> Daily Vastu Remedy</li>
@@ -171,27 +202,32 @@ balanced environment in homes and offices.
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/vastu-products.html" class="btn back-btn">← Back</a>
+  <a href="#book" class="btn book-btn">Book Consultation</a>
+  <a href="vastu-products.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
 
-<!-- BOOKING FORM -->
+<!-- =====================================================
+     BOOKING FORM
+     ===================================================== -->
 <section class="booking" id="book">
-<h2>Book Vastu Pyramid</h2>
+<h2>Book Vastu Pyramid Consultation</h2>
 
 <form onsubmit="submitBooking(event)">
 <input type="text" placeholder="Your Name" required>
 <input type="tel" placeholder="Mobile Number" required>
-<textarea placeholder="Message / Purpose"></textarea>
+<textarea placeholder="Message / Purpose (Optional)"></textarea>
 <button type="submit">Confirm Booking</button>
 </form>
 </section>
 
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 <script>
-/* IMAGE SLIDER */
-let slides=document.querySelectorAll(".slider img");
+// ===== IMAGE SLIDER =====
+const slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
   slides[index].classList.remove("active");
@@ -199,12 +235,14 @@ setInterval(()=>{
   slides[index].classList.add("active");
 },3000);
 
-/* FORM */
+// ===== BOOKING FORM =====
 function submitBooking(e){
   e.preventDefault();
-  window.location.href="/public/book.html";
+  alert("Thank you! Your Vastu Pyramid consultation request has been submitted.");
 }
 </script>
 
+<!-- Shared JS -->
+<script src="js/index.js"></script>
 </body>
 </html>

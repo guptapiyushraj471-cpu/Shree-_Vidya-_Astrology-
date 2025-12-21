@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crystal Pyramid</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crystal Pyramid (Clear Quartz)</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
@@ -12,6 +12,8 @@ body{
   color:#2c3e50;
   padding:60px 20px;
 }
+
+/* CONTAINER */
 .detail-container{
   max-width:720px;
   margin:auto;
@@ -21,6 +23,8 @@ body{
   box-shadow:0 10px 40px rgba(0,0,0,.08);
   text-align:center;
 }
+
+/* TITLE */
 h1{
   font-size:34px;
   background:linear-gradient(135deg,#d4a574,#c89860);
@@ -35,6 +39,8 @@ h1{
   overflow:hidden;
   border-radius:20px;
   margin-bottom:28px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
 }
 .slider img{
   width:100%;
@@ -69,23 +75,28 @@ h1{
   gap:12px;
   justify-content:center;
   margin-top:22px;
+  flex-wrap:wrap;
 }
 .btn{
   padding:14px 36px;
   border-radius:40px;
   text-decoration:none;
   font-weight:600;
+  transition:all .25s ease;
 }
 .book-btn{
   background:linear-gradient(135deg,#d4a574,#c89860);
   color:#fff;
+  box-shadow:0 6px 18px rgba(200,152,96,.35);
 }
+.book-btn:hover{transform:translateY(-2px);}
 .back-btn{
   background:#eef1f5;
   color:#333;
 }
+.back-btn:hover{background:#e0e2e7;}
 
-/* BOOKING FORM */
+/* BOOKING */
 .booking{
   max-width:720px;
   margin:60px auto 0;
@@ -110,6 +121,7 @@ h1{
   border:1px solid #dcdfe4;
   font-size:14px;
 }
+.booking textarea{resize:none;min-height:100px;}
 .booking button{
   padding:14px;
   border-radius:30px;
@@ -118,6 +130,15 @@ h1{
   color:#fff;
   font-weight:600;
   cursor:pointer;
+  transition:opacity .2s ease;
+}
+.booking button:hover{opacity:.95;}
+
+/* MOBILE */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  h1{font-size:1.8rem}
 }
 </style>
 </head>
@@ -131,10 +152,10 @@ h1{
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/CrystalPyramid1.jpg" class="active">
-  <img src="/public/img/CrystalPyramid2.jfif">
-  <img src="/public/img/CrystalPyramid3.jpg">
-  <img src="/public/img/CrystalPyramid4.jpg">
+  <img src="img/CrystalPyramid1.jpg" class="active" alt="Crystal Pyramid 1">
+  <img src="img/CrystalPyramid2.jfif" alt="Crystal Pyramid 2">
+  <img src="img/CrystalPyramid3.jpg" alt="Crystal Pyramid 3">
+  <img src="img/CrystalPyramid4.jpg" alt="Crystal Pyramid 4">
 </div>
 
 <p class="desc">
@@ -161,8 +182,8 @@ of homes and workplaces.
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/pyramid-product.html" class="btn back-btn">← Back</a>
+  <a href="book.html" class="btn book-btn">Book Now</a>
+  <a href="pyramid-product.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
@@ -172,14 +193,15 @@ of homes and workplaces.
 <h2>Book Crystal Pyramid</h2>
 
 <form onsubmit="submitBooking(event)">
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Mobile Number" required>
-<textarea placeholder="Message / Purpose"></textarea>
-<button type="submit">Confirm Booking</button>
+  <input type="text" placeholder="Your Name" required>
+  <input type="tel" placeholder="Mobile Number" required>
+  <textarea placeholder="Message / Purpose"></textarea>
+  <button type="submit">Confirm Booking</button>
 </form>
 </section>
 
 <script>
+/* IMAGE SLIDER */
 let slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
@@ -188,9 +210,10 @@ setInterval(()=>{
   slides[index].classList.add("active");
 },3000);
 
+/* FORM HANDLER */
 function submitBooking(e){
   e.preventDefault();
-  window.location.href="/public/book.html";
+  window.location.href="book.html";
 }
 </script>
 

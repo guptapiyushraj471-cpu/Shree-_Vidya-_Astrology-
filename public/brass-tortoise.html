@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brass Tortoise</title>
 
 <style>
@@ -35,6 +35,8 @@ h1{
   overflow:hidden;
   border-radius:20px;
   margin-bottom:28px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
 }
 .slider img{
   width:100%;
@@ -133,10 +135,10 @@ h1{
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/BrassTortoise1.jpg" class="active">
-  <img src="/public/img/BrassTortoise2.jfif">
-  <img src="/public/img/BrassTortoise3.jpg">
-  <img src="/public/img/BrassTortoise4.webp">
+  <img src="img/BrassTortoise1.jpg" class="active" alt="Brass Tortoise 1">
+  <img src="img/BrassTortoise2.jfif" alt="Brass Tortoise 2">
+  <img src="img/BrassTortoise3.jpg" alt="Brass Tortoise 3">
+  <img src="img/BrassTortoise4.webp" alt="Brass Tortoise 4">
 </div>
 
 <p class="desc">
@@ -162,8 +164,8 @@ and workplaces.
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/vastu-products.html" class="btn back-btn">← Back</a>
+  <a href="book.html" class="btn book-btn">Book Now</a>
+  <a href="vastu-products.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
@@ -193,7 +195,7 @@ setInterval(()=>{
 /* FORM */
 function submitBooking(e){
   e.preventDefault();
-  window.location.href="/public/book.html";
+  window.location.href="book.html";
 }
 </script>
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Blue Sapphire (Neelam) – Gemstone Details</title>
 
 <style>
@@ -39,6 +39,8 @@ h1{
   overflow:hidden;
   border-radius:20px;
   margin-bottom:28px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
 }
 .slider img{
   width:100%;
@@ -49,8 +51,17 @@ h1{
 .slider img.active{display:block}
 
 /* TEXT */
-.desc{font-size:15px;color:#555;line-height:1.8;margin-bottom:16px}
-.desc.hindi{background:#eef2ff;padding:14px;border-radius:12px}
+.desc{
+  font-size:15px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:16px;
+}
+.desc.hindi{
+  background:#eef2ff;
+  padding:14px;
+  border-radius:12px;
+}
 
 /* INFO */
 .info{
@@ -121,6 +132,7 @@ h1{
   background:linear-gradient(135deg,#1e3a8a,#2563eb);
   color:#fff;
   font-weight:600;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -133,10 +145,10 @@ h1{
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/BlueSapphire1.jfif" class="active">
-  <img src="/public/img/BlueSapphire2.jfif">
-  <img src="/public/img/BlueSapphire3.jfif">
-  <img src="/public/img/BlueSapphire4.webp">
+  <img src="img/BlueSapphire1.jfif" class="active" alt="Blue Sapphire Gemstone">
+  <img src="img/BlueSapphire2.jfif" alt="Blue Sapphire Gemstone">
+  <img src="img/BlueSapphire3.jfif" alt="Blue Sapphire Gemstone">
+  <img src="img/BlueSapphire4.webp" alt="Blue Sapphire Gemstone">
 </div>
 
 <p class="desc">
@@ -154,30 +166,26 @@ It is known for removing obstacles and accelerating career growth.
 <ul class="info">
 <li><strong>Gemstone:</strong> Blue Sapphire (Neelam)</li>
 <li><strong>रत्न:</strong> नीलम</li>
-
 <li><strong>Planet:</strong> Saturn (Shani)</li>
 <li><strong>ग्रह:</strong> शनि</li>
-
 <li><strong>Benefits:</strong> Career Growth, Authority, Protection</li>
 <li><strong>लाभ:</strong> करियर उन्नति, सुरक्षा, स्थिरता</li>
-
 <li><strong>Recommended For:</strong> Professionals, Business, Politics</li>
 <li><strong>उपयुक्त:</strong> नौकरी, व्यवसाय, प्रशासन</li>
-
 <li><strong>Price:</strong> ₹6,999</li>
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/index.html" class="btn back-btn">← Back</a>
+  <a href="book.html" class="btn book-btn">Book Now</a>
+  <a href="gemstone-products.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
 
 <!-- BOOKING -->
-<section class="booking">
+<section class="booking" id="book">
 <h2>Book Blue Sapphire (Neelam)</h2>
-<form action="/public/book.html">
+<form onsubmit="submitBooking(event)">
 <input type="text" placeholder="Your Name" required>
 <input type="tel" placeholder="Mobile Number" required>
 <textarea placeholder="Purpose / Message"></textarea>
@@ -186,6 +194,7 @@ It is known for removing obstacles and accelerating career growth.
 </section>
 
 <script>
+/* AUTO IMAGE SLIDER */
 let slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
@@ -193,6 +202,11 @@ setInterval(()=>{
   index=(index+1)%slides.length;
   slides[index].classList.add("active");
 },3000);
+
+function submitBooking(e){
+  e.preventDefault();
+  window.location.href="book.html";
+}
 </script>
 
 </body>

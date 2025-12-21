@@ -1,34 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Gemstone & Astrology</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gemstone & Astrology Book</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0b1220;color:#fff;padding:40px 20px}
-.card{max-width:720px;margin:auto;background:#111a2e;padding:28px;border-radius:18px;text-align:center}
-h1{color:#f5c16c;margin-bottom:20px}
-img{width:100%;max-height:320px;object-fit:cover;border-radius:16px;margin-bottom:20px}
-p{color:#dcdcdc;line-height:1.7}
-ul{list-style:none;text-align:left;margin:20px 0}
-li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+/* =============================
+   PREMIUM DARK BOOK DETAIL PAGE
+   ============================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+  background:#0b1220;
+  color:#ffffff;
+  padding:60px 20px;
+  min-height:100vh;
+  line-height:1.7;
+}
+
+/* ===== CARD CONTAINER ===== */
+.card{
+  max-width:720px;
+  margin:auto;
+  background:#111a2e;
+  padding:36px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 14px 40px rgba(0,0,0,.55);
+  animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+  color:#f5c16c;
+  margin-bottom:22px;
+  font-size:1.9rem;
+  font-weight:700;
+}
+
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  margin-bottom:24px;
+}
+.slider img{
+  width:100%;
+  max-height:340px;
+  object-fit:cover;
+  border:2px solid #2a3560;
+  background:#000;
+  box-shadow:0 8px 22px rgba(0,0,0,.45);
+  display:none;
+}
+.slider img.active{display:block;}
+
+/* ===== TEXT ===== */
+p{
+  color:#d8d8d8;
+  font-size:1rem;
+  margin-bottom:18px;
+}
+
+/* ===== INFO LIST ===== */
+ul{
+  list-style:none;
+  text-align:left;
+  margin:26px 0;
+  background:#141c34;
+  border-radius:16px;
+  padding:20px;
+}
+li{
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:0.95rem;
+  color:#ddd;
+}
+li:last-child{border:none;}
 strong{color:#f5c16c}
-a{display:inline-block;padding:12px 30px;border-radius:30px;background:#f5c16c;color:#000;text-decoration:none;font-weight:600}
+
+/* ===== BUTTONS ===== */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+.btn{
+  display:inline-block;
+  padding:12px 36px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.back-btn{
+  background:#f1f1f1;
+  color:#000;
+}
+.book-btn{
+  background:linear-gradient(135deg,#f5c16c,#ffb703);
+  color:#000;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(245,193,108,.4);
+}
+
+/* ===== BOOKING FORM ===== */
+.booking{
+  max-width:720px;
+  margin:70px auto 0;
+  background:#111a2e;
+  padding:32px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,.55);
+}
+.booking h2{
+  text-align:center;
+  color:#f5c16c;
+  margin-bottom:22px;
+}
+.booking form{
+  display:grid;
+  gap:16px;
+}
+.booking input,
+.booking textarea{
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #2a3560;
+  background:#0b1220;
+  color:#fff;
+  font-size:.95rem;
+}
+.booking textarea{
+  resize:none;
+  min-height:100px;
+}
+.booking button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#f5c16c,#ffb703);
+  color:#000;
+  font-weight:600;
+  font-size:1rem;
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+.booking button:hover{transform:translateY(-2px)}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px;}
+  .card{padding:28px;}
+  h1{font-size:1.6rem;}
+}
 </style>
 </head>
+
 <body>
+
 <section class="card">
-<h1>Gemstone & Astrology</h1>
-<img src="/public/img/Gemstonebook.jpg" alt="Gemstone Astrology Book">
-<p>Complete guide on gemstones, planets, suitability, and wearing methods.</p>
-<ul>
-<li><strong>Topics:</strong> Ratna, Planets, Remedies</li>
-<li><strong>Recommended For:</strong> Gemstone Buyers</li>
-<li><strong>Language:</strong> English</li>
-<li><strong>Price:</strong> ₹899</li>
-</ul>
-<a href="books-on-astrology.html">← Back</a>
+  <h1>Gemstone & Astrology</h1>
+
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/Gemstonebook.jpg" alt="Gemstone Astrology Book" class="active">
+    <img src="img/Gemstonebook2.webp" alt="Gemstone Book Inside Page">
+    <img src="img/Gemstonebook3.jpg" alt="Gemstone Remedies Guide">
+  </div>
+
+  <p>
+    A complete guide on gemstones, planetary influences, suitability, and 
+    traditional methods of wearing for astrological balance and prosperity.
+  </p>
+
+  <ul>
+    <li><strong>Topics:</strong> Ratna Shastra, Planetary Remedies, Gem Energies</li>
+    <li><strong>Recommended For:</strong> Gemstone Buyers & Astrology Learners</li>
+    <li><strong>Language:</strong> English</li>
+    <li><strong>Price:</strong> ₹899</li>
+  </ul>
+
+  <div class="actions">
+    <a href="books-on-astrology.html" class="btn back-btn">← Back to Books</a>
+    <a href="#book" class="btn book-btn">Book Now</a>
+  </div>
 </section>
-<script>console.log("Gemstone Book");</script>
+
+<!-- BOOKING SECTION -->
+<section id="book" class="booking">
+  <h2>Book Gemstone & Astrology Consultation</h2>
+  <form onsubmit="submitBooking(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Message / Query (Optional)"></textarea>
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<script>
+// ===== IMAGE SLIDER =====
+document.addEventListener("DOMContentLoaded",()=>{
+  const imgs=document.querySelectorAll(".slider img");
+  let i=0;
+  setInterval(()=>{
+    imgs[i].classList.remove("active");
+    i=(i+1)%imgs.length;
+    imgs[i].classList.add("active");
+  },3000);
+});
+
+// ===== BOOKING FORM =====
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Your Gemstone & Astrology consultation request has been submitted successfully.");
+}
+</script>
+
 </body>
 </html>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hessonite (Gomed) – Gemstone Details</title>
 
 <style>
 /* ============================================
    PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
    ============================================ */
-
 *{
   margin:0;
   padding:0;
@@ -38,14 +37,12 @@ body{
     0 2px 8px rgba(0,0,0,.04);
   animation:slideUp .6s ease;
 }
-
 @keyframes slideUp{
   from{opacity:0;transform:translateY(30px)}
   to{opacity:1;transform:translateY(0)}
 }
 
-/* ===== HEADING ===== */
-.detail-container h1{
+h1{
   font-size:2.2rem;
   margin-bottom:28px;
   font-weight:700;
@@ -54,20 +51,24 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-/* ===== IMAGE ===== */
-.gem-img{
-  width:100%;
-  max-height:380px;
-  object-fit:cover;
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
   border-radius:20px;
-  margin-bottom:30px;
-  border:4px solid #f8f9fa;
-  box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .3s ease;
+  margin-bottom:28px;
 }
-
-.gem-img:hover{
-  transform:scale(1.03);
+.slider img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:none;
+  border:4px solid #f8f9fa;
+  border-radius:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+.slider img.active{
+  display:block;
 }
 
 /* ===== DESCRIPTION ===== */
@@ -76,7 +77,6 @@ body{
   color:#4a5568;
   margin-bottom:18px;
 }
-
 .desc.hindi{
   background:rgba(217,119,6,.1);
   color:#374151;
@@ -94,15 +94,12 @@ body{
   padding:22px;
   margin:32px 0;
 }
-
 .info li{
   padding:14px 16px;
   border-bottom:1px solid rgba(0,0,0,.06);
   font-size:1rem;
 }
-
 .info li:last-child{border-bottom:none}
-
 .info strong{
   color:#92400e;
   font-weight:600;
@@ -116,7 +113,6 @@ body{
   margin-top:30px;
   flex-wrap:wrap;
 }
-
 .book-btn,
 .back-btn{
   padding:14px 36px;
@@ -126,25 +122,17 @@ body{
   font-size:1rem;
   transition:all .25s ease;
 }
-
 .book-btn{
   background:linear-gradient(135deg,#92400e,#d97706);
   color:#fff;
   box-shadow:0 6px 18px rgba(217,119,6,.35);
 }
-
-.book-btn:hover{
-  transform:translateY(-2px);
-}
-
+.book-btn:hover{transform:translateY(-2px);}
 .back-btn{
   background:#e5e7eb;
   color:#374151;
 }
-
-.back-btn:hover{
-  background:#d1d5db;
-}
+.back-btn:hover{background:#d1d5db;}
 
 /* ===== BOOKING SECTION ===== */
 .booking{
@@ -157,19 +145,16 @@ body{
     0 10px 40px rgba(0,0,0,.08),
     0 2px 8px rgba(0,0,0,.04);
 }
-
 .booking h2{
   text-align:center;
   font-size:1.8rem;
   margin-bottom:24px;
   color:#4b5563;
 }
-
 .booking form{
   display:grid;
   gap:16px;
 }
-
 .booking input,
 .booking textarea{
   padding:14px 16px;
@@ -177,12 +162,10 @@ body{
   border:1px solid #d1d5db;
   font-size:.95rem;
 }
-
 .booking textarea{
   resize:none;
   min-height:100px;
 }
-
 .booking button{
   margin-top:10px;
   padding:14px;
@@ -193,11 +176,9 @@ body{
   font-weight:600;
   font-size:1rem;
   cursor:pointer;
+  transition:opacity .25s ease;
 }
-
-.booking button:hover{
-  opacity:.95;
-}
+.booking button:hover{opacity:.95}
 
 /* ===== MOBILE ===== */
 @media(max-width:600px){
@@ -214,41 +195,40 @@ body{
 
   <h1>Hessonite (Gomed)</h1>
 
-  <!-- IMAGE -->
-  <img src="/public/img/Hessonite.jpg" alt="Hessonite Gemstone" class="gem-img">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/Hessonite1.jpg" class="active" alt="Hessonite Gemstone 1">
+    <img src="img/Hessonite2.webp" alt="Hessonite Gemstone 2">
+    <img src="img/Hessonite3.jpg" alt="Hessonite Gemstone 3">
+    <img src="img/Hessonite4.webp" alt="Hessonite Gemstone 4">
+  </div>
 
   <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
-    Hessonite, also known as Gomed, is a powerful gemstone associated with the
-    planet Rahu. It helps remove fear, confusion, anxiety, legal issues, and
-    sudden obstacles. Hessonite provides protection from negative energies,
-    stabilizes life situations, and supports success in uncertain conditions.
+    Hessonite, also known as Gomed, is a powerful gemstone associated with the planet Rahu.  
+    It removes fear, confusion, anxiety, legal issues, and sudden obstacles.  
+    Hessonite protects from negative energies, stabilizes life, and supports success in uncertain conditions.
   </p>
 
   <!-- HINDI DESCRIPTION -->
   <p class="desc hindi">
-    गोमेद (हेसोनाइट) राहु ग्रह से संबंधित अत्यंत प्रभावशाली रत्न है।
-    यह भय, भ्रम, चिंता, कानूनी समस्याओं और अचानक आने वाली बाधाओं को दूर करता है।
-    गोमेद नकारात्मक ऊर्जा से रक्षा करता है और जीवन में स्थिरता एवं सुरक्षा प्रदान करता है।
+    गोमेद (हेसोनाइट) राहु ग्रह से संबंधित अत्यंत प्रभावशाली रत्न है।  
+    यह भय, भ्रम, चिंता, कानूनी समस्याओं और अचानक आने वाली बाधाओं को दूर करता है।  
+    गोमेद नकारात्मक ऊर्जा से रक्षा करता है और जीवन में स्थिरता एवं सफलता प्रदान करता है।
   </p>
 
   <!-- DETAILS -->
   <ul class="info">
     <li><strong>Gemstone:</strong> Hessonite (Gomed)</li>
     <li><strong>रत्न:</strong> गोमेद</li>
-
     <li><strong>Planet:</strong> Rahu</li>
     <li><strong>ग्रह:</strong> राहु</li>
-
     <li><strong>Chakra:</strong> Root Chakra</li>
     <li><strong>चक्र:</strong> मूलाधार चक्र</li>
-
     <li><strong>Benefits:</strong> Fear Removal, Protection, Stability, Success</li>
     <li><strong>लाभ:</strong> भय निवारण, सुरक्षा, स्थिरता, सफलता</li>
-
     <li><strong>Recommended For:</strong> Legal Issues, Sudden Obstacles, Rahu Dosh</li>
     <li><strong>उपयुक्त:</strong> राहु दोष, कानूनी समस्याएं, आकस्मिक बाधाएं</li>
-
     <li><strong>Important Note:</strong> Wear only after astrological consultation</li>
     <li><strong>Price:</strong> ₹3,499</li>
   </ul>
@@ -256,7 +236,7 @@ body{
   <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="/public/product-gem.html" class="back-btn">← Back</a>
+    <a href="product-gem.html" class="back-btn">← Back</a>
   </div>
 
 </section>
@@ -264,7 +244,6 @@ body{
 <!-- BOOKING -->
 <section id="book" class="booking">
   <h2>Book Hessonite (Gomed)</h2>
-
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
@@ -274,6 +253,16 @@ body{
 </section>
 
 <script>
+/* AUTO IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+/* FORM HANDLER */
 function submitBooking(e){
   e.preventDefault();
   alert("Thank you! Your Hessonite (Gomed) booking request has been submitted.");

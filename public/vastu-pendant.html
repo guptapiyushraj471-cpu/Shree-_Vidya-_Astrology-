@@ -6,6 +6,9 @@
 <title>Vastu Dosh Pendant</title>
 
 <style>
+/* =====================================================
+   LIGHT PREMIUM THEME — PRODUCT DETAIL PAGE
+   ===================================================== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
@@ -20,6 +23,11 @@ body{
   border-radius:24px;
   box-shadow:0 10px 40px rgba(0,0,0,.08);
   text-align:center;
+  animation:fadeIn .6s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 h1{
   font-size:34px;
@@ -29,7 +37,9 @@ h1{
   margin-bottom:24px;
 }
 
-/* SLIDER */
+/* =====================================================
+   IMAGE SLIDER
+   ===================================================== */
 .slider{
   position:relative;
   overflow:hidden;
@@ -41,21 +51,17 @@ h1{
   height:360px;
   object-fit:cover;
   display:none;
+  border-radius:20px;
+  transition:opacity .6s ease;
 }
 .slider img.active{display:block}
 
-/* CONTENT */
-.desc{
-  font-size:15px;
-  color:#555;
-  line-height:1.8;
-  margin-bottom:16px
-}
-.desc.hindi{
-  background:#faf6f0;
-  padding:14px;
-  border-radius:12px
-}
+/* =====================================================
+   CONTENT
+   ===================================================== */
+.desc{font-size:15px;color:#555;line-height:1.8;margin-bottom:16px}
+.desc.hindi{background:#faf6f0;padding:14px;border-radius:12px}
+
 .info{
   list-style:none;
   text-align:left;
@@ -66,58 +72,66 @@ h1{
 }
 .info li{
   padding:12px;
-  border-bottom:1px solid #e2e6ea
+  border-bottom:1px solid #e2e6ea;
 }
 .info li:last-child{border:none}
 .info strong{color:#c89860}
 
-/* BUTTONS */
+/* =====================================================
+   BUTTONS
+   ===================================================== */
 .actions{
   display:flex;
   gap:12px;
   justify-content:center;
-  margin-top:22px
+  flex-wrap:wrap;
+  margin-top:22px;
 }
 .btn{
   padding:14px 36px;
   border-radius:40px;
   text-decoration:none;
-  font-weight:600
+  font-weight:600;
+  transition:all .25s ease;
 }
 .book-btn{
   background:linear-gradient(135deg,#d4a574,#c89860);
-  color:#fff
+  color:#fff;
 }
 .back-btn{
   background:#eef1f5;
-  color:#333
+  color:#333;
 }
+.btn:hover{transform:translateY(-2px)}
 
-/* BOOKING */
+/* =====================================================
+   BOOKING FORM
+   ===================================================== */
 .booking{
   max-width:720px;
   margin:60px auto 0;
-  background:#fff;
+  background:#ffffff;
   padding:40px;
   border-radius:24px;
-  box-shadow:0 10px 40px rgba(0,0,0,.08)
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
 }
 .booking h2{
   text-align:center;
   margin-bottom:22px;
-  color:#c89860
+  color:#c89860;
 }
 .booking form{
   display:grid;
-  gap:14px
+  gap:14px;
 }
 .booking input,
 .booking textarea{
   padding:14px;
   border-radius:12px;
   border:1px solid #dcdfe4;
-  font-size:14px
+  font-size:14px;
 }
+.booking textarea{resize:none;min-height:100px}
 .booking button{
   padding:14px;
   border-radius:30px;
@@ -125,23 +139,38 @@ h1{
   background:linear-gradient(135deg,#d4a574,#c89860);
   color:#fff;
   font-weight:600;
-  cursor:pointer
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+.booking button:hover{transform:translateY(-2px)}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  h1{font-size:1.8rem}
+  .slider img{height:260px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- =====================================================
+     PRODUCT DETAILS
+     ===================================================== -->
 <section class="detail-container">
 
 <h1>Vastu Dosh Pendant</h1>
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/VastuDoshPendant1.jpg" class="active">
-  <img src="/public/img/VastuDoshPendant2.jpg">
-  <img src="/public/img/VastuDoshPendant3.jfif">
-  <img src="/public/img/VastuDoshPendant4.jpg">
+  <img src="img/VastuDoshPendant1.jpg" class="active" alt="Vastu Dosh Pendant Image 1">
+  <img src="img/VastuDoshPendant2.jpg" alt="Vastu Dosh Pendant Image 2">
+  <img src="img/VastuDoshPendant3.jfif" alt="Vastu Dosh Pendant Image 3">
+  <img src="img/VastuDoshPendant4.jpg" alt="Vastu Dosh Pendant Image 4">
 </div>
 
 <p class="desc">
@@ -168,25 +197,32 @@ positivity, and overall well-being.
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/pendant-products.html" class="btn back-btn">← Back</a>
+  <a href="#book" class="btn book-btn">Book Consultation</a>
+  <a href="vastu-products.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
 
-<!-- BOOKING FORM -->
+<!-- =====================================================
+     BOOKING FORM
+     ===================================================== -->
 <section class="booking" id="book">
-<h2>Book Vastu Dosh Pendant</h2>
+<h2>Book Vastu Dosh Pendant Consultation</h2>
+
 <form onsubmit="submitBooking(event)">
   <input type="text" placeholder="Your Name" required>
   <input type="tel" placeholder="Mobile Number" required>
-  <textarea placeholder="Purpose / Message"></textarea>
+  <textarea placeholder="Purpose / Message (Optional)"></textarea>
   <button type="submit">Confirm Booking</button>
 </form>
 </section>
 
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 <script>
-let slides=document.querySelectorAll(".slider img");
+// ===== IMAGE SLIDER =====
+const slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
   slides[index].classList.remove("active");
@@ -194,11 +230,14 @@ setInterval(()=>{
   slides[index].classList.add("active");
 },3000);
 
+// ===== BOOKING FORM =====
 function submitBooking(e){
   e.preventDefault();
-  window.location.href="/public/book.html";
+  alert("Thank you! Your Vastu Dosh Pendant consultation request has been submitted.");
 }
 </script>
 
+<!-- Shared JS -->
+<script src="js/index.js"></script>
 </body>
 </html>

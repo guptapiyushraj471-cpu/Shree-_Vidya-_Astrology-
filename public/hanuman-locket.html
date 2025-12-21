@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hanuman Locket</title>
 
 <style>
-/* =====================================================
-   EXISTING STYLES — NOT REMOVED
-   ===================================================== */
+/* ============================================
+   PREMIUM SPIRITUAL PRODUCT PAGE
+   ============================================ */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
   padding:60px 20px;
+  min-height:100vh;
 }
+
+/* ===== CONTAINER ===== */
 .detail-container{
   max-width:720px;
   margin:auto;
@@ -23,6 +26,11 @@ body{
   border-radius:24px;
   box-shadow:0 10px 40px rgba(0,0,0,.08);
   text-align:center;
+  animation:slideUp .6s ease;
+}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 h1{
   font-size:34px;
@@ -32,14 +40,14 @@ h1{
   margin-bottom:24px;
 }
 
-/* =====================================================
-   IMAGE SLIDER
-   ===================================================== */
+/* ===== IMAGE SLIDER ===== */
 .slider{
   position:relative;
   overflow:hidden;
   border-radius:20px;
   margin-bottom:28px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
 }
 .slider img{
   width:100%;
@@ -47,15 +55,20 @@ h1{
   object-fit:cover;
   display:none;
 }
-.slider img.active{
-  display:block;
-}
+.slider img.active{display:block}
 
-/* =====================================================
-   CONTENT
-   ===================================================== */
-.desc{font-size:15px;color:#555;line-height:1.8;margin-bottom:16px}
-.desc.hindi{background:#faf6f0;padding:14px;border-radius:12px}
+/* ===== CONTENT ===== */
+.desc{
+  font-size:15px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:16px;
+}
+.desc.hindi{
+  background:#faf6f0;
+  padding:14px;
+  border-radius:12px;
+}
 
 .info{
   list-style:none;
@@ -72,33 +85,34 @@ h1{
 .info li:last-child{border:none}
 .info strong{color:#c89860}
 
-/* =====================================================
-   BUTTONS
-   ===================================================== */
+/* ===== BUTTONS ===== */
 .actions{
   display:flex;
   gap:12px;
   justify-content:center;
   margin-top:22px;
+  flex-wrap:wrap;
 }
 .btn{
   padding:14px 36px;
   border-radius:40px;
   text-decoration:none;
   font-weight:600;
+  transition:all .25s ease;
 }
 .book-btn{
   background:linear-gradient(135deg,#d4a574,#c89860);
   color:#fff;
+  box-shadow:0 6px 18px rgba(200,152,96,.35);
 }
+.book-btn:hover{transform:translateY(-2px);}
 .back-btn{
   background:#eef1f5;
   color:#333;
 }
+.back-btn:hover{background:#e0e3e7;}
 
-/* =====================================================
-   BOOKING FORM
-   ===================================================== */
+/* ===== BOOKING FORM ===== */
 .booking{
   max-width:720px;
   margin:60px auto 0;
@@ -112,10 +126,7 @@ h1{
   margin-bottom:22px;
   color:#c89860;
 }
-.booking form{
-  display:grid;
-  gap:14px;
-}
+.booking form{display:grid;gap:14px;}
 .booking input,
 .booking textarea{
   padding:14px;
@@ -123,6 +134,7 @@ h1{
   border:1px solid #dcdfe4;
   font-size:14px;
 }
+.booking textarea{resize:none;min-height:100px;}
 .booking button{
   padding:14px;
   border-radius:30px;
@@ -131,73 +143,74 @@ h1{
   color:#fff;
   font-weight:600;
   cursor:pointer;
+  transition:opacity .2s ease;
+}
+.booking button:hover{opacity:.95}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  h1{font-size:1.8rem}
 }
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     PRODUCT DETAILS
-     ===================================================== -->
+<!-- PRODUCT DETAILS -->
 <section class="detail-container">
 
 <h1>Hanuman Locket</h1>
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/HanumanLocket1.webp" class="active">
-  <img src="/public/img/HanumanLocket2.webp">
-  <img src="/public/img/HanumanLocket3.webp">
-  <img src="/public/img/HanumanLocket4.webp">
+  <img src="img/HanumanLocket1.webp" class="active" alt="Hanuman Locket 1">
+  <img src="img/HanumanLocket2.webp" alt="Hanuman Locket 2">
+  <img src="img/HanumanLocket3.webp" alt="Hanuman Locket 3">
+  <img src="img/HanumanLocket4.webp" alt="Hanuman Locket 4">
 </div>
 
 <p class="desc">
-The Hanuman Locket is a powerful spiritual accessory that provides
-strength, courage, protection from negative energies, and fearlessness.
-Wearing it regularly helps overcome obstacles and builds inner power.
+The Hanuman Locket is a sacred symbol of strength, devotion, and protection.  
+It empowers the wearer with courage, removes fears, and shields against negativity.  
+Ideal for those seeking inner power, confidence, and divine guidance.
 </p>
 
 <p class="desc hindi">
-हनुमान लॉकेट साहस, शक्ति और नकारात्मक शक्तियों से सुरक्षा प्रदान करता है।
-इसे धारण करने से भय दूर होता है और आत्मविश्वास बढ़ता है।
+हनुमान लॉकेट साहस, शक्ति और नकारात्मक शक्तियों से रक्षा प्रदान करता है।  
+इसे धारण करने से भय दूर होता है, आत्मविश्वास बढ़ता है और भगवान हनुमान की कृपा प्राप्त होती है।
 </p>
 
 <ul class="info">
-<li><strong>Deity:</strong> Lord Hanuman</li>
-<li><strong>Benefits:</strong> Strength, Courage, Protection, Fearlessness</li>
-<li><strong>Mantra:</strong> ॐ नमो भगवते हनुमते नमः</li>
-<li><strong>Material:</strong> Premium Alloy / Gold Plated</li>
-<li><strong>Recommended For:</strong> Protection, Confidence, Success</li>
-<li><strong>Price:</strong> ₹1,499</li>
+  <li><strong>Deity:</strong> Lord Hanuman</li>
+  <li><strong>Benefits:</strong> Strength, Courage, Protection, Fearlessness</li>
+  <li><strong>Mantra:</strong> ॐ नमो भगवते हनुमते नमः</li>
+  <li><strong>Material:</strong> Premium Alloy (Gold Plated)</li>
+  <li><strong>Recommended For:</strong> Protection, Confidence, Success</li>
+  <li><strong>Price:</strong> ₹1,499</li>
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/pendant-products.html" class="btn back-btn">← Back</a>
+  <a href="book.html" class="btn book-btn">Book Now</a>
+  <a href="pendant-products.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
 
-<!-- =====================================================
-     BOOKING FORM (BOTTOM)
-     ===================================================== -->
+<!-- BOOKING FORM -->
 <section class="booking" id="book">
 <h2>Book Hanuman Locket</h2>
-
 <form onsubmit="submitBooking(event)">
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Mobile Number" required>
-<textarea placeholder="Message / Purpose"></textarea>
-<button type="submit">Confirm Booking</button>
+  <input type="text" placeholder="Your Name" required>
+  <input type="tel" placeholder="Mobile Number" required>
+  <textarea placeholder="Message / Purpose"></textarea>
+  <button type="submit">Confirm Booking</button>
 </form>
 </section>
 
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
 <script>
-/* IMAGE SLIDER */
+/* AUTO IMAGE SLIDER */
 let slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
@@ -206,10 +219,10 @@ setInterval(()=>{
   slides[index].classList.add("active");
 },3000);
 
-/* FORM */
+/* FORM HANDLER */
 function submitBooking(e){
   e.preventDefault();
-  window.location.href="/public/book.html";
+  window.location.href="book.html";
 }
 </script>
 

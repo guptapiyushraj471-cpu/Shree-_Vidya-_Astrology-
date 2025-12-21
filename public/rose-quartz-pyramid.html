@@ -41,6 +41,9 @@ h1{
   height:360px;
   object-fit:cover;
   display:none;
+  border-radius:20px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
 }
 .slider img.active{display:block}
 
@@ -119,6 +122,14 @@ h1{
   font-weight:600;
   cursor:pointer;
 }
+.booking button:hover{opacity:.95}
+
+/* MOBILE */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  h1{font-size:26px}
+}
 </style>
 </head>
 
@@ -126,15 +137,14 @@ h1{
 
 <!-- PRODUCT DETAILS -->
 <section class="detail-container">
-
 <h1>Rosy Pyramid (Rose Quartz)</h1>
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/RosyPyramid1.webp" class="active">
-  <img src="/public/img/RosyPyramid2.jpg">
-  <img src="/public/img/RosyPyramid3.webp">
-  <img src="/public/img/RosyPyramid4.webp">
+  <img src="img/RosyPyramid1.webp" class="active" alt="Rose Quartz Pyramid 1">
+  <img src="img/RosyPyramid2.jpg" alt="Rose Quartz Pyramid 2">
+  <img src="img/RosyPyramid3.webp" alt="Rose Quartz Pyramid 3">
+  <img src="img/RosyPyramid4.webp" alt="Rose Quartz Pyramid 4">
 </div>
 
 <p class="desc">
@@ -161,10 +171,9 @@ a calm, peaceful environment in homes and workplaces.
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/pyramid-product.html" class="btn back-btn">← Back</a>
+  <a href="book.html" class="btn book-btn">Book Now</a>
+  <a href="pyramid.html" class="btn back-btn">← Back</a>
 </div>
-
 </section>
 
 <!-- BOOKING FORM -->
@@ -180,6 +189,7 @@ a calm, peaceful environment in homes and workplaces.
 </section>
 
 <script>
+// ----- Image Slider -----
 let slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
@@ -188,11 +198,14 @@ setInterval(()=>{
   slides[index].classList.add("active");
 },3000);
 
+// ----- Booking -----
 function submitBooking(e){
   e.preventDefault();
-  window.location.href="/public/book.html";
+  alert("Thank you! Your Rosy Pyramid booking request has been submitted.");
 }
 </script>
 
+<!-- Shared site JS -->
+<script src="js/index.js"></script>
 </body>
 </html>

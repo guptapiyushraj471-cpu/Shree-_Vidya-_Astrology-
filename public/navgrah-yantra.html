@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Navgrah Yantra</title>
 
 <style>
 /* ============================================
    PREMIUM LIGHT THEME – YANTRA DETAIL PAGE
    ============================================ */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
@@ -25,67 +18,54 @@ body{
   line-height:1.7;
   animation:fadeIn .6s ease;
 }
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 /* ===== CONTAINER ===== */
 .detail-container{
   max-width:720px;
   margin:auto;
-  background:#ffffff;
+  background:#fff;
   padding:48px;
   border-radius:24px;
   text-align:center;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
   animation:slideUp .6s ease;
 }
-
-@keyframes slideUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
 /* ===== HEADING ===== */
-.detail-container h1{
+h1{
   font-size:2.2rem;
-  margin-bottom:32px;
+  margin-bottom:28px;
   font-weight:700;
   background:linear-gradient(135deg,#d4a574,#c89860);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-/* ===== IMAGE ===== */
-.gem-img{
-  width:100%;
-  max-height:380px;
-  object-fit:cover;
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
   border-radius:20px;
-  margin-bottom:32px;
+  margin-bottom:28px;
+}
+.slider img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  display:none;
   border:4px solid #f8f9fa;
+  border-radius:20px;
   box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .3s ease;
 }
-
-.gem-img:hover{
-  transform:scale(1.03);
-}
+.slider img.active{display:block}
 
 /* ===== DESCRIPTION ===== */
-.desc{
-  color:#4a5568;
-  font-size:1.05rem;
-  margin-bottom:20px;
-}
-
+.desc{font-size:1.05rem;color:#4a5568;margin-bottom:18px}
 .desc.hindi{
-  color:#374151;
   background:rgba(212,165,116,.06);
+  color:#374151;
   padding:16px;
   border-radius:14px;
   margin-bottom:30px;
@@ -100,28 +80,22 @@ body{
   padding:22px;
   margin:32px 0;
 }
-
 .info li{
   padding:14px 16px;
   border-bottom:1px solid rgba(0,0,0,.06);
   font-size:1rem;
   color:#4a5568;
 }
-
 .info li:last-child{border-bottom:none}
-
-.info strong{
-  color:#c89860;
-  font-weight:600;
-}
+.info strong{color:#c89860;font-weight:600}
 
 /* ===== BUTTON ===== */
 .actions{
   margin-top:28px;
+  display:flex;
+  justify-content:center;
 }
-
 .back-btn{
-  display:inline-block;
   padding:14px 42px;
   border-radius:50px;
   background:linear-gradient(135deg,#d4a574,#c89860);
@@ -129,29 +103,21 @@ body{
   text-decoration:none;
   font-weight:600;
   font-size:1rem;
-  box-shadow:
-    0 6px 18px rgba(212,165,116,.35),
-    0 2px 6px rgba(0,0,0,.12);
+  box-shadow:0 6px 18px rgba(212,165,116,.35);
   transition:transform .25s ease, box-shadow .25s ease;
 }
-
 .back-btn:hover{
   transform:translateY(-3px);
-  box-shadow:
-    0 10px 28px rgba(212,165,116,.45),
-    0 4px 10px rgba(0,0,0,.15);
+  box-shadow:0 10px 28px rgba(212,165,116,.45);
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:600px){
   body{padding:40px 16px}
   .detail-container{padding:32px 22px}
-  .detail-container h1{font-size:1.8rem}
-  .gem-img{max-height:280px}
+  h1{font-size:1.8rem}
+  .slider img{height:280px}
 }
-
-/* ===== SMOOTH ===== */
-html{scroll-behavior:smooth}
 </style>
 </head>
 
@@ -161,52 +127,54 @@ html{scroll-behavior:smooth}
 
   <h1>Navgrah Yantra</h1>
 
-  <!-- IMAGE -->
-  <img src="/public/img/NavgrahYantra.jfif" alt="Navgrah Yantra" class="gem-img">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/NavgrahYantra1.jpg" class="active" alt="Navgrah Yantra 1">
+    <img src="img/NavgrahYantra2.webp" alt="Navgrah Yantra 2">
+    <img src="img/NavgrahYantra3.jfif" alt="Navgrah Yantra 3">
+    <img src="img/NavgrahYantra4.jpg" alt="Navgrah Yantra 4">
+  </div>
 
-  <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
-    Navgrah Yantra is a powerful yantra that balances the energies of all
-    nine planets (Navgrah) in an individual’s horoscope. It helps reduce
-    planetary doshas, strengthens favorable planets, and brings stability,
-    success, and positive growth in life, career, and relationships.
+    Navgrah Yantra is a powerful spiritual diagram that harmonizes the energies of all
+    nine planets (Navgrah) in one’s horoscope. It reduces planetary doshas,
+    strengthens favorable planets, and brings peace, progress, and prosperity
+    in life, career, and relationships.
   </p>
 
-  <!-- HINDI DESCRIPTION -->
   <p class="desc hindi">
-    नवग्रह यंत्र सभी नौ ग्रहों (सूर्य, चंद्र, मंगल, बुध, गुरु, शुक्र,
-    शनि, राहु और केतु) की ऊर्जा को संतुलित करने के लिए प्रयोग किया जाता है।
-    यह ग्रह दोष को कम करता है और जीवन में शांति, सौभाग्य व स्थिरता प्रदान करता है।
+    नवग्रह यंत्र सभी नौ ग्रहों (सूर्य, चंद्र, मंगल, बुध, गुरु, शुक्र, शनि, राहु और केतु)
+    की ऊर्जा को संतुलित करता है।  
+    यह ग्रह दोषों को कम कर जीवन में शांति, सौभाग्य और स्थिरता प्रदान करता है।
   </p>
 
-  <!-- DETAILS -->
   <ul class="info">
     <li><strong>Yantra:</strong> Navgrah Yantra</li>
     <li><strong>देवता:</strong> नवग्रह (Nine Planets)</li>
-
     <li><strong>Purpose:</strong> Planetary Balance & Dosh Nivaran</li>
     <li><strong>उद्देश्य:</strong> ग्रह दोष निवारण एवं संतुलन</li>
-
     <li><strong>Benefits:</strong> Stability, Luck, Career Growth, Peace</li>
-    <li><strong>लाभ:</strong> स्थिरता, सौभाग्य, करियर उन्नति, शांति</li>
-
+    <li><strong>लाभ:</strong> स्थिरता, सौभाग्य, उन्नति, शांति</li>
     <li><strong>Recommended For:</strong> Puja Room, Office, Study Area</li>
     <li><strong>उपयुक्त:</strong> पूजा कक्ष, कार्यालय, अध्ययन कक्ष</li>
-
-    <li><strong>Price:</strong> ₹2,299</li>
+    <li><strong>Price:</strong> ₹ 2,299</li>
   </ul>
 
-  <!-- ACTION -->
   <div class="actions">
-    <a href="/public/yantra-products.html" class="back-btn">← Back</a>
+    <a href="yantra-products.html" class="back-btn">← Back</a>
   </div>
 
 </section>
 
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-  console.log("Navgrah Yantra page loaded successfully");
-});
+/* IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
 </script>
 
 </body>

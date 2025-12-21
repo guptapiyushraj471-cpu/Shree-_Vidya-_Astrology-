@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pearl (Moti) – Gemstone Details</title>
 
 <style>
 /* ============================================
-   PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
+   PREMIUM LIGHT THEME – PEARL (MOTI) GEMSTONE PAGE
    ============================================ */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
-  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  background:linear-gradient(135deg,#f8fafc,#eef2f6,#e2e8f0);
   color:#2c3e50;
   padding:60px 20px;
-  min-height:100vh;
   line-height:1.7;
+  min-height:100vh;
 }
 
 /* ===== CONTAINER ===== */
@@ -33,40 +26,41 @@ body{
   padding:48px;
   border-radius:24px;
   text-align:center;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
-  animation:slideUp .6s ease;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+  animation:fadeIn .6s ease;
 }
-
-@keyframes slideUp{
+@keyframes fadeIn{
   from{opacity:0;transform:translateY(30px)}
   to{opacity:1;transform:translateY(0)}
 }
 
 /* ===== HEADING ===== */
-.detail-container h1{
+h1{
   font-size:2.2rem;
-  margin-bottom:28px;
   font-weight:700;
-  background:linear-gradient(135deg,#9ca3af,#d1d5db);
+  margin-bottom:28px;
+  background:linear-gradient(135deg,#bfc4ca,#e5e7eb);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-/* ===== IMAGE ===== */
-.gem-img{
-  width:100%;
-  max-height:380px;
-  object-fit:cover;
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
   border-radius:20px;
-  margin-bottom:30px;
-  border:4px solid #f8f9fa;
-  box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .3s ease;
+  margin-bottom:28px;
 }
-
-.gem-img:hover{transform:scale(1.03)}
+.slider img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  display:none;
+  border-radius:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  border:4px solid #f8f9fa;
+}
+.slider img.active{display:block}
 
 /* ===== DESCRIPTION ===== */
 .desc{
@@ -74,13 +68,12 @@ body{
   color:#4a5568;
   margin-bottom:18px;
 }
-
 .desc.hindi{
   background:rgba(209,213,219,.35);
   color:#374151;
   padding:16px;
   border-radius:14px;
-  margin-bottom:30px;
+  margin-bottom:28px;
 }
 
 /* ===== INFO LIST ===== */
@@ -92,21 +85,15 @@ body{
   padding:22px;
   margin:32px 0;
 }
-
 .info li{
   padding:14px 16px;
   border-bottom:1px solid rgba(0,0,0,.06);
   font-size:1rem;
 }
+.info li:last-child{border:none}
+.info strong{color:#6b7280;font-weight:600}
 
-.info li:last-child{border-bottom:none}
-
-.info strong{
-  color:#6b7280;
-  font-weight:600;
-}
-
-/* ===== ACTION BUTTONS ===== */
+/* ===== BUTTONS ===== */
 .actions{
   display:flex;
   justify-content:center;
@@ -114,7 +101,6 @@ body{
   margin-top:30px;
   flex-wrap:wrap;
 }
-
 .book-btn,
 .back-btn{
   padding:14px 36px;
@@ -124,20 +110,16 @@ body{
   font-size:1rem;
   transition:all .25s ease;
 }
-
 .book-btn{
   background:linear-gradient(135deg,#9ca3af,#d1d5db);
   color:#fff;
-  box-shadow:0 6px 18px rgba(156,163,175,.45);
+  box-shadow:0 6px 18px rgba(156,163,175,.4);
 }
-
-.book-btn:hover{transform:translateY(-2px)}
-
+.book-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(156,163,175,.5)}
 .back-btn{
   background:#e5e7eb;
   color:#374151;
 }
-
 .back-btn:hover{background:#d1d5db}
 
 /* ===== BOOKING ===== */
@@ -147,23 +129,18 @@ body{
   background:#ffffff;
   padding:40px;
   border-radius:22px;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
 }
-
 .booking h2{
   text-align:center;
   font-size:1.8rem;
   margin-bottom:24px;
   color:#6b7280;
 }
-
 .booking form{
   display:grid;
   gap:16px;
 }
-
 .booking input,
 .booking textarea{
   padding:14px 16px;
@@ -171,12 +148,10 @@ body{
   border:1px solid #d1d5db;
   font-size:.95rem;
 }
-
 .booking textarea{
   resize:none;
   min-height:100px;
 }
-
 .booking button{
   margin-top:10px;
   padding:14px;
@@ -187,74 +162,71 @@ body{
   font-weight:600;
   font-size:1rem;
   cursor:pointer;
+  transition:all .25s ease;
+}
+.booking button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(156,163,175,.4);
 }
 
-.booking button:hover{opacity:.95}
-
-/* ===== MOBILE ===== */
+/* ===== RESPONSIVE ===== */
 @media(max-width:600px){
   body{padding:40px 16px}
   .detail-container,.booking{padding:28px 20px}
-  .detail-container h1{font-size:1.8rem}
+  .slider img{height:260px}
+  h1{font-size:1.8rem}
 }
 </style>
 </head>
 
 <body>
 
+<!-- ===== GEMSTONE DETAILS ===== -->
 <section class="detail-container">
 
   <h1>Pearl (Moti)</h1>
 
-  <!-- IMAGE -->
-  <img src="/public/img/Pearl.jpg" alt="Pearl Gemstone" class="gem-img">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/Pearl1.webp" class="active" alt="Pearl Gemstone 1">
+    <img src="img/Pearl2.webp" alt="Pearl Gemstone 2">
+    <img src="img/Pearl3.webp" alt="Pearl Gemstone 3">
+    <img src="img/Pearl4.webp" alt="Pearl Gemstone 4">
+  </div>
 
   <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
-    Pearl (Moti) is a calming gemstone that brings mental peace,
-    emotional balance, and stability. It strengthens the Moon
-    and helps reduce stress, anxiety, and emotional disturbances.
+    Pearl (Moti) is a soothing gemstone that represents purity, emotional stability, and mental peace.
+    It strengthens the Moon and helps calm emotions, reduce anxiety, and bring balance to one’s life.
   </p>
 
   <!-- HINDI DESCRIPTION -->
   <p class="desc hindi">
-    मोती (पर्ल) मानसिक शांति, भावनात्मक संतुलन और स्थिरता प्रदान करने वाला रत्न है।
-    यह चंद्र ग्रह को मजबूत करता है और तनाव, चिंता
-    तथा भावनात्मक अस्थिरता को कम करने में सहायक माना जाता है।
+    मोती (पर्ल) एक शांतिदायक रत्न है जो मन की शांति, स्थिरता और भावनात्मक संतुलन प्रदान करता है।
+    यह चंद्र ग्रह को मजबूत करता है और चिंता, तनाव व अस्थिरता को दूर करने में सहायक होता है।
   </p>
 
   <!-- DETAILS -->
   <ul class="info">
     <li><strong>Gemstone:</strong> Pearl (Moti)</li>
     <li><strong>रत्न:</strong> मोती</li>
-
-    <li><strong>Planet:</strong> Moon</li>
-    <li><strong>ग्रह:</strong> चंद्रमा</li>
-
-    <li><strong>Chakra:</strong> Crown Chakra</li>
-    <li><strong>चक्र:</strong> सहस्रार चक्र</li>
-
-    <li><strong>Benefits:</strong> Peace, Emotional Balance, Calmness</li>
-    <li><strong>लाभ:</strong> मानसिक शांति, भावनात्मक संतुलन</li>
-
-    <li><strong>Recommended For:</strong> Stress Relief, Relationships, Mind Peace</li>
-    <li><strong>उपयुक्त:</strong> तनाव, संबंध सुधार, मानसिक स्थिरता</li>
-
+    <li><strong>Planet:</strong> Moon (चंद्रमा)</li>
+    <li><strong>Chakra:</strong> Crown Chakra (सहस्रार चक्र)</li>
+    <li><strong>Benefits:</strong> Peace, Calmness, Emotional Balance</li>
+    <li><strong>Recommended For:</strong> Stress Relief, Relationships, Mind Stability</li>
     <li><strong>Price:</strong> ₹2,499</li>
   </ul>
 
   <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="/public/product-gem.html" class="back-btn">← Back</a>
+    <a href="product-gem.html" class="back-btn">← Back</a>
   </div>
-
 </section>
 
-<!-- BOOKING -->
+<!-- ===== BOOKING SECTION ===== -->
 <section id="book" class="booking">
   <h2>Book Pearl (Moti)</h2>
-
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
@@ -263,7 +235,18 @@ body{
   </form>
 </section>
 
+<!-- ===== JAVASCRIPT ===== -->
 <script>
+/* IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+/* FORM SUBMIT */
 function submitBooking(e){
   e.preventDefault();
   alert("Thank you! Your Pearl (Moti) booking request has been submitted.");

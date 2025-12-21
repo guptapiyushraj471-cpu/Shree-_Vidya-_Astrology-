@@ -6,75 +6,61 @@
 <title>White Topaz – Gemstone Details</title>
 
 <style>
-/* ============================================
-   PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
-   ============================================ */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
-}
-
+/* =====================================================
+   LIGHT PREMIUM THEME — GEMSTONE DETAIL PAGE
+   ===================================================== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
   padding:60px 20px;
-  min-height:100vh;
-  line-height:1.7;
 }
-
-/* ===== CONTAINER ===== */
 .detail-container{
   max-width:760px;
   margin:auto;
-  background:#ffffff;
+  background:#fff;
   padding:48px;
   border-radius:24px;
   text-align:center;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
-  animation:slideUp .6s ease;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+  animation:fadeIn .6s ease;
 }
-
-@keyframes slideUp{
+@keyframes fadeIn{
   from{opacity:0;transform:translateY(30px)}
   to{opacity:1;transform:translateY(0)}
 }
-
-/* ===== HEADING ===== */
-.detail-container h1{
+h1{
   font-size:2.2rem;
-  margin-bottom:28px;
-  font-weight:700;
   background:linear-gradient(135deg,#b8b8b8,#8f8f8f);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  margin-bottom:28px;
+  font-weight:700;
 }
 
-/* ===== IMAGE ===== */
-.gem-img{
-  width:100%;
-  max-height:380px;
-  object-fit:cover;
+/* =====================================================
+   IMAGE SLIDER
+   ===================================================== */
+.slider{
+  position:relative;
+  overflow:hidden;
   border-radius:20px;
   margin-bottom:30px;
-  border:4px solid #f8f9fa;
-  box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .3s ease;
 }
-
-.gem-img:hover{transform:scale(1.03)}
-
-/* ===== DESCRIPTION ===== */
-.desc{
-  font-size:1.05rem;
-  color:#4a5568;
-  margin-bottom:18px;
+.slider img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:none;
+  border-radius:20px;
+  transition:opacity .6s ease;
 }
+.slider img.active{display:block}
 
+/* =====================================================
+   CONTENT
+   ===================================================== */
+.desc{font-size:1.05rem;color:#4a5568;margin-bottom:18px}
 .desc.hindi{
   background:rgba(200,200,200,.25);
   color:#374151;
@@ -82,8 +68,6 @@ body{
   border-radius:14px;
   margin-bottom:30px;
 }
-
-/* ===== INFO LIST ===== */
 .info{
   list-style:none;
   text-align:left;
@@ -92,21 +76,20 @@ body{
   padding:22px;
   margin:32px 0;
 }
-
 .info li{
   padding:14px 16px;
   border-bottom:1px solid rgba(0,0,0,.06);
   font-size:1rem;
 }
-
 .info li:last-child{border-bottom:none}
-
 .info strong{
   color:#6b7280;
   font-weight:600;
 }
 
-/* ===== ACTION BUTTONS ===== */
+/* =====================================================
+   BUTTONS
+   ===================================================== */
 .actions{
   display:flex;
   justify-content:center;
@@ -114,9 +97,7 @@ body{
   margin-top:30px;
   flex-wrap:wrap;
 }
-
-.book-btn,
-.back-btn{
+.btn{
   padding:14px 36px;
   border-radius:50px;
   text-decoration:none;
@@ -124,46 +105,39 @@ body{
   font-size:1rem;
   transition:all .25s ease;
 }
-
 .book-btn{
   background:linear-gradient(135deg,#b8b8b8,#8f8f8f);
   color:#fff;
   box-shadow:0 6px 18px rgba(143,143,143,.45);
 }
-
 .book-btn:hover{transform:translateY(-2px)}
-
 .back-btn{
   background:#e5e7eb;
   color:#374151;
 }
-
 .back-btn:hover{background:#d1d5db}
 
-/* ===== BOOKING ===== */
+/* =====================================================
+   BOOKING FORM
+   ===================================================== */
 .booking{
   max-width:760px;
   margin:60px auto 0;
   background:#ffffff;
   padding:40px;
   border-radius:22px;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
 }
-
 .booking h2{
   text-align:center;
   font-size:1.8rem;
   margin-bottom:24px;
   color:#6b7280;
 }
-
 .booking form{
   display:grid;
   gap:16px;
 }
-
 .booking input,
 .booking textarea{
   padding:14px 16px;
@@ -171,12 +145,10 @@ body{
   border:1px solid #d1d5db;
   font-size:.95rem;
 }
-
 .booking textarea{
   resize:none;
   min-height:100px;
 }
-
 .booking button{
   margin-top:10px;
   padding:14px;
@@ -187,88 +159,110 @@ body{
   font-weight:600;
   font-size:1rem;
   cursor:pointer;
+  transition:transform .25s ease;
 }
+.booking button:hover{transform:translateY(-2px)}
 
-.booking button:hover{opacity:.95}
-
-/* ===== MOBILE ===== */
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 @media(max-width:600px){
   body{padding:40px 16px}
   .detail-container,.booking{padding:28px 20px}
-  .detail-container h1{font-size:1.8rem}
+  h1{font-size:1.8rem}
+  .slider img{height:260px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- =====================================================
+     GEMSTONE DETAILS
+     ===================================================== -->
 <section class="detail-container">
 
-  <h1>White Topaz</h1>
+<h1>White Topaz</h1>
 
-  <!-- IMAGE -->
-  <img src="/public/img/WhiteTopaz.jfif" alt="White Topaz Gemstone" class="gem-img">
+<!-- IMAGE SLIDER -->
+<div class="slider">
+  <img src="img/WhiteTopaz1.jfif" class="active" alt="White Topaz Image 1">
+  <img src="img/WhiteTopaz2.webp" alt="White Topaz Image 2">
+  <img src="img/WhiteTopaz3.webp" alt="White Topaz Image 3">
+  <img src="img/WhiteTopaz4.jfif" alt="White Topaz Image 4">
+</div>
 
-  <!-- ENGLISH DESCRIPTION -->
-  <p class="desc">
-    White Topaz is known for enhancing clarity of thought, creativity,
-    confidence, and positive energy. It is considered an excellent
-    substitute for Diamond and supports mental balance and self-expression.
-  </p>
+<!-- ENGLISH DESCRIPTION -->
+<p class="desc">
+White Topaz is known for enhancing clarity of thought, creativity,
+confidence, and positive energy. It is considered an excellent
+substitute for Diamond and supports mental balance and self-expression.
+</p>
 
-  <!-- HINDI DESCRIPTION -->
-  <p class="desc hindi">
-    व्हाइट टोपाज़ रत्न बुद्धि की स्पष्टता, रचनात्मकता और आत्मविश्वास बढ़ाने में
-    सहायक माना जाता है। यह हीरे का श्रेष्ठ विकल्प है और सकारात्मक ऊर्जा,
-    मानसिक संतुलन व आत्म-अभिव्यक्ति को मजबूत करता है।
-  </p>
+<!-- HINDI DESCRIPTION -->
+<p class="desc hindi">
+व्हाइट टोपाज़ रत्न बुद्धि की स्पष्टता, रचनात्मकता और आत्मविश्वास बढ़ाने में
+सहायक माना जाता है। यह हीरे का श्रेष्ठ विकल्प है और सकारात्मक ऊर्जा,
+मानसिक संतुलन व आत्म-अभिव्यक्ति को मजबूत करता है।
+</p>
 
-  <!-- DETAILS -->
-  <ul class="info">
-    <li><strong>Gemstone:</strong> White Topaz</li>
-    <li><strong>रत्न:</strong> व्हाइट टोपाज़</li>
+<!-- DETAILS -->
+<ul class="info">
+<li><strong>Gemstone:</strong> White Topaz</li>
+<li><strong>रत्न:</strong> व्हाइट टोपाज़</li>
+<li><strong>Planet:</strong> Venus (Substitute)</li>
+<li><strong>ग्रह:</strong> शुक्र (विकल्प)</li>
+<li><strong>Chakra:</strong> Crown Chakra</li>
+<li><strong>चक्र:</strong> सहस्रार चक्र</li>
+<li><strong>Benefits:</strong> Clarity, Creativity, Confidence, Positivity</li>
+<li><strong>लाभ:</strong> स्पष्टता, रचनात्मकता, आत्मविश्वास, सकारात्मकता</li>
+<li><strong>Recommended For:</strong> Artists, Students, Relationship Harmony</li>
+<li><strong>उपयुक्त:</strong> कलाकार, विद्यार्थी, वैवाहिक संतुलन</li>
+<li><strong>Price:</strong> ₹2,799</li>
+</ul>
 
-    <li><strong>Planet:</strong> Venus (Substitute)</li>
-    <li><strong>ग्रह:</strong> शुक्र (विकल्प)</li>
-
-    <li><strong>Chakra:</strong> Crown Chakra</li>
-    <li><strong>चक्र:</strong> सहस्रार चक्र</li>
-
-    <li><strong>Benefits:</strong> Clarity, Creativity, Confidence, Positivity</li>
-    <li><strong>लाभ:</strong> स्पष्टता, रचनात्मकता, आत्मविश्वास, सकारात्मकता</li>
-
-    <li><strong>Recommended For:</strong> Artists, Students, Relationship Harmony</li>
-    <li><strong>उपयुक्त:</strong> कलाकार, विद्यार्थी, वैवाहिक संतुलन</li>
-
-    <li><strong>Price:</strong> ₹2,799</li>
-  </ul>
-
-  <!-- ACTIONS -->
-  <div class="actions">
-    <a href="#book" class="book-btn">Book Now</a>
-    <a href="/public/product-gem.html" class="back-btn">← Back</a>
-  </div>
+<div class="actions">
+  <a href="#book" class="btn book-btn">Book Consultation</a>
+  <a href="product-gem.html" class="btn back-btn">← Back</a>
+</div>
 
 </section>
 
-<!-- BOOKING -->
-<section id="book" class="booking">
-  <h2>Book White Topaz</h2>
+<!-- =====================================================
+     BOOKING FORM
+     ===================================================== -->
+<section class="booking" id="book">
+<h2>Book White Topaz Consultation</h2>
 
-  <form onsubmit="submitBooking(event)">
-    <input type="text" placeholder="Your Name" required>
-    <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Purpose / Message (Optional)"></textarea>
-    <button type="submit">Confirm Booking</button>
-  </form>
+<form onsubmit="submitBooking(event)">
+<input type="text" placeholder="Your Name" required>
+<input type="tel" placeholder="Mobile Number" required>
+<textarea placeholder="Purpose / Message (Optional)"></textarea>
+<button type="submit">Confirm Booking</button>
+</form>
 </section>
 
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 <script>
+// ===== IMAGE SLIDER =====
+const slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+// ===== BOOKING FORM =====
 function submitBooking(e){
   e.preventDefault();
-  alert("Thank you! Your White Topaz booking request has been submitted.");
+  alert("Thank you! Your White Topaz consultation request has been submitted.");
 }
 </script>
 
+<!-- Shared JS -->
+<script src="js/index.js"></script>
 </body>
 </html>

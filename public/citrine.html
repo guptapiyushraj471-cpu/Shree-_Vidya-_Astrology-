@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Citrine (Sunela) – Gemstone Details</title>
 
 <style>
 /* ============================================
    PREMIUM LIGHT THEME – GEMSTONE DETAIL PAGE
    ============================================ */
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
 }
-
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
@@ -33,12 +31,9 @@ body{
   padding:48px;
   border-radius:24px;
   text-align:center;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
   animation:slideUp .6s ease;
 }
-
 @keyframes slideUp{
   from{opacity:0;transform:translateY(30px)}
   to{opacity:1;transform:translateY(0)}
@@ -54,21 +49,22 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-/* ===== IMAGE ===== */
-.gem-img{
-  width:100%;
-  max-height:380px;
-  object-fit:cover;
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
   border-radius:20px;
   margin-bottom:30px;
   border:4px solid #f8f9fa;
   box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .3s ease;
 }
-
-.gem-img:hover{
-  transform:scale(1.03);
+.slider img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:none;
 }
+.slider img.active{display:block}
 
 /* ===== DESCRIPTION ===== */
 .desc{
@@ -76,7 +72,6 @@ body{
   color:#4a5568;
   margin-bottom:18px;
 }
-
 .desc.hindi{
   background:rgba(245,158,11,.08);
   color:#374151;
@@ -94,15 +89,12 @@ body{
   padding:22px;
   margin:32px 0;
 }
-
 .info li{
   padding:14px 16px;
   border-bottom:1px solid rgba(0,0,0,.06);
   font-size:1rem;
 }
-
 .info li:last-child{border-bottom:none}
-
 .info strong{
   color:#b45309;
   font-weight:600;
@@ -116,7 +108,6 @@ body{
   margin-top:30px;
   flex-wrap:wrap;
 }
-
 .book-btn,
 .back-btn{
   padding:14px 36px;
@@ -126,25 +117,17 @@ body{
   font-size:1rem;
   transition:all .25s ease;
 }
-
 .book-btn{
   background:linear-gradient(135deg,#f59e0b,#d97706);
   color:#fff;
   box-shadow:0 6px 18px rgba(245,158,11,.35);
 }
-
-.book-btn:hover{
-  transform:translateY(-2px);
-}
-
+.book-btn:hover{transform:translateY(-2px);}
 .back-btn{
   background:#e5e7eb;
   color:#374151;
 }
-
-.back-btn:hover{
-  background:#d1d5db;
-}
+.back-btn:hover{background:#d1d5db;}
 
 /* ===== BOOKING SECTION ===== */
 .booking{
@@ -153,23 +136,18 @@ body{
   background:#ffffff;
   padding:40px;
   border-radius:22px;
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 10px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
 }
-
 .booking h2{
   text-align:center;
   font-size:1.8rem;
   margin-bottom:24px;
   color:#4b5563;
 }
-
 .booking form{
   display:grid;
   gap:16px;
 }
-
 .booking input,
 .booking textarea{
   padding:14px 16px;
@@ -177,12 +155,7 @@ body{
   border:1px solid #d1d5db;
   font-size:.95rem;
 }
-
-.booking textarea{
-  resize:none;
-  min-height:100px;
-}
-
+.booking textarea{resize:none;min-height:100px;}
 .booking button{
   margin-top:10px;
   padding:14px;
@@ -194,10 +167,7 @@ body{
   font-size:1rem;
   cursor:pointer;
 }
-
-.booking button:hover{
-  opacity:.95;
-}
+.booking button:hover{opacity:.95;}
 
 /* ===== MOBILE ===== */
 @media(max-width:600px){
@@ -211,11 +181,15 @@ body{
 <body>
 
 <section class="detail-container">
-
   <h1>Citrine (Sunela)</h1>
 
-  <!-- IMAGE -->
-  <img src="/public/img/Citrine.png" alt="Citrine (Sunela)" class="gem-img">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/Citrine1.webp" class="active" alt="Citrine (Sunela) 1">
+    <img src="img/Citrine2.webp" alt="Citrine (Sunela) 2">
+    <img src="img/Citrine3.jpg" alt="Citrine (Sunela) 3">
+    <img src="img/Citrine4.webp" alt="Citrine (Sunela) 4">
+  </div>
 
   <!-- ENGLISH DESCRIPTION -->
   <p class="desc">
@@ -237,34 +211,27 @@ body{
   <ul class="info">
     <li><strong>Gemstone:</strong> Citrine (Sunela)</li>
     <li><strong>रत्न:</strong> सुनेला</li>
-
     <li><strong>Planet:</strong> Jupiter (Substitute)</li>
     <li><strong>ग्रह:</strong> गुरु (वैकल्पिक)</li>
-
     <li><strong>Chakra:</strong> Solar Plexus Chakra</li>
     <li><strong>चक्र:</strong> मणिपूर चक्र</li>
-
     <li><strong>Benefits:</strong> Wealth, Confidence, Success, Positivity</li>
     <li><strong>लाभ:</strong> धन वृद्धि, आत्मविश्वास, सफलता, सकारात्मकता</li>
-
     <li><strong>Recommended For:</strong> Business, Career Growth, Financial Stability</li>
     <li><strong>उपयुक्त:</strong> व्यापार, करियर उन्नति, आर्थिक स्थिरता</li>
-
     <li><strong>Price:</strong> ₹2,599</li>
   </ul>
 
   <!-- ACTIONS -->
   <div class="actions">
     <a href="#book" class="book-btn">Book Now</a>
-    <a href="/public/index.html" class="back-btn">← Back</a>
+    <a href="index.html" class="back-btn">← Back</a>
   </div>
-
 </section>
 
 <!-- BOOKING -->
 <section id="book" class="booking">
   <h2>Book Citrine (Sunela)</h2>
-
   <form onsubmit="submitBooking(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Mobile Number" required>
@@ -274,6 +241,15 @@ body{
 </section>
 
 <script>
+/* AUTO IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
 function submitBooking(e){
   e.preventDefault();
   alert("Thank you! Your Citrine (Sunela) booking request has been submitted.");

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Books on Astrology</title>
 
 <style>
@@ -47,23 +48,33 @@ body{
   box-shadow:0 12px 30px rgba(0,0,0,0.45);
   transition:transform .3s ease, box-shadow .3s ease;
 }
-
 .book-card:hover{
   transform:translateY(-6px);
   box-shadow:0 20px 45px rgba(0,0,0,0.6);
 }
 
-.book-card img{
-  width:100%;
-  height:170px;
-  object-fit:cover;
+/* ===== SLIDER ===== */
+.card-slider{
+  position:relative;
+  overflow:hidden;
   border-radius:14px;
   border:2px solid #2a3560;
   background:#000;
+  margin-bottom:12px;
+}
+.card-slider img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  display:none;
+}
+.card-slider img.active{
+  display:block;
 }
 
+/* ===== TEXT ===== */
 .book-card h3{
-  margin:14px 0;
+  margin:10px 0;
   font-size:17px;
   color:#ffffff;
 }
@@ -81,7 +92,6 @@ body{
   font-size:14px;
   transition:transform .2s ease, box-shadow .2s ease;
 }
-
 .view-product:hover{
   transform:scale(1.05);
   box-shadow:0 6px 18px rgba(245,193,108,.5);
@@ -103,32 +113,62 @@ body{
 
   <div class="books-grid">
 
+    <!-- VEDIC ASTROLOGY -->
     <div class="book-card">
-      <img src="/public/img/Vedicbook.jpg" alt="Vedic Astrology Book">
+      <div class="card-slider">
+        <img src="img/Vedicbook.jpg" class="active" alt="Vedic Astrology Book 1">
+        <img src="img/Vedicbook2.jpg" alt="Vedic Astrology Book 2">
+        <img src="img/Vedicbook3.jpg" alt="Vedic Astrology Book 3">
+        <img src="img/Vedicbook4.jpg" alt="Vedic Astrology Book 4">
+      </div>
       <h3>Vedic Astrology Basics</h3>
       <a href="vedic-astrology-book.html" class="view-product">View Product</a>
     </div>
 
+    <!-- HOROSCOPE READING -->
     <div class="book-card">
-      <img src="/public/img/Horoscopebook.jpg" alt="Horoscope Reading">
+      <div class="card-slider">
+        <img src="img/Horoscopebook.jpg" class="active" alt="Horoscope Reading Guide 1">
+        <img src="img/Horoscopebook2.jpg" alt="Horoscope Reading Guide 2">
+        <img src="img/Horoscopebook3.jpg" alt="Horoscope Reading Guide 3">
+        <img src="img/Horoscopebook4.jpg" alt="Horoscope Reading Guide 4">
+      </div>
       <h3>Horoscope Reading Guide</h3>
       <a href="horoscope-book.html" class="view-product">View Product</a>
     </div>
 
+    <!-- GEMSTONE ASTROLOGY -->
     <div class="book-card">
-      <img src="/public/img/Gemstonebook.jpg" alt="Gemstone Astrology">
+      <div class="card-slider">
+        <img src="img/Gemstonebook.jpg" class="active" alt="Gemstone Astrology Book 1">
+        <img src="img/Gemstonebook2.jpg" alt="Gemstone Astrology Book 2">
+        <img src="img/Gemstonebook3.jpg" alt="Gemstone Astrology Book 3">
+        <img src="img/Gemstonebook4.jpg" alt="Gemstone Astrology Book 4">
+      </div>
       <h3>Gemstone & Astrology</h3>
       <a href="gemstone-book.html" class="view-product">View Product</a>
     </div>
 
+    <!-- VASTU SHASTRA -->
     <div class="book-card">
-      <img src="/public/img/VastuShastrabook.webp" alt="Vastu Shastra Book">
+      <div class="card-slider">
+        <img src="img/VastuShastrabook.webp" class="active" alt="Vastu Shastra Book 1">
+        <img src="img/VastuShastrabook2.jpg" alt="Vastu Shastra Book 2">
+        <img src="img/VastuShastrabook3.jpg" alt="Vastu Shastra Book 3">
+        <img src="img/VastuShastrabook4.jpg" alt="Vastu Shastra Book 4">
+      </div>
       <h3>Vastu Shastra Guide</h3>
       <a href="vastu-book.html" class="view-product">View Product</a>
     </div>
 
+    <!-- NUMEROLOGY -->
     <div class="book-card">
-      <img src="/public/img/Numerologybook.jpg" alt="Numerology Book">
+      <div class="card-slider">
+        <img src="img/Numerologybook.jpg" class="active" alt="Numerology Book 1">
+        <img src="img/Numerologybook2.jpg" alt="Numerology Book 2">
+        <img src="img/Numerologybook3.jpg" alt="Numerology Book 3">
+        <img src="img/Numerologybook4.jpg" alt="Numerology Book 4">
+      </div>
       <h3>Numerology Explained</h3>
       <a href="numerology-book.html" class="view-product">View Product</a>
     </div>
@@ -137,10 +177,15 @@ body{
 </section>
 
 <script>
-document.querySelectorAll('.view-product').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    console.log('Astrology book clicked');
-  });
+/* IMAGE SLIDER AUTO ROTATION */
+document.querySelectorAll(".card-slider").forEach(slider=>{
+  const imgs = slider.querySelectorAll("img");
+  let i = 0;
+  setInterval(()=>{
+    imgs[i].classList.remove("active");
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add("active");
+  },3000);
 });
 </script>
 

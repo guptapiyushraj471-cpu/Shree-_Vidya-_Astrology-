@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pendant Collection</title>
 
 <style>
+/* ============================================
+   PREMIUM LIGHT THEME – PENDANT COLLECTION PAGE
+   ============================================ */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
-  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  background:linear-gradient(135deg,#f7f8fa,#edf0f5,#f9f7f3);
   color:#2c3e50;
+  line-height:1.6;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 .header{
-  padding:60px 20px 40px;
+  padding:70px 20px 40px;
   text-align:center;
 }
 .header h1{
-  font-size:36px;
+  font-size:2.4rem;
   background:linear-gradient(135deg,#d4a574,#c89860);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  font-weight:700;
 }
-.header p{color:#666;margin-top:8px}
+.header p{
+  color:#666;
+  margin-top:10px;
+  font-size:1rem;
+}
 
-/* GRID */
+/* ===== PRODUCT GRID ===== */
 .products{
   max-width:1300px;
   margin:auto;
@@ -35,21 +44,23 @@ body{
   gap:26px;
 }
 
-/* CARD */
+/* ===== PRODUCT CARD ===== */
 .product-card{
   background:#fff;
   border-radius:22px;
   padding:18px;
   box-shadow:0 10px 35px rgba(0,0,0,.08);
   text-align:center;
-  transition:.3s;
+  transition:all .3s ease;
+  position:relative;
+  overflow:hidden;
 }
 .product-card:hover{
   transform:translateY(-6px);
   box-shadow:0 18px 45px rgba(0,0,0,.12);
 }
 
-/* IMAGE SLIDER */
+/* ===== IMAGE SLIDER ===== */
 .card-slider{
   position:relative;
   overflow:hidden;
@@ -61,14 +72,16 @@ body{
   height:220px;
   object-fit:cover;
   display:none;
+  border-radius:16px;
 }
-.card-slider img.active{
-  display:block;
-}
+.card-slider img.active{display:block}
 
+/* ===== PRODUCT DETAILS ===== */
 .product-card h3{
   font-size:18px;
   margin-bottom:6px;
+  font-weight:600;
+  color:#1f2937;
 }
 .product-card p{
   font-size:14px;
@@ -81,11 +94,12 @@ body{
   font-size:16px;
 }
 
-/* BUTTONS */
+/* ===== BUTTONS ===== */
 .actions{
   display:flex;
   gap:10px;
   justify-content:center;
+  flex-wrap:wrap;
 }
 .actions a{
   padding:10px 18px;
@@ -93,186 +107,204 @@ body{
   text-decoration:none;
   font-size:14px;
   font-weight:600;
+  transition:all .25s ease;
 }
 .view{
   background:#eef1f5;
   color:#333;
 }
+.view:hover{background:#e2e6ea}
 .buy{
   background:linear-gradient(135deg,#d4a574,#c89860);
   color:#fff;
+  box-shadow:0 6px 18px rgba(212,165,116,.35);
+}
+.buy:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(212,165,116,.45);
 }
 
-.footer-space{height:60px}
+/* ===== FOOTER SPACE ===== */
+.footer-space{height:80px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+  .header h1{font-size:1.8rem}
+  .header p{font-size:14px}
+  .card-slider img{height:200px}
+  .products{gap:20px}
+}
 </style>
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <section class="header">
   <h1>Pendant Collection</h1>
   <p>Divine, Spiritual & Astrological Pendants</p>
 </section>
 
+<!-- ===== PRODUCT GRID ===== -->
 <section class="products">
 
 <!-- HANUMAN -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/HanumanLocket3.webp" class="active">
-    <img src="/public/img/HanumanLocket4.webp">
-    <img src="/public/img/HanumanLocket1.webp">
+    <img src="img/HanumanLocket1.webp" class="active" alt="Hanuman Locket">
+    <img src="img/HanumanLocket3.webp" alt="Hanuman Locket 2">
+    <img src="img/HanumanLocket4.webp" alt="Hanuman Locket 3">
   </div>
   <h3>Hanuman Locket</h3>
   <p>Strength & Protection</p>
   <div class="price">₹1,299</div>
   <div class="actions">
-    <a class="view" href="/public/hanuman-locket.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="hanuman-locket.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- MAHAKAL -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/MahakalLocket4.webp" class="active">
-    <img src="/public/img/MahakalLocket4.webp">
-    <img src="/public/img/MahakalLocket1.jpg">
+    <img src="img/MahakalLocket1.jpg" class="active" alt="Mahakal Locket">
+    <img src="img/MahakalLocket2.webp" alt="Mahakal Locket 2">
+    <img src="img/MahakalLocket4.webp" alt="Mahakal Locket 3">
   </div>
   <h3>Mahakal Locket</h3>
   <p>Fearlessness & Power</p>
   <div class="price">₹1,199</div>
   <div class="actions">
-    <a class="view" href="/public/mahakal-locket.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="mahakal-locket.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- GAYATRI -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/GayatriMantraPendant3.jpg" class="active">
-    <img src="/public/img/GayatriMantraPendant4.webp">
-    <img src="/public/img/GayatriMantraPendant1.jpg">
+    <img src="img/GayatriMantraPendant1.jpg" class="active" alt="Gayatri Pendant">
+    <img src="img/GayatriMantraPendant3.jpg" alt="Gayatri Pendant 2">
+    <img src="img/GayatriMantraPendant4.webp" alt="Gayatri Pendant 3">
   </div>
   <h3>Gayatri Mantra Pendant</h3>
   <p>Wisdom & Protection</p>
   <div class="price">₹1,399</div>
   <div class="actions">
-    <a class="view" href="/public/gayatri-pendant.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="gayatri-pendant.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- NAVGRAH -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/NavgrahPendant3.webp" class="active">
-    <img src="/public/img/NavgrahPendant4.webp">
-    <img src="/public/img/NavgrahPendant2.jpg">
+    <img src="img/NavgrahPendant2.jpg" class="active" alt="Navgrah Pendant">
+    <img src="img/NavgrahPendant3.webp" alt="Navgrah Pendant 2">
+    <img src="img/NavgrahPendant4.webp" alt="Navgrah Pendant 3">
   </div>
   <h3>Navgrah Pendant</h3>
   <p>Planetary Balance</p>
   <div class="price">₹1,599</div>
   <div class="actions">
-    <a class="view" href="/public/navgrah-pendant.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="navgrah-pendant.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- OM -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/OmPendant2.webp" class="active">
-    <img src="/public/img/OmPendant3.webp">
-    <img src="/public/img/OmPendant1.webp">
+    <img src="img/OmPendant1.webp" class="active" alt="Om Pendant">
+    <img src="img/OmPendant2.webp" alt="Om Pendant 2">
+    <img src="img/OmPendant3.webp" alt="Om Pendant 3">
   </div>
   <h3>Om Pendant</h3>
   <p>Peace & Spiritual Growth</p>
   <div class="price">₹999</div>
   <div class="actions">
-    <a class="view" href="/public/om-pendant.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="om-pendant.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- RUDRAKSHA -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/RudrakshaPendant2.webp" class="active">
-    <img src="/public/img/RudrakshaPendant4.webp">
-    <img src="/public/img/RudrakshaPendant1.webp">
+    <img src="img/RudrakshaPendant1.webp" class="active" alt="Rudraksha Pendant">
+    <img src="img/RudrakshaPendant2.webp" alt="Rudraksha Pendant 2">
+    <img src="img/RudrakshaPendant4.webp" alt="Rudraksha Pendant 3">
   </div>
   <h3>Rudraksha Pendant</h3>
   <p>Stress Relief & Protection</p>
   <div class="price">₹1,299</div>
   <div class="actions">
-    <a class="view" href="/public/rudraksha-pendant.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="rudraksha-pendant.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- SHANI -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/ShaniKada3.jfif" class="active">
-    <img src="/public/img/ShaniKada2.jpg">
-    <img src="/public/img/ShaniKada1.jpg">
+    <img src="img/ShaniKada1.jpg" class="active" alt="Shani Kada">
+    <img src="img/ShaniKada2.jpg" alt="Shani Kada 2">
+    <img src="img/ShaniKada3.jfif" alt="Shani Kada 3">
   </div>
   <h3>Shani Kada</h3>
   <p>Shani Dosh Shanti</p>
   <div class="price">₹1,799</div>
   <div class="actions">
-    <a class="view" href="/public/shani-kada.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="shani-kada.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- SHREE YANTRA -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/ShreeYantraPendant2.jfif" class="active">
-    <img src="/public/img/ShreeYantra.jpg">
-    <img src="/public/img/ShreeYantraPendant1.jpg">
+    <img src="img/ShreeYantraPendant1.jpg" class="active" alt="Shree Yantra Pendant">
+    <img src="img/ShreeYantraPendant2.jfif" alt="Shree Yantra Pendant 2">
+    <img src="img/ShreeYantra.jpg" alt="Shree Yantra Pendant 3">
   </div>
   <h3>Shree Yantra Pendant</h3>
   <p>Wealth & Prosperity</p>
   <div class="price">₹1,699</div>
   <div class="actions">
-    <a class="view" href="/public/shree-yantra.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="shree-yantra.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- TRISHUL -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/TrishulPendant2.webp" class="active">
-    <img src="/public/img/TrishulPendant4.jfif">
-    <img src="/public/img/TrishulPendant1.webp">
+    <img src="img/TrishulPendant1.webp" class="active" alt="Trishul Pendant">
+    <img src="img/TrishulPendant2.webp" alt="Trishul Pendant 2">
+    <img src="img/TrishulPendant4.jfif" alt="Trishul Pendant 3">
   </div>
   <h3>Trishul Pendant</h3>
   <p>Divine Protection</p>
   <div class="price">₹1,099</div>
   <div class="actions">
-    <a class="view" href="/public/trishul-pendant.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="trishul-pendant.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
 <!-- VASTU -->
 <div class="product-card">
   <div class="card-slider">
-    <img src="/public/img/VastuDoshPendant4.jpg" class="active">
-    <img src="/public/img/VastuDoshPendant3.jfif">
-    <img src="/public/img/VastuDoshPendant1.jpg">
+    <img src="img/VastuDoshPendant1.jpg" class="active" alt="Vastu Pendant">
+    <img src="img/VastuDoshPendant3.jfif" alt="Vastu Pendant 2">
+    <img src="img/VastuDoshPendant4.jpg" alt="Vastu Pendant 3">
   </div>
   <h3>Vastu Dosh Pendant</h3>
   <p>Vastu Correction</p>
   <div class="price">₹1,499</div>
   <div class="actions">
-    <a class="view" href="/public/vastu-pendant.html">View</a>
-    <a class="buy" href="/public/book.html">Book</a>
+    <a class="view" href="vastu-pendant.html">View</a>
+    <a class="buy" href="book.html">Book</a>
   </div>
 </div>
 
@@ -280,6 +312,7 @@ body{
 
 <div class="footer-space"></div>
 
+<!-- ===== JAVASCRIPT – IMAGE SLIDERS ===== -->
 <script>
 document.querySelectorAll(".card-slider").forEach(slider=>{
   let imgs=slider.querySelectorAll("img");

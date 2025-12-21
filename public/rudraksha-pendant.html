@@ -7,7 +7,7 @@
 
 <style>
 /* =====================================================
-   EXISTING STYLES — NOT REMOVED
+   EXISTING STYLES — CLEAN & CONSISTENT
    ===================================================== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
@@ -33,7 +33,7 @@ h1{
 }
 
 /* =====================================================
-   IMAGE SLIDER (ADDED)
+   IMAGE SLIDER
    ===================================================== */
 .slider{
   position:relative;
@@ -46,9 +46,13 @@ h1{
   height:360px;
   object-fit:cover;
   display:none;
+  border-radius:20px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
 }
 .slider img.active{
   display:block;
+  transition:opacity .6s ease;
 }
 
 /* =====================================================
@@ -132,6 +136,14 @@ h1{
   font-weight:600;
   cursor:pointer;
 }
+.booking button:hover{opacity:.95}
+
+/* MOBILE */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  h1{font-size:26px}
+}
 </style>
 </head>
 
@@ -146,10 +158,10 @@ h1{
 
 <!-- IMAGE SLIDER -->
 <div class="slider">
-  <img src="/public/img/RudrakshaPendant1.webp" class="active">
-  <img src="/public/img/RudrakshaPendant2.webp">
-  <img src="/public/img/RudrakshaPendant3.webp">
-  <img src="/public/img/RudrakshaPendant4.webp">
+  <img src="img/RudrakshaPendant1.webp" class="active" alt="Rudraksha Pendant 1">
+  <img src="img/RudrakshaPendant2.webp" alt="Rudraksha Pendant 2">
+  <img src="img/RudrakshaPendant3.webp" alt="Rudraksha Pendant 3">
+  <img src="img/RudrakshaPendant4.webp" alt="Rudraksha Pendant 4">
 </div>
 
 <p class="desc">
@@ -175,8 +187,8 @@ strong spiritual protection to the wearer.
 </ul>
 
 <div class="actions">
-  <a href="/public/book.html" class="btn book-btn">Book Now</a>
-  <a href="/public/pendant-products.html" class="btn back-btn">← Back</a>
+  <a href="book.html" class="btn book-btn">Book Now</a>
+  <a href="pendant-products.html" class="btn back-btn">← Back</a>
 </div>
 
 </section>
@@ -199,8 +211,8 @@ strong spiritual protection to the wearer.
      JAVASCRIPT
      ===================================================== -->
 <script>
-/* IMAGE SLIDER */
-let slides=document.querySelectorAll(".slider img");
+// ----- Image Slider -----
+const slides=document.querySelectorAll(".slider img");
 let index=0;
 setInterval(()=>{
   slides[index].classList.remove("active");
@@ -208,12 +220,14 @@ setInterval(()=>{
   slides[index].classList.add("active");
 },3000);
 
-/* FORM SUBMIT */
+// ----- Booking Form -----
 function submitBooking(e){
   e.preventDefault();
-  window.location.href="/public/book.html";
+  alert("Thank you! Your Rudraksha Pendant booking request has been submitted.");
 }
 </script>
 
+<!-- Shared site JS -->
+<script src="js/index.js"></script>
 </body>
 </html>

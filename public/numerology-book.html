@@ -1,34 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Numerology Explained</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0b1220;color:#fff;padding:40px 20px}
-.card{max-width:720px;margin:auto;background:#111a2e;padding:28px;border-radius:18px;text-align:center}
-h1{color:#f5c16c;margin-bottom:20px}
-img{width:100%;max-height:320px;object-fit:cover;border-radius:16px;margin-bottom:20px}
-p{color:#dcdcdc;line-height:1.7}
-ul{list-style:none;text-align:left;margin:20px 0}
-li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+/* ============================================
+   PREMIUM DARK THEME – NUMEROLOGY DETAIL PAGE
+   ============================================ */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
+
+body{
+  background:#0b1220;
+  color:#fff;
+  padding:60px 20px;
+  min-height:100vh;
+  line-height:1.7;
+}
+
+/* ===== CONTAINER ===== */
+.card{
+  max-width:720px;
+  margin:auto;
+  background:#111a2e;
+  padding:48px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,.6),0 2px 8px rgba(255,255,255,.05);
+  animation:fadeIn .6s ease;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== HEADING ===== */
+h1{
+  font-size:2.2rem;
+  font-weight:700;
+  margin-bottom:26px;
+  background:linear-gradient(135deg,#f5c16c,#eabf5e);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== IMAGE SLIDER ===== */
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  margin-bottom:28px;
+}
+.slider img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  display:none;
+  border-radius:18px;
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+}
+.slider img.active{display:block}
+
+/* ===== DESCRIPTION ===== */
+p{
+  color:#dcdcdc;
+  font-size:1.05rem;
+  margin-bottom:20px;
+}
+
+/* ===== INFO LIST ===== */
+ul{
+  list-style:none;
+  text-align:left;
+  margin:26px 0;
+  background:rgba(255,255,255,.03);
+  border-radius:14px;
+  padding:20px;
+}
+li{
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+li:last-child{border:none}
 strong{color:#f5c16c}
-a{display:inline-block;padding:12px 30px;border-radius:30px;background:#f5c16c;color:#000;text-decoration:none;font-weight:600}
+
+/* ===== BUTTON ===== */
+a{
+  display:inline-block;
+  padding:14px 38px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#f5c16c,#eabf5e);
+  color:#111;
+  text-decoration:none;
+  font-weight:600;
+  transition:all .25s ease;
+}
+a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(245,193,108,.4);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .card{padding:28px 20px}
+  h1{font-size:1.8rem}
+  .slider img{height:260px}
+}
 </style>
 </head>
+
 <body>
+
 <section class="card">
-<h1>Numerology Explained</h1>
-<img src="/public/img/Numerologybook.jpg" alt="Numerology Book">
-<p>Understand life path numbers, destiny numbers, and name corrections.</p>
-<ul>
-<li><strong>Topics:</strong> Numbers 1–9</li>
-<li><strong>Best For:</strong> Name & Career Analysis</li>
-<li><strong>Pages:</strong> 180+</li>
-<li><strong>Price:</strong> ₹649</li>
-</ul>
-<a href="books-on-astrology.html">← Back</a>
+
+  <h1>Numerology Explained</h1>
+
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img src="img/Numerologybook1.jpg" class="active" alt="Numerology Explained 1">
+    <img src="img/Numerologybook2.webp" alt="Numerology Explained 2">
+    <img src="img/Numerologybook3.jpg" alt="Numerology Explained 3">
+    <img src="img/Numerologybook4.webp" alt="Numerology Explained 4">
+  </div>
+
+  <p>
+    Explore the profound science of numbers — learn about life path numbers, destiny numbers,
+    and name corrections. Discover how numerology shapes personality, career choices,
+    and life events through the power of vibrations and planetary influence.
+  </p>
+
+  <ul>
+    <li><strong>Topics:</strong> Numbers 1–9, Master Numbers 11 & 22</li>
+    <li><strong>Best For:</strong> Name, Career, and Life Analysis</li>
+    <li><strong>Includes:</strong> Practical Remedies and Charts</li>
+    <li><strong>Pages:</strong> 180+</li>
+    <li><strong>Price:</strong> ₹649</li>
+  </ul>
+
+  <a href="books-on-astrology.html">← Back</a>
+
 </section>
-<script>console.log("Numerology Book");</script>
+
+<script>
+/* IMAGE SLIDER */
+let slides=document.querySelectorAll(".slider img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+console.log("Numerology Explained Page Loaded");
+</script>
+
 </body>
 </html>

@@ -9,29 +9,18 @@
 /* ============================================
    PREMIUM LIGHT THEME – YANTRA PRODUCTS
    ============================================ */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', system-ui, -apple-system, Arial, Helvetica, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
 body{
   background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
   color:#2c3e50;
   padding:60px 20px;
   min-height:100vh;
 }
-
-/* ===== SECTION ===== */
 .yantra-section{
   max-width:1200px;
   margin:auto;
   text-align:center;
 }
-
-/* ===== HEADING ===== */
 .yantra-section h2{
   font-size:34px;
   margin-bottom:12px;
@@ -40,7 +29,6 @@ body{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-
 .yantra-section .subtitle{
   max-width:760px;
   margin:0 auto 42px;
@@ -48,32 +36,26 @@ body{
   font-size:1.05rem;
   line-height:1.7;
 }
-
 /* ===== GRID ===== */
 .yantra-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:28px;
 }
-
 /* ===== CARD ===== */
 .yantra-card{
-  background:#ffffff;
+  background:#fff;
   border-radius:22px;
   padding:20px;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.08),
-    0 2px 6px rgba(0,0,0,0.04);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08),
+             0 2px 6px rgba(0,0,0,0.04);
   transition:transform .35s ease, box-shadow .35s ease;
 }
-
 .yantra-card:hover{
   transform:translateY(-8px);
-  box-shadow:
-    0 20px 45px rgba(0,0,0,0.12),
-    0 6px 16px rgba(0,0,0,0.08);
+  box-shadow:0 20px 45px rgba(0,0,0,0.12),
+             0 6px 16px rgba(0,0,0,0.08);
 }
-
 /* ===== IMAGE ===== */
 .yantra-card img{
   width:100%;
@@ -84,11 +66,7 @@ body{
   box-shadow:0 6px 18px rgba(0,0,0,0.1);
   transition:transform .3s ease;
 }
-
-.yantra-card:hover img{
-  transform:scale(1.04);
-}
-
+.yantra-card:hover img{transform:scale(1.04)}
 /* ===== TITLE ===== */
 .yantra-card h3{
   margin:16px 0 10px;
@@ -96,38 +74,86 @@ body{
   color:#2c3e50;
   font-weight:600;
 }
-
-/* ===== SHORT DESC ===== */
+/* ===== DESC ===== */
 .yantra-card p{
-  font-size:0.95rem;
+  font-size:.95rem;
   color:#4a5568;
   margin-bottom:14px;
   line-height:1.6;
 }
-
-/* ===== BUTTON ===== */
-.view-product{
+/* ===== BUTTONS ===== */
+.btn-group{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.view-product,.book-btn{
   display:inline-block;
-  padding:12px 32px;
+  padding:12px 28px;
   border-radius:30px;
-  background:linear-gradient(135deg,#d4a574,#c89860);
-  color:#fff;
   text-decoration:none;
   font-weight:600;
   font-size:14px;
-  box-shadow:
-    0 4px 12px rgba(212,165,116,.35),
-    0 2px 4px rgba(0,0,0,.1);
-  transition:transform .2s ease, box-shadow .2s ease;
+  transition:transform .2s ease,box-shadow .2s ease;
 }
-
+.view-product{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  box-shadow:0 4px 12px rgba(212,165,116,.35),
+             0 2px 4px rgba(0,0,0,.1);
+}
 .view-product:hover{
   transform:translateY(-2px);
-  box-shadow:
-    0 8px 20px rgba(212,165,116,.45),
-    0 4px 10px rgba(0,0,0,.15);
+  box-shadow:0 8px 20px rgba(212,165,116,.45),
+             0 4px 10px rgba(0,0,0,.15);
 }
-
+.book-btn{
+  background:#eef1f5;
+  color:#333;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+.book-btn:hover{transform:translateY(-2px)}
+/* ===== BOOKING FORM ===== */
+.booking{
+  max-width:760px;
+  margin:80px auto 0;
+  background:#ffffff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+.booking h2{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:24px;
+  color:#c89860;
+}
+.booking form{
+  display:grid;
+  gap:16px;
+}
+.booking input,
+.booking textarea{
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  font-size:.95rem;
+}
+.booking textarea{resize:none;min-height:100px}
+.booking button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  font-size:1rem;
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+.booking button:hover{transform:translateY(-2px)}
 /* ===== MOBILE ===== */
 @media(max-width:600px){
   body{padding:40px 16px}
@@ -140,9 +166,7 @@ body{
 <body>
 
 <section class="yantra-section">
-
   <h2>Yantra Products</h2>
-
   <p class="subtitle">
     Sacred yantras designed to enhance positivity, remove obstacles,
     balance energies, and bring prosperity, peace, and spiritual growth.
@@ -150,52 +174,85 @@ body{
   </p>
 
   <div class="yantra-grid">
-
     <div class="yantra-card">
-      <img src="/public/img/ShreeYantra.jpg" alt="Shree Yantra">
+      <img src="img/ShreeYantra.jpg" alt="Shree Yantra">
       <h3>Shree Yantra</h3>
       <p>Supreme yantra for wealth, prosperity, harmony, and success.</p>
-      <a href="shree-yantra.html" class="view-product">View Product</a>
+      <div class="btn-group">
+        <a href="shree-yantra.html" class="view-product">View Product</a>
+        <a href="#book" class="book-btn">Book Now</a>
+      </div>
     </div>
 
     <div class="yantra-card">
-      <img src="/public/img/KuberaYantra.jpg" alt="Kubera Yantra">
+      <img src="img/KuberaYantra.jpg" alt="Kubera Yantra">
       <h3>Kubera Yantra</h3>
       <p>Attracts wealth, improves savings, and removes money blockages.</p>
-      <a href="kubera-yantra.html" class="view-product">View Product</a>
+      <div class="btn-group">
+        <a href="kubera-yantra.html" class="view-product">View Product</a>
+        <a href="#book" class="book-btn">Book Now</a>
+      </div>
     </div>
 
     <div class="yantra-card">
-      <img src="/public/img/NavgrahYantra.jfif" alt="Navgrah Yantra">
+      <img src="img/NavgrahYantra.jfif" alt="Navgrah Yantra">
       <h3>Navgrah Yantra</h3>
       <p>Balances the energies of all nine planets and reduces doshas.</p>
-      <a href="navgrah-yantra.html" class="view-product">View Product</a>
+      <div class="btn-group">
+        <a href="navgrah-yantra.html" class="view-product">View Product</a>
+        <a href="#book" class="book-btn">Book Now</a>
+      </div>
     </div>
 
     <div class="yantra-card">
-      <img src="/public/img/VastuYantra.webp" alt="Vastu Yantra">
+      <img src="img/VastuYantra.webp" alt="Vastu Yantra">
       <h3>Vastu Yantra</h3>
       <p>Corrects vastu defects and enhances peace and stability.</p>
-      <a href="vastu-yantra.html" class="view-product">View Product</a>
+      <div class="btn-group">
+        <a href="vastu-yantra.html" class="view-product">View Product</a>
+        <a href="#book" class="book-btn">Book Now</a>
+      </div>
     </div>
 
     <div class="yantra-card">
-      <img src="/public/img/KaalSarpYantra.jfif" alt="Kaal Sarp Yantra">
+      <img src="img/KaalSarpYantra.jfif" alt="Kaal Sarp Yantra">
       <h3>Kaal Sarp Yantra</h3>
       <p>Reduces Kaal Sarp Dosh and removes life obstacles.</p>
-      <a href="kaalsarp-yantra.html" class="view-product">View Product</a>
+      <div class="btn-group">
+        <a href="kaalsarp-yantra.html" class="view-product">View Product</a>
+        <a href="#book" class="book-btn">Book Now</a>
+      </div>
     </div>
-
   </div>
 </section>
 
+<!-- =====================================================
+     BOOKING FORM SECTION
+     ===================================================== -->
+<section class="booking" id="book">
+  <h2>Book Yantra Consultation</h2>
+  <form onsubmit="submitBooking(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Message / Purpose (Optional)"></textarea>
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
 <script>
+/* BOOK NOW SCROLL + FORM HANDLER */
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Your Yantra consultation booking has been submitted successfully.");
+}
+
+/* Smooth console log for clicks */
 document.querySelectorAll('.view-product').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    console.log('Yantra product clicked');
-  });
+  btn.addEventListener('click',()=>console.log('Yantra product viewed'));
 });
 </script>
 
+<!-- Shared JS -->
+<script src="js/index.js"></script>
 </body>
 </html>
