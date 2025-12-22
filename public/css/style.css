@@ -2633,3 +2633,56 @@ th,td{
 .ai-events .nav-btn {
   color: #ffffff;
 }
+.ai-events{text-align:center;padding:80px 20px}
+.ai-events h2{font-size:36px;margin-bottom:6px}
+.ai-events .subtitle{color:#666;margin-bottom:40px}
+
+.upcoming-wrapper{position:relative;max-width:1200px;margin:auto}
+.upcoming-grid{
+  display:flex;
+  gap:24px;
+  overflow:hidden;
+  scroll-behavior:smooth;
+}
+
+.event-card{
+  min-width:280px;
+  background:#fff;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.event-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-bottom:12px;
+}
+
+.btn-row{display:flex;gap:10px;margin-top:12px}
+.view-details,.book-now{
+  flex:1;
+  padding:10px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+}
+.view-details{background:#f1f3f6;color:#333}
+.book-now{background:#c89860;color:#fff}
+
+.nav-btn{
+  position:absolute;
+  top:45%;
+  background:#c89860;
+  color:#fff;
+  border:none;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.nav-btn.left{left:-18px}
+.nav-btn.right{right:-18px}

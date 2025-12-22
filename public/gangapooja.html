@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ganga Puja | Shree Shree Vidya Astrology</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
+body{
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1,#f0f4f8);
+  color:#2c3e50;
+  padding:60px 20px;
+}
+
+/* CONTAINER */
+.detail-container{
+  max-width:720px;
+  margin:auto;
+  background:#fff;
+  padding:48px;
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+/* TITLE */
+h1{
+  font-size:34px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:22px;
+}
+
+/* IMAGE */
+.main-image{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:26px;
+  border:4px solid #f8f9fa;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+
+/* CONTENT */
+.desc{
+  font-size:15px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:18px;
+}
+.desc.hindi{
+  background:#faf6f0;
+  padding:16px;
+  border-radius:14px;
+}
+
+/* INFO LIST */
+.info{
+  list-style:none;
+  text-align:left;
+  margin:30px 0;
+  background:#f8f9fa;
+  border-radius:18px;
+  padding:22px;
+}
+.info li{
+  padding:12px;
+  border-bottom:1px solid #e2e6ea;
+}
+.info li:last-child{border:none}
+.info strong{color:#c89860}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:24px;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:14px 36px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.25s;
+}
+.book-btn{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  box-shadow:0 6px 18px rgba(200,152,96,.35);
+}
+.book-btn:hover{transform:translateY(-2px)}
+.back-btn{
+  background:#eef1f5;
+  color:#333;
+}
+.back-btn:hover{background:#e0e2e7}
+
+/* BOOKING */
+.booking{
+  max-width:720px;
+  margin:70px auto 0;
+  background:#ffffff;
+  padding:42px;
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+.booking h2{
+  text-align:center;
+  margin-bottom:24px;
+  color:#c89860;
+}
+.booking form{
+  display:grid;
+  gap:14px;
+}
+.booking input,
+.booking textarea{
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #dcdfe4;
+  font-size:14px;
+}
+.booking textarea{
+  resize:none;
+  min-height:100px;
+}
+.booking button{
+  padding:14px;
+  border-radius:30px;
+  border:none;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  body{padding:40px 16px}
+  .detail-container,.booking{padding:28px 20px}
+  h1{font-size:1.8rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PUJA DETAILS -->
+<section class="detail-container">
+
+<h1>Ganga Puja</h1>
+
+<img src="/public/img/GaneshPuja1.webp" alt="Ganga Puja" class="main-image">
+
+<p class="desc">
+Ganga Puja is a sacred ritual performed to worship Goddess Ganga,
+the divine river known for purification, liberation, and spiritual cleansing.
+This puja helps wash away sins, remove negative karma, and bring peace,
+prosperity, and spiritual purity into one’s life.
+</p>
+
+<p class="desc hindi">
+गंगा पूजा माँ गंगा को समर्पित एक पवित्र धार्मिक अनुष्ठान है।
+यह पूजा पापों के शमन, कर्म शुद्धि और आध्यात्मिक उन्नति के लिए की जाती है।
+माँ गंगा की कृपा से जीवन में शांति, पवित्रता और सकारात्मक ऊर्जा प्राप्त होती है।
+</p>
+
+<ul class="info">
+<li><strong>Puja Name:</strong> Ganga Puja</li>
+<li><strong>देवी:</strong> माँ गंगा</li>
+<li><strong>Purpose:</strong> Purification & Karma Cleansing</li>
+<li><strong>लाभ:</strong> पाप नाश, कर्म शुद्धि, मानसिक शांति</li>
+<li><strong>Recommended For:</strong> Spiritual Cleansing, Peace, Moksha Path</li>
+<li><strong>Best Day:</strong> Ganga Dussehra / Purnima / Monday</li>
+<li><strong>Puja Mode:</strong> Vedic Method</li>
+<li><strong>Price:</strong> On Consultation</li>
+</ul>
+
+<div class="actions">
+  <a href="#book" class="btn book-btn">Book Puja</a>
+  <a href="pooja.html" class="btn back-btn">← Back</a>
+</div>
+
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="book">
+<h2>Book Ganga Puja</h2>
+
+<form onsubmit="submitBooking(event)">
+  <input type="text" placeholder="Your Name" required>
+  <input type="tel" placeholder="Mobile Number" required>
+  <textarea placeholder="Purpose / Spiritual Requirement"></textarea>
+  <button type="submit">Confirm Booking</button>
+</form>
+</section>
+
+<script>
+function submitBooking(e){
+  e.preventDefault();
+  alert("Thank you! Our team will contact you shortly for Ganga Puja.");
+}
+</script>
+
+</body>
+</html>
