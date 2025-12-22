@@ -68,7 +68,6 @@
 </section>
 
 
-
 <section class="astro-section">
   <div class="astro-container">
 
@@ -493,7 +492,6 @@
     <button class="nav-btn right" onclick="slideRight()">›</button>
   </div>
 </section>
-
 
 
 
@@ -1136,6 +1134,38 @@ function slideUpcoming(dir){
 }
 </script>
 
+<script>
+/**
+ * Horoscope Router – Vercel Safe
+ * All horoscope files are assumed to be
+ * in the SAME folder (no /public prefix)
+ */
+function openViewPage(sign) {
+  const routes = {
+    Aries: "aries.html",
+    Taurus: "taurus.html",
+    Gemini: "gemini.html",
+    Cancer: "cancer.html",
+    Leo: "leo.html",
+    Virgo: "virgo.html",
+    Libra: "libra.html",
+    Scorpio: "scorpio.html",
+    Sagittarius: "sagittarius.html",
+    Capricorn: "capricorn.html",
+    Aquarius: "aquarius.html",
+    Pisces: "pisces.html"
+  };
+
+  const file = routes[sign];
+  if (!file) {
+    console.error("Horoscope file not found for:", sign);
+    return;
+  }
+
+  // Vercel-safe navigation
+  window.location.href = file;
+}
+</script>
 
 </body>
 </html>

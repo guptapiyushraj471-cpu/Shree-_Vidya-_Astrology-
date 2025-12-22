@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rashifal | Daily, Weekly, Monthly Horoscope</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Daily, Weekly, Monthly & Yearly Rashifal for all 12 zodiac signs in English & Hindi.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',system-ui,Arial,sans-serif;
+}
+body{
+  background:linear-gradient(135deg,#f6f8fb,#eef2f7);
+  color:#1f2937;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:70px 20px 40px;
+}
+.header h1{
+  font-size:38px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.header p{
+  margin-top:10px;
+  color:#6b7280;
+}
+
+/* GRID */
+.rashi-grid{
+  max-width:1200px;
+  margin:auto;
+  padding:20px 20px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:26px;
+}
+
+/* CARD */
+.rashi-card{
+  background:#fff;
+  border-radius:22px;
+  padding:26px;
+  text-align:center;
+  box-shadow:0 12px 35px rgba(0,0,0,.08);
+  transition:.3s ease;
+}
+.rashi-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 22px 50px rgba(0,0,0,.12);
+}
+.rashi-card h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+.rashi-card span{
+  display:block;
+  color:#c89860;
+  font-size:15px;
+  margin-bottom:10px;
+}
+.rashi-card p{
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:18px;
+}
+
+/* BUTTON */
+.rashi-card a{
+  display:inline-block;
+  padding:10px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .header h1{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="header">
+  <h1>Rashifal / Horoscope</h1>
+  <p>Daily • Weekly • Monthly • Yearly Predictions (English & हिन्दी)</p>
+</section>
+
+<!-- GRID -->
+<section class="rashi-grid">
+
+  <div class="rashi-card">
+    <h3>Aries</h3><span>मेष</span>
+    <p>Energy, leadership & action</p>
+    <a href="aries.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Taurus</h3><span>वृषभ</span>
+    <p>Stability, wealth & comfort</p>
+    <a href="taurus.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Gemini</h3><span>मिथुन</span>
+    <p>Communication & intelligence</p>
+    <a href="gemini.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Cancer</h3><span>कर्क</span>
+    <p>Emotions & family</p>
+    <a href="cancer.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Leo</h3><span>सिंह</span>
+    <p>Confidence & authority</p>
+    <a href="leo.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Virgo</h3><span>कन्या</span>
+    <p>Analysis & discipline</p>
+    <a href="virgo.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Libra</h3><span>तुला</span>
+    <p>Balance & relationships</p>
+    <a href="libra.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Scorpio</h3><span>वृश्चिक</span>
+    <p>Transformation & depth</p>
+    <a href="scorpio.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Sagittarius</h3><span>धनु</span>
+    <p>Luck & higher learning</p>
+    <a href="sagittarius.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Capricorn</h3><span>मकर</span>
+    <p>Discipline & success</p>
+    <a href="capricorn.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Aquarius</h3><span>कुंभ</span>
+    <p>Innovation & humanity</p>
+    <a href="aquarius.html">View</a>
+  </div>
+
+  <div class="rashi-card">
+    <h3>Pisces</h3><span>मीन</span>
+    <p>Spirituality & intuition</p>
+    <a href="pisces.html">View</a>
+  </div>
+
+</section>
+
+</body>
+</html>

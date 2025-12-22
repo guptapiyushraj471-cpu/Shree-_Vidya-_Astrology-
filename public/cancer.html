@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cancer Horoscope | कर्क राशि राशिफल</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cancer Horoscope – Daily, Weekly, Monthly & Yearly Rashifal in English & Hindi. Best color, best day, best number & remedies. Worldwide Vedic astrology predictions.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif}
+body{background:linear-gradient(135deg,#f6f8fb,#eef2f7);color:#1f2937;overflow-x:hidden}
+
+/* BACKGROUND */
+.cosmic-bg{position:fixed;inset:0;pointer-events:none;opacity:.35}
+.star{position:absolute;width:3px;height:3px;background:#c89860;border-radius:50%;animation:twinkle 3s infinite}
+@keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* CONTAINER */
+.container{max-width:1000px;margin:auto;padding:60px 20px 80px;position:relative;z-index:1}
+
+/* HEADER */
+.rashi-header{text-align:center;margin-bottom:40px}
+.rashi-header h1{
+  font-size:42px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.rashi-header span{display:block;font-size:20px;color:#c89860;margin-top:6px}
+.rashi-header p{margin-top:12px;color:#6b7280;font-size:15px}
+
+/* BADGE */
+.ai-badge{
+  display:inline-flex;
+  gap:8px;
+  margin-top:14px;
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+  color:#c89860;
+  background:rgba(200,152,96,.12);
+  border:1px solid rgba(200,152,96,.25);
+}
+
+/* LANGUAGE */
+.lang-switch{display:flex;justify-content:center;gap:12px;margin:30px 0}
+.lang-switch button{
+  padding:10px 22px;
+  border-radius:30px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  background:#e5e7eb;
+}
+.lang-switch button.active{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+}
+
+/* TABS */
+.tabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.tabs button{
+  padding:12px 24px;
+  border-radius:24px;
+  border:1px solid #d1d5db;
+  background:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+.tabs button.active{background:#111827;color:#fff}
+
+/* CONTENT */
+.content-card{
+  background:#fff;
+  border-radius:24px;
+  padding:40px;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+.section{display:none}
+.section.active{display:block}
+.section h2{font-size:24px;margin-bottom:16px;color:#c89860}
+.section p{font-size:16px;line-height:1.9;margin-bottom:18px;color:#374151}
+
+/* EXTRA BOX */
+.extra-box{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:20px;
+}
+.extra-box strong{color:#c89860}
+
+/* CTA */
+.cta{text-align:center;margin-top:40px}
+.cta a{
+  padding:16px 40px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .rashi-header h1{font-size:32px}
+  .content-card{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="cosmic-bg" id="cosmicBg"></div>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="rashi-header">
+  <h1>Cancer Horoscope</h1>
+  <span>कर्क राशि राशिफल</span>
+  <p>Worldwide Vedic Astrology Predictions</p>
+  <div class="ai-badge">Moon Ruled • Emotions • Family & Care</div>
+</div>
+
+<!-- LANGUAGE -->
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="switchLang('en')">English</button>
+  <button id="btn-hi" onclick="switchLang('hi')">हिन्दी</button>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="active" onclick="openTab('daily')">Daily</button>
+  <button onclick="openTab('weekly')">Weekly</button>
+  <button onclick="openTab('monthly')">Monthly</button>
+  <button onclick="openTab('yearly')">Yearly</button>
+</div>
+
+<div class="content-card">
+
+<!-- DAILY -->
+<div id="daily" class="section active lang-en">
+<h2>Daily Horoscope – Cancer</h2>
+<p>
+Today highlights emotions, family matters, and inner peace. Trust your intuition but avoid mood swings.
+</p>
+<div class="extra-box">
+<p><strong>Best Color:</strong> White</p>
+<p><strong>Best Number:</strong> 2</p>
+<p><strong>Best Day:</strong> Monday</p>
+<p><strong>Avoid:</strong> Emotional overreaction</p>
+</div>
+</div>
+
+<div id="daily-hi" class="section lang-hi">
+<h2>दैनिक राशिफल – कर्क</h2>
+<p>
+आज भावनाएं, परिवार और मानसिक शांति महत्वपूर्ण रहेंगी। अंतर्ज्ञान पर भरोसा रखें लेकिन भावुकता से बचें।
+</p>
+<div class="extra-box">
+<p><strong>शुभ रंग:</strong> सफेद</p>
+<p><strong>शुभ अंक:</strong> 2</p>
+<p><strong>शुभ दिन:</strong> सोमवार</p>
+<p><strong>बचें:</strong> अत्यधिक भावुकता</p>
+</div>
+</div>
+
+<!-- WEEKLY -->
+<div id="weekly" class="section lang-en">
+<h2>Weekly Horoscope – Cancer</h2>
+<p>
+This week supports home, relationships, and emotional healing. Career decisions should be taken calmly.
+</p>
+<div class="extra-box">
+<p><strong>Best Color:</strong> Silver</p>
+<p><strong>Best Number:</strong> 7</p>
+<p><strong>Best Day:</strong> Monday</p>
+<p><strong>Problem:</strong> Overthinking</p>
+<p><strong>Solution:</strong> Meditation and routine</p>
+</div>
+</div>
+
+<div id="weekly-hi" class="section lang-hi">
+<h2>साप्ताहिक राशिफल – कर्क</h2>
+<p>
+यह सप्ताह घर, रिश्तों और भावनात्मक संतुलन के लिए उत्तम है। करियर निर्णय सोच-समझकर लें।
+</p>
+<div class="extra-box">
+<p><strong>शुभ रंग:</strong> सिल्वर</p>
+<p><strong>शुभ अंक:</strong> 7</p>
+<p><strong>शुभ दिन:</strong> सोमवार</p>
+<p><strong>समस्या:</strong> अधिक सोच</p>
+<p><strong>उपाय:</strong> ध्यान और नियमित दिनचर्या</p>
+</div>
+</div>
+
+<!-- MONTHLY -->
+<div id="monthly" class="section lang-en">
+<h2>Monthly Horoscope – Cancer</h2>
+<p>
+This month focuses on emotional security, savings, and personal growth. Good time for family bonding.
+</p>
+<div class="extra-box">
+<p><strong>Best Color:</strong> Pearl White</p>
+<p><strong>Best Number:</strong> 2</p>
+<p><strong>Best Day:</strong> Monday</p>
+<p><strong>Advice:</strong> Avoid emotional spending</p>
+</div>
+</div>
+
+<div id="monthly-hi" class="section lang-hi">
+<h2>मासिक राशिफल – कर्क</h2>
+<p>
+यह महीना भावनात्मक सुरक्षा, बचत और आत्म-विकास के लिए उत्तम रहेगा। पारिवारिक संबंध मजबूत होंगे।
+</p>
+<div class="extra-box">
+<p><strong>शुभ रंग:</strong> मोती सफेद</p>
+<p><strong>शुभ अंक:</strong> 2</p>
+<p><strong>शुभ दिन:</strong> सोमवार</p>
+<p><strong>सलाह:</strong> भावनात्मक खर्च से बचें</p>
+</div>
+</div>
+
+<!-- YEARLY -->
+<div id="yearly" class="section lang-en">
+<h2>Yearly Horoscope – Cancer</h2>
+<p>
+This year brings emotional maturity, family happiness, and financial stability. Spiritual growth increases.
+</p>
+<div class="extra-box">
+<p><strong>Best Color:</strong> White & Silver</p>
+<p><strong>Best Number:</strong> 2</p>
+<p><strong>Best Day:</strong> Monday</p>
+<p><strong>Main Challenge:</strong> Mood swings</p>
+<p><strong>Remedy:</strong> Worship Moon, donate milk on Mondays</p>
+</div>
+</div>
+
+<div id="yearly-hi" class="section lang-hi">
+<h2>वार्षिक राशिफल – कर्क</h2>
+<p>
+यह वर्ष भावनात्मक परिपक्वता, पारिवारिक सुख और आर्थिक स्थिरता लेकर आएगा। आध्यात्मिक उन्नति होगी।
+</p>
+<div class="extra-box">
+<p><strong>शुभ रंग:</strong> सफेद व सिल्वर</p>
+<p><strong>शुभ अंक:</strong> 2</p>
+<p><strong>शुभ दिन:</strong> सोमवार</p>
+<p><strong>मुख्य चुनौती:</strong> मूड स्विंग</p>
+<p><strong>उपाय:</strong> चंद्र पूजा करें, सोमवार को दूध दान करें</p>
+</div>
+</div>
+
+</div>
+
+<div class="cta">
+<a href="book.html">Get Personal Horoscope Consultation</a>
+</div>
+
+</div>
+
+<script>
+function createStars(){
+  const bg=document.getElementById('cosmicBg');
+  for(let i=0;i<25;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    bg.appendChild(s);
+  }
+}
+createStars();
+
+let currentLang='en';
+function openTab(tab){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.tabs button[onclick="openTab('${tab}')"]`).classList.add('active');
+  document.getElementById(tab+(currentLang==='hi'?'-hi':'')).classList.add('active');
+}
+function switchLang(lang){
+  currentLang=lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-hi').classList.toggle('active',lang==='hi');
+  openTab(document.querySelector('.tabs button.active').innerText.toLowerCase());
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pisces Horoscope | मीन राशि राशिफल</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pisces Horoscope – Daily, Weekly, Monthly & Yearly Rashifal in English & Hindi. Best day, lucky color, lucky number & preventive guidance.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+}
+body{
+  background:linear-gradient(135deg,#f6f8fb,#eef2f7);
+  color:#1f2937;
+}
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px 80px;
+}
+.rashi-header{
+  text-align:center;
+  margin-bottom:40px;
+}
+.rashi-header h1{
+  font-size:36px;
+  font-weight:700;
+}
+.rashi-header span{
+  display:block;
+  font-size:18px;
+  color:#c89860;
+  margin-top:6px;
+}
+.rashi-header p{
+  margin-top:12px;
+  color:#6b7280;
+}
+
+/* LANGUAGE SWITCH */
+.lang-switch{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:30px 0;
+}
+.lang-switch button{
+  padding:10px 22px;
+  border-radius:30px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  background:#e5e7eb;
+}
+.lang-switch button.active{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+.tabs button{
+  padding:10px 20px;
+  border-radius:24px;
+  border:1px solid #d1d5db;
+  background:#fff;
+  cursor:pointer;
+  font-weight:600;
+}
+.tabs button.active{
+  background:#111827;
+  color:#fff;
+}
+
+/* CONTENT */
+.content-card{
+  background:#fff;
+  border-radius:22px;
+  padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+.section{display:none}
+.section.active{display:block}
+.section h2{
+  font-size:22px;
+  margin-bottom:12px;
+  color:#c89860;
+}
+.section p{
+  font-size:15px;
+  line-height:1.8;
+  color:#374151;
+  margin-bottom:10px;
+}
+.meta{
+  background:#f9fafb;
+  border-left:4px solid #c89860;
+  padding:12px 16px;
+  margin:15px 0;
+  border-radius:10px;
+  font-size:14px;
+}
+
+/* CTA */
+.cta{
+  margin-top:40px;
+  text-align:center;
+}
+.cta a{
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+}
+
+@media(max-width:600px){
+  .rashi-header h1{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="rashi-header">
+    <h1>Pisces Horoscope</h1>
+    <span>मीन राशि राशिफल</span>
+    <p>Worldwide Vedic Astrology Predictions</p>
+  </div>
+
+  <div class="lang-switch">
+    <button id="btn-en" class="active" onclick="switchLang('en')">English</button>
+    <button id="btn-hi" onclick="switchLang('hi')">हिन्दी</button>
+  </div>
+
+  <div class="tabs">
+    <button class="active" onclick="openTab('daily')">Daily</button>
+    <button onclick="openTab('weekly')">Weekly</button>
+    <button onclick="openTab('monthly')">Monthly</button>
+    <button onclick="openTab('yearly')">Yearly</button>
+  </div>
+
+  <div class="content-card">
+
+    <!-- DAILY -->
+    <div id="daily" class="section active lang-en">
+      <h2>Daily Horoscope – Pisces</h2>
+      <p>Today enhances intuition and emotional clarity. Creative ideas flow easily, and spiritual thoughts guide your actions.</p>
+      <div class="meta">
+        <strong>Best Color:</strong> Sea Green & White<br>
+        <strong>Best Day:</strong> Thursday<br>
+        <strong>Lucky Number:</strong> 7<br>
+        <strong>Prevent:</strong> Avoid emotional overload and unrealistic expectations.
+      </div>
+    </div>
+    <div id="daily-hi" class="section lang-hi">
+      <h2>दैनिक राशिफल – मीन</h2>
+      <p>आज आपकी अंतर्ज्ञान शक्ति प्रबल रहेगी। रचनात्मक और आध्यात्मिक विचार निर्णय लेने में सहायता करेंगे।</p>
+      <div class="meta">
+        <strong>शुभ रंग:</strong> सी ग्रीन, सफेद<br>
+        <strong>शुभ दिन:</strong> गुरुवार<br>
+        <strong>शुभ अंक:</strong> 7<br>
+        <strong>सावधानी:</strong> भावनात्मक दबाव और अवास्तविक अपेक्षाओं से बचें।
+      </div>
+    </div>
+
+    <!-- WEEKLY -->
+    <div id="weekly" class="section lang-en">
+      <h2>Weekly Horoscope – Pisces</h2>
+      <p>This week supports healing, relationships, and inner balance. Listening to your intuition brings success.</p>
+      <div class="meta">
+        <strong>Best Color:</strong> Light Blue & Sea Green<br>
+        <strong>Best Day:</strong> Thursday<br>
+        <strong>Lucky Number:</strong> 7 & 9<br>
+        <strong>Prevent:</strong> Avoid escapism and emotional confusion.
+      </div>
+    </div>
+    <div id="weekly-hi" class="section lang-hi">
+      <h2>साप्ताहिक राशिफल – मीन</h2>
+      <p>यह सप्ताह भावनात्मक संतुलन, रिश्तों और आत्म-चिकित्सा के लिए उत्तम है। अंतर्ज्ञान पर भरोसा रखें।</p>
+      <div class="meta">
+        <strong>शुभ रंग:</strong> हल्का नीला, सी ग्रीन<br>
+        <strong>शुभ दिन:</strong> गुरुवार<br>
+        <strong>शुभ अंक:</strong> 7, 9<br>
+        <strong>सावधानी:</strong> पलायन की प्रवृत्ति और भ्रम से बचें।
+      </div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div id="monthly" class="section lang-en">
+      <h2>Monthly Horoscope – Pisces</h2>
+      <p>This month focuses on emotional growth, creativity, and spiritual awareness. Financial discipline is advised.</p>
+      <div class="meta">
+        <strong>Best Color:</strong> Aqua & White<br>
+        <strong>Best Day:</strong> Thursday<br>
+        <strong>Lucky Number:</strong> 7<br>
+        <strong>Prevent:</strong> Avoid procrastination and lack of boundaries.
+      </div>
+    </div>
+    <div id="monthly-hi" class="section lang-hi">
+      <h2>मासिक राशिफल – मीन</h2>
+      <p>यह महीना भावनात्मक विकास, रचनात्मकता और आध्यात्मिक जागरूकता बढ़ाएगा। आर्थिक अनुशासन जरूरी है।</p>
+      <div class="meta">
+        <strong>शुभ रंग:</strong> एक्वा, सफेद<br>
+        <strong>शुभ दिन:</strong> गुरुवार<br>
+        <strong>शुभ अंक:</strong> 7<br>
+        <strong>सावधानी:</strong> टालमटोल और सीमाओं की कमी से बचें।
+      </div>
+    </div>
+
+    <!-- YEARLY -->
+    <div id="yearly" class="section lang-en">
+      <h2>Yearly Horoscope – Pisces</h2>
+      <p>This year highlights spiritual awakening, emotional maturity, and meaningful relationships. Inner peace strengthens.</p>
+      <div class="meta">
+        <strong>Best Color:</strong> Sea Green & Silver<br>
+        <strong>Best Day:</strong> Thursday<br>
+        <strong>Lucky Number:</strong> 7 & 9<br>
+        <strong>Prevent:</strong> Avoid self-doubt and emotional dependency.
+      </div>
+    </div>
+    <div id="yearly-hi" class="section lang-hi">
+      <h2>वार्षिक राशिफल – मीन</h2>
+      <p>यह वर्ष आध्यात्मिक जागृति, भावनात्मक परिपक्वता और गहरे संबंधों को मजबूत करेगा।</p>
+      <div class="meta">
+        <strong>शुभ रंग:</strong> सी ग्रीन, सिल्वर<br>
+        <strong>शुभ दिन:</strong> गुरुवार<br>
+        <strong>शुभ अंक:</strong> 7, 9<br>
+        <strong>सावधानी:</strong> आत्म-संदेह और भावनात्मक निर्भरता से बचें।
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <a href="book.html">Get Personal Horoscope Consultation</a>
+  </div>
+
+</div>
+
+<script>
+function openTab(tab){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+  document.querySelector(`.tabs button[onclick="openTab('${tab}')"]`).classList.add("active");
+  document.getElementById(tab + (currentLang==='hi' ? '-hi' : '')).classList.add("active");
+}
+let currentLang='en';
+function switchLang(lang){
+  currentLang=lang;
+  document.getElementById("btn-en").classList.toggle("active",lang==='en');
+  document.getElementById("btn-hi").classList.toggle("active",lang==='hi');
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  openTab(document.querySelector(".tabs button.active").innerText.toLowerCase());
+}
+</script>
+
+</body>
+</html>

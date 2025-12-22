@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gemini Horoscope | मिथुन राशि राशिफल</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gemini Horoscope – Daily, Weekly, Monthly & Yearly Rashifal in English & Hindi. Best color, best day, best number & remedies. Worldwide Vedic astrology predictions.">
+
+<style>
+/* ===== BASE ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+}
+body{
+  background:linear-gradient(135deg,#f6f8fb,#eef2f7);
+  color:#1f2937;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.cosmic-bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none;
+  opacity:0.35;
+}
+.star{
+  position:absolute;
+  background:#c89860;
+  border-radius:50%;
+  animation:twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle{
+  0%,100%{opacity:0.3;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.2)}
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px 80px;
+  position:relative;
+  z-index:1;
+}
+
+/* ===== HEADER ===== */
+.rashi-header{
+  text-align:center;
+  margin-bottom:40px;
+}
+.rashi-header h1{
+  font-size:42px;
+  font-weight:700;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.rashi-header span{
+  display:block;
+  font-size:20px;
+  color:#c89860;
+  margin-top:6px;
+}
+.rashi-header p{
+  margin-top:12px;
+  color:#6b7280;
+  font-size:15px;
+}
+
+/* ===== BADGE ===== */
+.ai-badge{
+  display:inline-flex;
+  gap:8px;
+  margin-top:14px;
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+  color:#c89860;
+  background:rgba(200,152,96,0.12);
+  border:1px solid rgba(200,152,96,0.25);
+}
+
+/* ===== LANGUAGE SWITCH ===== */
+.lang-switch{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:30px 0;
+}
+.lang-switch button{
+  padding:10px 22px;
+  border-radius:30px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  background:#e5e7eb;
+}
+.lang-switch button.active{
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+}
+
+/* ===== TABS ===== */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+.tabs button{
+  padding:12px 24px;
+  border-radius:24px;
+  border:1px solid #d1d5db;
+  background:#fff;
+  cursor:pointer;
+  font-weight:600;
+}
+.tabs button.active{
+  background:#111827;
+  color:#fff;
+}
+
+/* ===== CONTENT CARD ===== */
+.content-card{
+  background:#fff;
+  border-radius:24px;
+  padding:40px;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+.section{display:none;}
+.section.active{display:block;}
+.section h2{
+  font-size:24px;
+  margin-bottom:16px;
+  color:#c89860;
+}
+.section p{
+  font-size:16px;
+  line-height:1.9;
+  color:#374151;
+  margin-bottom:18px;
+}
+
+/* ===== EXTRA INFO ===== */
+.extra-box{
+  margin-top:20px;
+  padding:20px;
+  background:#f9fafb;
+  border-radius:18px;
+  border:1px solid #e5e7eb;
+}
+.extra-box strong{color:#c89860}
+
+/* ===== CTA ===== */
+.cta{
+  margin-top:40px;
+  text-align:center;
+}
+.cta a{
+  padding:16px 40px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#d4a574,#c89860);
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  .rashi-header h1{font-size:32px}
+  .content-card{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="cosmic-bg" id="cosmicBg"></div>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="rashi-header">
+  <h1>Gemini Horoscope</h1>
+  <span>मिथुन राशि राशिफल</span>
+  <p>Worldwide Vedic Astrology Predictions</p>
+  <div class="ai-badge">Mercury Ruled • Intelligent • Communicator</div>
+</div>
+
+<!-- LANGUAGE -->
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="switchLang('en')">English</button>
+  <button id="btn-hi" onclick="switchLang('hi')">हिन्दी</button>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="active" onclick="openTab('daily')">Daily</button>
+  <button onclick="openTab('weekly')">Weekly</button>
+  <button onclick="openTab('monthly')">Monthly</button>
+  <button onclick="openTab('yearly')">Yearly</button>
+</div>
+
+<div class="content-card">
+
+<!-- DAILY EN -->
+<div id="daily" class="section active lang-en">
+<h2>Daily Horoscope – Gemini</h2>
+<p>
+Today enhances communication, networking, and intellectual work. Conversations may open new doors in career or business. Avoid multitasking excessively.
+</p>
+<div class="extra-box">
+<p><strong>Best Color:</strong> Green</p>
+<p><strong>Best Number:</strong> 5</p>
+<p><strong>Best Day:</strong> Wednesday</p>
+<p><strong>Avoid:</strong> Overthinking, gossip, impulsive promises</p>
+</div>
+</div>
+
+<!-- DAILY HI -->
+<div id="daily-hi" class="section lang-hi">
+<h2>दैनिक राशिफल – मिथुन</h2>
+<p>
+आज का दिन संवाद, सीखने और नए संपर्क बनाने के लिए उत्तम है। करियर में सकारात्मक बातचीत लाभ दे सकती है।
+</p>
+<div class="extra-box">
+<p><strong>शुभ रंग:</strong> हरा</p>
+<p><strong>शुभ अंक:</strong> 5</p>
+<p><strong>शुभ दिन:</strong> बुधवार</p>
+<p><strong>बचें:</strong> अधिक सोचने और जल्दबाजी से</p>
+</div>
+</div>
+
+<!-- WEEKLY -->
+<div id="weekly" class="section lang-en">
+<h2>Weekly Horoscope – Gemini</h2>
+<p>
+This week supports interviews, meetings, marketing, writing, and travel. Financial clarity improves by mid-week.
+</p>
+<div class="extra-box">
+<p><strong>Problem Area:</strong> Mental restlessness</p>
+<p><strong>Solution:</strong> Prioritize tasks and maintain routine</p>
+</div>
+</div>
+
+<div id="weekly-hi" class="section lang-hi">
+<h2>साप्ताहिक राशिफल – मिथुन</h2>
+<p>
+यह सप्ताह करियर, संचार और नेटवर्किंग के लिए अनुकूल है। मानसिक शांति बनाए रखना आवश्यक रहेगा।
+</p>
+<div class="extra-box">
+<p><strong>समस्या:</strong> चंचल मन</p>
+<p><strong>उपाय:</strong> ध्यान और दिनचर्या</p>
+</div>
+</div>
+
+<!-- MONTHLY -->
+<div id="monthly" class="section lang-en">
+<h2>Monthly Horoscope – Gemini</h2>
+<p>
+This month brings growth in communication-based careers, media, sales, IT, and education. Relationships need honest dialogue.
+</p>
+<div class="extra-box">
+<p><strong>Focus:</strong> Skill development</p>
+<p><strong>Financial Advice:</strong> Avoid risky investments</p>
+</div>
+</div>
+
+<div id="monthly-hi" class="section lang-hi">
+<h2>मासिक राशिफल – मिथुन</h2>
+<p>
+यह महीना शिक्षा, मीडिया, व्यापार और संचार क्षेत्र के लिए अनुकूल है। रिश्तों में स्पष्टता रखें।
+</p>
+<div class="extra-box">
+<p><strong>ध्यान:</strong> कौशल विकास</p>
+<p><strong>सलाह:</strong> जोखिम से बचें</p>
+</div>
+</div>
+
+<!-- YEARLY -->
+<div id="yearly" class="section lang-en">
+<h2>Yearly Horoscope – Gemini</h2>
+<p>
+The year supports learning, travel, foreign connections, and career expansion. Mental discipline is the key to success.
+</p>
+<div class="extra-box">
+<p><strong>Major Challenge:</strong> Scattered focus</p>
+<p><strong>Remedy:</strong> Meditation & journaling</p>
+</div>
+</div>
+
+<div id="yearly-hi" class="section lang-hi">
+<h2>वार्षिक राशिफल – मिथुन</h2>
+<p>
+यह वर्ष शिक्षा, यात्रा और करियर विस्तार के अवसर लाएगा। मानसिक संतुलन सफलता की कुंजी रहेगा।
+</p>
+<div class="extra-box">
+<p><strong>मुख्य चुनौती:</strong> ध्यान की कमी</p>
+<p><strong>उपाय:</strong> ध्यान व लेखन</p>
+</div>
+</div>
+
+</div>
+
+<div class="cta">
+<a href="book.html">Get Personal Horoscope Consultation</a>
+</div>
+
+</div>
+
+<script>
+function createStars(){
+  const bg=document.getElementById('cosmicBg');
+  for(let i=0;i<25;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.width='3px';
+    s.style.height='3px';
+    bg.appendChild(s);
+  }
+}
+createStars();
+
+let currentLang='en';
+function openTab(tab){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.tabs button[onclick="openTab('${tab}')"]`).classList.add('active');
+  document.getElementById(tab+(currentLang==='hi'?'-hi':'')).classList.add('active');
+}
+function switchLang(lang){
+  currentLang=lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-hi').classList.toggle('active',lang==='hi');
+  openTab(document.querySelector('.tabs button.active').innerText.toLowerCase());
+}
+</script>
+
+</body>
+</html>
