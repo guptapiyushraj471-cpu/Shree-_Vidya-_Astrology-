@@ -961,10 +961,11 @@ body.dark-mode .stat-card {
 }
 
 .event-card {
-  background: #121111;
+  background: #cfc8c8;
   padding: 12px;
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  text
 }
 
 .event-date {
@@ -2772,4 +2773,40 @@ th,td{
   .event-card{
     min-width:240px;
   }
+}
+/* ===============================
+   EVENT CARD CONTRAST FIX
+   (NON-BREAKING)
+   =============================== */
+
+.event-card{
+  background:#111827 !important; /* dark navy */
+  color:#ffffff !important;
+}
+
+/* TITLE */
+.event-card h3{
+  color:#ffffff !important;
+}
+
+/* DATE / SUBTEXT */
+.event-card p{
+  color:#e5e7eb !important;
+}
+
+/* VIEW DETAILS BUTTON */
+.view-details{
+  background:#1f2937 !important;
+  color:#ffffff !important;
+}
+
+/* BOOK NOW BUTTON */
+.book-now{
+  background:#c89860 !important;
+  color:#ffffff !important;
+}
+
+/* IMAGE BORDER CONTRAST */
+.event-img{
+  border:2px solid rgba(255,255,255,.15);
 }
