@@ -68,59 +68,156 @@
 </section>
 
 
-<section class="astro-section">
-  <div class="astro-container">
+<section id="our-astrologers" class="section astrologer-section">
+  <div class="container">
 
-    <!-- Left Astrologer -->
-    <div class="astro-profile">
-      <div class="astro-slider" id="shubhamSlider">
-        <img src="img/profile pic.jpeg" class="active">
-        <img src="img/profilepic2.jpeg">
-        <img src="img/profilepic3.jpeg">
+    <h2 class="section-title">Our Expert Astrologers</h2>
+    <p class="section-subtitle">
+      Meet the masters behind accurate predictions and trusted guidance
+    </p>
+
+    <div class="astrologer-grid">
+
+      <!-- Acharya Shubham Pandit -->
+      <div class="astrologer-card">
+        <div class="astro-img">
+          <img src="img/profilepic3.jpeg" alt="Acharya Shubham Pandit">
+        </div>
+        <h3>Acharya Shubham Pandit</h3>
+        <span class="astro-role">Vedic Astrology • Kundali • Muhurat</span>
+
+        <p>
+          With over <strong>20+ years of experience</strong>, Acharya Shubham Pandit
+          is renowned for accurate Kundali analysis, career guidance, marriage
+          solutions, and Muhurat selection based on pure Vedic principles.
+        </p>
+
+        <ul class="astro-points">
+          <li>✔ Vedic & KP Astrology Expert</li>
+          <li>✔ Marriage & Career Specialist</li>
+          <li>✔ Trusted by thousands of families</li>
+        </ul>
+
+        <div class="astro-actions">
+          <a href="kundali-analysis.html" class="btn btn-outline">View Services</a>
+          <a href="book.html" class="btn btn-primary">Consult Now</a>
+        </div>
       </div>
-      <h3>Astrologer Shubham</h3>
-      <p class="intro">
-        Expert Vedic astrologer with deep knowledge of planetary analysis and life guidance.
-      </p>
-      <ul class="expertise">
-        <li>Kundli Analysis</li>
-        <li>Career & Finance</li>
-        <li>Marriage Matching</li>
-      </ul>
-    </div>
 
-    <!-- Center Videos -->
-    <div class="astro-video-box">
-      <video class="astro-video active" autoplay muted loop>
-        <source src="videos/video2.mp4" type="video/mp4">
-      </video>
-      <video class="astro-video" autoplay muted loop>
-        <source src="videos/video4.mp4" type="video/mp4">
-      </video>
-    </div>
+      <!-- Pandit Makhan -->
+      <div class="astrologer-card">
+        <div class="astro-img">
+          <img src="img/logo.png" alt="Pandit Makhan">
+        </div>
+        <h3>Pandit Makhan</h3>
+        <span class="astro-role">Vastu • Numerology • Remedies</span>
 
-    <!-- Right Astrologer -->
-    <div class="astro-profile">
-      <div class="astro-slider" id="makahanSlider">
-        <img src="img/Mata1.jpg" class="active">
-        <img src="img/Ganeshji2.jpg">
-        <img src="img/logo.png">
+        <p>
+          Pandit Makhan is a respected expert in <strong>Vastu Shastra and Numerology</strong>,
+          known for practical, non-demolition remedies and number-based solutions
+          that bring balance, growth, and positivity.
+        </p>
+
+        <ul class="astro-points">
+          <li>✔ Vastu for Home & Business</li>
+          <li>✔ Numerology & Name Correction</li>
+          <li>✔ Simple & effective remedies</li>
+        </ul>
+
+        <div class="astro-actions">
+          <a href="vastu-consultation.html" class="btn btn-outline">View Services</a>
+          <a href="book.html" class="btn btn-primary">Consult Now</a>
+        </div>
       </div>
-      <h3>Astrologer Makahan</h3>
-      <p class="intro">
-        Spiritual astrologer known for accurate predictions and practical remedies.
-      </p>
-      <ul class="expertise">
-        <li>Love & Relationships</li>
-        <li>Vastu Guidance</li>
-        <li>Spiritual Remedies</li>
-      </ul>
-    </div>
 
+    </div>
   </div>
 </section>
 
 
+<style>
+  /* =========================
+   OUR ASTROLOGERS SECTION
+   ========================= */
+.astrologer-section{
+  background:#fffdf6;
+}
+
+.astrologer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:32px;
+  margin-top:40px;
+}
+
+.astrologer-card{
+  background:#ffffff;
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  text-align:center;
+  transition:.3s ease;
+}
+
+.astrologer-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 50px rgba(0,0,0,0.12);
+}
+
+.astro-img{
+  width:120px;
+  height:120px;
+  margin:0 auto 16px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid #f1c86a;
+}
+
+.astro-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.astrologer-card h3{
+  font-size:20px;
+  margin-bottom:6px;
+}
+
+.astro-role{
+  display:block;
+  font-size:13px;
+  color:#c89b2c;
+  margin-bottom:14px;
+  font-weight:600;
+}
+
+.astrologer-card p{
+  font-size:14.5px;
+  color:#555;
+  line-height:1.7;
+}
+
+.astro-points{
+  list-style:none;
+  padding:0;
+  margin:16px 0;
+  font-size:14px;
+  color:#444;
+}
+
+.astro-points li{
+  margin-bottom:6px;
+}
+
+.astro-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:18px;
+}
+
+</style>
 
 <!-- Shop Section -->
 
