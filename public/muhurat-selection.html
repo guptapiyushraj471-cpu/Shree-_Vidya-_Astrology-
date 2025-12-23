@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Muhurat Selection — Shree Shree Vidya</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap');
+
+:root{
+  --accent:#0f766e;
+  --muted:#616161;
+  --gradient-start:#f0fffb;
+  --gradient-end:#fffdf7;
+  --card-bg:rgba(255,255,255,.9);
+  --border-soft:rgba(15,118,110,.15);
+}
+
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));
+  min-height:100vh;
+}
+
+.container{
+  max-width:1000px;
+  margin:28px auto;
+  padding:20px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:var(--card-bg);
+  padding:20px 24px;
+  border-radius:16px;
+  border:1px solid var(--border-soft);
+}
+
+header div:first-child{
+  font-family:Cinzel,serif;
+  color:var(--accent);
+  font-weight:700;
+}
+
+header a{
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.card{
+  margin-top:20px;
+  background:var(--card-bg);
+  padding:32px;
+  border-radius:20px;
+  border:1px solid var(--border-soft);
+}
+
+h1{
+  font-family:Cinzel,serif;
+  color:var(--accent);
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:14px;
+}
+
+.card ul{
+  color:var(--muted);
+  padding-left:20px;
+  line-height:1.8;
+}
+
+.price{
+  margin-top:18px;
+  font-weight:800;
+  color:var(--accent);
+}
+
+.btn{
+  margin-top:20px;
+  padding:14px 32px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),#065f46);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* ===== POPUP ===== */
+.popup-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+  z-index:9999;
+}
+
+.popup-overlay.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.popup-box{
+  background:var(--card-bg);
+  padding:36px;
+  border-radius:20px;
+  max-width:460px;
+  text-align:center;
+  position:relative;
+}
+
+.popup-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  border:none;
+  background:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.popup-icon{
+  font-size:56px;
+}
+
+.popup-time{
+  color:var(--accent);
+  font-size:13px;
+  margin:12px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <header>
+    <div>Muhurat Selection</div>
+    <a href="services.html">← Back</a>
+  </header>
+
+  <div class="card">
+    <h1>Muhurat Selection (Shubh Muhurat)</h1>
+
+    <p>
+      Muhurat Selection is the Vedic process of choosing the most auspicious
+      date and time for important life events to ensure success, harmony,
+      and long-term positivity.
+    </p>
+
+    <p>
+      <strong>मुहूर्त चयन</strong> वैदिक ज्योतिष की एक महत्वपूर्ण प्रक्रिया है,
+      जिसमें किसी भी शुभ कार्य के लिए सही दिन और समय का चयन किया जाता है
+      ताकि कार्य बिना बाधा और सफलता के साथ पूर्ण हो।
+    </p>
+
+    <h3>Events Covered Under Muhurat Selection</h3>
+    <ul>
+      <li>Marriage & Engagement (Vivah / Sagai)</li>
+      <li>Business start, shop opening & investments</li>
+      <li>Griha Pravesh (House warming)</li>
+      <li>Property purchase & vehicle buying</li>
+      <li>Naming ceremony & important rituals</li>
+    </ul>
+
+    <p>
+      <strong>शुभ मुहूर्त इन कार्यों के लिए:</strong> विवाह, गृह प्रवेश,
+      नया व्यापार, वाहन या प्रॉपर्टी खरीद, नामकरण और अन्य धार्मिक कार्य।
+    </p>
+
+    <h3>Why Muhurat is Important?</h3>
+    <p>
+      Performing important tasks during an auspicious muhurat helps minimize
+      planetary obstacles and maximizes positive planetary support.
+    </p>
+
+    <p>
+      शुभ मुहूर्त में किया गया कार्य ग्रहों के नकारात्मक प्रभाव को कम करता है
+      और सकारात्मक ऊर्जा को बढ़ाता है।
+    </p>
+
+    <div class="price">₹1,500 • Detailed Muhurat Report</div>
+    <button class="btn">Book Muhurat Consultation</button>
+  </div>
+</div>
+
+<!-- ===== POPUP ===== -->
+<div class="popup-overlay" id="muhuratPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closeMuhuratPopup()">×</button>
+    <div class="popup-icon">📅</div>
+    <h3>Muhurat Selection Consultation</h3>
+
+    <p>
+      Get accurate and personalized shubh muhurat for marriage,
+      business, griha pravesh and other important events.
+    </p>
+    <p>
+      विवाह, व्यापार और शुभ कार्यों के लिए सही मुहूर्त प्राप्त करें।
+    </p>
+
+    <div class="popup-time">
+      ⏰ Available: 10:00 AM – 6:00 PM<br>
+      Monday – Friday
+    </div>
+
+    <button class="btn"
+      onclick="window.location.href='https://wa.me/917299999475?text=I want to book Muhurat Selection consultation'">
+      Book on WhatsApp
+    </button>
+  </div>
+</div>
+
+<script>
+/* ===== AUTO POPUP AFTER 5 SECONDS ===== */
+window.addEventListener('load', function(){
+  const popup = document.getElementById('muhuratPopup');
+  setTimeout(() => popup.classList.add('active'), 5000);
+});
+
+function closeMuhuratPopup(){
+  document.getElementById('muhuratPopup').classList.remove('active');
+}
+</script>
+
+</body>
+</html>

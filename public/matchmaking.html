@@ -461,5 +461,167 @@
   </div>
 
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+
+
+
+
+
+<style>
+  /* ===== AUTO POPUP (MATCHMAKING) ===== */
+.popup-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(6px);
+  z-index:9999;
+}
+
+.popup-overlay.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.popup-box{
+  background: var(--card-bg);
+  border-radius:20px;
+  padding:36px;
+  max-width:460px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 24px 70px rgba(0,0,0,0.25);
+  border:1px solid var(--border-soft);
+  animation:popupIn .4s ease;
+  position:relative;
+}
+
+@keyframes popupIn{
+  from{opacity:0;transform:translateY(40px) scale(.95);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+.popup-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  border:none;
+  background:transparent;
+  font-size:26px;
+  cursor:pointer;
+  color:var(--muted);
+}
+
+.popup-close:hover{
+  color:var(--accent);
+}
+
+.popup-icon{
+  font-size:52px;
+  margin-bottom:12px;
+  animation:gentle-bounce 3s ease-in-out infinite;
+}
+
+.popup-box h3{
+  font-family:Cinzel,serif;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.popup-box p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.popup-secondary{
+  margin-top:12px;
+  background:transparent;
+  border:1px solid var(--border-soft);
+  color:var(--muted);
+  padding:12px 28px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.popup-secondary:hover{
+  background:rgba(184,134,11,0.08);
+}
+
+</style>
+
+
+
+
+<!-- ===== AUTO POPUP : MATCHMAKING ===== -->
+<div class="popup-overlay" id="matchPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closeMatchPopup()">×</button>
+
+    <div class="popup-icon">💑</div>
+
+    <h3>Marriage Matchmaking</h3>
+    <p>
+      Get a detailed <strong>Guna Milan & Kundali Compatibility</strong>
+      analysis for a happy and stable married life.
+      <br><br>
+      <span style="font-size:13px">
+        गुण मिलान, मंगल दोष, नाड़ी दोष एवं वैवाहिक स्थिरता का विश्लेषण।
+      </span>
+    </p>
+
+    
+
+    <button class="btn"
+      onclick="window.location.href='services.html#'">
+      Book Consultation
+    </button>
+
+    <button class="popup-secondary" onclick="closeMatchPopup()">
+      Maybe Later
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+/* ===== AUTO POPUP TIMER ===== */
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.getElementById('matchPopup').classList.add('active');
+  }, 5000); // popup after 5 seconds
+});
+
+function closeMatchPopup(){
+  document.getElementById('matchPopup').classList.remove('active');
+}
+
+/* Close on outside click */
+document.getElementById('matchPopup').addEventListener('click', function(e){
+  if(e.target === this){
+    closeMatchPopup();
+  }
+});
+
+/* Close on ESC */
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    closeMatchPopup();
+  }
+});
+</script>
+
+
+
+
+
+
+
+
 </body>
 </html>

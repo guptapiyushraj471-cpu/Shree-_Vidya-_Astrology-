@@ -704,17 +704,7 @@
   </div>
 </div>
 
-<!-- Testimonials Video Gallery -->
 
-
-
-<!-- ABOUT SECTION -->
-
-
-      <!-- RIGHT: TEXT CONTENT -->
-
-
-</section>
 
   <!-- Video Section -->
 
@@ -1165,6 +1155,41 @@ function openViewPage(sign) {
   // Vercel-safe navigation
   window.location.href = file;
 }
+</script>
+<script>
+/* ================================
+   SERVICE → VIEW DETAILS MAPPING
+   ================================ */
+const SERVICE_PAGES = {
+  kundali: "/public/kundali-analysis.html",
+  vastu: "/public/vastu-consultation.html",
+  numerology: "/public/numerology-reading.html",
+  matchmaking: "/public/matchmaking.html",
+  tarot: "/public/tarot-reading.html",
+  muhurat: "/public/muhurat-selection.html"
+};
+
+/* ================================
+   OPEN SERVICE DETAILS
+   ================================ */
+function openServiceDetails(serviceKey){
+
+  const page = SERVICE_PAGES[serviceKey];
+  if(!page){
+    alert("Service page not found");
+    return;
+  }
+
+  // ✅ Direct open full View Details page
+  window.location.href = page;
+}
+
+/* ================================
+   SAFE DOM READY (NO ERROR)
+   ================================ */
+document.addEventListener("DOMContentLoaded", function(){
+  // no addEventListener on missing elements
+});
 </script>
 
 </body>

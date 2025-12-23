@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Tarot Reading — Shree Shree Vidya</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap');
+
+:root{
+  --accent:#6b4eff;
+  --muted:#616161;
+  --gradient-start:#f6f5ff;
+  --gradient-end:#fff7ef;
+  --card-bg:rgba(255,255,255,.9);
+  --border-soft:rgba(107,78,255,.15);
+}
+
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));
+  min-height:100vh;
+}
+
+.container{
+  max-width:1000px;
+  margin:28px auto;
+  padding:20px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:var(--card-bg);
+  padding:20px 24px;
+  border-radius:16px;
+  border:1px solid var(--border-soft);
+}
+
+header div:first-child{
+  font-family:Cinzel,serif;
+  color:var(--accent);
+  font-weight:700;
+}
+
+header a{
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.card{
+  margin-top:20px;
+  background:var(--card-bg);
+  padding:32px;
+  border-radius:20px;
+  border:1px solid var(--border-soft);
+}
+
+h1{
+  font-family:Cinzel,serif;
+  color:var(--accent);
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:14px;
+}
+
+.card ul{
+  color:var(--muted);
+  padding-left:20px;
+  line-height:1.8;
+}
+
+.price{
+  margin-top:18px;
+  font-weight:800;
+  color:var(--accent);
+}
+
+.btn{
+  margin-top:20px;
+  padding:14px 32px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),#4a36c9);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* ===== POPUP ===== */
+.popup-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+  z-index:9999;
+}
+
+.popup-overlay.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.popup-box{
+  background:var(--card-bg);
+  padding:36px;
+  border-radius:20px;
+  max-width:460px;
+  text-align:center;
+  position:relative;
+}
+
+.popup-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  border:none;
+  background:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.popup-icon{
+  font-size:56px;
+}
+
+.popup-time{
+  color:var(--accent);
+  font-size:13px;
+  margin:12px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <header>
+    <div>Tarot Reading</div>
+    <a href="services.html">← Back</a>
+  </header>
+
+  <div class="card">
+    <h1>Tarot Reading Consultation</h1>
+
+    <p>
+      Tarot Reading is a powerful intuitive guidance system that helps you
+      understand present situations, hidden influences, and future possibilities
+      through symbolic tarot cards.
+    </p>
+
+    <p>
+      <strong>टैरो रीडिंग</strong> एक आध्यात्मिक मार्गदर्शन प्रक्रिया है, जिसमें
+      टैरो कार्ड्स के माध्यम से आपके जीवन की वर्तमान स्थिति, आने वाली संभावनाएँ
+      और छिपे हुए कारणों को समझाया जाता है।
+    </p>
+
+    <h3>What This Reading Covers</h3>
+    <ul>
+      <li>Love & Relationship clarity</li>
+      <li>Career, job & business direction</li>
+      <li>Financial stability & decisions</li>
+      <li>Emotional blocks & solutions</li>
+      <li>Future guidance for next 3–6 months</li>
+    </ul>
+
+    <p>
+      <strong>रीडिंग में शामिल विषय:</strong> प्रेम जीवन, विवाह, करियर, व्यापार,
+      धन, मानसिक स्थिति और भविष्य से जुड़े महत्वपूर्ण प्रश्नों के उत्तर।
+    </p>
+
+    <h3>Who Should Take Tarot Reading?</h3>
+    <p>
+      Tarot Reading is ideal for those who feel confused, stuck, emotionally
+      stressed, or need clarity before taking an important decision.
+    </p>
+
+    <p>
+      यह रीडिंग उन लोगों के लिए उपयुक्त है जो जीवन में उलझन, मानसिक तनाव,
+      रिश्तों की समस्या या निर्णय लेने में असमर्थता महसूस कर रहे हों।
+    </p>
+
+    <div class="price">₹2,100 • 45 Minutes Personal Session</div>
+    <button class="btn">Book Tarot Reading</button>
+  </div>
+</div>
+
+<!-- ===== POPUP ===== -->
+<div class="popup-overlay" id="tarotPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closeTarotPopup()">×</button>
+    <div class="popup-icon">🔮</div>
+    <h3>Tarot Reading Consultation</h3>
+
+    <p>
+      Get accurate tarot guidance for love, career, marriage and future planning.
+    </p>
+    <p>
+      प्रेम, करियर और जीवन से जुड़े सवालों के लिए अनुभवी टैरो मार्गदर्शन प्राप्त करें।
+    </p>
+
+    <div class="popup-time">
+      ⏰ Available: 10:00 AM – 6:00 PM<br>
+      Monday – Friday
+    </div>
+
+    <button class="btn"
+      onclick="window.location.href='https://wa.me/917299999475?text=I want to book Tarot Reading consultation'">
+      Book on WhatsApp
+    </button>
+  </div>
+</div>
+
+<script>
+/* ===== AUTO POPUP AFTER 5 SECONDS ===== */
+window.addEventListener('load', function(){
+  const popup = document.getElementById('tarotPopup');
+  setTimeout(() => popup.classList.add('active'), 5000);
+});
+
+function closeTarotPopup(){
+  document.getElementById('tarotPopup').classList.remove('active');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vastu Consultation | वास्तु परामर्श</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Professional Vastu Consultation for home, office & commercial spaces based on Vastu Shastra principles.">
+<meta name="keywords" content="vastu consultation, vastu shastra, home vastu, office vastu, vastu remedies">
+
+<style>
+/* ===== RESET & BASE ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg, #faf7f2 0%, #f5f0e8 100%);
+  color:#2d3748;
+  line-height:1.7;
+  min-height:100vh;
+}
+
+/* ===== CONTAINER (Enhanced spacing) ===== */
+.page-container{
+  max-width:920px;
+  margin:auto;
+  padding:60px 24px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HEADER (Improved typography & spacing) ===== */
+.page-header{
+  text-align:center;
+  margin-bottom:48px;
+}
+
+.page-header h1{
+  font-size:42px;
+  margin-bottom:12px;
+  font-weight:700;
+  color:#1a202c;
+  letter-spacing:-0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.page-header .hi{
+  font-size:18px;
+  color:#718096;
+  font-weight:500;
+}
+
+/* ===== CARD (Modern design with gradient border effect) ===== */
+.detail-card{
+  background:#ffffff;
+  border-radius:24px;
+  padding:48px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  border:2px solid transparent;
+  background-clip: padding-box;
+  position:relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detail-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  border-radius:24px;
+  padding:2px;
+  background:linear-gradient(135deg, #f1c86a 0%, #e8b84d 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+.detail-card:hover{
+  transform: translateY(-4px);
+  box-shadow:0 24px 70px rgba(0,0,0,0.12);
+}
+
+/* ===== SECTION (Better spacing & visual hierarchy) ===== */
+.section{
+  margin-bottom:36px;
+  padding-bottom:32px;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.section:last-of-type{
+  border-bottom:none;
+  padding-bottom:0;
+}
+
+.section h2{
+  font-size:24px;
+  margin-bottom:16px;
+  color:#2d3748;
+  font-weight:700;
+  letter-spacing:-0.3px;
+  position:relative;
+  padding-left:16px;
+}
+
+.section h2::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:4px;
+  height:24px;
+  background:linear-gradient(180deg, #f1c86a 0%, #e8b84d 100%);
+  border-radius:2px;
+}
+
+.section p{
+  color:#4a5568;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.section .hi{
+  display:block;
+  margin-top:10px;
+  color:#718096;
+  font-size:14px;
+  font-style:italic;
+  line-height:1.6;
+}
+
+/* ===== LIST (Enhanced with icons & spacing) ===== */
+ul.features{
+  margin-top:16px;
+  padding-left:0;
+  list-style:none;
+}
+
+ul.features li{
+  margin-bottom:12px;
+  color:#4a5568;
+  font-size:15px;
+  padding-left:32px;
+  position:relative;
+  transition: all 0.2s ease;
+}
+
+ul.features li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  top:0;
+  width:24px;
+  height:24px;
+  background:linear-gradient(135deg, #f1c86a 0%, #e8b84d 100%);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  box-shadow:0 2px 8px rgba(241, 200, 106, 0.3);
+}
+
+ul.features li:hover{
+  transform:translateX(4px);
+  color:#2d3748;
+}
+
+/* ===== PRICE BOX (Modern gradient card) ===== */
+.price-box{
+  background:linear-gradient(135deg, #fdf7e6 0%, #fef9ed 100%);
+  border-radius:20px;
+  padding:32px;
+  text-align:center;
+  margin-top:40px;
+  box-shadow:0 8px 24px rgba(241, 200, 106, 0.15);
+  border:2px solid rgba(241, 200, 106, 0.2);
+  transition: all 0.3s ease;
+}
+
+.price-box:hover{
+  box-shadow:0 12px 32px rgba(241, 200, 106, 0.25);
+  transform:translateY(-2px);
+}
+
+.price-box .price{
+  font-size:48px;
+  font-weight:800;
+  background:linear-gradient(135deg, #d4a72c 0%, #e8b84d 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:12px;
+  letter-spacing:-1px;
+}
+
+.price-box p{
+  color:#4a5568;
+  font-size:15px;
+  margin-bottom:8px;
+}
+
+.price-box .hi{
+  color:#718096;
+  font-size:14px;
+  margin-bottom:24px;
+  display:block;
+}
+
+/* ===== BUTTONS (Enhanced with animations) ===== */
+.btn-primary{
+  padding:16px 40px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg, #d4a72c 0%, #e8b84d 100%);
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 4px 16px rgba(212, 167, 44, 0.3);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-primary::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition:left 0.5s ease;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(212, 167, 44, 0.4);
+  background:linear-gradient(135deg, #c4981f 0%, #d4a72c 100%);
+}
+
+.btn-primary:hover::before{
+  left:100%;
+}
+
+.btn-primary:active{
+  transform:translateY(0);
+}
+
+.btn-primary:focus{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(212, 167, 44, 0.3);
+}
+
+/* ===== AUTO POPUP MODAL (NEW FEATURE) ===== */
+.popup-overlay{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(4px);
+  z-index:1000;
+  animation:fadeInOverlay 0.3s ease;
+}
+
+@keyframes fadeInOverlay{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+.popup-overlay.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.popup-content{
+  background:#fff;
+  border-radius:24px;
+  padding:40px;
+  max-width:500px;
+  width:100%;
+  box-shadow:0 24px 70px rgba(0,0,0,0.2);
+  position:relative;
+  animation:slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp{
+  from{ opacity:0; transform:translateY(40px) scale(0.95); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+
+.popup-close{
+  position:absolute;
+  top:16px;
+  right:16px;
+  background:transparent;
+  border:none;
+  font-size:28px;
+  color:#718096;
+  cursor:pointer;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.2s ease;
+}
+
+.popup-close:hover{
+  background:#f7fafc;
+  color:#2d3748;
+  transform:rotate(90deg);
+}
+
+.popup-icon{
+  font-size:56px;
+  text-align:center;
+  margin-bottom:20px;
+  filter:drop-shadow(0 4px 8px rgba(212, 167, 44, 0.3));
+}
+
+.popup-content h3{
+  font-size:26px;
+  color:#2d3748;
+  text-align:center;
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.popup-content p{
+  color:#4a5568;
+  text-align:center;
+  margin-bottom:20px;
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* ===== AVAILABILITY INFO (NEW) ===== */
+.availability-info{
+  background:linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius:12px;
+  padding:16px 20px;
+  margin-bottom:24px;
+  border:1px solid #e2e8f0;
+}
+
+.availability-info .time-label{
+  font-size:13px;
+  color:#718096;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin-bottom:6px;
+  text-align:center;
+}
+
+.availability-info .time-value{
+  font-size:16px;
+  color:#2d3748;
+  font-weight:700;
+  text-align:center;
+  margin-bottom:4px;
+}
+
+.availability-info .days-value{
+  font-size:14px;
+  color:#4a5568;
+  font-weight:600;
+  text-align:center;
+}
+
+.popup-content .btn-primary{
+  width:100%;
+  margin-bottom:12px;
+}
+
+.popup-content .btn-secondary{
+  width:100%;
+  padding:14px 40px;
+  border:2px solid #e2e8f0;
+  border-radius:12px;
+  background:#fff;
+  color:#4a5568;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+}
+
+.popup-content .btn-secondary:hover{
+  background:#f7fafc;
+  border-color:#cbd5e0;
+  color:#2d3748;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .page-container{
+    padding:40px 20px;
+  }
+  
+  .page-header h1{
+    font-size:32px;
+  }
+  
+  .detail-card{
+    padding:32px 24px;
+    border-radius:20px;
+  }
+  
+  .section h2{
+    font-size:20px;
+  }
+  
+  .price-box{
+    padding:24px 20px;
+  }
+  
+  .price-box .price{
+    font-size:40px;
+  }
+  
+  .btn-primary{
+    padding:14px 32px;
+    font-size:15px;
+  }
+  
+  .popup-content{
+    padding:32px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1{
+    font-size:28px;
+  }
+  
+  .page-header .hi{
+    font-size:16px;
+  }
+  
+  .detail-card{
+    padding:24px 20px;
+  }
+  
+  .section h2{
+    font-size:18px;
+    padding-left:12px;
+  }
+  
+  .section h2::before{
+    width:3px;
+    height:20px;
+  }
+  
+  ul.features li{
+    font-size:14px;
+    padding-left:28px;
+  }
+  
+  ul.features li::before{
+    width:20px;
+    height:20px;
+    font-size:12px;
+  }
+  
+  .price-box .price{
+    font-size:36px;
+  }
+  
+  .popup-icon{
+    font-size:48px;
+  }
+  
+  .popup-content h3{
+    font-size:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-container">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <h1>Vastu Consultation</h1>
+    <div class="hi">वास्तु परामर्श (घर, ऑफिस एवं व्यवसाय)</div>
+  </div>
+
+  <!-- CONTENT CARD -->
+  <div class="detail-card">
+
+    <!-- WHAT IS -->
+    <div class="section">
+      <h2>What is Vastu Consultation?</h2>
+      <p>
+        Vastu Consultation is the ancient architectural science that harmonizes
+        living and working spaces with natural energies. It is based on
+        directions, elements, and energy flow to improve health, wealth,
+        and peace.
+        <span class="hi">
+          वास्तु शास्त्र प्राकृतिक ऊर्जा और दिशाओं के संतुलन द्वारा
+          जीवन में सुख, समृद्धि और शांति लाने की प्राचीन विद्या है।
+        </span>
+      </p>
+    </div>
+
+    <!-- WORLDWIDE PRINCIPLES -->
+    <div class="section">
+      <h2>Worldwide Accepted Vastu Principles</h2>
+      <ul class="features">
+        <li>Five Elements Balance (Earth, Water, Fire, Air, Space)</li>
+        <li>Directional Energy Analysis (8 Directions)</li>
+        <li>Residential & Commercial Vastu</li>
+        <li>Plot, Flat & Interior Vastu Review</li>
+        <li>Non-Demolition Remedies</li>
+      </ul>
+      <span class="hi">
+        अंतरराष्ट्रीय स्तर पर मान्य वास्तु सिद्धांतों पर आधारित।
+      </span>
+    </div>
+
+    <!-- WHAT YOU GET -->
+    <div class="section">
+      <h2>What You Will Receive</h2>
+      <ul class="features">
+        <li>Home / Office Energy Assessment</li>
+        <li>Room-wise Directional Corrections</li>
+        <li>Business Growth & Stability Guidance</li>
+        <li>Health, Relationship & Financial Remedies</li>
+        <li>Simple & Practical Vastu Solutions</li>
+      </ul>
+      <span class="hi">
+        घर, ऑफिस और व्यापार के लिए सरल एवं प्रभावी वास्तु समाधान।
+      </span>
+    </div>
+
+    <!-- WHO SHOULD -->
+    <div class="section">
+      <h2>Who Should Take Vastu Consultation?</h2>
+      <p>
+        This service is ideal for people facing continuous losses,
+        mental stress, health issues, or stagnation in business
+        and career due to space-related energy imbalance.
+        <span class="hi">
+          जिनके जीवन में बार-बार बाधाएँ, तनाव या प्रगति की कमी है,
+          उनके लिए वास्तु परामर्श अत्यंत लाभकारी है।
+        </span>
+      </p>
+    </div>
+
+    <!-- PRICE -->
+    <div class="price-box">
+      <div class="price">₹2,100</div>
+      <p>Detailed Vastu Consultation</p>
+      <p class="hi">संपूर्ण वास्तु मार्गदर्शन</p>
+      <button class="btn-primary"
+        onclick="window.location.href='https://wa.me/917299999475?text=I want to book Vastu Consultation'">
+        Book Now | बुक करें
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== AUTO POPUP MODAL (NEW FEATURE) ===== -->
+<div class="popup-overlay" id="consultPopup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-icon">🏠</div>
+    <h3>Book Your Vastu Consultation</h3>
+    <p>Transform your home or office with expert Vastu guidance for health, wealth, and prosperity.</p>
+    
+    <!-- ===== AVAILABILITY INFO (NEW) ===== -->
+    <div class="availability-info">
+      <div class="time-label">Available Hours</div>
+      <div class="time-value">10:00 AM - 6:00 PM</div>
+      <div class="days-value">Monday - Friday</div>
+    </div>
+    
+    <button class="btn-primary"
+      onclick="window.location.href='https://wa.me/917299999475?text=I want to book Vastu Consultation'">
+      Book Now | बुक करें
+    </button>
+    <button class="btn-secondary" onclick="closePopup()">
+      Maybe Later
+    </button>
+  </div>
+</div>
+
+<script>
+// ===== AUTO POPUP FUNCTIONALITY (NEW FEATURE) =====
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('consultPopup').classList.add('active');
+  }, 5000); // Shows after 5 seconds
+});
+
+function closePopup() {
+  document.getElementById('consultPopup').classList.remove('active');
+}
+
+// Close popup when clicking outside
+document.getElementById('consultPopup').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closePopup();
+  }
+});
+
+// Close popup with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closePopup();
+  }
+});
+</script>
+
+</body>
+</html>
