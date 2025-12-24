@@ -29,14 +29,617 @@
     #result{margin-top:20px;font-size:15px;font-weight:600;color:green;min-height:20px;padding:14px 16px;border-radius:12px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);display:none}
     #result.show{display:block} #result.error{color:#d32f2f;background:rgba(211,47,47,.1);border-color:rgba(211,47,47,.3)}
     @media (max-width:600px){.container{padding:12px;margin:20px auto}.card{padding:24px}h1{font-size:26px}p.subtitle{font-size:14px;margin-bottom:20px}}
+
+    /* ========================================== */
+    /* NEW UI ENHANCEMENTS - MODERN PREMIUM THEME */
+    /* ========================================== */
+
+    /* Enhanced body and container */
+    body {
+      position: relative;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(180deg, transparent 0%, rgba(184, 134, 11, 0.03) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+    }
+
+    /* Enhanced card with premium effects */
+    .card {
+      box-shadow: 0 20px 60px rgba(184, 134, 11, 0.15);
+      border: 1px solid rgba(184, 134, 11, 0.2);
+    }
+    .card:hover {
+      box-shadow: 0 25px 70px rgba(184, 134, 11, 0.2);
+    }
+
+    /* Enhanced form inputs */
+    input, select, textarea {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    input:hover, select:hover, textarea:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.1);
+    }
+
+    /* Enhanced button */
+    .btn {
+      box-shadow: 0 8px 24px rgba(184, 134, 11, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn:hover:not(.loading) {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(184, 134, 11, 0.4);
+      background: linear-gradient(135deg, #9a6f0a 0%, var(--accent-dark) 100%);
+    }
+    .btn:active:not(.loading) {
+      transform: translateY(-1px);
+    }
+
+    /* ========================================== */
+    /* NEW FEATURE: COMPANY BRANDING HEADER */
+    /* ========================================== */
+    .brand-header {
+      text-align: center;
+      padding: 24px 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(184, 134, 11, 0.03) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .brand-logo {
+      font-family: Cinzel, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin: 0 0 6px;
+      position: relative;
+      z-index: 1;
+    }
+    .brand-tagline {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========================================== */
+    /* NEW FEATURE: TRUST BADGES */
+    /* ========================================== */
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+      margin-top: 24px;
+    }
+    .trust-badge {
+      background: linear-gradient(135deg, #fff 0%, #fefdfb 100%);
+      padding: 18px 14px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(184, 134, 11, 0.08);
+      border: 1px solid rgba(184, 134, 11, 0.12);
+      transition: all 0.3s ease;
+    }
+    .trust-badge:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(184, 134, 11, 0.15);
+      border-color: var(--accent);
+    }
+    .trust-badge-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 2px 4px rgba(184, 134, 11, 0.2));
+    }
+    .trust-badge-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin: 0 0 4px;
+    }
+    .trust-badge-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* ========================================== */
+    /* NEW FEATURE: STEP INDICATOR */
+    /* ========================================== */
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding: 0 20px;
+    }
+    .step {
+      flex: 1;
+      position: relative;
+      text-align: center;
+    }
+    .step::after {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: rgba(184, 134, 11, 0.2);
+      z-index: -1;
+    }
+    .step:last-child::after {
+      display: none;
+    }
+    .step-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid rgba(184, 134, 11, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--muted);
+      margin: 0 auto 8px;
+      transition: all 0.3s ease;
+    }
+    .step.active .step-circle {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+    }
+    .step.completed .step-circle {
+      background: #4caf50;
+      border-color: #4caf50;
+      color: #fff;
+    }
+    .step-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      display: block;
+    }
+    .step.active .step-label {
+      color: var(--accent-dark);
+    }
+
+    /* ========================================== */
+    /* NEW FEATURE: PAYMENT SECTION */
+    /* ========================================== */
+    .payment-section {
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 2px dashed rgba(184, 134, 11, 0.2);
+    }
+    .payment-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .payment-header h2 {
+      font-family: Cinzel, serif;
+      font-size: 24px;
+      color: var(--accent-dark);
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+    .payment-header p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .price-card {
+      background: linear-gradient(135deg, #fff7e6 0%, #ffecd6 100%);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 24px;
+      border: 2px solid rgba(184, 134, 11, 0.3);
+      box-shadow: 0 8px 24px rgba(184, 134, 11, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .price-card::before {
+      content: '✨';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      opacity: 0.5;
+    }
+    .price-amount {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      margin: 0;
+      line-height: 1;
+    }
+    .price-currency {
+      font-size: 20px;
+      vertical-align: super;
+    }
+    .price-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .consultation-benefits {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(184, 134, 11, 0.15);
+    }
+    .consultation-benefits h3 {
+      font-size: 16px;
+      color: var(--accent-dark);
+      margin: 0 0 16px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .benefit-item:hover {
+      background: rgba(184, 134, 11, 0.04);
+    }
+    .benefit-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-dark);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .benefit-text {
+      font-size: 14px;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    .payment-methods {
+      margin-bottom: 24px;
+    }
+    .payment-methods h4 {
+      font-size: 14px;
+      color: var(--accent-dark);
+      margin: 0 0 16px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .payment-option {
+      background: #fff;
+      border: 2px solid rgba(184, 134, 11, 0.2);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .payment-option:hover {
+      border-color: var(--accent-dark);
+      box-shadow: 0 4px 16px rgba(184, 134, 11, 0.2);
+      transform: translateY(-2px);
+    }
+    .payment-option.selected {
+      background: linear-gradient(135deg, #fff7e6 0%, #ffecd6 100%);
+      border-color: var(--accent-dark);
+    }
+    .payment-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .payment-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      background: rgba(76, 175, 80, 0.08);
+      border-radius: 10px;
+      border: 1px solid rgba(76, 175, 80, 0.2);
+      margin-top: 16px;
+    }
+    .secure-badge-icon {
+      font-size: 18px;
+    }
+    .secure-badge-text {
+      font-size: 13px;
+      color: #2e7d32;
+      font-weight: 600;
+    }
+
+    .btn-payment {
+      background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+      font-size: 18px;
+      padding: 18px;
+      margin-top: 20px;
+    }
+    .btn-payment:hover:not(.loading) {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    }
+
+    /* ========================================== */
+    /* NEW FEATURE: CONSULTATION HIGHLIGHTS */
+    /* ========================================== */
+    .consultation-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .highlight-card {
+      background: linear-gradient(135deg, #fff 0%, #fefdfb 100%);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      border: 1px solid rgba(184, 134, 11, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.15);
+    }
+    .highlight-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 2px 4px rgba(184, 134, 11, 0.2));
+    }
+    .highlight-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin: 0 0 6px;
+    }
+    .highlight-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* ========================================== */
+    /* NEW FEATURE: FAQ SECTION */
+    /* ========================================== */
+    .faq-section {
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 2px dashed rgba(184, 134, 11, 0.2);
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .faq-header h2 {
+      font-family: Cinzel, serif;
+      font-size: 24px;
+      color: var(--accent-dark);
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(184, 134, 11, 0.15);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      box-shadow: 0 4px 16px rgba(184, 134, 11, 0.12);
+    }
+    .faq-question {
+      padding: 16px 20px;
+      font-weight: 600;
+      color: var(--accent-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .faq-question:hover {
+      background: rgba(184, 134, 11, 0.04);
+    }
+    .faq-toggle {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-toggle {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 20px 16px;
+    }
+
+    /* ========================================== */
+    /* RESPONSIVE ENHANCEMENTS */
+    /* ========================================== */
+    @media (max-width: 768px) {
+      .brand-logo {
+        font-size: 24px;
+      }
+      .step-indicator {
+        padding: 0 10px;
+      }
+      .step-label {
+        font-size: 10px;
+      }
+      .step-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+      .payment-options {
+        grid-template-columns: 1fr;
+      }
+      .trust-badges {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .price-amount {
+        font-size: 40px;
+      }
+      .consultation-highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .trust-badges {
+        grid-template-columns: 1fr;
+      }
+      .step-indicator {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .step::after {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
+    
+    <!-- NEW FEATURE: COMPANY BRANDING HEADER -->
+    <div class="brand-header">
+      <h1 class="brand-logo">श्री श्री विद्या</h1>
+      <p class="brand-tagline">Trusted Astrology & Spiritual Consultation Platform</p>
+    </div>
+
+    <!-- NEW FEATURE: TRUST BADGES -->
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <div class="trust-badge-icon">🏆</div>
+        <div class="trust-badge-value">15+</div>
+        <p class="trust-badge-label">Years Experience</p>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">😊</div>
+        <div class="trust-badge-value">10K+</div>
+        <p class="trust-badge-label">Happy Clients</p>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">⭐</div>
+        <div class="trust-badge-value">4.9/5</div>
+        <p class="trust-badge-label">Client Rating</p>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">✅</div>
+        <div class="trust-badge-value">100%</div>
+        <p class="trust-badge-label">Confidential</p>
+      </div>
+    </div>
+
     <div class="card">
       <h1>Book Consultation</h1>
       <p class="subtitle">Fill in your details and we will get in touch to confirm your appointment.</p>
+
+      <!-- NEW FEATURE: STEP INDICATOR -->
+      <div class="step-indicator">
+        <div class="step active">
+          <div class="step-circle">1</div>
+          <span class="step-label">Details</span>
+        </div>
+        <div class="step">
+          <div class="step-circle">2</div>
+          <span class="step-label">Payment</span>
+        </div>
+        <div class="step">
+          <div class="step-circle">3</div>
+          <span class="step-label">Confirm</span>
+        </div>
+      </div>
+
+      <!-- NEW FEATURE: CONSULTATION HIGHLIGHTS -->
+      <div class="consultation-highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon">📞</div>
+          <h3 class="highlight-title">Call / Video / Chat</h3>
+          <p class="highlight-desc">Choose your preferred mode</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">⏰</div>
+          <h3 class="highlight-title">30 Min Session</h3>
+          <p class="highlight-desc">Detailed consultation</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">📄</div>
+          <h3 class="highlight-title">PDF Report</h3>
+          <p class="highlight-desc">Remedies & guidance</p>
+        </div>
+      </div>
 
       <form id="bookForm">
         <label>Full Name *</label>
@@ -63,6 +666,14 @@
         <label>Preferred Time</label>
         <input type="time" id="time">
 
+        <!-- NEW FEATURE: CONSULTATION TYPE -->
+        <label>Preferred Consultation Type</label>
+        <select id="consultationType">
+          <option value="Call">Phone Call</option>
+          <option value="Video">Video Call</option>
+          <option value="Chat">Chat Consultation</option>
+        </select>
+
         <label>Message (optional)</label>
         <textarea id="message" rows="3" placeholder="Write any specific notes"></textarea>
 
@@ -70,10 +681,30 @@
 
         <div id="result"></div>
       </form>
-    </div>
-  </div>
 
-  <!-- load external script to avoid CSP/inline execution issues -->
-  <script src="/js/book.js" defer></script>
-</body>
-</html>
+      <!-- NEW FEATURE: PAYMENT SECTION -->
+      <div class="payment-section">
+        <div class="payment-header">
+          <h2>Astrology Consultation Fee</h2>
+          <p>Secure your consultation with a one-time payment</p>
+        </div>
+
+        <div class="price-card">
+          <p class="price-amount"><span class="price-currency">₹</span>199</p>
+          <p class="price-label">One-time Consultation Fee</p>
+        </div>
+
+        <div class="consultation-benefits">
+          <h3>What's Included</h3>
+          <div class="benefit-item">
+            <div class="benefit-icon">✓</div>
+            <div class="benefit-text"><strong>30-Minute Consultation</strong> with expert astrologer</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">✓</div>
+            <div class="benefit-text"><strong>Detailed Birth Chart Analysis</strong> & planetary insights</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">✓</div>
+            <div class="benefit-text"><strong>Personalized Remedies</strong> for life challenges</div>
+          </div>

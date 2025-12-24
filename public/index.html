@@ -37,7 +37,6 @@
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="contact.html">Contact</a></li>
 
-        <!-- GOOGLE TRANSLATE DROPDOWN SHOWN IN NAVBAR -->
         <li><div id="google_translate_element"></div></li>
 
         <!-- THEME SWITCH -->
@@ -51,21 +50,327 @@
       </div>
     </div>
   </nav>
+  
 
   <!-- Hero Section -->
-   <section id="home" class="hero hero-slider">
-  <div class="hero-bg"></div>
 
-  <div class="hero-content fade-in">
-    <span class="hero-badge">✨ Expert Vedic Astrologer</span>
-    <h1>Guiding your destiny with ancient Vedic wisdom and modern insight</h1>
-    <p class="hero-subtitle">आचार्य शुभम | Pandit Shubham</p>
-    <div class="hero-cta">
-      <a href="book.html" class="btn btn-primary">Book Consultation</a>
-      <a href="services.html" class="btn btn-secondary">Explore Services</a>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+/* ================= HERO WRAPPER ================= */
+.hero-slider{
+  position:relative;
+  min-height:90vh;
+  overflow:hidden;
+}
+
+/* ================= BACKGROUND IMAGE SLIDER ================= */
+.hero-bg-slider{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.bg-slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transform:scale(1);
+  transition:opacity 1.2s ease-in-out, transform 6s linear;
+}
+.bg-slide.active{
+  opacity:1;
+  transform:scale(1.08);
+}
+
+/* LIGHT OVERLAY */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,.88),
+    rgba(255,255,255,.65),
+    rgba(255,255,255,.35)
+  );
+  z-index:1;
+}
+
+/* ================= FOREGROUND SLIDER ================= */
+.hero-track{
+  position:relative;
+  z-index:2;
+  display:flex;
+  transition:transform .8s ease;
+}
+
+.hero-slide{
+  min-width:100%;
+  display:grid;
+  grid-template-columns:50% 50%;
+  align-items:center;
+  padding:100px 8%;
+  gap:40px;
+}
+
+/* TEXT */
+.hero-content h1{
+  font-family:'Cinzel',serif;
+  font-size:56px;
+  line-height:1.15;
+}
+.hero-content span{
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-content p{
+  margin:20px 0;
+  color:#333;
+  font-size:18px;
+}
+
+/* CTA */
+.hero-cta-group{
+  display:flex;
+  gap:16px;
+  margin-top:20px;
+}
+.hero-btn{
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+  padding:14px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:700;
+}
+.hero-btn-secondary{
+  border:2px solid #b67a12;
+  color:#b67a12;
+  padding:14px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* IMAGE */
+.hero-image{
+  position:relative;
+}
+.hero-image img{
+  max-width:100%;
+}
+
+/* PRICE CARD */
+.hero-preview-card{
+  position:absolute;
+  right:40px;
+  bottom:40px;
+  background:#fff;
+  padding:22px;
+  border-radius:18px;
+  width:260px;
+  box-shadow:0 14px 40px rgba(0,0,0,.18);
+}
+.preview-badge{
+  background:#b67a12;
+  color:#fff;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:11px;
+  display:inline-block;
+}
+.preview-price{
+  font-size:36px;
+  font-weight:800;
+  color:#b67a12;
+  margin:10px 0;
+}
+.preview-feature{
+  font-size:14px;
+  padding:6px 0;
+}
+.preview-cta{
+  display:block;
+  margin-top:10px;
+  text-align:center;
+  background:#b67a12;
+  color:#fff;
+  padding:12px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* DOTS */
+.hero-nav-dots{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:3;
+}
+.nav-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#bbb;
+  border:none;
+}
+.nav-dot.active{background:#b67a12}
+
+/* ARROWS */
+.hero-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:none;
+  background:#fff;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  z-index:3;
+}
+.hero-arrow-prev{left:20px}
+.hero-arrow-next{right:20px}
+
+@media(max-width:900px){
+  .hero-slide{grid-template-columns:1fr;text-align:center}
+  .hero-preview-card{position:static;margin:20px auto 0}
+}
+</style>
+
+
+<section class="hero-slider">
+
+<!-- BACKGROUND IMAGES -->
+<div class="hero-bg-slider">
+  <div class="bg-slide active" style="background-image:url('img/bg1.jpg')"></div>
+  <div class="bg-slide" style="background-image:url('img/bg2.jpg')"></div>
+  <div class="bg-slide" style="background-image:url('img/bg3.jpg')"></div>
+  <div class="bg-slide" style="background-image:url('img/bg4.jpg')"></div>
+  <div class="bg-slide" style="background-image:url('img/bg5.jpg')"></div>
+</div>
+
+<div class="hero-overlay"></div>
+
+<!-- FOREGROUND SLIDES -->
+<div class="hero-track" id="heroTrack">
+
+  <!-- SLIDE 1 -->
+  <div class="hero-slide">
+    <div class="hero-content">
+      <h1>One Call <span>Today</span><br>Change Tomorrow</h1>
+      <p>Love, Career & Life Solutions</p>
+      <div class="hero-cta-group">
+        <a href="#" class="hero-btn">Consult Now</a>
+        <a href="#" class="hero-btn-secondary">Services</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="img/astrologyserviceslide.webp">
+      <div class="hero-preview-card">
+        <div class="preview-badge">Popular</div>
+        <div class="preview-price">₹199</div>
+        <div class="preview-feature">📞 Call</div>
+        <div class="preview-feature">💬 Chat</div>
+        <a href="#" class="preview-cta">Book Now</a>
+      </div>
     </div>
   </div>
+
+  <!-- SLIDE 2 -->
+  <div class="hero-slide">
+    <div class="hero-content">
+      <h1>Expert <span>Astrologers</span></h1>
+      <p>Talk to verified astrologers</p>
+      <a href="#" class="hero-btn">View Astrologers</a>
+    </div>
+    <div class="hero-image">
+      <img src="img/astrologerslide.png">
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="hero-slide">
+    <div class="hero-content">
+      <h1>Authentic <span>Gemstones</span></h1>
+      <p>Certified & Energized Stones</p>
+      <a href="#" class="hero-btn">Shop Now</a>
+    </div>
+    <div class="hero-image">
+      <img src="img/gemstoneslide.png">
+    </div>
+  </div>
+
+</div>
+
+<div class="hero-nav-dots" id="heroDots"></div>
+<button class="hero-arrow hero-arrow-prev" id="heroPrev">‹</button>
+<button class="hero-arrow hero-arrow-next" id="heroNext">›</button>
+
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+/* FOREGROUND SLIDER */
+const track=document.getElementById("heroTrack");
+const slides=document.querySelectorAll(".hero-slide");
+const dotsBox=document.getElementById("heroDots");
+let index=0;
+
+slides.forEach((_,i)=>{
+  const d=document.createElement("button");
+  d.className="nav-dot"+(i===0?" active":"");
+  d.onclick=()=>go(i);
+  dotsBox.appendChild(d);
+});
+const dots=document.querySelectorAll(".nav-dot");
+
+function go(i){
+  index=i;
+  track.style.transform=`translateX(-${i*100}%)`;
+  dots.forEach(d=>d.classList.remove("active"));
+  dots[i].classList.add("active");
+}
+
+setInterval(()=>go((index+1)%slides.length),5000);
+
+/* BACKGROUND SLIDER */
+const bgSlides=document.querySelectorAll(".bg-slide");
+let bgIndex=0;
+setInterval(()=>{
+  bgSlides[bgIndex].classList.remove("active");
+  bgIndex=(bgIndex+1)%bgSlides.length;
+  bgSlides[bgIndex].classList.add("active");
+},5000);
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+ <!-- Hero Section -->
+
+
 
 
 <section id="our-astrologers" class="section astrologer-section">
@@ -1288,6 +1593,189 @@ document.addEventListener("DOMContentLoaded", function(){
   // no addEventListener on missing elements
 });
 </script>
+
+
+
+
+<!-- AUTO CONSULTATION POPUP -->
+
+<!-- ================= AUTO CONSULTATION POPUP ================= -->
+<div class="consult-popup-overlay" id="consultPopup">
+  <div class="consult-popup">
+
+    <button class="popup-close" onclick="closePopup()">×</button>
+
+    <span class="popup-badge">Auto Consultation</span>
+
+    <h3>Book Your Consultation</h3>
+    <p class="popup-sub">All Services – Flat Fee</p>
+
+    <div class="popup-price">₹199</div>
+
+    <div class="popup-info">
+      🕒 <strong>Time:</strong> 10:00 AM – 6:00 PM<br>
+      📅 <strong>Days:</strong> Monday – Friday<br>
+      💬 Call | Chat | Video
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <button class="popup-btn" onclick="startPayment()">
+      Pay & Book Now
+    </button>
+
+    <button class="popup-btn secondary" onclick="bookOnWhatsApp()">
+      Book via WhatsApp
+    </button>
+
+    <p class="popup-note">✔ 100% Confidential & Secure</p>
+
+  </div>
+</div>
+
+<style>
+/* OVERLAY */
+.consult-popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  opacity:0;
+  visibility:hidden;
+  transition:.4s ease;
+}
+.consult-popup-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+/* POPUP BOX */
+.consult-popup{
+  background:#fff;
+  width:340px;
+  padding:26px;
+  border-radius:22px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+  animation:popupZoom .5s ease;
+}
+@keyframes popupZoom{
+  from{transform:scale(.8);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+/* CLOSE */
+.popup-close{
+  position:absolute;
+  top:12px;
+  right:14px;
+  background:none;
+  border:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* BADGE */
+.popup-badge{
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+  font-size:11px;
+  padding:6px 12px;
+  border-radius:20px;
+  margin-bottom:12px;
+  display:inline-block;
+}
+
+/* TEXT */
+.consult-popup h3{font-size:22px;margin-bottom:6px}
+.popup-sub{font-size:14px;color:#666}
+
+/* PRICE */
+.popup-price{
+  font-size:42px;
+  font-weight:800;
+  color:#b67a12;
+  margin:12px 0;
+}
+
+/* INFO */
+.popup-info{
+  font-size:13px;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+
+/* BUTTONS */
+.popup-btn{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  font-weight:700;
+  font-size:15px;
+  border:none;
+  cursor:pointer;
+  margin-bottom:10px;
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+}
+.popup-btn.secondary{
+  background:#25D366;
+}
+
+/* NOTE */
+.popup-note{
+  font-size:12px;
+  color:#2e7d32;
+}
+</style>
+
+<script>
+/* ===== POPUP AUTO OPEN FIX ===== */
+document.addEventListener("DOMContentLoaded",()=>{
+  setTimeout(()=>{
+    const popup = document.getElementById("consultPopup");
+    if(popup){
+      popup.classList.add("active");
+    }
+  },10000); // 10 seconds
+});
+
+/* CLOSE POPUP */
+function closePopup(){
+  document.getElementById("consultPopup").classList.remove("active");
+}
+
+/* ===== PAYMENT FLOW (DEMO READY) ===== */
+function startPayment(){
+  // 👉 Real Razorpay integration yahan add hoti hai
+  alert("Redirecting to secure payment...");
+
+  // Example redirect (replace later with Razorpay success)
+  window.location.href = "book-consultation.html";
+
+  closePopup();
+}
+
+/* ===== WHATSAPP BOOKING (WORKING) ===== */
+function bookOnWhatsApp(){
+  const msg = `New Consultation Booking%0A
+Service: All Astrology Services%0A
+Fee: ₹199%0A
+Time: 10AM - 6PM (Mon-Fri)%0ASource: Website Popup`;
+
+  const phone = "919999999999"; // 🔴 apna number daalo
+  window.open(`https://wa.me/${phone}?text=${msg}`,"_blank");
+
+  closePopup();
+}
+</script>
+<!-- ================= END POPUP ================= -->
+
+
+
 
 </body>
 </html>

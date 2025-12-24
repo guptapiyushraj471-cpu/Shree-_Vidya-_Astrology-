@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>श्री श्री विद्या | Shree Shree Vidya Astrology - Pandit Shubham</title>
+  <meta name="description" content="Expert Vedic astrology services by Acharya Shubham Sharma. Kundali analysis, Vastu, Numerology, Matchmaking & Tarot readings. Book your consultation today.">
+  <meta name="keywords" content="astrology, vedic astrology, kundali, horoscope, vastu, numerology, tarot, matchmaking, acharya shubham sharma">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+/* ================= HEADER / NAV ================= */
+.nav{
+  background:#ffffff;
+  border-bottom:1px solid #eee;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#000;
+}
+.logo-img{
+  width:44px;
+  height:44px;
+}
+.logo-title{
+  font-family:'Cinzel',serif;
+  font-size:18px;
+  font-weight:700;
+}
+.logo-sub{
+  font-size:11px;
+  color:#666;
+}
+
+/* MENU */
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap:22px;
+}
+.nav-menu li a{
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  color:#333;
+}
+.nav-menu li a:hover{
+  color:#b67a12;
+}
+
+/* ================= PAGE BG ================= */
+body{
+  background:linear-gradient(135deg,#fff,#fff5e6,#ffe0b2);
+}
+
+/* ================= CONSULT SECTION ================= */
+.hero{
+  min-height:calc(100vh - 80px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+}
+
+.consult-wrapper{
+  max-width:1000px;
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 0.9fr;
+  gap:30px;
+}
+
+/* FORM */
+.hero-book-form{
+  background:#fff;
+  padding:28px;
+  border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+.hero-book-form h2{
+  font-family:'Cinzel',serif;
+  font-size:26px;
+  color:#b67a12;
+  margin-bottom:14px;
+}
+.hero-book-form input,
+.hero-book-form select{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+}
+.form-price{
+  margin:10px 0;
+  font-size:16px;
+}
+.form-price strong{color:#b67a12}
+.form-btn{
+  width:100%;
+  padding:15px;
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+.form-note{
+  margin-top:10px;
+  font-size:12px;
+  color:#2e7d32;
+  text-align:center;
+}
+
+/* TRUST PANEL */
+.trust-panel{
+  background:#fafafa;
+  padding:26px;
+  border-radius:22px;
+  border:1px solid #eee;
+}
+.trust-panel h3{
+  font-size:20px;
+  margin-bottom:16px;
+}
+.trust-box{
+  display:flex;
+  gap:14px;
+  margin-bottom:14px;
+}
+.trust-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.trust-box strong{
+  font-size:15px;
+  display:block;
+}
+.trust-box small{
+  font-size:12px;
+  color:#666;
+}
+
+/* POPUP */
+.consult-popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.4s;
+  z-index:9999;
+}
+.consult-popup-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+.consult-popup{
+  background:#fff;
+  width:340px;
+  padding:28px;
+  border-radius:22px;
+  text-align:center;
+  position:relative;
+}
+.popup-close{
+  position:absolute;
+  top:12px;
+  right:14px;
+  border:none;
+  background:none;
+  font-size:22px;
+  cursor:pointer;
+}
+.popup-badge{
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:11px;
+  display:inline-block;
+  margin-bottom:12px;
+}
+.popup-price{
+  font-size:42px;
+  font-weight:800;
+  color:#b67a12;
+  margin:12px 0;
+}
+.popup-info{
+  font-size:13px;
+  margin-bottom:14px;
+}
+.popup-btn{
+  display:block;
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+  padding:14px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .consult-wrapper{grid-template-columns:1fr}
+  .nav-menu{flex-wrap:wrap;gap:12px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="Shree Shree Vidya Astrology Logo" class="logo-img">
+      <div>
+        <span class="logo-title">श्री श्री विद्या</span><br>
+        <span class="logo-sub">Shree Shree Vidya Astrology</span>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="daily-horoscope.html">Daily Horoscope</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="book-consultation.html">Book Consultation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CONSULT SECTION -->
+<section class="hero" id="book-consultation">
+  <div class="consult-wrapper">
+
+    <div class="hero-book-form">
+      <h2>Book Consultation</h2>
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Mobile Number" required>
+
+      <select required>
+        <option value="">Select Service</option>
+        <option>Love Problem</option>
+        <option>Career</option>
+        <option>Marriage</option>
+        <option>Business</option>
+        <option>Health</option>
+      </select>
+
+      <select required>
+        <option value="">Consultation Mode</option>
+        <option>Call</option>
+        <option>Chat</option>
+        <option>Video Call</option>
+      </select>
+
+      <div class="form-price">Consultation Fee: <strong>₹199</strong></div>
+      <button class="form-btn">Book Now</button>
+      <p class="form-note">✔ 100% Confidential & Secure</p>
+    </div>
+
+    <div class="trust-panel">
+      <h3>Why Trust Us?</h3>
+
+      <div class="trust-box">
+        <div class="trust-icon">⭐</div>
+        <div>
+          <strong>4.9 / 5 Rating</strong>
+          <small>10,000+ Reviews</small>
+        </div>
+      </div>
+
+      <div class="trust-box">
+        <div class="trust-icon">👥</div>
+        <div>
+          <strong>10,000+ Clients</strong>
+          <small>India & Overseas</small>
+        </div>
+      </div>
+
+      <div class="trust-box">
+        <div class="trust-icon">🛡️</div>
+        <div>
+          <strong>Certified Astrologers</strong>
+          <small>15+ Years Experience</small>
+        </div>
+      </div>
+
+      <div class="trust-box">
+        <div class="trust-icon">🕒</div>
+        <div>
+          <strong>Available</strong>
+          <small>Mon–Fri | 10AM–6PM</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AUTO POPUP -->
+<div class="consult-popup-overlay" id="consultPopup">
+  <div class="consult-popup">
+    <button class="popup-close" onclick="closePopup()">×</button>
+    <span class="popup-badge">Book Consultation</span>
+    <h3>Consult Expert Astrologer</h3>
+    <div class="popup-price">₹199</div>
+    <div class="popup-info">
+      🕒 10AM – 6PM<br>
+      📅 Monday – Friday<br>
+      💬 Call | Chat | Video
+    </div>
+    <a href="#book-consultation" class="popup-btn">Consult Now</a>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  setTimeout(()=>{
+    document.getElementById("consultPopup").classList.add("active");
+  },10000);
+});
+function closePopup(){
+  document.getElementById("consultPopup").classList.remove("active");
+}
+</script>
+
+</body>
+</html>

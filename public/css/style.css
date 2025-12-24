@@ -2810,3 +2810,43 @@ th,td{
 .event-img{
   border:2px solid rgba(255,255,255,.15);
 }
+.consult-trust-box{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-bottom:14px;
+  padding:12px;
+  background:#fafafa;
+  border:1px solid #eee;
+  border-radius:14px;
+}
+
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  color:#333;
+}
+
+.trust-icon{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:15px;
+}
+
+.trust-item strong{
+  font-size:14px;
+  display:block;
+}
+
+.trust-item small{
+  font-size:11px;
+  color:#666;
+}

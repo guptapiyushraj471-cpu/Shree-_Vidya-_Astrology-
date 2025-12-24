@@ -145,6 +145,390 @@
     @media (max-width:480px){
       .gallery{grid-template-columns:repeat(2,1fr)}
     }
+
+    /* ========================================== */
+    /* NEW UI ENHANCEMENTS - MODERN LIGHT THEME */
+    /* ========================================== */
+
+    /* Enhanced topbar with subtle elevation */
+    .topbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 14px 20px;
+      border-radius: 14px;
+      box-shadow: 0 2px 20px rgba(184, 134, 11, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    /* Enhanced brand logo hover effect */
+    .brand {
+      transition: transform 0.3s ease;
+    }
+    .brand:hover {
+      transform: translateY(-2px);
+    }
+    .brand img {
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+    .brand:hover img {
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.25);
+    }
+
+    /* Enhanced navigation links */
+    .navlinks a {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .navlinks a:not(.primary):hover {
+      color: var(--accent-2);
+      background: rgba(184, 134, 11, 0.06);
+    }
+    .navlinks a.primary {
+      box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+      transition: all 0.3s ease;
+    }
+    .navlinks a.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+      background: #a67c0a;
+    }
+
+    /* Enhanced cards with premium shadows */
+    .card {
+      box-shadow: 0 10px 40px rgba(22, 22, 22, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(184, 134, 11, 0.08);
+    }
+    .card:hover {
+      box-shadow: 0 20px 60px rgba(22, 22, 22, 0.12);
+      transform: translateY(-4px);
+    }
+
+    /* Enhanced profile photo with overlay effect */
+    .profile-photo {
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      position: relative;
+    }
+    .card:hover .profile-photo {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Enhanced tags with hover animations */
+    .tag {
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    .tag:hover {
+      background: linear-gradient(135deg, #fff7e6 0%, #ffecd6 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
+    }
+
+    /* Enhanced stats with gradient */
+    .stat {
+      background: linear-gradient(135deg, #ffffff 0%, #faf8f6 100%);
+      border: 1px solid #f0e6d9;
+      transition: all 0.3s ease;
+    }
+    .stat:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(184, 134, 11, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Enhanced service items */
+    .service-item {
+      transition: all 0.3s ease;
+      cursor: default;
+      background: linear-gradient(135deg, #ffffff 0%, #fefdfb 100%);
+    }
+    .service-item:hover {
+      background: linear-gradient(135deg, #fff7e6 0%, #ffecd6 100%);
+      border-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.15);
+    }
+
+    /* Enhanced timeline with animated border */
+    .timeline {
+      border-left-color: var(--accent);
+      position: relative;
+    }
+    .timeline .event {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .timeline .event::before {
+      content: '';
+      position: absolute;
+      left: -18px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(184, 134, 11, 0.2);
+      transition: all 0.3s ease;
+    }
+    .timeline .event:hover::before {
+      box-shadow: 0 0 0 3px #fff, 0 0 0 7px rgba(184, 134, 11, 0.3);
+    }
+
+    /* Enhanced buttons with premium effects */
+    .btn {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary {
+      box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+      background: #a67c0a;
+    }
+    .btn-ghost {
+      transition: all 0.3s ease;
+    }
+    .btn-ghost:hover {
+      background: rgba(184, 134, 11, 0.06);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Enhanced testimonial */
+    .testimonial {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .testimonial:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateX(4px);
+      border-left-width: 6px;
+    }
+
+    /* Enhanced video player */
+    .intro-video {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+    .intro-video:hover {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Enhanced gallery images */
+    .gallery img {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+    }
+
+    /* ========================================== */
+    /* NEW ASTROLOGERS SECTION */
+    /* ========================================== */
+    .team-section {
+      margin-top: 36px;
+      margin-bottom: 36px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .section-header h2 {
+      font-family: Cinzel, serif;
+      font-size: 28px;
+      color: var(--accent-2);
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+    .section-header p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .astrologers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .astrologer-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(22, 22, 22, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(184, 134, 11, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .astrologer-card:hover {
+      box-shadow: 0 20px 60px rgba(22, 22, 22, 0.12);
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .astrologer-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: linear-gradient(135deg, #f0e6d9 0%, #ffecd6 100%);
+      box-shadow: 0 8px 24px rgba(184, 134, 11, 0.2);
+      transition: all 0.4s ease;
+      margin-bottom: 16px;
+    }
+    .astrologer-card:hover .astrologer-photo {
+      box-shadow: 0 12px 36px rgba(184, 134, 11, 0.3);
+      transform: scale(1.05);
+    }
+
+    .astrologer-name {
+      font-family: Cinzel, serif;
+      font-size: 20px;
+      color: var(--accent-2);
+      margin: 0 0 6px;
+      font-weight: 700;
+    }
+
+    .astrologer-role {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .astrologer-bio {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .astrologer-expertise {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .astrologer-expertise .tag {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    .astrologer-experience {
+      background: linear-gradient(135deg, #fff7e6 0%, #ffecd6 100%);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--accent-2);
+      font-size: 14px;
+      border: 1px solid rgba(184, 134, 11, 0.15);
+    }
+
+    /* ========================================== */
+    /* NEW EVENTS CTA SECTION */
+    /* ========================================== */
+    .events-cta-section {
+      margin-top: 36px;
+      margin-bottom: 24px;
+    }
+
+    .events-cta {
+      background: linear-gradient(135deg, #fff7e6 0%, #ffecd6 100%);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: 0 10px 40px rgba(184, 134, 11, 0.15);
+      transition: all 0.4s ease;
+      border: 2px solid rgba(184, 134, 11, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .events-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.05) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    .events-cta:hover {
+      box-shadow: 0 20px 60px rgba(184, 134, 11, 0.25);
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .events-cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .events-cta h2 {
+      font-family: Cinzel, serif;
+      font-size: 26px;
+      color: var(--accent-2);
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+
+    .events-cta p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 0 20px;
+    }
+
+    .events-cta .btn-primary {
+      background: var(--accent-2);
+      padding: 12px 28px;
+      font-size: 16px;
+    }
+    .events-cta .btn-primary:hover {
+      background: var(--accent);
+    }
+
+    /* Responsive enhancements */
+    @media (max-width: 980px) {
+      .topbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .navlinks {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .astrologers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-header h2 {
+        font-size: 24px;
+      }
+      .events-cta h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -162,6 +546,8 @@
         <a href="index.html">Home</a>
         <a href="index.html#services">Services</a>
         <a href="index.html#shop">Shop</a>
+        <!-- NEW UI ENHANCEMENT: Our Events Link -->
+        <a href="index.html#events">Our Events</a>
         <a href="index.html#contact" class="primary btn">Book Consultation</a>
       </nav>
     </header>
@@ -170,7 +556,7 @@
     <section class="hero">
       <!-- left -->
       <aside class="card">
-        <img src="img/profile pic.jp" alt="Acharya Shubham Sharma" class="profile-photo">
+        <img src="img/profilepic3.jpeg" alt="Acharya Shubham Sharma" class="profile-photo">
         <div style="margin-top:12px;">
           <div class="name">Acharya Shubham Sharma</div>
           <div class="role">Vedic Astrologer • Karmkand Specialist • Vastu</div>
@@ -236,7 +622,7 @@
         <!-- Media -->
         <div class="media-grid">
           <video class="intro-video" controls playsinline preload="metadata">
-            <source src="videos/video5.mp4" type="video/mp4">
+            <source src="videos/vivah sanskar.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
 
@@ -267,79 +653,62 @@
       </article>
     </section>
 
-    <!-- Short FAQ / How we work -->
-    <section class="card" style="margin-top:12px;">
-      <h4 style="margin:0 0 8px;">How consultations work</h4>
-      <p style="color:var(--muted);margin-top:0;">
-        1) Provide name, date/time/place of birth. 2) Choose online or offline consultation. 3) Receive live reading + written remedies. 4) Optional follow-up session for deeper remedies.
-      </p>
+    <!-- ========================================== -->
+    <!-- NEW SECTION: TEAM ASTROLOGERS -->
+    <!-- ========================================== -->
+    <section class="team-section">
+      <div class="section-header">
+        <h2>Our Expert Astrologers</h2>
+        <p>Meet our dedicated team of Vedic astrology specialists</p>
+      </div>
 
-      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
-        <div style="flex:1;min-width:220px;">
-          <strong>Online Consultations</strong>
-          <div style="color:var(--muted);font-size:14px">Video call with screen-share; PDF summary by email.</div>
+      <div class="astrologers-grid">
+        <!-- ADDED ASTROLOGER 1 -->
+        <div class="astrologer-card">
+          <img src="img/logo.png" alt="Pandit Rajesh Kumar" class="astrologer-photo">
+          <h3 class="astrologer-name">Acharya Shubham Pandit</h3>
+          <div class="astrologer-role">Numerology & Horoscope Specialist</div>
+          <p class="astrologer-bio">
+            A renowned numerologist with deep expertise in birth chart analysis and planetary transit predictions. Pandit Rajesh specializes in personalized horoscope readings and life path guidance through ancient Vedic numerology.
+          </p>
+          <div class="astrologer-expertise">
+            <span class="tag">Numerology</span>
+            <span class="tag">Horoscope</span>
+            <span class="tag">Transit Analysis</span>
+          </div>
+          <div class="astrologer-experience">12+ Years Experience</div>
         </div>
-        <div style="flex:1;min-width:220px;">
-          <strong>Offline / Pooja</strong>
-          <div style="color:var(--muted);font-size:14px">Home visits for Grah Shanti, Hawan & temple events (city-based).</div>
-        </div>
-        <div style="flex:1;min-width:220px;">
-          <strong>Shop & Kits</strong>
-          <div style="color:var(--muted);font-size:14px">Authentic puja samagri, yantras, malas available in our shop.</div>
+
+        <!-- ADDED ASTROLOGER 2 -->
+        <div class="astrologer-card">
+          <img src="img/Shubhemlogo.png" alt="Acharya Pandit Makhan Vyas" class="astrologer-photo">
+          <h3 class="astrologer-name">Acharya Pandit Makhan Vyas</h3>
+          <div class="astrologer-role">Tarot Reader & Career Counselor</div>
+          <p class="astrologer-bio">
+            Expert in Tarot card readings and career astrology, Acharya Priya combines intuitive guidance with astrological wisdom to help clients navigate professional challenges and discover their true calling through cosmic alignment.
+          </p>
+          <div class="astrologer-expertise">
+            <span class="tag">Tarot Reading</span>
+            <span class="tag">Career Guidance</span>
+            <span class="tag">Life Coaching</span>
+          </div>
+          <div class="astrologer-experience">10+ Years Experience</div>
         </div>
       </div>
     </section>
 
-    <footer class="pagefoot card">
-      <div style="max-width:880px;margin:0 auto">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <div style="text-align:left">
-            <strong>Contact</strong><br>
-            +91 72238 79166 &nbsp; • &nbsp; <a href="mailto:shrishrividhyaastrology@gmail.com">shrishrividhyaastrology@gmail.com</a>
-          </div>
-          <div style="text-align:right;color:var(--muted);font-size:13px">
-            © <span id="yr"></span> Shree Shree Vidya Astrology · Indore
-          </div>
+    <!-- ========================================== -->
+    <!-- NEW SECTION: EVENTS CTA -->
+    <!-- ========================================== -->
+    <section class="events-cta-section">
+      <div class="events-cta">
+        <div class="events-cta-content">
+          <h2>Our Events</h2>
+          <p>Astrology Workshops, Live Predictions & Spiritual Events</p>
+          <a href="pooja.html" class="btn btn-primary">Explore Upcoming Events</a>
         </div>
       </div>
-    </footer>
-  </div>
+    </section>
 
-  <script>
-    // small utilities: set year & download profile as simple printable document
-    document.getElementById('yr').innerText = new Date().getFullYear();
-
-    document.getElementById('downloadProfileBtn').addEventListener('click', function(e){
-      e.preventDefault();
-      // Simple printable profile (opens new window)
-      const html = `
-      <html><head><meta charset="utf-8"><title>Profile — Acharya Shubham Sharma</title>
-      <style>
-        body{font-family:Inter,Arial,sans-serif;padding:28px;color:#111}
-        h1{font-family:Cinzel,serif;color:#5f3a00}
-        .muted{color:#666}
-      </style>
-      </head><body>
-        <h1>Acharya Shubham Sharma</h1>
-        <p class="muted">Vedic Astrologer — Kundali Analysis, Vastu, Pooja & Karmkand</p>
-        <h3>Experience</h3>
-        <p>15+ years of practice. Certified in Vedic astrology and Vastu. Conducts pujas, havans and online consultations.</p>
-        <h3>Contact</h3>
-        <p>Phone: +91 72238 79166<br>Email: shrishrividhyaastrology@gmail.com</p>
-      </body></html>`;
-      const w = window.open('', '_blank');
-      w.document.write(html);
-      w.document.close();
-      w.print();
-    });
-
-    // Accessibility: keyboard focus trap minimal
-    (function(){
-      const links = document.querySelectorAll('a, button');
-      links.forEach(l => { l.addEventListener('keydown', (ev)=> { if(ev.key === 'Enter'){ l.click(); } }); });
-    })();
-  </script>
-  <script src="js/script.js"></script>
-
-</body>
-</html>
+    <!-- Short FAQ / How we work -->
+    <section class="card" style="margin-top:12px;">

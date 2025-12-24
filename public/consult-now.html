@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Consult Now | Shree Shree Vidya Astrology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+/* PAGE BACKGROUND */
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#fff,#fff5e6,#ffe0b2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+/* MAIN CARD */
+.consult-card{
+  max-width:420px;
+  width:100%;
+  background:#ffffff;
+  padding:28px;
+  border-radius:24px;
+  box-shadow:0 25px 60px rgba(0,0,0,.18);
+  text-align:center;
+}
+
+/* TITLE */
+.consult-card h1{
+  font-family:'Cinzel',serif;
+  font-size:26px;
+  color:#b67a12;
+  margin-bottom:6px;
+}
+
+.consult-card p{
+  font-size:14px;
+  color:#666;
+  margin-bottom:18px;
+}
+
+/* PRICE */
+.consult-price{
+  font-size:44px;
+  font-weight:800;
+  color:#b67a12;
+  margin-bottom:16px;
+}
+
+/* INFO */
+.consult-info{
+  font-size:13px;
+  color:#333;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+/* FORM */
+.consult-form input,
+.consult-form select{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  font-size:14px;
+}
+
+.consult-form input:focus,
+.consult-form select:focus{
+  outline:none;
+  border-color:#b67a12;
+}
+
+/* BUTTONS */
+.consult-btn{
+  width:100%;
+  padding:15px;
+  border-radius:14px;
+  border:none;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  margin-bottom:12px;
+  background:linear-gradient(135deg,#b67a12,#ffb300);
+  color:#fff;
+}
+
+.consult-btn.secondary{
+  background:#25D366;
+}
+
+/* NOTE */
+.consult-note{
+  font-size:12px;
+  color:#2e7d32;
+  margin-top:6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="consult-card">
+
+  <h1>Consult Now</h1>
+  <p>Talk to Expert Astrologer</p>
+
+  <div class="consult-price">₹199</div>
+
+  <div class="consult-info">
+    🕒 10:00 AM – 6:00 PM<br>
+    📅 Monday – Friday<br>
+    💬 Call | Chat | Video
+  </div>
+
+  <form class="consult-form" onsubmit="startConsultation(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Mobile Number" required>
+
+    <select id="service" required>
+      <option value="">Select Service</option>
+      <option>Love Problem</option>
+      <option>Career</option>
+      <option>Marriage</option>
+      <option>Business</option>
+      <option>Health</option>
+    </select>
+
+    <select id="mode" required>
+      <option value="">Consultation Mode</option>
+      <option>Call</option>
+      <option>Chat</option>
+      <option>Video Call</option>
+    </select>
+
+    <button type="submit" class="consult-btn">
+      Pay & Book Consultation
+    </button>
+  </form>
+
+  <button class="consult-btn secondary" onclick="bookWhatsApp()">
+    Book via WhatsApp
+  </button>
+
+  <p class="consult-note">✔ 100% Confidential & Secure</p>
+
+</div>
+
+<script>
+function startConsultation(e){
+  e.preventDefault();
+
+  alert("Redirecting to secure payment...");
+
+  // After payment success (future Razorpay)
+  window.location.href = "thank-you.html";
+}
+
+function bookWhatsApp(){
+  const name = document.getElementById("name").value || "User";
+  const phone = document.getElementById("phone").value || "Not Provided";
+
+  const msg = `New Consultation Booking%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Fee: ₹199%0A
+Time: 10AM - 6PM (Mon-Fri)%0ASource: Consult Now Page`;
+
+  const whatsappNumber = "919999999999"; // 🔴 apna number
+  window.open(`https://wa.me/${whatsappNumber}?text=${msg}`,"_blank");
+}
+</script>
+
+</body>
+</html>
